@@ -82,7 +82,36 @@ export interface ExpertQuote {
   quote: string;
 }
 
-export const ARTICLE_DATA = {
+export interface ArticleData {
+  meta: {
+    category: string;
+    title: string;
+    subtitle: string;
+    author: string;
+    graphics: string;
+    source: string;
+    publishedDate: string;
+    readTime: string;
+    heroImage: string;
+  };
+  keyMetrics: KeyMetric[];
+  floodSpots: FloodSpot[];
+  charts: {
+    severityDistribution: SeverityChartItem[];
+    causesDistribution: CausesChartItem[];
+    topRegions: RegionChartItem[];
+  };
+  rootCauses: RootCause[];
+  roadmap: {
+    totalBudget: string;
+    targetYear: string;
+    summary: string;
+    phases: RoadmapPhase[];
+  };
+  expertQuotes: ExpertQuote[];
+}
+
+export const ARTICLE_DATA: ArticleData = {
   // 1. THÔNG TIN CHUNG BÀI BÁO
   meta: {
     category: "BÁO DỮ LIỆU TƯƠNG TÁC • DATA JOURNALISM",
