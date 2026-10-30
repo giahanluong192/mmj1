@@ -645,7 +645,8 @@ export default function Home() {
       {/* Phần 3: Từ ĐBSCL ra quốc tế: Năng lực hợp tác và giá trị thực tế */}
       <main className="article-container" id="quoc-te">
         <h2 className="editorial-h2">
-          3. Từ Đồng bằng sông Cửu Long ra quốc tế: Năng lực hợp tác và giá trị thực tế
+          3. Từ Đồng bằng sông Cửu Long ra quốc tế: Năng lực{" "}
+          <span className="nowrap-phrase">hợp tác và giá trị thực tế</span>
         </h2>
 
         <p className="article-lead">
