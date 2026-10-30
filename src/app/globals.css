@@ -392,21 +392,11 @@ svg text {
 }
 
 .article-lead {
-  font-size: 1.18rem;
+  font-size: 1.05rem;
   line-height: 1.85;
-  color: #1e293b;
-  margin-bottom: 2rem;
+  color: #334155;
+  margin-bottom: 1.5rem;
   font-family: var(--font-sans);
-}
-
-.article-lead::first-letter {
-  font-size: 3.5rem;
-  font-family: var(--font-serif);
-  float: left;
-  line-height: 0.85;
-  margin-right: 0.65rem;
-  color: var(--primary-green);
-  font-weight: 900;
 }
 
 .editorial-h2 {
@@ -1775,11 +1765,8 @@ svg text {
     grid-template-columns: 1fr;
   }
   .article-lead {
-    font-size: 1.08rem;
+    font-size: 1rem;
     line-height: 1.75;
-  }
-  .article-lead::first-letter {
-    font-size: 3rem;
   }
   .editorial-h2 {
     font-size: 1.5rem;
