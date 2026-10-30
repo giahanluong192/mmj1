@@ -119,20 +119,6 @@ export default function Home() {
     setLookupResults(matches);
   };
 
-  // 8. Download Dataset handler
-  const handleDownloadDataset = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const dataStr =
-      "data:text/json;charset=utf-8," +
-      encodeURIComponent(JSON.stringify(ARTICLE_DATA, null, 2));
-    const downloadAnchor = document.createElement("a");
-    downloadAnchor.setAttribute("href", dataStr);
-    downloadAnchor.setAttribute("download", "dai-hoc-can-tho-nong-thuy-san-2026.json");
-    document.body.appendChild(downloadAnchor);
-    downloadAnchor.click();
-    downloadAnchor.remove();
-  };
-
   return (
     <>
       {/* Thanh tiến trình đọc trên cùng */}
@@ -1224,7 +1210,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* NGUỒN TÀI LIỆU & NÚT TẢI BỘ DỮ LIỆU */}
+        {/* NGUỒN TÀI LIỆU */}
         <div className="data-sources-box">
           <div className="source-text">
             <h4>Nguồn tư liệu & Minh chứng khoa học</h4>
@@ -1232,25 +1218,6 @@ export default function Home() {
               Ấn phẩm kỷ niệm 60 năm “Đại học vì đồng bằng: Kiến tạo tri thức - Tiếp bước tiên phong”; Báo Cần Thơ, Báo Đồng Tháp, Báo Lao Động, VietnamPlus; Bằng độc quyền GPHI số 4743, 4797 và Quyết định công nhận lưu hành giống lúa Nông Dân 2.
             </p>
           </div>
-          <a
-            href="#"
-            className="download-btn"
-            onClick={handleDownloadDataset}
-          >
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-              <polyline points="7 10 12 15 17 10" />
-              <line x1="12" y1="15" x2="12" y2="3" />
-            </svg>
-            Tải bộ dữ liệu JSON (Open Data)
-          </a>
         </div>
       </main>
 
