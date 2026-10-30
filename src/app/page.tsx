@@ -142,7 +142,7 @@ export default function Home() {
       <header className="site-nav">
         <a href="#" className="brand-badge">
           <span className="brand-dot" />
-          <span>ĐẠI HỌC CẦN THƠ • KHOA HỌC & ĐỜI SỐNG</span>
+          <span>ĐẠI HỌC CẦN THƠ</span>
         </a>
         <ul className="nav-links">
           <li><a href="#lich-su">Dấu mốc 30 năm</a></li>
