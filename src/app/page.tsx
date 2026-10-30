@@ -697,7 +697,8 @@ export default function Home() {
 
         {/* Phần 4: Tác động đối với phát triển kinh tế - xã hội vùng ĐBSCL */}
         <h2 className="editorial-h2">
-          4. Tác động đối với phát triển kinh tế - xã hội vùng Đồng bằng sông Cửu Long
+          4. Tác động đối với phát triển kinh tế - xã hội vùng{" "}
+          <span className="nowrap-phrase">Đồng bằng sông Cửu Long</span>
         </h2>
 
         <p className="editorial-p">
