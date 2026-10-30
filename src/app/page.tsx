@@ -304,7 +304,8 @@ export default function Home() {
         </h2>
 
         <h3 className="editorial-h3">
-          2.1. Giống lúa: Từ chống chịu sâu bệnh đến phân hóa theo chất lượng và thị trường
+          2.1. Giống lúa: Từ chống chịu sâu bệnh đến phân hóa theo chất lượng{" "}
+          <span className="nowrap-phrase">và thị trường</span>
         </h3>
 
         <p className="editorial-p">
