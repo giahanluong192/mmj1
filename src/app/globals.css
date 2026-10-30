@@ -321,16 +321,19 @@ body {
 
 .metric-number-group {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
-  gap: 0.4rem;
+  gap: 0.25rem 0.4rem;
   margin-bottom: 0.4rem;
 }
 
 .metric-value {
-  font-size: 2.3rem;
+  font-size: clamp(1.85rem, 2.1vw, 2.1rem);
   font-weight: 900;
   color: var(--primary-green);
-  line-height: 1;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+  white-space: nowrap;
 }
 
 .metric-unit {
@@ -1616,6 +1619,7 @@ body {
 .timeline-tab-btn,
 .layer-toggle-btn,
 .interview-tab-btn,
+.metric-value,
 .metric-unit,
 .metric-badge,
 .timeline-year-badge,
