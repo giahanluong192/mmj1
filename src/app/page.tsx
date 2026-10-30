@@ -235,7 +235,7 @@ export default function Home() {
         </p>
 
         <p className="editorial-p">
-          Giai đoạn 1990–2007, Trường đẩy mạnh nghiên cứu và đạt nhiều thành quả. Đặc biệt là quy trình sản xuất giống cá tra được triển khai từ đầu năm 1995 trong Dự án cá da trơn châu Á - Catfish Asia do Cộng đồng châu Âu tài trợ, góp phần đưa Đồng bằng sông Cửu Long đứng đầu cả nước về sản lượng xuất khẩu cá tra cho đến ngày hôm nay.
+          Giai đoạn 1990–2007, Trường đẩy mạnh nghiên cứu và đạt nhiều thành quả. Đặc biệt là quy trình sản xuất giống cá tra được triển khai từ đầu năm 1995 trong Dự án cá da trơn châu Á - Catfish Asia do Cộng đồng châu Âu tài trợ, góp phần đưa Đồng bằng sông Cửu Long đứng đầu cả nước về sản lượng xuất khẩu cá tra cho đến nay.
         </p>
 
         <p className="editorial-p">
