@@ -1,86 +1,70 @@
-# TP.HCM Ngập Ở Đâu & Lộ Trình Khắc Phục Ra Sao?
-> **Báo Dữ Liệu Tương Tác (Data Journalism & Scrollytelling Web App)**
+# Tri Thức Đại Học Cần Thơ: Từ Nghiên Cứu Đến Sản Xuất Thực Tiễn
+> **Báo chí Dữ liệu Đa phương tiện (Interactive Data Journalism & Scrollytelling)**
 
-Dự án trực quan hóa toàn cảnh **159 điểm ngập úng** tại TP.HCM và vùng đô thị mở rộng, phân tích các nguyên nhân cốt lõi (mưa cực đoan, triều cường lịch sử, lún sụt & bê tông hóa) và lộ trình giải ngân hơn **142.000 tỉ đồng** đến năm 2030.
+Dự án trực quan hóa hành trình hơn 30 năm tri thức ngành **Nông nghiệp & Thủy sản Đại học Cần Thơ** được kiểm chứng bằng thực tiễn sản xuất tại Đồng bằng sông Cửu Long (ĐBSCL).
 
 Repository: [https://github.com/v06012005/mmj1](https://github.com/v06012005/mmj1)
 
 ---
 
-## 🌟 Tính Năng Nổi Bật
+## 🌟 Yếu Tố Đồ Họa & Tính Năng Nổi Bật
 
-1. **Bản Đồ Ngập Tương Tác (Interactive SVG Map)**:
-   - Chiếu tọa độ địa lý thực tế (lat, lng) sang hệ trục SVG ViewBox trực quan.
-   - Lọc theo mức độ nghiêm trọng (Ngập nặng), nguyên nhân (Mưa / Triều cường) và khu vực (TP. Thủ Đức, Nội thành).
-   - Tra cứu và xem chi tiết độ sâu ngập (cm), thời gian nước rút (phút) và hiện trạng công trình xử lý.
+1. **Ảnh bìa Split-Screen & Bảng màu chủ đạo**:
+   - Thiết kế ảnh bìa chia đôi: Một bên là ruộng khảo nghiệm lúa vàng óng, một bên là bể tuần hoàn nuôi cá trong phòng nghiên cứu của Đại học Cần Thơ.
+   - Bảng màu: Xanh lá đậm (`#064e3b`), Trắng ngà (`#faf8f5`), điểm nhấn Vàng lúa (`#d97706`, `#f59e0b`) và Xanh nước (`#0284c7`, `#0ea5e9`).
 
-2. **Dữ Liệu & Biểu Đồ Phân Tích (Data Breakdown)**:
-   - Tỷ lệ phân bổ mức độ ngập và nguyên nhân gây ngập.
-   - Top các khu vực có số lượng điểm ngập cao nhất.
+2. **Timeline Tương Tác 2 Nhánh (Nông nghiệp & Thủy sản)**:
+   - Theo dõi hành trình từ 1966 (Cao đẳng Nông nghiệp), 1976-1978 (Khoa Thủy sản), mốc 18 tấn lúa kháng rầy 1991, Dự án Catfish Asia (1995–2007) đến năm 2026 với giống lúa Nông Dân 2 và sinh sản nhân tạo cá bông lau.
+   - Bộ lọc xem: Tất cả mốc son | Chỉ Nông nghiệp | Chỉ Thủy sản.
 
-3. **Scrollytelling & Visual Analytics**:
-   - Thanh tiến trình đọc bài (Reading Progress Bar).
-   - Phân tích 4 nhóm nguyên nhân cốt lõi từ góc nhìn thủy văn và quy hoạch.
-   - Lộ trình 3 giai đoạn (2021-2025, 2026-2027, 2028-2030) và danh mục 87 dự án trọng điểm.
+3. **Phóng Sự Ảnh Trình Tự Nghiên Cứu 5 Bước**:
+   - Bước 1: Lưu giữ mẫu giống trong phòng thí nghiệm (MTL, Nông Dân 1-2).
+   - Bước 2: Bố trí ruộng khảo nghiệm nghiêm ngặt ngoài thực địa.
+   - Bước 3: Nhà nghiên cứu kiểm tra đặc tính bông lúa và độ chắc hạt.
+   - Bước 4: Đo đạc và đánh giá chất lượng hạt gạo sau thu hoạch (Amylose, độ bền gel).
+   - Bước 5: Đánh giá giống cùng nông dân tại hội thảo đầu bờ (xã Tân Hương, Đồng Tháp).
 
-4. **Công Cụ Tiện Ích**:
-   - Tra cứu nhanh điểm ngập theo tên đường hoặc quận/huyện.
-   - Tải bộ dữ liệu JSON đầy đủ trực tiếp từ giao diện (`tphcm-flood-dataset-2026.json`).
-   - Thăm dò ý kiến độc giả tương tác.
+4. **Biểu Đồ Năng Suất Khảo Nghiệm & Bảng Đối Chiếu Hai Giống Lúa Nông Dân**:
+   - Biểu đồ đoạn thẳng/cột thể hiện mức thấp nhất và cao nhất theo giống và mùa vụ (Đông Xuân & Hè Thu).
+   - Bảng đối chiếu chi tiết chỉ tiêu sinh trưởng, hàm lượng Amylose (26,51–27,3% vs 15,2–16,4%), phẩm chất cơm và phân khúc thị trường.
+
+5. **Trình Mô Phỏng Kịch Bản Video Ngắn Sinh Sản Cá Bông Lau (75–90s)**:
+   - Trình chiếu 5 phân đoạn: Mở đầu thực địa (0-8s), Phỏng vấn nghiên cứu sinh (8-25s), Minh họa quy trình nghiên cứu (25-45s), Phỏng vấn giảng viên (45-68s), Kết luận và bước tiếp theo (68-85s).
+   - Scrubber tương tác, âm thanh hiện trường và đồ họa chen giữa vòng đời cá bông lau.
+
+6. **Đồ Họa 4: Bản Đồ Tương Tác Các Dự Án & Địa Bàn Tiếp Nhận Công Nghệ (Toggle 2 Lớp)**:
+   - **Lớp Ứng dụng & Chuyển giao (ĐBSCL)**: Vĩnh Châu & Bạc Liêu (Artemia), An Giang (Cá tra AGIFISH), Cà Mau (Tôm thẻ CTU-RAS), Đồng Tháp (Lúa Nông Dân BOLD), Vùng Đồng Tháp Mười (Rửa phèn 700.000 ha), Cần Thơ (Tổng hành dinh R&D).
+   - **Lớp Hợp tác R&D & Tài trợ (Quốc tế)**: Nhật Bản (JICA ODA 105,9 triệu USD), Bỉ (VLIR), Hà Lan (MHO/VH10), Châu Âu (Catfish Asia), Crop Trust (Dự án BOLD).
+
+7. **Phỏng Vấn Độc Quyền Ba Nhóm Nguồn**:
+   - Nông dân tiếp nhận (Artemia Vĩnh Châu), Sinh viên thực nghiệm (Dự án DIVERSAQUA & RAS), Giảng viên/Nhà khoa học chủ trì (chọn tạo giống lúa & chính sách vùng).
+
+8. **Công Cụ Tra Cứu Nhanh & Tải Bộ Dữ Liệu JSON**:
+   - Tra cứu tức thời theo địa phương hoặc đối tượng công nghệ.
+   - Nút tải `dai-hoc-can-tho-nong-thuy-san-2026.json` phục vụ Open Data.
 
 ---
 
 ## 🛠️ Công Nghệ Sử Dụng
 
-- **Framework**: Next.js 16 (App Router, Server Components & Client Hydration)
-- **Thư viện UI**: React 19
-- **Ngôn ngữ**: TypeScript 5 (Strict Mode)
-- **Styling**: Vanilla CSS (CSS Variables, Scrollytelling animations, zero runtime overhead)
-- **Font**: Geist & Geist Mono (Tối ưu tự động qua `next/font`)
+- **Framework**: Next.js 16 (App Router)
+- **UI & Logic**: React 19, TypeScript 5
+- **Styling**: CSS Variables, Editorial Responsive Typography, Không phụ thuộc thư viện nặng ngoài
+- **Đồ họa**: SVG Vector Map, Scrollytelling, CSS Range Bars
 
 ---
 
-## 🚀 Khởi Chạy Dự Án Cục Bộ
+## 🚀 Khởi Chạy Dự Án
 
-### 1. Cài đặt thư viện
 ```bash
+# 1. Cài đặt dependencies
 npm install
-```
 
-### 2. Chạy môi trường phát triển (Turbopack)
-```bash
+# 2. Chạy môi trường phát triển
 npm run dev
-```
-Mở trình duyệt tại [http://localhost:3000](http://localhost:3000).
 
-### 3. Kiểm tra mã nguồn & đóng gói sản phẩm
-```bash
-# Kiểm tra linting
-npm run lint
-
-# Build production
+# 3. Build & Khởi chạy production
 npm run build
-
-# Khởi chạy bản build
 npm start
 ```
-
----
-
-## 📁 Cấu Trúc Thư Mục
-
-```text
-├── AGENTS.md               # Quy chuẩn AI coding agent
-├── eslint.config.mjs       # Cấu hình ESLint 9
-├── next.config.ts          # Cấu hình Next.js
-├── package.json            # Scripts & dependencies
-├── public/                 # Static assets
-├── src/
-│   ├── app/
-│   │   ├── globals.css     # Stylesheet phong cách Scrollytelling Data Journalism
-│   │   ├── layout.tsx      # Root layout, metadata & viewport
-│   │   └── page.tsx        # Trang bài báo dữ liệu tương tác chính
-│   └── data/
-│       └── articleData.ts  # Bộ dữ liệu 159 điểm ngập, biểu đồ, lộ trình & types
-└── tsconfig.json           # Cấu hình TypeScript strict mode & path alias @/*
-```
+Mở trình duyệt tại [http://localhost:3000](http://localhost:3000).

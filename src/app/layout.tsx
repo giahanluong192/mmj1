@@ -13,16 +13,27 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "TP.HCM ngập ở đâu và lộ trình khắc phục ra sao? | Báo Dữ liệu Tương tác",
-  description: "Trang trình bày trực quan hóa bài báo dữ liệu toàn cảnh 159 điểm ngập úng tại TP.HCM và lộ trình 142.000 tỉ đồng chống ngập đến năm 2030.",
-  keywords: ["TP.HCM", "Ngập úng", "Báo dữ liệu", "Data Journalism", "Chống ngập", "Thủ Đức", "Triều cường"],
-  authors: [{ name: "Nhóm Phóng viên Dữ liệu" }],
+  title: "Tri thức Đại học Cần Thơ: Từ nghiên cứu đến sản xuất thực tiễn | Báo chí Dữ liệu",
+  description: "Phóng sự dữ liệu chuyên sâu về hơn 30 năm tri thức Nông - Thủy sản Đại học Cần Thơ: Từ lúa kháng rầy 1991, công nghiệp cá tra tỷ USD đến giống lúa Nông Dân và sinh sản nhân tạo cá bông lau.",
+  keywords: [
+    "Đại học Cần Thơ",
+    "Nông nghiệp",
+    "Thủy sản",
+    "Lúa Nông Dân",
+    "Cá bông lau",
+    "Cá tra",
+    "CTU-RAS",
+    "Artemia Vĩnh Châu",
+    "Báo chí dữ liệu",
+    "Đồng bằng sông Cửu Long",
+  ],
+  authors: [{ name: "Nhóm Phóng sự Dữ liệu & Đồ họa ĐBSCL" }],
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#090d16",
+  themeColor: "#064e3b",
 };
 
 export default function RootLayout({
