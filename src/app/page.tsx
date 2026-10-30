@@ -416,22 +416,23 @@ export default function Home() {
             </div>
           </div>
 
+          <div className="yield-chart-body">
           <div className="yield-bars-container">
             {/* Các vạch mốc Y (0, 2, 4, 6, 8 tấn/ha) */}
             <div className="grid-line-y" style={{ bottom: "0%" }}>
-              <span className="grid-label-y">0 tấn/ha</span>
+              <span className="grid-label-y">0</span>
             </div>
             <div className="grid-line-y" style={{ bottom: "25%" }}>
-              <span className="grid-label-y">2 tấn/ha</span>
+              <span className="grid-label-y">2</span>
             </div>
             <div className="grid-line-y" style={{ bottom: "50%" }}>
-              <span className="grid-label-y">4 tấn/ha</span>
+              <span className="grid-label-y">4</span>
             </div>
             <div className="grid-line-y" style={{ bottom: "75%" }}>
-              <span className="grid-label-y">6 tấn/ha</span>
+              <span className="grid-label-y">6</span>
             </div>
             <div className="grid-line-y" style={{ bottom: "100%" }}>
-              <span className="grid-label-y">8 tấn/ha</span>
+              <span className="grid-label-y">8</span>
             </div>
 
             {/* 4 Cặp cột: Nông Dân 1 ĐX, Nông Dân 1 HT, Nông Dân 2 ĐX, Nông Dân 2 HT */}
@@ -465,11 +466,12 @@ export default function Home() {
           </div>
 
           {/* Nhãn bên dưới từng nhóm */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1rem" }}>
+          <div className="yield-labels-row">
             <div className="yield-group-label">Nông Dân 1 • Đông Xuân</div>
             <div className="yield-group-label">Nông Dân 1 • Hè Thu</div>
             <div className="yield-group-label">Nông Dân 2 • Đông Xuân</div>
             <div className="yield-group-label">Nông Dân 2 • Hè Thu</div>
+          </div>
           </div>
         </div>
 
@@ -848,7 +850,7 @@ export default function Home() {
                       strokeWidth="1.2"
                       strokeDasharray="4 3"
                     />
-                    <text x="490" y="130" fill="#fef08a" fontSize="11" fontWeight="700" letterSpacing="0.5">
+                    <text x="470" y="112" fill="#fef08a" fontSize="11" fontWeight="700" letterSpacing="0.5">
                       VÙNG ĐỒNG THÁP MƯỜI (700.000 ha)
                     </text>
 
@@ -875,13 +877,13 @@ export default function Home() {
                       {/* Cần Thơ -> Nhật Bản */}
                       <path d="M 450 320 Q 560 210 670 110" />
                       {/* Cần Thơ -> Bỉ */}
-                      <path d="M 450 320 Q 320 220 230 130" />
+                      <path d="M 450 320 Q 320 240 230 150" />
                       {/* Cần Thơ -> Hà Lan */}
-                      <path d="M 450 320 Q 310 180 210 100" />
+                      <path d="M 450 320 Q 300 200 210 110" />
                       {/* Cần Thơ -> EU Catfish Asia */}
-                      <path d="M 450 320 Q 340 240 260 160" />
+                      <path d="M 450 320 Q 340 260 260 195" />
                       {/* Cần Thơ -> Crop Trust Đức */}
-                      <path d="M 450 320 Q 360 190 280 90" />
+                      <path d="M 450 320 Q 370 190 300 65" />
                     </g>
 
                     {/* Vòng sáng trung tâm Cần Thơ */}
@@ -889,22 +891,6 @@ export default function Home() {
                     <circle cx="450" cy="320" r="8" fill="#f59e0b" stroke="#ffffff" strokeWidth="2.5" />
                     <text x="465" y="325" fill="#fef08a" fontSize="12" fontWeight="800">
                       ĐẠI HỌC CẦN THƠ (R&D HUB)
-                    </text>
-
-                    <text x="685" y="115" fill="#ffffff" fontSize="11" fontWeight="700">
-                      NHẬT BẢN (JICA ODA 105,9M$)
-                    </text>
-                    <text x="100" y="130" fill="#ffffff" fontSize="11" fontWeight="700">
-                      VƯƠNG QUỐC BỈ (VLIR)
-                    </text>
-                    <text x="90" y="95" fill="#ffffff" fontSize="11" fontWeight="700">
-                      HÀ LAN (MHO / VH10)
-                    </text>
-                    <text x="270" y="165" fill="#ffffff" fontSize="11" fontWeight="700">
-                      EU (CATFISH ASIA)
-                    </text>
-                    <text x="290" y="85" fill="#ffffff" fontSize="11" fontWeight="700">
-                      CROP TRUST (BOLD)
                     </text>
                   </g>
                 )}
@@ -918,39 +904,41 @@ export default function Home() {
 
                     return (
                       <g
-                        key={spot.id}
-                        className="map-marker-pin"
-                        transform={`translate(${spot.coordinates.x}, ${spot.coordinates.y})`}
-                        onClick={() => setSelectedSpotId(spot.id)}
-                      >
-                        {isSelected && (
-                          <circle
-                            className="map-marker-pulse"
-                            r="12"
-                            fill={pinColor}
-                            fillOpacity="0.4"
-                          />
-                        )}
-                        <circle
-                          r={isSelected ? 11 : 8}
-                          fill={pinColor}
-                          stroke="#ffffff"
-                          strokeWidth={isSelected ? 3 : 2}
-                        />
-                        <text
-                          x="14"
-                          y="5"
-                          fill="#ffffff"
-                          fontSize="11"
-                          fontWeight={isSelected ? 800 : 600}
-                          style={{
-                            textShadow: "0 2px 5px rgba(0,0,0,0.8)",
-                            pointerEvents: "none",
-                          }}
-                        >
-                          {spot.name.split("(")[0]}
-                        </text>
-                      </g>
+                         key={spot.id}
+                         transform={`translate(${spot.coordinates.x}, ${spot.coordinates.y})`}
+                         onClick={() => setSelectedSpotId(spot.id)}
+                       >
+                         <g className="map-marker-pin">
+                           {isSelected && (
+                             <circle
+                               className="map-marker-pulse"
+                               r="12"
+                               fill={pinColor}
+                               fillOpacity="0.4"
+                             />
+                           )}
+                           <circle
+                             r={isSelected ? 11 : 8}
+                             fill={pinColor}
+                             stroke="#ffffff"
+                             strokeWidth={isSelected ? 3 : 2}
+                           />
+                         </g>
+                         <text
+                           x={spot.coordinates.x > 600 ? -16 : 16}
+                           y="4"
+                           textAnchor={spot.coordinates.x > 600 ? "end" : "start"}
+                           fill="#ffffff"
+                           fontSize="12"
+                           fontWeight={isSelected ? 800 : 600}
+                           style={{
+                             textShadow: "0 2px 5px rgba(0,0,0,0.8)",
+                             pointerEvents: "none",
+                           }}
+                         >
+                           {spot.name.split("(")[0].trim()}
+                         </text>
+                       </g>
                     );
                   })}
                 </g>
@@ -958,10 +946,9 @@ export default function Home() {
 
               {/* Chú giải bản đồ (Legend) */}
               <div
+                className="map-legend"
                 style={{
-                  position: "absolute",
-                  bottom: "12px",
-                  left: "12px",
+                  
                   background: "rgba(4, 47, 36, 0.9)",
                   backdropFilter: "blur(6px)",
                   border: "1px solid rgba(255,255,255,0.15)",
