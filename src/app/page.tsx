@@ -175,7 +175,12 @@ export default function Home() {
             {ARTICLE_DATA.meta.category} • {ARTICLE_DATA.meta.subCategory}
           </span>
           <h1 className="hero-title">
-            {ARTICLE_DATA.meta.title}
+            TRI THỨC ĐẠI HỌC CẦN THƠ:{" "}
+            <span className="hero-title-subline">
+              TỪ NGHIÊN CỨU ĐẾN
+              <br />
+              SẢN XUẤT THỰC TIỄN
+            </span>
           </h1>
           <p className="hero-subtitle">
             {ARTICLE_DATA.meta.subtitle}
