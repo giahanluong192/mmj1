@@ -222,7 +222,8 @@ export default function Home() {
       {/* Phần 1: Từ cơ sở đào tạo của vùng đến các công trình nghiên cứu ứng dụng */}
       <main className="article-container" id="lich-su">
         <h2 className="editorial-h2">
-          1. Từ cơ sở đào tạo của vùng đến các công trình nghiên cứu ứng dụng
+          1. Từ cơ sở đào tạo của vùng đến các công trình{" "}
+          <span className="nowrap-phrase">nghiên cứu ứng dụng</span>
         </h2>
 
         <p className="article-lead">
