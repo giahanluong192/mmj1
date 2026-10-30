@@ -734,7 +734,8 @@ export default function Home() {
 
         {/* Phần 5: Tác động ngược lại đối với năng lực và vị thế của Đại học Cần Thơ */}
         <h2 className="editorial-h2">
-          5. Tác động ngược lại đối với năng lực và vị thế của Đại học Cần Thơ
+          5. Tác động ngược lại đối với năng lực và vị thế của{" "}
+          <span className="nowrap-phrase">Đại học Cần Thơ</span>
         </h2>
 
         <p className="editorial-p">
