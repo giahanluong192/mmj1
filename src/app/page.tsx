@@ -733,7 +733,7 @@ export default function Home() {
         </p>
 
         <p className="editorial-p">
-          <strong>Kiện toàn thể chế tổ chức và nâng cao chất lượng đào tạo:</strong> Quá trình tích lũy nghiên cứu ứng dụng đã thúc đẩy sự phát triển về thể chế, dẫn đến việc thành lập Trường Nông nghiệp và Trường Thủy sản (tháng 12/2022 và tháng 7/2025) trên cơ sở các khoa chuyên môn, đồng thời xây dựng Ngân hàng giống lúa (Rice Genbank) bảo tồn hơn 3.000 mẫu lúa.
+          <strong>Nâng cao chất lượng đào tạo:</strong> Quá trình tích lũy nghiên cứu ứng dụng đã thúc đẩy sự phát triển về thể chế, dẫn đến việc thành lập Trường Nông nghiệp và Trường Thủy sản (tháng 12/2022 và tháng 7/2025) trên cơ sở các khoa chuyên môn, đồng thời xây dựng Ngân hàng giống lúa (Rice Genbank) bảo tồn hơn 3.000 mẫu lúa.
         </p>
 
         <p className="editorial-p">

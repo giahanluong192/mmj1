@@ -639,7 +639,7 @@ export const ARTICLE_DATA: ArticleData = {
       },
       {
         id: "university_synergy",
-        title: "Khẳng định vị thế học thuật và kiện toàn thể chế",
+        title: "Khẳng định vị thế học thuật",
         content: "Nguồn dữ liệu thực nghiệm phong phú từ ĐBSCL giúp nhà trường giữ vững vị trí dẫn đầu tại Việt Nam trong lĩnh vực Nông – Lâm nghiệp (QS Rankings 251-300 năm 2020, 351-400 giai đoạn 2020-2025). Thúc đẩy thành lập Trường Nông nghiệp và Trường Thủy sản, Ngân hàng giống lúa bảo tồn hơn 3.000 mẫu lúa và sở hữu 28 văn bằng độc quyền SHCN tính đến tháng 9/2026, nâng tỷ lệ sinh viên có việc làm đạt 78,26%.",
         proof: "Báo cáo thường niên ĐH Cần Thơ 2026 & QS World University Rankings",
       },
