@@ -1179,17 +1179,26 @@ svg text {
 
 .video-lifecycle-steps {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-  gap: 0.75rem;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.85rem;
   margin-top: 1.5rem;
 }
 
 .lifecycle-step-card {
+  grid-column: span 2;
   background: #f8fafc;
   border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  padding: 0.85rem;
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.lifecycle-step-card:nth-child(4),
+.lifecycle-step-card:nth-child(5) {
+  grid-column: span 3;
 }
 
 .lifecycle-step-num {
@@ -1862,6 +1871,14 @@ svg text {
   .video-buttons-row {
     flex-wrap: wrap;
     gap: 0.5rem;
+  }
+  .video-lifecycle-steps {
+    grid-template-columns: 1fr;
+  }
+  .lifecycle-step-card,
+  .lifecycle-step-card:nth-child(4),
+  .lifecycle-step-card:nth-child(5) {
+    grid-column: 1 / -1;
   }
   .interview-card-content {
     padding: 1.1rem 1rem;
