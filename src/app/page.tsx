@@ -1,26 +1,10 @@
 "use client";
 
 import { useState, useEffect, useMemo } from "react";
-import ARTICLE_DATA, { FloodSpot } from "@/data/articleData";
-
-// Chiếu tọa độ địa lý sang SVG ViewBox (800 x 550)
-function projectCoordinates(lat: number, lng: number) {
-  const minLat = 10.55;
-  const maxLat = 10.98;
-  const minLng = 106.50;
-  const maxLng = 107.15;
-
-  const width = 800;
-  const height = 550;
-
-  const x = ((lng - minLng) / (maxLng - minLng)) * (width - 100) + 50;
-  const y = ((maxLat - lat) / (maxLat - minLat)) * (height - 80) + 40;
-
-  return { x: Math.round(x), y: Math.round(y) };
-}
+import ARTICLE_DATA, { TechTransferLocation } from "@/data/articleData";
 
 export default function Home() {
-  // 1. Reading progress
+  // 1. Reading progress bar
   const [readingProgress, setReadingProgress] = useState(0);
 
   useEffect(() => {
@@ -36,46 +20,83 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // 2. Interactive Map state
-  const [activeFilter, setActiveFilter] = useState<"all" | "severe" | "rain" | "tide" | "thuduc" | "inner">("all");
-  const [mapSearch, setMapSearch] = useState("");
-  const [selectedSpotId, setSelectedSpotId] = useState<number>(1);
+  // 2. Timeline filter state
+  const [timelineFilter, setTimelineFilter] = useState<"all" | "agriculture" | "fisheries">("all");
 
-  const filteredSpots = useMemo(() => {
-    return ARTICLE_DATA.floodSpots.filter((spot) => {
-      let matchFilter = true;
-      if (activeFilter === "severe") matchFilter = spot.severity === "severe";
-      else if (activeFilter === "rain") matchFilter = spot.cause.includes("rain");
-      else if (activeFilter === "tide") matchFilter = spot.cause.includes("tide");
-      else if (activeFilter === "thuduc") matchFilter = spot.region === "thuduc";
-      else if (activeFilter === "inner") matchFilter = spot.region === "inner";
-
-      let matchSearch = true;
-      if (mapSearch.trim()) {
-        const q = mapSearch.toLowerCase().trim();
-        matchSearch =
-          spot.name.toLowerCase().includes(q) ||
-          spot.district.toLowerCase().includes(q) ||
-          spot.causeText.toLowerCase().includes(q);
-      }
-
-      return matchFilter && matchSearch;
-    });
-  }, [activeFilter, mapSearch]);
-
-  const selectedSpot = useMemo(() => {
-    return (
-      ARTICLE_DATA.floodSpots.find((s) => s.id === selectedSpotId) ||
-      ARTICLE_DATA.floodSpots[0]
+  const filteredMilestones = useMemo(() => {
+    if (timelineFilter === "all") return ARTICLE_DATA.timeline.milestones;
+    return ARTICLE_DATA.timeline.milestones.filter(
+      (m) => m.sector === timelineFilter || m.sector === "both"
     );
-  }, [selectedSpotId]);
+  }, [timelineFilter]);
 
-  // 3. Before/After slider
-  const [sliderValue, setSliderValue] = useState(50);
+  // 3. Photo Story state (5 steps)
+  const [activePhotoStep, setActivePhotoStep] = useState<number>(1);
+  const currentPhoto = useMemo(() => {
+    return (
+      ARTICLE_DATA.riceResearch.photoStory.find((p) => p.step === activePhotoStep) ||
+      ARTICLE_DATA.riceResearch.photoStory[0]
+    );
+  }, [activePhotoStep]);
 
-  // 4. Quick Lookup widget
+  // 4. Video simulation state (75-90 seconds script)
+  const [currentVideoStepIdx, setCurrentVideoStepIdx] = useState<number>(0);
+  const [isVideoPlaying, setIsVideoPlaying] = useState<boolean>(false);
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (isVideoPlaying) {
+      timer = setInterval(() => {
+        setCurrentVideoStepIdx((prev) => {
+          if (prev < ARTICLE_DATA.aquacultureResearch.videoSimulation.steps.length - 1) {
+            return prev + 1;
+          }
+          setIsVideoPlaying(false);
+          return 0;
+        });
+      }, 5000);
+    }
+    return () => clearInterval(timer);
+  }, [isVideoPlaying]);
+
+  const currentVideoStep = ARTICLE_DATA.aquacultureResearch.videoSimulation.steps[currentVideoStepIdx];
+
+  // 5. Technology Map state (Toggle 2 layers: domestic & international)
+  const [mapLayer, setMapLayer] = useState<"domestic" | "international">("domestic");
+  const [selectedSpotId, setSelectedSpotId] = useState<string>("vinhchau_baclieu");
+
+  const activeSpotsList = useMemo(() => {
+    return mapLayer === "domestic"
+      ? ARTICLE_DATA.technologyMap.domesticSpots
+      : ARTICLE_DATA.technologyMap.internationalSpots;
+  }, [mapLayer]);
+
+  useEffect(() => {
+    if (mapLayer === "domestic") {
+      setSelectedSpotId("vinhchau_baclieu");
+    } else {
+      setSelectedSpotId("japan_jica");
+    }
+  }, [mapLayer]);
+
+  const selectedLocation = useMemo(() => {
+    return (
+      activeSpotsList.find((s) => s.id === selectedSpotId) || activeSpotsList[0]
+    );
+  }, [activeSpotsList, selectedSpotId]);
+
+  // 6. Interactive Interviews state (3 groups: farmer, student, lecturer)
+  const [activeInterviewGroup, setActiveInterviewGroup] = useState<"farmer" | "student" | "lecturer">("farmer");
+  const currentInterview = useMemo(() => {
+    return (
+      ARTICLE_DATA.interviews.find((i) => i.group === activeInterviewGroup) ||
+      ARTICLE_DATA.interviews[0]
+    );
+  }, [activeInterviewGroup]);
+
+  // 7. Quick Lookup tool
   const [lookupQuery, setLookupQuery] = useState("");
-  const [lookupResults, setLookupResults] = useState<FloodSpot[] | null>(null);
+  const [lookupResults, setLookupResults] = useState<TechTransferLocation[] | null>(null);
 
   const handleLookup = () => {
     const q = lookupQuery.trim().toLowerCase();
@@ -83,13 +104,22 @@ export default function Home() {
       setLookupResults([]);
       return;
     }
-    const matches = ARTICLE_DATA.floodSpots.filter(
-      (s) => s.name.toLowerCase().includes(q) || s.district.toLowerCase().includes(q)
+    const allSpots = [
+      ...ARTICLE_DATA.technologyMap.domesticSpots,
+      ...ARTICLE_DATA.technologyMap.internationalSpots,
+    ];
+    const matches = allSpots.filter(
+      (s) =>
+        s.name.toLowerCase().includes(q) ||
+        s.province.toLowerCase().includes(q) ||
+        s.technology.toLowerCase().includes(q) ||
+        s.badge.toLowerCase().includes(q) ||
+        s.achievements.toLowerCase().includes(q)
     );
     setLookupResults(matches);
   };
 
-  // 5. JSON download
+  // 8. Download Dataset handler
   const handleDownloadDataset = (e: React.MouseEvent) => {
     e.preventDefault();
     const dataStr =
@@ -97,7 +127,7 @@ export default function Home() {
       encodeURIComponent(JSON.stringify(ARTICLE_DATA, null, 2));
     const downloadAnchor = document.createElement("a");
     downloadAnchor.setAttribute("href", dataStr);
-    downloadAnchor.setAttribute("download", "tphcm-flood-dataset-2026.json");
+    downloadAnchor.setAttribute("download", "dai-hoc-can-tho-nong-thuy-san-2026.json");
     document.body.appendChild(downloadAnchor);
     downloadAnchor.click();
     downloadAnchor.remove();
@@ -112,48 +142,66 @@ export default function Home() {
       <header className="site-nav">
         <a href="#" className="brand-badge">
           <span className="brand-dot" />
-          <span>THANH NIÊN • DATA JOURNALISM</span>
+          <span>ĐẠI HỌC CẦN THƠ • KHOA HỌC & ĐỜI SỐNG</span>
         </a>
         <ul className="nav-links">
-          <li><a href="#ban-do">Bản đồ ngập</a></li>
-          <li><a href="#so-lieu">Dữ liệu phân tích</a></li>
-          <li><a href="#nguyen-nhan">Nguyên nhân</a></li>
-          <li><a href="#lo-trinh">Lộ trình 142.000 tỉ</a></li>
-          <li><a href="#tra-cuu" className="nav-cta">Tra cứu tuyến đường</a></li>
+          <li><a href="#lich-su">Dấu mốc 30 năm</a></li>
+          <li><a href="#giong-lua">Giống lúa Nông Dân</a></li>
+          <li><a href="#thuy-san">Cá tra & Bông lau</a></li>
+          <li><a href="#quoc-te">Hợp tác quốc tế</a></li>
+          <li><a href="#ban-do">Bản đồ công nghệ</a></li>
+          <li><a href="#phong-van">Góc nhìn thực tế</a></li>
+          <li><a href="#tra-cuu" className="nav-cta">Tra cứu giống & công nghệ</a></li>
         </ul>
       </header>
 
-      {/* Bìa bài báo (Hero Section) */}
+      {/* Bìa bài báo (Hero Section với Split Screen: Ruộng lúa & Bể cá) */}
       <section className="hero-section">
-        <div className="hero-overlay" />
+        <div className="hero-split-bg">
+          <div className="split-panel split-rice" />
+          <div className="split-panel split-fish" />
+        </div>
+        <div className="hero-overlay-texture" />
+
+        <div className="split-badge-container">
+          <div className="split-badge-item">
+            <span>🌾</span> Ruộng khảo nghiệm lúa giống
+          </div>
+          <div className="split-badge-item">
+            <span>🐟</span> Bể tuần hoàn nghiên cứu thủy sản
+          </div>
+        </div>
+
         <div className="hero-container">
-          <span className="category-tag" id="hero-category">
-            {ARTICLE_DATA.meta.category}
+          <span className="category-tag">
+            {ARTICLE_DATA.meta.category} • {ARTICLE_DATA.meta.subCategory}
           </span>
-          <h1 className="hero-title" id="hero-title">
+          <h1 className="hero-title">
             {ARTICLE_DATA.meta.title}
           </h1>
-          <p className="hero-subtitle" id="hero-subtitle">
+          <p className="hero-subtitle">
             {ARTICLE_DATA.meta.subtitle}
           </p>
 
           <div className="hero-meta">
             <span>
-              <strong>Tác giả:</strong> <span id="hero-author">{ARTICLE_DATA.meta.author}</span>
+              <strong>Nhóm thực hiện:</strong> {ARTICLE_DATA.meta.author}
             </span>
             <span>•</span>
             <span>
-              <strong>Cập nhật:</strong> <span id="hero-date">{ARTICLE_DATA.meta.publishedDate}</span>
+              <strong>Đồ họa:</strong> {ARTICLE_DATA.meta.graphics}
             </span>
             <span>•</span>
-            <span><strong>Thời lượng:</strong> {ARTICLE_DATA.meta.readTime}</span>
+            <span>
+              <strong>Thời lượng:</strong> {ARTICLE_DATA.meta.readTime}
+            </span>
           </div>
         </div>
       </section>
 
       {/* Bốn chỉ số vàng (Key Takeaway Metrics) */}
       <section className="metrics-section">
-        <div className="metrics-grid" id="metrics-grid">
+        <div className="metrics-grid">
           {ARTICLE_DATA.keyMetrics.map((item) => (
             <div key={item.id} className={`metric-card ${item.color}`}>
               <span className="metric-badge">{item.badge}</span>
@@ -168,312 +216,838 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Phần mở đầu bài viết (Editorial Lead) */}
-      <main className="article-container">
-        <p className="article-lead">
-          Mỗi mùa mưa bão và triều cường dâng, câu chuyện ngập úng lại trở thành nỗi ám ảnh thường nhật của hàng triệu người dân TP.HCM. Từ những con phố sầm uất ở khu Thảo Điền, vòng xoay Hàng Xanh, rốn ngập Chợ Thủ Đức cho đến các tuyến đường ven sông Kênh Tẻ hay cửa ngõ Quốc lộ 13, bài toán thoát nước đô thị luôn là thách thức dai dẳng bậc nhất qua nhiều thập kỷ.
-        </p>
-
-        <p className="editorial-p">
-          Theo báo cáo số liệu toàn diện từ Sở Xây dựng TP.HCM, toàn địa bàn thành phố hiện ghi nhận <strong>159 điểm ngập</strong> với nhiều mức độ khác nhau. Đáng chú ý, có tới <strong>39 điểm ngập thường xuyên</strong> với mức nước dâng sâu trên 30 cm và thời gian tụ nước kéo dài hơn 120 phút, làm tê liệt hoàn toàn giao thông và đảo lộn sinh hoạt của người dân.
-        </p>
-
-        <h2 className="editorial-h2" id="ban-do">
-          1. Tọa độ các &quot;rốn ngập&quot;: TP.HCM đang ngập ở đâu?
+      {/* Phần 1: Từ cơ sở đào tạo của vùng đến các công trình nghiên cứu ứng dụng */}
+      <main className="article-container" id="lich-su">
+        <h2 className="editorial-h2">
+          1. Từ cơ sở đào tạo của vùng đến các công trình nghiên cứu ứng dụng
         </h2>
-        <p className="editorial-p">
-          Bản đồ tương tác dưới đây tổng hợp các điểm ngập úng trọng điểm trên địa bàn TP.HCM và các khu vực đô thị kết nối. Bạn có thể sử dụng các bộ lọc hoặc gõ tên tuyến đường để tra cứu mức độ ngập sâu, thời gian thoát nước và dự án đang triển khai tại từng điểm.
+
+        <p className="article-lead">
+          Từ năm 1966, khi Viện Đại học Cần Thơ có Trường Cao đẳng Nông nghiệp, lĩnh vực nông nghiệp đã trở thành một phần gắn bó mật thiết trong quá trình phát triển của nhà trường. Đến năm 1976, bộ phận chuyên môn trong lĩnh vực thủy sản được hình thành trong Khoa Nông nghiệp, trên cơ sở đó Khoa Thủy sản được thành lập năm 1978, tái thành lập năm 2002 và phát triển thành Trường Thủy sản vào tháng 12/2022.
         </p>
+
+        <p className="editorial-p">
+          Song song với quá trình phát triển trong khâu tổ chức, các nghiên cứu từng bước hướng đến giải quyết nhu cầu sản xuất của vùng ĐBSCL. Tháng 5/1991, Trường Đại học Cần Thơ cung cấp <strong>18 tấn giống lúa kháng rầy</strong> cho các địa phương sản xuất vụ Hè - Thu. Đây là một trong những điểm sáng về phục vụ cộng đồng của Trường, góp phần giải quyết vấn đề an ninh lương thực của quốc gia.
+        </p>
+
+        <p className="editorial-p">
+          Giai đoạn 1990–2007, Trường đẩy mạnh nghiên cứu và đạt nhiều thành quả. Đặc biệt là quy trình sản xuất giống cá tra được triển khai từ đầu năm 1995 trong Dự án cá da trơn châu Á - Catfish Asia do Cộng đồng châu Âu tài trợ, góp phần đưa Đồng bằng sông Cửu Long đứng đầu cả nước về sản lượng xuất khẩu cá tra cho đến ngày hôm nay.
+        </p>
+
+        <p className="editorial-p">
+          Đến năm 2026, quá trình nghiên cứu tiếp tục ghi nhận những dấu mốc mới với giống lúa Nông Dân 2 được công nhận lưu hành tại Đồng bằng sông Cửu Long. Bên cạnh đó, Đại học Cần Thơ đã ghi nhận thành công trong việc nuôi cá bố mẹ, nhân giống nhân tạo cá bông lau. Từ giống lúa phục vụ sản xuất đến quy trình nhân giống thủy sản, các kết quả này phản ánh những bước tiến trong nghiên cứu của Đại học Cần Thơ; đồng thời đặt ra yêu cầu tiếp tục đánh giá khả năng nhân rộng và hiệu quả ứng dụng trong thực tế.
+        </p>
+
+        {/* TIMELINE TƯƠNG TÁC 2 NHÁNH: NÔNG NGHIỆP & THỦY SẢN */}
+        <div className="timeline-block">
+          <div className="timeline-header-row">
+            <div>
+              <h3 style={{ fontSize: "1.25rem", fontWeight: 800, color: "var(--primary-green)" }}>
+                Dòng chảy thời gian: Nông nghiệp song hành Thủy sản
+              </h3>
+              <p style={{ fontSize: "0.85rem", color: "var(--text-muted)" }}>
+                Cuộn xem các mốc lịch sử kiến tạo và chuyển giao công nghệ tiêu biểu
+              </p>
+            </div>
+            <div className="timeline-nav-tabs">
+              <button
+                className={`timeline-tab-btn ${timelineFilter === "all" ? "active-all" : ""}`}
+                onClick={() => setTimelineFilter("all")}
+              >
+                Tất cả mốc son
+              </button>
+              <button
+                className={`timeline-tab-btn ${timelineFilter === "agriculture" ? "active-agri" : ""}`}
+                onClick={() => setTimelineFilter("agriculture")}
+              >
+                🌾 Chỉ Nông nghiệp
+              </button>
+              <button
+                className={`timeline-tab-btn ${timelineFilter === "fisheries" ? "active-fish" : ""}`}
+                onClick={() => setTimelineFilter("fisheries")}
+              >
+                🐟 Chỉ Thủy sản
+              </button>
+            </div>
+          </div>
+
+          <div className="dual-timeline-grid">
+            {filteredMilestones.map((m) => {
+              const cardClass =
+                m.sector === "agriculture"
+                  ? "agri"
+                  : m.sector === "fisheries"
+                  ? "fish"
+                  : "both";
+
+              return (
+                <div key={m.id} className={`timeline-card ${cardClass}`}>
+                  <div className="timeline-card-header">
+                    <span className="timeline-year-badge">{m.year}</span>
+                    <span className="timeline-metric-pill">
+                      {m.sectorName} • {m.metricValue}
+                    </span>
+                  </div>
+                  <h4 className="timeline-card-title">{m.title}</h4>
+                  <div className="timeline-card-subtitle">{m.subtitle}</div>
+                  <p className="timeline-card-desc">{m.description}</p>
+                  <div className="timeline-card-source">Nguồn: {m.source}</div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </main>
 
-      {/* KHỐI BẢN ĐỒ TƯƠNG TÁC (INTERACTIVE MAP) */}
-      <div className="wide-container">
-        <div className="interactive-map-block">
-          <div className="map-header">
-            <div className="map-title-row">
-              <div className="map-title">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#0284c7"
-                  strokeWidth="2.5"
-                >
-                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-                  <circle cx="12" cy="9" r="2.5" />
-                </svg>
-                Bản đồ tương tác 159 điểm ngập TP.HCM
+      {/* Phần 2: Hành trình nghiên cứu đi vào đời sống sản xuất */}
+      <main className="article-container" id="giong-lua">
+        <h2 className="editorial-h2">
+          2. Hành trình nghiên cứu đi vào đời sống sản xuất
+        </h2>
+
+        <h3 className="editorial-h3">
+          2.1. Giống lúa: Từ chống chịu sâu bệnh đến phân hóa theo chất lượng và thị trường
+        </h3>
+
+        <p className="editorial-p">
+          Tháng 5/1991, Đại học Cần Thơ cung cấp 18 tấn giống lúa kháng rầy cho các địa phương trong vùng ĐBSCL. Đây là một dấu mốc cho thấy nghiên cứu chọn tạo giống của trường đã hướng đến nhu cầu sản xuất thực tế. Từ những giống MTL được nghiên cứu, khảo nghiệm và đưa vào sản xuất, đến năm 2026 giống lúa Nông Dân 1 và Nông Dân 2, lần lượt được lai tạo và công nhận lưu hành, hoạt động chọn tạo giống tiếp tục mở rộng theo hướng kết hợp khả năng thích ứng với điều kiện canh tác và đặc tính chất lượng gạo.
+        </p>
+
+        <p className="editorial-p">
+          Hai giống lúa Nông Dân 1 và Nông Dân 2 thuộc Dự án BOLD giai đoạn 2023-2027, do Đại học Cần Thơ phối hợp với các đơn vị liên quan triển khai, với sự tài trợ của Crop Trust. Tính đến giai đoạn đánh giá giữa kỳ, dự án đã đạt những số liệu ấn tượng:
+        </p>
+
+        {/* 4 Chỉ số BOLD Project */}
+        <div className="bold-project-stats-grid">
+          {ARTICLE_DATA.riceResearch.boldStats.map((item) => (
+            <div key={item.label} className="bold-stat-card">
+              <div className="bold-stat-number">{item.value}</div>
+              <div className="bold-stat-unit">{item.unit}</div>
+              <div className="bold-stat-label">{item.label}</div>
+              <div className="bold-stat-desc">{item.desc}</div>
+            </div>
+          ))}
+        </div>
+
+        <p className="editorial-p">
+          Trong quá trình đánh giá <strong>252 giống lúa mùa truyền thống</strong> của Việt Nam, nhóm nghiên cứu xác định 15 giống có khả năng chịu mặn, 10 giống có chất lượng triển vọng, 3 giống kháng bệnh bạc lá và 16 giống kháng bệnh đạo ôn. Những số liệu này cho thấy hoạt động nghiên cứu không chỉ tạo ra giống mới mà còn khai thác nguồn gen để mở rộng vật liệu chọn tạo giống thích ứng với điều kiện ĐBSCL.
+        </p>
+
+        {/* Bảng phân bổ 4 đặc tính nguồn gen */}
+        <div className="traits-grid">
+          {ARTICLE_DATA.riceResearch.genTraits.map((t) => (
+            <div key={t.trait} className="trait-pill-card">
+              <div className="trait-pill-header">
+                <span className="trait-name">{t.trait}</span>
+                <span className="trait-count">{t.count} giống</span>
               </div>
-              <div className="map-search-bar">
-                <input
-                  type="text"
-                  id="map-search-input"
-                  placeholder="Tìm tên đường, chợ Thủ Đức, QL13, Thảo Điền..."
-                  value={mapSearch}
-                  onChange={(e) => setMapSearch(e.target.value)}
-                />
+              <div className="trait-desc">{t.desc}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* PHÓNG SỰ ẢNH THEO TRÌNH TỰ NGHIÊN CỨU 5 BƯỚC */}
+        <div className="photo-story-wrapper">
+          <div style={{ marginBottom: "1.25rem" }}>
+            <span
+              style={{
+                fontSize: "0.75rem",
+                fontWeight: 800,
+                textTransform: "uppercase",
+                color: "var(--accent-gold)",
+                letterSpacing: "1px",
+              }}
+            >
+              Phóng sự ảnh tương tác theo trình tự nghiên cứu
+            </span>
+            <h3 style={{ fontSize: "1.35rem", fontWeight: 800, color: "var(--primary-green)", marginTop: "0.25rem" }}>
+              Năm bước đưa giống lúa từ phòng thí nghiệm ra đồng ruộng
+            </h3>
+          </div>
+
+          <div className="photo-story-nav">
+            {ARTICLE_DATA.riceResearch.photoStory.map((s) => (
+              <button
+                key={s.step}
+                className={`step-nav-btn ${activePhotoStep === s.step ? "active" : ""}`}
+                onClick={() => setActivePhotoStep(s.step)}
+              >
+                Bước {s.step}: {s.stageName}
+              </button>
+            ))}
+          </div>
+
+          <div className="photo-story-content-layout">
+            <div className="photo-visual-card">
+              <span className="photo-visual-tag">{currentPhoto.badge}</span>
+              <div className="photo-visual-overlay" />
+              <div className="photo-stage-title">{currentPhoto.title}</div>
+              <div className="photo-caption-text">{currentPhoto.caption}</div>
+            </div>
+
+            <div className="photo-details-pane">
+              <span className="photo-context-badge">Bối cảnh: {currentPhoto.context}</span>
+              <h4>{currentPhoto.stageName}</h4>
+              <p className="photo-desc-p">{currentPhoto.description}</p>
+              <ul className="photo-bullets-list">
+                {currentPhoto.keyDetails.map((detail, idx) => (
+                  <li key={idx}>{detail}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* BIỂU ĐỒ NĂNG SUẤT KHẢO NGHIỆM CỦA HAI GIỐNG LÚA (HÌNH MINH HỌA) */}
+        <div className="yield-chart-wrapper">
+          <h3 className="chart-title-main">Năng suất khảo nghiệm của hai giống lúa</h3>
+          <p className="chart-subtitle-note">
+            Khoảng năng suất thấp nhất–cao nhất, theo giống và vụ; đơn vị tấn/ha. Đây là kết quả khảo nghiệm, không phải năng suất sản xuất đại trà.
+          </p>
+
+          <div className="yield-legend-row">
+            <div className="legend-item">
+              <span className="legend-dot-low" />
+              <span>Mức thấp</span>
+            </div>
+            <div className="legend-item">
+              <span className="legend-dot-high" />
+              <span>Mức cao</span>
+            </div>
+          </div>
+
+          <div className="yield-bars-container">
+            {/* Các vạch mốc Y (0, 2, 4, 6, 8 tấn/ha) */}
+            <div className="grid-line-y" style={{ bottom: "0%" }}>
+              <span className="grid-label-y">0 tấn/ha</span>
+            </div>
+            <div className="grid-line-y" style={{ bottom: "25%" }}>
+              <span className="grid-label-y">2 tấn/ha</span>
+            </div>
+            <div className="grid-line-y" style={{ bottom: "50%" }}>
+              <span className="grid-label-y">4 tấn/ha</span>
+            </div>
+            <div className="grid-line-y" style={{ bottom: "75%" }}>
+              <span className="grid-label-y">6 tấn/ha</span>
+            </div>
+            <div className="grid-line-y" style={{ bottom: "100%" }}>
+              <span className="grid-label-y">8 tấn/ha</span>
+            </div>
+
+            {/* 4 Cặp cột: Nông Dân 1 ĐX, Nông Dân 1 HT, Nông Dân 2 ĐX, Nông Dân 2 HT */}
+            {ARTICLE_DATA.riceResearch.yieldData.map((d) => {
+              // Quy đổi ra tỉ lệ trên trục max 8 tấn/ha (100% = 8 tấn/ha)
+              const maxChartValue = 8;
+              const lowPercent = (d.minYield / maxChartValue) * 100;
+              const highPercent = (d.maxYield / maxChartValue) * 100;
+
+              return (
+                <div key={`${d.variety}-${d.season}`} className="yield-bar-group">
+                  {/* Cột Mức Thấp */}
+                  <div
+                    className="bar-column bar-low"
+                    style={{ height: `${lowPercent}%` }}
+                    title={`Mức thấp: ${d.minYield} tấn/ha`}
+                  >
+                    <span className="bar-value-tooltip">{d.minYield}</span>
+                  </div>
+                  {/* Cột Mức Cao */}
+                  <div
+                    className="bar-column bar-high"
+                    style={{ height: `${highPercent}%` }}
+                    title={`Mức cao: ${d.maxYield} tấn/ha`}
+                  >
+                    <span className="bar-value-tooltip">{d.maxYield}</span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Nhãn bên dưới từng nhóm */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1rem" }}>
+            <div className="yield-group-label">Nông Dân 1 • Đông Xuân</div>
+            <div className="yield-group-label">Nông Dân 1 • Hè Thu</div>
+            <div className="yield-group-label">Nông Dân 2 • Đông Xuân</div>
+            <div className="yield-group-label">Nông Dân 2 • Hè Thu</div>
+          </div>
+        </div>
+
+        {/* BẢNG ĐỐI CHIẾU HAI GIỐNG LÚA NÔNG DÂN (HÌNH MINH HỌA) */}
+        <div className="comparison-table-wrapper">
+          <div className="comparison-table-title">Đối chiếu hai giống lúa Nông Dân</div>
+          <table className="comparison-table">
+            <thead>
+              <tr>
+                <th style={{ width: "32%" }}>Chỉ tiêu</th>
+                <th style={{ width: "34%" }}>Nông Dân 1</th>
+                <th style={{ width: "34%" }}>Nông Dân 2</th>
+              </tr>
+            </thead>
+            <tbody>
+              {ARTICLE_DATA.riceResearch.comparisonTable.map((row, idx) => (
+                <tr key={idx}>
+                  <td><strong>{row.criteria}</strong></td>
+                  <td>{row.nongDan1}</td>
+                  <td style={{ color: "var(--primary-green)", fontWeight: 600 }}>{row.nongDan2}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <div className="comparison-table-source">
+            Nguồn số liệu: Báo Cần Thơ, bài “Triển vọng từ giống lúa mới Nông Dân 1 và Nông Dân 2” • Bằng bảo hộ giống cây trồng ĐHCT.
+          </div>
+        </div>
+
+        {/* 2.2. Cá da trơn: Từ sản xuất giống cá tra/basa đến bước đầu chủ động nguồn giống cá bông lau */}
+        <h3 className="editorial-h3" id="thuy-san">
+          2.2. Cá da trơn: Từ sản xuất giống cá tra/basa đến bước đầu chủ động nguồn giống cá bông lau
+        </h3>
+
+        <p className="editorial-p">
+          Nếu nghiên cứu lúa cho thấy quá trình chọn tạo và hoàn thiện giống theo nhu cầu canh tác, lĩnh vực thủy sản lại phản ánh một bài toán khác: làm chủ quy trình sinh sản để chủ động nguồn con giống phục vụ nuôi trồng.
+        </p>
+
+        <p className="editorial-p">
+          Năm 1995, Đại học Cần Thơ cùng chuyên gia và các nhà nghiên cứu đã đạt kết quả trong sinh sản nhân tạo cá basa. Đến năm 1999, quy trình sản xuất giống cá tra được phát triển rộng hơn. Những dấu mốc này đặt nền tảng cho hoạt động nghiên cứu và sản xuất giống cá da trơn, một nhóm đối tượng có vai trò quan trọng trong nuôi trồng thủy sản ĐBSCL.
+        </p>
+
+        <p className="editorial-p">
+          Năm 2026, Đại học Cần Thơ công bố <strong>sinh sản nhân tạo thành công cá bông lau (Pangasius krempfi)</strong> sau hơn hai năm nghiên cứu. Trong khuôn khổ dự án hợp tác quốc tế DIVERSAQUA, nhóm nghiên cứu nuôi cá bố mẹ thành thục từ cá giống trong hệ thống bể tuần hoàn, kích thích sinh sản nhân tạo, sau đó ương cá bột đến giai đoạn cá hương và cá giống.
+        </p>
+
+        <p className="editorial-p">
+          Điểm đáng chú ý nằm ở sự khác biệt về bài toán nghiên cứu: Với cá tra/basa, các thành tựu trước đây góp phần phát triển quy trình sản xuất giống cho những đối tượng nuôi đã được thương mại hóa rộng rãi. Với cá bông lau, kết quả sinh sản nhân tạo mở ra hướng chủ động nguồn giống của một loài cá da trơn nước lợ có giá trị kinh tế, lâu nay còn phụ thuộc chủ yếu vào khai thác tự nhiên.
+        </p>
+
+        {/* BẢNG SO SÁNH CÁ TRA VS CÁ BÔNG LAU */}
+        <div className="comparison-table-wrapper">
+          <div className="comparison-table-title">Đối chiếu bài toán nghiên cứu cá tra/basa và cá bông lau</div>
+          <table className="comparison-table">
+            <thead>
+              <tr>
+                <th style={{ width: "25%" }}>Tiêu chí</th>
+                <th style={{ width: "37%" }}>Cá tra / Basa (1995 – 1999)</th>
+                <th style={{ width: "38%" }}>Cá bông lau (2026)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {ARTICLE_DATA.aquacultureResearch.pangasiusComparison.map((row, idx) => (
+                <tr key={idx}>
+                  <td><strong>{row.aspect}</strong></td>
+                  <td>{row.commercialCatfish}</td>
+                  <td style={{ color: "var(--accent-water)", fontWeight: 600 }}>{row.bongLauCatfish}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {/* TRÌNH PHÁT MÔ PHỎNG VIDEO NGHIÊN CỨU CÁ BÔNG LAU (KỊCH BẢN 75-90 GIÂY) */}
+        <div className="video-sim-wrapper">
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
+            <div>
+              <span style={{ fontSize: "0.75rem", fontWeight: 800, color: "var(--accent-water)", textTransform: "uppercase" }}>
+                Kịch bản hình ảnh video ngắn (75 – 90 giây)
+              </span>
+              <h3 style={{ fontSize: "1.35rem", fontWeight: 800, color: "var(--primary-green)", marginTop: "0.25rem" }}>
+                Sinh sản nhân tạo cá bông lau tại Trường Thủy sản
+              </h3>
+            </div>
+            <button
+              className="video-play-btn"
+              onClick={() => setIsVideoPlaying(!isVideoPlaying)}
+            >
+              {isVideoPlaying ? "⏸ Tạm dừng trình chiếu" : "▶ Mô phỏng kịch bản (Auto Play)"}
+            </button>
+          </div>
+
+          <div className="video-player-container">
+            <div className="video-screen-display">
+              <div className="video-top-meta">
+                <span className="video-phase-badge">{currentVideoStep.phase}</span>
+                <span className="video-time-counter">Mốc thời gian: {currentVideoStep.seconds}</span>
+              </div>
+
+              <div className="video-main-scene">
+                <div className="video-scene-title">{currentVideoStep.title}</div>
+                <div className="video-scene-desc">{currentVideoStep.sceneDescription}</div>
+
+                {currentVideoStep.interviewQuote && (
+                  <div className="video-interview-quote">
+                    <div className="video-speaker-tag">
+                      🎙 {currentVideoStep.interviewQuote.speaker} • {currentVideoStep.interviewQuote.role}
+                    </div>
+                    &quot;{currentVideoStep.interviewQuote.content}&quot;
+                  </div>
+                )}
+              </div>
+
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "0.5rem" }}>
+                <div className="video-audio-cue">
+                  <span>🔊</span>
+                  <span><strong>Âm thanh:</strong> {currentVideoStep.audioCue}</span>
+                </div>
+                {currentVideoStep.graphicsOverlay && (
+                  <div style={{ fontSize: "0.76rem", color: "#fef08a", fontWeight: 700, background: "rgba(0,0,0,0.5)", padding: "0.25rem 0.6rem", borderRadius: "4px" }}>
+                    {currentVideoStep.graphicsOverlay}
+                  </div>
+                )}
               </div>
             </div>
 
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                flexWrap: "wrap",
-                gap: "0.75rem",
-              }}
-            >
-              <div className="map-filters">
-                <button
-                  className={`filter-btn ${activeFilter === "all" ? "active" : ""}`}
-                  onClick={() => setActiveFilter("all")}
-                >
-                  Tất cả điểm ngập
-                </button>
-                <button
-                  className={`filter-btn ${activeFilter === "severe" ? "active" : ""}`}
-                  onClick={() => setActiveFilter("severe")}
-                >
-                  Ngập nặng (&gt;30cm)
-                </button>
-                <button
-                  className={`filter-btn ${activeFilter === "rain" ? "active" : ""}`}
-                  onClick={() => setActiveFilter("rain")}
-                >
-                  Do mưa lớn
-                </button>
-                <button
-                  className={`filter-btn ${activeFilter === "tide" ? "active" : ""}`}
-                  onClick={() => setActiveFilter("tide")}
-                >
-                  Do triều cường
-                </button>
-                <button
-                  className={`filter-btn ${activeFilter === "thuduc" ? "active" : ""}`}
-                  onClick={() => setActiveFilter("thuduc")}
-                >
-                  Khu vực Thủ Đức
-                </button>
-                <button
-                  className={`filter-btn ${activeFilter === "inner" ? "active" : ""}`}
-                  onClick={() => setActiveFilter("inner")}
-                >
-                  Nội đô TP.HCM
-                </button>
+            {/* Thanh điều khiển Scrubber 5 phân đoạn */}
+            <div className="video-controls-bar">
+              <div className="video-timeline-scrub">
+                {ARTICLE_DATA.aquacultureResearch.videoSimulation.steps.map((step, idx) => (
+                  <div
+                    key={step.seconds}
+                    className={`scrub-segment ${idx === currentVideoStepIdx ? "active" : idx < currentVideoStepIdx ? "completed" : ""}`}
+                    onClick={() => {
+                      setCurrentVideoStepIdx(idx);
+                      setIsVideoPlaying(false);
+                    }}
+                    title={`${step.seconds}: ${step.title}`}
+                  />
+                ))}
               </div>
-              <div
-                id="map-spot-counter"
-                style={{ fontSize: "0.82rem", color: "#64748b", fontWeight: 600 }}
-              >
-                Hiển thị {filteredSpots.length}/{ARTICLE_DATA.floodSpots.length} điểm ngập tiêu biểu
+              <div className="video-buttons-row">
+                <span style={{ fontSize: "0.78rem", color: "#94a3b8" }}>
+                  Phân đoạn {currentVideoStepIdx + 1}/5: {currentVideoStep.seconds}
+                </span>
+                <span style={{ fontSize: "0.78rem", color: "#38bdf8" }}>
+                  Nhấp vào từng thanh để xem chi tiết cảnh quay
+                </span>
               </div>
             </div>
           </div>
 
-          <div className="map-content-layout">
-            {/* Vùng hiển thị bản đồ SVG Vector trực quan */}
-            <div className="map-viewport">
+          {/* 5 Bước quy trình vòng đời */}
+          <div className="video-lifecycle-steps">
+            {ARTICLE_DATA.aquacultureResearch.videoSimulation.lifecycleSteps.map((s) => (
+              <div key={s.step} className="lifecycle-step-card">
+                <div className="lifecycle-step-num">BƯỚC {s.step}</div>
+                <div className="lifecycle-step-name">{s.name}</div>
+                <div className="lifecycle-step-desc">{s.desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </main>
+
+      {/* Phần 3: Từ ĐBSCL ra quốc tế: Năng lực hợp tác và giá trị thực tế */}
+      <main className="article-container" id="quoc-te">
+        <h2 className="editorial-h2">
+          3. Từ Đồng bằng sông Cửu Long ra quốc tế: Năng lực hợp tác và giá trị thực tế
+        </h2>
+
+        <p className="article-lead">
+          Thu hút các dự án hợp tác quốc tế và hiện diện trên các bảng xếp hạng uy tín toàn cầu là minh chứng cho năng lực học thuật của Đại học Cần Thơ. Tuy nhiên, dưới góc nhìn phân tích báo chí, số lượng dự án hay tổng kinh phí đầu tư không tự động đồng nghĩa với hiệu quả kinh tế của từng công trình ngoài thực địa, mà đóng vai trò là nguồn lực nền tảng hỗ trợ nghiên cứu, đào tạo và chuyển giao công nghệ.
+        </p>
+
+        <p className="editorial-p">
+          Giai đoạn 2010–2018, Đại học Cần Thơ đã phối hợp với các đối tác quốc tế triển khai <strong>203 dự án</strong> với tổng kinh phí khoảng <strong>351 tỷ đồng</strong>. Bên cạnh đó, các chương trình hợp tác chiến lược dài hạn đã tạo dựng cơ sở vật chất quan trọng cho nhà trường:
+        </p>
+
+        {/* Khối các đối tác chiến lược quốc tế */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.25rem", margin: "2rem 0" }}>
+          {ARTICLE_DATA.internationalImpact.strategicPrograms.map((p) => (
+            <div
+              key={p.programName}
+              style={{
+                background: "#ffffff",
+                border: "1px solid var(--border-light)",
+                borderRadius: "14px",
+                padding: "1.5rem",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.02)",
+              }}
+            >
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.5rem" }}>
+                <span style={{ fontSize: "0.78rem", fontWeight: 800, color: "var(--accent-water)", textTransform: "uppercase" }}>
+                  {p.partner}
+                </span>
+                <span style={{ fontSize: "0.75rem", fontFamily: "var(--font-mono)", color: "#64748b" }}>
+                  {p.years}
+                </span>
+              </div>
+              <h4 style={{ fontSize: "1.05rem", fontWeight: 800, color: "var(--primary-green)", marginBottom: "0.5rem" }}>
+                {p.programName}
+              </h4>
+              <p style={{ fontSize: "0.88rem", color: "#334155", marginBottom: "0.75rem", lineHeight: 1.5 }}>
+                {p.scope}
+              </p>
+              <div style={{ fontSize: "0.8rem", color: "#047857", background: "#f0fdf4", padding: "0.4rem 0.65rem", borderRadius: "6px" }}>
+                <strong>Tác động:</strong> {p.impact}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p className="editorial-p">
+          Trên bản đồ giáo dục thế giới, vị thế học thuật của nhà trường được ghi nhận khi nhóm ngành Nông – Lâm nghiệp thuộc <strong>QS World University Rankings</strong> xếp trong nhóm <strong>251–300 toàn cầu năm 2020</strong> và tiếp tục duy trì ở nhóm <strong>351–400 giai đoạn 2020–2025</strong>, giữ vị trí dẫn đầu tại Việt Nam. Thứ hạng này đóng vai trò như một chỉ dấu về uy tín học thuật quốc tế, tạo tiền đề để các kết quả nghiên cứu bước ra khỏi giảng đường và đi vào thực tiễn sản xuất tại Đồng bằng sông Cửu Long.
+        </p>
+
+        {/* Phần 4: Tác động đối với phát triển kinh tế - xã hội vùng ĐBSCL */}
+        <h2 className="editorial-h2">
+          4. Tác động đối với phát triển kinh tế - xã hội vùng Đồng bằng sông Cửu Long
+        </h2>
+
+        <p className="editorial-p">
+          Các kết quả nghiên cứu của Đại học Cần Thơ đã trực tiếp giải quyết các yêu cầu kỹ thuật trong sản xuất, hỗ trợ phát triển các ngành hàng xuất khẩu chủ lực và chuyển đổi sinh kế cho người dân toàn vùng:
+        </p>
+
+        {/* 4 Trụ cột tác động */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem", margin: "2rem 0" }}>
+          {ARTICLE_DATA.socioEconomicImpact.keyThemes.map((theme) => (
+            <div
+              key={theme.id}
+              style={{
+                background: "#ffffff",
+                border: "1px solid var(--border-light)",
+                borderRadius: "14px",
+                padding: "1.75rem 1.5rem",
+                borderTop: "4px solid var(--primary-leaf)",
+                boxShadow: "0 6px 18px rgba(6, 78, 59, 0.03)",
+              }}
+            >
+              <h4 style={{ fontSize: "1.15rem", fontWeight: 800, color: "var(--primary-green)", marginBottom: "0.75rem" }}>
+                {theme.title}
+              </h4>
+              <p style={{ fontSize: "0.92rem", color: "#334155", lineHeight: 1.65, marginBottom: "1rem" }}>
+                {theme.content}
+              </p>
+              <div style={{ fontSize: "0.78rem", color: "var(--text-muted)", fontStyle: "italic", borderTop: "1px dashed var(--border-light)", paddingTop: "0.5rem" }}>
+                Minh chứng: {theme.proof}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Phần 5: Tác động ngược lại đối với năng lực và vị thế của Đại học Cần Thơ */}
+        <h2 className="editorial-h2">
+          5. Tác động ngược lại đối với năng lực và vị thế của Đại học Cần Thơ
+        </h2>
+
+        <p className="editorial-p">
+          Việc chủ động nghiên cứu giải quyết các bài toán thực tiễn của vùng ĐBSCL cũng tạo động lực phát triển ngược lại cho Đại học Cần Thơ trên nhiều phương diện:
+        </p>
+
+        <p className="editorial-p">
+          <strong>Khẳng định vị thế học thuật và thu hút nguồn lực:</strong> Nguồn dữ liệu thực nghiệm phong phú từ vùng sinh thái ĐBSCL là nền tảng giúp nhà trường khẳng định uy tín khoa học, giữ vững vị trí dẫn đầu tại Việt Nam trong lĩnh vực Nông – Lâm nghiệp nhiều năm liền. Kết quả ứng dụng thực tế cũng tạo cơ sở vững chắc để trường thu hút các dự án hợp tác quốc tế lớn như Catfish Asia (EU), BOLD Rice Vietnam, cùng hơn 200 dự án hợp tác quốc tế khác. Nguồn lực này kết hợp với dự án ODA Nhật Bản 105,9 triệu USD đã hiện đại hóa cơ sở vật chất, tạo tiền đề cho việc gia tăng các bằng độc quyền sở hữu trí tuệ.
+        </p>
+
+        <p className="editorial-p">
+          <strong>Kiện toàn thể chế tổ chức và nâng cao chất lượng đào tạo:</strong> Quá trình tích lũy nghiên cứu ứng dụng đã thúc đẩy sự phát triển về thể chế, dẫn đến việc thành lập Trường Nông nghiệp và Trường Thủy sản (tháng 12/2022 và tháng 7/2025) trên cơ sở các khoa chuyên môn, đồng thời xây dựng Ngân hàng giống lúa (Rice Genbank) bảo tồn hơn 3.000 mẫu lúa.
+        </p>
+
+        <p className="editorial-p">
+          Tính đến tháng 9/2026, nhà trường sở hữu <strong>28 văn bằng độc quyền sở hữu công nghiệp</strong>. Các tài sản trí tuệ này được đưa trực tiếp vào công tác giảng dạy và thực hành, giúp sinh viên tiếp cận bài học thực tế ngoài ruộng đồng. Nhờ đó, chất lượng đào tạo được nâng cao, góp phần đưa <strong>tỷ lệ sinh viên có việc làm sau tốt nghiệp của khối Nông – Thủy sản đạt 78,26%</strong>.
+        </p>
+      </main>
+
+      {/* ĐỒ HỌA 4: BẢN ĐỒ CÁC DỰ ÁN VÀ ĐỊA BÀN TIẾP NHẬN CÔNG NGHỆ (2 LỚP DỮ LIỆU) */}
+      <div className="wide-container" id="ban-do">
+        <div className="map-story-block">
+          <div className="map-story-header">
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "1rem" }}>
+              <div>
+                <span style={{ fontSize: "0.78rem", fontWeight: 800, color: "var(--primary-emerald)", textTransform: "uppercase" }}>
+                  Đồ họa dữ liệu tương tác • Đồ họa 4
+                </span>
+                <h3 style={{ fontSize: "1.45rem", fontWeight: 800, color: "var(--primary-green)", marginTop: "0.25rem" }}>
+                  Bản đồ các dự án và địa bàn tiếp nhận công nghệ
+                </h3>
+                <p style={{ fontSize: "0.88rem", color: "var(--text-muted)", marginTop: "0.25rem" }}>
+                  Chỉ ghim điểm tại đúng các tọa độ đã có minh chứng báo chí, văn bằng và hợp đồng chuyển giao công nghệ.
+                </p>
+              </div>
+
+              {/* Bộ lọc Toggle 2 lớp: Nội địa (ĐBSCL) vs Quốc tế (R&D) */}
+              <div className="map-layer-toggle-group">
+                <button
+                  className={`layer-toggle-btn ${mapLayer === "domestic" ? "active-domestic" : ""}`}
+                  onClick={() => setMapLayer("domestic")}
+                >
+                  🌾 Lớp Ứng dụng & Chuyển giao (ĐBSCL)
+                </button>
+                <button
+                  className={`layer-toggle-btn ${mapLayer === "international" ? "active-intl" : ""}`}
+                  onClick={() => setMapLayer("international")}
+                >
+                  🌐 Lớp Hợp tác R&D & Tài trợ (Quốc tế)
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="map-story-content-layout">
+            {/* SVG Vector Map Viewport */}
+            <div className="map-vector-viewport">
               <svg
-                id="hcm-svg-map"
-                className="svg-map-container"
+                className="svg-mekong-map"
                 viewBox="0 0 800 550"
                 preserveAspectRatio="xMidYMid meet"
               >
                 <defs>
-                  <linearGradient id="grid-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#090d16" />
-                    <stop offset="100%" stopColor="#0f172a" />
+                  <linearGradient id="mekong-map-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#042f24" />
+                    <stop offset="100%" stopColor="#064e3b" />
                   </linearGradient>
+                  <radialGradient id="hub-glow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.6" />
+                    <stop offset="100%" stopColor="#f59e0b" stopOpacity="0" />
+                  </radialGradient>
                 </defs>
 
-                {/* Nền bản đồ */}
-                <rect width="100%" height="100%" fill="url(#grid-grad)" />
+                <rect width="100%" height="100%" fill="url(#mekong-map-bg)" />
 
-                {/* Lưới tọa độ ngầm */}
-                <g stroke="#1e293b" strokeWidth="0.5" strokeDasharray="3 6">
-                  <line x1="0" y1="110" x2="800" y2="110" />
-                  <line x1="0" y1="220" x2="800" y2="220" />
-                  <line x1="0" y1="330" x2="800" y2="330" />
-                  <line x1="0" y1="440" x2="800" y2="440" />
+                {/* Gridlines */}
+                <g stroke="#0f5132" strokeWidth="0.5" strokeDasharray="3 6">
+                  <line x1="0" y1="130" x2="800" y2="130" />
+                  <line x1="0" y1="270" x2="800" y2="270" />
+                  <line x1="0" y1="410" x2="800" y2="410" />
                   <line x1="200" y1="0" x2="200" y2="550" />
                   <line x1="400" y1="0" x2="400" y2="550" />
                   <line x1="600" y1="0" x2="600" y2="550" />
                 </g>
 
-                {/* Các mảng ranh giới đô thị tượng trưng */}
-                <g className="districts-layer">
-                  {/* Khu vực Bình Dương kết nối */}
-                  <path className="district-boundary" d="M 220 30 L 460 30 L 520 120 L 320 140 Z" />
-                  <text x="340" y="70" className="district-label">BÌNH DƯƠNG</text>
+                {mapLayer === "domestic" ? (
+                  /* LỚP 1: BẢN ĐỒ VÙNG ĐỒNG BẰNG SÔNG CỬU LONG */
+                  <g>
+                    {/* Dòng sông Mê Kông: Sông Tiền & Sông Hậu */}
+                    <g fill="none" stroke="#0ea5e9" opacity="0.8">
+                      {/* Sông Tiền */}
+                      <path
+                        d="M 330 60 Q 380 130 420 180 T 520 240 T 630 290 T 710 330"
+                        strokeWidth="8"
+                      />
+                      {/* Sông Hậu */}
+                      <path
+                        d="M 290 80 Q 340 160 380 230 T 450 290 T 540 370 T 620 440"
+                        strokeWidth="9"
+                      />
+                      {/* Các kênh rạch kết nối */}
+                      <path d="M 420 180 Q 480 230 550 150" strokeWidth="3" opacity="0.6" />
+                      <path d="M 450 290 Q 370 380 280 470" strokeWidth="4" opacity="0.6" />
+                      <path d="M 450 290 Q 520 340 570 390" strokeWidth="3.5" opacity="0.6" />
+                    </g>
 
-                  {/* TP Thủ Đức */}
-                  <path className="district-boundary" d="M 330 140 L 540 120 L 610 280 L 440 310 L 370 230 Z" />
-                  <text x="460" y="210" className="district-label">TP. THỦ ĐỨC</text>
+                    <text x="510" y="215" fill="#bae6fd" fontSize="11" fontStyle="italic">
+                      Sông Tiền
+                    </text>
+                    <text x="470" y="340" fill="#bae6fd" fontSize="11" fontStyle="italic">
+                      Sông Hậu
+                    </text>
 
-                  {/* Vùng Nội đô TP.HCM */}
-                  <path className="district-boundary" d="M 170 170 L 360 170 L 390 320 L 250 380 L 150 290 Z" />
-                  <text x="230" y="240" className="district-label">NỘI ĐÔ TP.HCM (Q.1, Q.3, BÌNH THẠNH, GÒ VẤP)</text>
+                    {/* Vùng Đồng Tháp Mười (Mảng đất phèn 700.000 ha) */}
+                    <path
+                      d="M 440 90 L 610 90 L 630 180 L 460 170 Z"
+                      fill="#854d0e"
+                      fillOpacity="0.25"
+                      stroke="#d97706"
+                      strokeWidth="1.2"
+                      strokeDasharray="4 3"
+                    />
+                    <text x="490" y="130" fill="#fef08a" fontSize="11" fontWeight="700" letterSpacing="0.5">
+                      VÙNG ĐỒNG THÁP MƯỜI (700.000 ha)
+                    </text>
 
-                  {/* Khu vực Nam Sài Gòn */}
-                  <path className="district-boundary" d="M 230 380 L 440 320 L 510 470 L 290 520 Z" />
-                  <text x="320" y="440" className="district-label">Q.7 • Q.8 • NHÀ BÈ</text>
+                    {/* Vùng Bán đảo Cà Mau & Rừng ngập mặn */}
+                    <path
+                      d="M 210 420 Q 280 440 330 520 L 220 540 Z"
+                      fill="#065f46"
+                      fillOpacity="0.3"
+                    />
 
-                  {/* Khu vực Bà Rịa - Vũng Tàu kết nối */}
-                  <path className="district-boundary" d="M 620 280 L 780 260 L 770 480 L 580 460 Z" />
-                  <text x="660" y="380" className="district-label">BÀ RỊA - VŨNG TÀU</text>
-                </g>
+                    {/* Đường bờ biển Biển Đông & Vịnh Thái Lan */}
+                    <text x="650" y="470" fill="#38bdf8" fontSize="12" fontWeight="700" opacity="0.7">
+                      BIỂN ĐÔNG
+                    </text>
+                    <text x="120" y="380" fill="#38bdf8" fontSize="12" fontWeight="700" opacity="0.7">
+                      VỊNH THÁI LAN
+                    </text>
+                  </g>
+                ) : (
+                  /* LỚP 2: BẢN ĐỒ KẾT NỐI HỢP TÁC QUỐC TẾ (R&D) */
+                  <g>
+                    {/* Các đường liên kết từ ĐH Cần Thơ tỏa ra thế giới */}
+                    <g fill="none" stroke="#38bdf8" strokeWidth="1.5" strokeDasharray="5 5" opacity="0.8">
+                      {/* Cần Thơ -> Nhật Bản */}
+                      <path d="M 450 320 Q 560 210 670 110" />
+                      {/* Cần Thơ -> Bỉ */}
+                      <path d="M 450 320 Q 320 220 230 130" />
+                      {/* Cần Thơ -> Hà Lan */}
+                      <path d="M 450 320 Q 310 180 210 100" />
+                      {/* Cần Thơ -> EU Catfish Asia */}
+                      <path d="M 450 320 Q 340 240 260 160" />
+                      {/* Cần Thơ -> Crop Trust Đức */}
+                      <path d="M 450 320 Q 360 190 280 90" />
+                    </g>
 
-                {/* Hệ thống Thủy văn & Sông Sài Gòn */}
-                <g className="rivers-layer">
-                  <path className="river-path" d="M 270 40 Q 320 90 310 140 T 360 210 T 390 280 T 420 340 T 470 430 T 520 540" />
-                  <text x="400" y="260" fill="#38bdf8" fontSize="10" fontStyle="italic" opacity="0.8">Sông Sài Gòn</text>
+                    {/* Vòng sáng trung tâm Cần Thơ */}
+                    <circle cx="450" cy="320" r="35" fill="url(#hub-glow)" />
+                    <circle cx="450" cy="320" r="8" fill="#f59e0b" stroke="#ffffff" strokeWidth="2.5" />
+                    <text x="465" y="325" fill="#fef08a" fontSize="12" fontWeight="800">
+                      ĐẠI HỌC CẦN THƠ (R&D HUB)
+                    </text>
 
-                  <path className="river-path" d="M 520 80 Q 560 180 580 260 T 560 380 T 600 520" stroke="#1d4ed8" />
-                  <text x="560" y="160" fill="#60a5fa" fontSize="10" fontStyle="italic" opacity="0.8">Sông Đồng Nai</text>
+                    <text x="685" y="115" fill="#ffffff" fontSize="11" fontWeight="700">
+                      NHẬT BẢN (JICA ODA 105,9M$)
+                    </text>
+                    <text x="100" y="130" fill="#ffffff" fontSize="11" fontWeight="700">
+                      VƯƠNG QUỐC BỈ (VLIR)
+                    </text>
+                    <text x="90" y="95" fill="#ffffff" fontSize="11" fontWeight="700">
+                      HÀ LAN (MHO / VH10)
+                    </text>
+                    <text x="270" y="165" fill="#ffffff" fontSize="11" fontWeight="700">
+                      EU (CATFISH ASIA)
+                    </text>
+                    <text x="290" y="85" fill="#ffffff" fontSize="11" fontWeight="700">
+                      CROP TRUST (BOLD)
+                    </text>
+                  </g>
+                )}
 
-                  <path className="canal-path" d="M 220 180 Q 280 220 370 250" />
-                  <path className="canal-path" d="M 200 360 Q 310 370 420 345" />
-                </g>
-
-                {/* Lớp các Pin điểm ngập */}
-                <g id="map-pins-layer">
-                  {filteredSpots.map((spot) => {
-                    const coords = projectCoordinates(spot.lat, spot.lng);
-                    const isSelected = spot.id === selectedSpot.id;
-                    let pinColor = "#f43f5e";
-                    if (spot.severity === "moderate") pinColor = "#f97316";
-                    if (spot.severity === "minor") pinColor = "#eab308";
+                {/* Các Marker Pins tương tác */}
+                <g>
+                  {activeSpotsList.map((spot) => {
+                    const isSelected = spot.id === selectedLocation.id;
+                    const pinColor =
+                      spot.type === "domestic" ? "#f59e0b" : "#38bdf8";
 
                     return (
                       <g
                         key={spot.id}
-                        className="flood-pin"
-                        style={{ cursor: "pointer" }}
-                        transform={`translate(${coords.x}, ${coords.y})`}
+                        className="map-marker-pin"
+                        transform={`translate(${spot.coordinates.x}, ${spot.coordinates.y})`}
                         onClick={() => setSelectedSpotId(spot.id)}
                       >
-                        {spot.severity === "severe" && (
-                          <circle className="pin-pulse" r="8" fill={pinColor} fillOpacity="0.4" />
+                        {isSelected && (
+                          <circle
+                            className="map-marker-pulse"
+                            r="12"
+                            fill={pinColor}
+                            fillOpacity="0.4"
+                          />
                         )}
                         <circle
-                          r={isSelected ? 10 : 7}
+                          r={isSelected ? 11 : 8}
                           fill={pinColor}
                           stroke="#ffffff"
                           strokeWidth={isSelected ? 3 : 2}
                         />
-                        <title>{`${spot.name} (${spot.district}) - ${spot.depth}`}</title>
+                        <text
+                          x="14"
+                          y="5"
+                          fill="#ffffff"
+                          fontSize="11"
+                          fontWeight={isSelected ? 800 : 600}
+                          style={{
+                            textShadow: "0 2px 5px rgba(0,0,0,0.8)",
+                            pointerEvents: "none",
+                          }}
+                        >
+                          {spot.name.split("(")[0]}
+                        </text>
                       </g>
                     );
                   })}
                 </g>
               </svg>
 
-              {/* Chú thích bản đồ (Legend) */}
+              {/* Chú giải bản đồ (Legend) */}
               <div
                 style={{
                   position: "absolute",
                   bottom: "12px",
                   left: "12px",
-                  background: "rgba(15, 23, 42, 0.85)",
+                  background: "rgba(4, 47, 36, 0.9)",
                   backdropFilter: "blur(6px)",
-                  border: "1px solid #334155",
+                  border: "1px solid rgba(255,255,255,0.15)",
                   borderRadius: "8px",
                   padding: "8px 12px",
                   fontSize: "11px",
                   color: "#cbd5e1",
                   display: "flex",
-                  gap: "12px",
+                  gap: "14px",
                   zIndex: 5,
                 }}
               >
-                <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                   <span
                     style={{
                       width: "10px",
                       height: "10px",
                       borderRadius: "50%",
-                      background: "#f43f5e",
+                      background: "#f59e0b",
                       display: "inline-block",
                     }}
                   />
-                  Ngập nặng (&gt;30cm)
+                  Điểm tiếp nhận ĐBSCL
                 </div>
-                <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                   <span
                     style={{
                       width: "10px",
                       height: "10px",
                       borderRadius: "50%",
-                      background: "#f97316",
+                      background: "#38bdf8",
                       display: "inline-block",
                     }}
                   />
-                  Ngập vừa (15-30cm)
-                </div>
-                <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
-                  <span
-                    style={{
-                      width: "10px",
-                      height: "10px",
-                      borderRadius: "50%",
-                      background: "#eab308",
-                      display: "inline-block",
-                    }}
-                  />
-                  Ngập nhẹ (&lt;15cm)
+                  Đối tác R&D Quốc tế
                 </div>
               </div>
             </div>
 
-            {/* Cột thông tin chi tiết điểm ngập khi click */}
-            <div className="map-sidebar-details" id="map-spot-details">
-              <div className="spot-detail-card">
-                <div className="spot-tag-row">
-                  <span
-                    className={`badge-pill ${
-                      selectedSpot.severity === "severe"
-                        ? "badge-severe"
-                        : selectedSpot.severity === "moderate"
-                        ? "badge-moderate"
-                        : "badge-minor"
-                    }`}
-                  >
-                    {selectedSpot.severityText}
-                  </span>
-                  <span
-                    className="badge-pill"
-                    style={{ background: "#e0f2fe", color: "#0369a1" }}
-                  >
-                    {selectedSpot.district}
-                  </span>
-                </div>
-                <h3>{selectedSpot.name}</h3>
-                <p style={{ fontSize: "0.88rem", color: "#475569", marginBottom: "1.25rem" }}>
-                  {selectedSpot.description}
-                </p>
+            {/* Cột hiển thị chi tiết điểm tiếp nhận công nghệ */}
+            <div className="map-detail-sidebar">
+              <div className="location-detail-card">
+                <span
+                  style={{
+                    fontSize: "0.74rem",
+                    fontWeight: 800,
+                    textTransform: "uppercase",
+                    padding: "0.25rem 0.65rem",
+                    borderRadius: "999px",
+                    background: mapLayer === "domestic" ? "#fef3c7" : "#e0f2fe",
+                    color: mapLayer === "domestic" ? "#b45309" : "#0369a1",
+                    display: "inline-block",
+                    marginBottom: "0.75rem",
+                  }}
+                >
+                  {selectedLocation.badge}
+                </span>
 
-                <div className="detail-specs-grid">
-                  <div className="spec-item">
-                    <div className="label">Mức nước ngập sâu</div>
-                    <div className="val" style={{ color: "#e11d48" }}>
-                      {selectedSpot.depth}
+                <h3>{selectedLocation.name}</h3>
+
+                <div style={{ fontSize: "0.85rem", color: "#475569", marginBottom: "0.75rem" }}>
+                  <strong>Đối tượng tiếp nhận:</strong> {selectedLocation.targetUser}
+                </div>
+
+                <div className="loc-tech-box">
+                  <div className="title">Công nghệ & Giải pháp chuyển giao</div>
+                  <div className="desc">{selectedLocation.technology}</div>
+                </div>
+
+                <div className="loc-tech-box" style={{ background: "#fefce8", borderLeftColor: "var(--accent-amber)" }}>
+                  <div className="title" style={{ color: "#b45309" }}>Kết quả & Tác động đo lường</div>
+                  <div className="desc" style={{ color: "#78350f" }}>{selectedLocation.achievements}</div>
+                </div>
+
+                <div className="location-metrics-grid">
+                  {selectedLocation.metrics.map((m, idx) => (
+                    <div key={idx} className="loc-metric-item">
+                      <div className="label">{m.label}</div>
+                      <div className="val">{m.val}</div>
                     </div>
-                  </div>
-                  <div className="spec-item">
-                    <div className="label">Thời gian tụ nước</div>
-                    <div className="val">{selectedSpot.duration}</div>
-                  </div>
-                  <div className="spec-item" style={{ gridColumn: "span 2" }}>
-                    <div className="label">Nguyên nhân chính</div>
-                    <div className="val">{selectedSpot.causeText}</div>
-                  </div>
+                  ))}
                 </div>
 
-                <div className="detail-solution-box">
-                  <div className="title">Phương án & Lộ trình xử lý</div>
-                  <div className="desc">{selectedSpot.status}</div>
+                <div className="loc-legal-box">
+                  <div><strong>Văn bằng / Minh chứng:</strong> {selectedLocation.legalDoc}</div>
+                  <div style={{ marginTop: "0.25rem" }}><strong>Nguồn:</strong> {selectedLocation.source}</div>
                 </div>
               </div>
             </div>
@@ -481,262 +1055,103 @@ export default function Home() {
         </div>
       </div>
 
-      <main className="article-container">
-        <h2 className="editorial-h2" id="so-lieu">
-          2. Dữ liệu phân tích: Bức tranh cơ cấu ngập úng
-        </h2>
-        <p className="editorial-p">
-          Khi bóc tách dữ liệu 159 điểm ngập của toàn thành phố, các con số cho thấy sự phân hóa rõ rệt về mức độ nghiêm trọng cũng như nguồn gốc gây ngập. Đáng chú ý, mưa cực đoan và triều cường dâng cao là hai tác nhân chủ chốt, nhưng khi kết hợp lại sẽ tạo ra tình trạng &quot;ngập kép&quot; kéo dài hàng giờ đồng hồ.
-        </p>
-
-        {/* KHỐI BIỂU ĐỒ TRỰC QUAN HÓA (CHARTS GRID) */}
-        <div className="charts-section-grid">
-          {/* Biểu đồ 1: Mức độ ngập */}
-          <div className="chart-card">
-            <h3 className="chart-card-title">Phân loại mức độ nghiêm trọng</h3>
-            <p className="chart-card-subtitle">
-              Cơ cấu 159 điểm ngập theo độ sâu và thời gian tụ nước
-            </p>
-            <div id="severity-chart-bars">
-              {ARTICLE_DATA.charts.severityDistribution.map((item) => (
-                <div key={item.label} className="chart-bar-item">
-                  <div className="chart-bar-label-row">
-                    <span>{item.label}</span>
-                    <span style={{ color: item.color, fontWeight: 700 }}>
-                      {item.count} điểm ({item.percent}%)
-                    </span>
-                  </div>
-                  <div className="chart-bar-track">
-                    <div
-                      className="chart-bar-fill"
-                      style={{ width: `${item.percent}%`, backgroundColor: item.color }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Biểu đồ 2: Nguyên nhân gây ngập */}
-          <div className="chart-card">
-            <h3 className="chart-card-title">Nguyên nhân kích hoạt ngập úng</h3>
-            <p className="chart-card-subtitle">
-              Tỉ lệ điểm ngập kích hoạt do mưa, triều cường hoặc kết hợp cả hai
-            </p>
-            <div id="causes-chart-bars">
-              {ARTICLE_DATA.charts.causesDistribution.map((item) => (
-                <div key={item.cause} className="chart-bar-item">
-                  <div className="chart-bar-label-row">
-                    <span>{item.cause}</span>
-                    <span style={{ color: item.color, fontWeight: 700 }}>
-                      {item.count} điểm ({item.percent}%)
-                    </span>
-                  </div>
-                  <div className="chart-bar-track">
-                    <div
-                      className="chart-bar-fill"
-                      style={{ width: `${item.percent}%`, backgroundColor: item.color }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Biểu đồ 3: Phân bổ theo địa bàn */}
-          <div className="chart-card">
-            <h3 className="chart-card-title">Phân bổ theo khu vực địa bàn</h3>
-            <p className="chart-card-subtitle">
-              Số lượng điểm ngập tại nội đô và các vùng liên kết mở rộng
-            </p>
-            <div id="region-distribution-list">
-              {ARTICLE_DATA.charts.topRegions.map((reg) => (
-                <div
-                  key={reg.name}
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    padding: "0.75rem 0",
-                    borderBottom: "1px solid #f1f5f9",
-                  }}
-                >
-                  <div>
-                    <div style={{ fontWeight: 700, fontSize: "0.92rem", color: "#0f172a" }}>
-                      {reg.name}
-                    </div>
-                    <div style={{ fontSize: "0.78rem", color: "#64748b" }}>
-                      Trong đó {reg.heavy} điểm ngập rất nặng
-                    </div>
-                  </div>
-                  <div style={{ fontSize: "1.15rem", fontWeight: 800, color: "#0284c7" }}>
-                    {reg.spots} <span style={{ fontSize: "0.75rem", fontWeight: 500 }}>điểm</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* NGUYÊN NHÂN CỐT LÕI (ROOT CAUSES) */}
-        <h2 className="editorial-h2" id="nguyen-nhan">
-          3. Vì sao cứ mưa to, triều dâng là phố biến thành sông?
-        </h2>
-        <p className="editorial-p">
-          Không chỉ đơn thuần là lượng mưa lớn, tình trạng ngập lụt tại đô thị đặc biệt như TP.HCM là hệ quả tổng hòa của ba nhóm nguyên nhân cấu trúc sâu xa diễn ra suốt nhiều thập kỷ:
-        </p>
-
-        <div className="causes-grid" id="root-causes-grid">
-          {ARTICLE_DATA.rootCauses.map((item) => (
-            <div key={item.step} className="cause-card">
-              <span className="cause-step-badge">NGUYÊN NHÂN {item.step}</span>
-              <h4>{item.title}</h4>
-              <p>{item.desc}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* PULL QUOTE CHUYÊN GIA */}
-        <div className="editorial-quote">
-          <blockquote>
-            &quot;Chống ngập cho TP.HCM không thể chỉ dựa vào việc đào cống to hơn. Bản chất của nước là cần chỗ chảy và chỗ trữ. Nếu chúng ta tiếp tục bê tông hóa và không trả lại các không gian trữ nước tự nhiên, thì nước sẽ biến mặt đường thành hồ chứa.&quot;
-          </blockquote>
-          <cite>
-            {ARTICLE_DATA.expertQuotes[0].author}{" "}
-            <span>• {ARTICLE_DATA.expertQuotes[0].role}</span>
-          </cite>
-        </div>
-
-        {/* THANH TRƯỢT SO SÁNH TRƯỚC / SAU (BEFORE / AFTER SIMULATION) */}
-        <div className="before-after-wrapper">
-          <div className="before-after-header">
-            <h3>Mô phỏng hiệu quả công trình chống ngập</h3>
-            <p>
-              Kéo thanh trượt để so sánh cảnh quan tuyến phố trước và sau khi hoàn thiện cống hộp và trạm bơm
-            </p>
-          </div>
-
-          <div className="slider-container">
-            {/* Lớp TRƯỚC (BEFORE) */}
-            <div className="slider-img slider-before">
-              <span className="slider-tag">HIỆN TRẠNG (CHƯA ĐẦU TƯ)</span>
-              <div className="slider-text-title">Ngập sâu 40 - 65 cm</div>
-              <div className="slider-text-desc">
-                Mưa cực đoan làm tê liệt giao thông, nước tràn vào nhà dân, thời gian tụ nước trên 180 phút.
-              </div>
-            </div>
-
-            {/* Lớp SAU (AFTER) */}
-            <div
-              className="slider-img slider-after"
-              id="slider-after-layer"
-              style={{ width: `${sliderValue}%` }}
+      {/* CÁC NGUỒN PHỎNG VẤN TRỰC TIẾP (3 NHÓM NGUỒN CHÍNH) */}
+      <main className="article-container" id="phong-van">
+        <div className="interviews-wrapper">
+          <div style={{ marginBottom: "1.25rem" }}>
+            <span
+              style={{
+                fontSize: "0.75rem",
+                fontWeight: 800,
+                textTransform: "uppercase",
+                color: "var(--accent-gold)",
+                letterSpacing: "1px",
+              }}
             >
-              <span className="slider-tag">SAU KHI HOÀN THIỆN DỰ ÁN</span>
-              <div className="slider-text-title">Khô ráo & Thông thoáng</div>
-              <div className="slider-text-desc">
-                Hệ thống cống hộp kết hợp van ngăn triều và trạm bơm tiêu thoát nước trong vòng 15 - 20 phút.
+              Góc nhìn điều tra báo chí • Phỏng vấn độc quyền
+            </span>
+            <h3 style={{ fontSize: "1.45rem", fontWeight: 800, color: "var(--primary-green)", marginTop: "0.25rem" }}>
+              Tiếng nói từ ba chủ thể: Nông dân, Sinh viên và Nhà khoa học
+            </h3>
+            <p style={{ fontSize: "0.88rem", color: "var(--text-muted)", marginTop: "0.25rem" }}>
+              Đối chiếu số liệu thực tế ngoài ruộng đồng với những giả định trong giảng đường
+            </p>
+          </div>
+
+          <div className="interview-tabs-nav">
+            <button
+              className={`interview-tab-btn ${activeInterviewGroup === "farmer" ? "active" : ""}`}
+              onClick={() => setActiveInterviewGroup("farmer")}
+            >
+              🌾 Nông dân tiếp nhận
+            </button>
+            <button
+              className={`interview-tab-btn ${activeInterviewGroup === "student" ? "active" : ""}`}
+              onClick={() => setActiveInterviewGroup("student")}
+            >
+              🔬 Sinh viên & Học viên thực nghiệm
+            </button>
+            <button
+              className={`interview-tab-btn ${activeInterviewGroup === "lecturer" ? "active" : ""}`}
+              onClick={() => setActiveInterviewGroup("lecturer")}
+            >
+              🎓 Giảng viên & Nhà khoa học chủ trì
+            </button>
+          </div>
+
+          <div className="interview-card-content">
+            <div className="interviewee-header">
+              <div className="interviewee-avatar-circle">
+                {activeInterviewGroup === "farmer" ? "🌾" : activeInterviewGroup === "student" ? "🔬" : "🎓"}
+              </div>
+              <div>
+                <h4 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--primary-green)" }}>
+                  {currentInterview.interviewee}
+                </h4>
+                <div style={{ fontSize: "0.85rem", color: "var(--text-sub)", fontWeight: 600 }}>
+                  {currentInterview.role}
+                </div>
+                <div style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>
+                  📍 {currentInterview.location} • {currentInterview.avatarDesc}
+                </div>
               </div>
             </div>
 
-            {/* Điều khiển thanh trượt */}
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value={sliderValue}
-              onChange={(e) => setSliderValue(Number(e.target.value))}
-              className="slider-range-input"
-              id="before-after-range"
-            />
-            <div
-              className="slider-handle-line"
-              id="slider-handle-line"
-              style={{ left: `${sliderValue}%` }}
-            />
-            <div
-              className="slider-handle-button"
-              id="slider-handle-button"
-              style={{ left: `${sliderValue}%` }}
-            >
-              ↔
+            <div className="interview-qa-list">
+              {currentInterview.qa.map((item, idx) => (
+                <div key={idx} className="interview-qa-item">
+                  <div className="interview-question">{item.question}</div>
+                  <div className="interview-answer">{item.answer}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* LỘ TRÌNH 142.000 TỈ ĐỒNG (ROADMAP) */}
-        <h2 className="editorial-h2" id="lo-trinh">
-          4. Lộ trình 142.000 tỉ đồng: Làm gì, ở đâu, khi nào xong?
-        </h2>
-        <p className="editorial-p">
-          Để giải quyết bài toán chống ngập mang tính chiến lược và căn cơ, TP.HCM đã vạch ra kế hoạch hành động giai đoạn 2026 – 2030 với <strong>87 dự án</strong> trọng điểm, tổng vốn đầu tư ước tính vượt <strong>142.000 tỉ đồng</strong>. Mục tiêu dứt điểm 50 vị trí rốn ngập lớn nhất và vận hành đồng bộ hệ thống kiểm soát triều thông minh.
-        </p>
-
-        <div className="roadmap-container" id="roadmap-phases-container">
-          {ARTICLE_DATA.roadmap.phases.map((phase) => (
-            <div key={phase.phase} className="phase-card">
-              <div className="phase-header">
-                <div className="phase-title-group">
-                  <div>
-                    <span className="time-badge">{phase.time}</span>
-                    <span style={{ fontSize: "0.85rem", fontWeight: 700, color: "#0284c7" }}>
-                      {phase.badge}
-                    </span>
-                  </div>
-                  <h3>{phase.phase}</h3>
-                  <p style={{ fontSize: "0.9rem", color: "#64748b", marginTop: "0.35rem" }}>
-                    {phase.description}
-                  </p>
-                </div>
-                <div className="phase-budget-pill">
-                  <div className="val">{phase.budget}</div>
-                  <div className="label">Quy mô vốn • {phase.projectsCount} dự án</div>
-                </div>
-              </div>
-
-              <div className="projects-table-list">
-                {phase.keyProjects.map((proj) => (
-                  <div key={proj.name} className="project-item-card">
-                    <div className="project-name">{proj.name}</div>
-                    <div className="project-meta-row">
-                      <span className="budget">{proj.budget}</span>
-                      <span className="status">{proj.status}</span>
-                    </div>
-                    <div className="project-impact">
-                      <strong>Tác động:</strong> {proj.impact}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* CÔNG CỤ TRA CỨU ĐIỂM NGẬP NHANH CHO NGƯỜI DÂN */}
+        {/* CÔNG CỤ TRA CỨU NHANH CÔNG NGHỆ & ĐỊA BÀN CHUYỂN GIAO */}
         <div className="lookup-widget" id="tra-cuu">
-          <h3>Tra cứu tuyến đường của bạn</h3>
+          <h3>Tra cứu giống cây trồng & công nghệ chuyển giao</h3>
           <p>
-            Nhập tên đường hoặc quận huyện để kiểm tra vị trí của bạn có nằm trong danh mục điểm ngập và xem dự án khắc phục tương ứng.
+            Nhập tên tỉnh thành (Sóc Trăng, An Giang, Cà Mau, Đồng Tháp...) hoặc đối tượng (lúa Nông Dân, Artemia, cá tra, cá bông lau, CTU-RAS, cá trê vàng...) để xem minh chứng văn bằng và kết quả thực tiễn.
           </p>
 
           <div className="lookup-input-group">
             <input
               type="text"
-              id="lookup-input"
               className="lookup-input"
-              placeholder="Ví dụ: Chợ Thủ Đức, Quốc Hương, Nguyễn Văn Khối, Huỳnh Tấn Phát..."
+              placeholder="Ví dụ: Artemia, cá bông lau, Nông Dân 2, CTU-RAS, An Giang, Cà Mau..."
               value={lookupQuery}
               onChange={(e) => setLookupQuery(e.target.value)}
               onKeyDown={(e) => {
                 if (e.key === "Enter") handleLookup();
               }}
             />
-            <button id="lookup-btn" className="lookup-btn" onClick={handleLookup}>
-              Tra cứu ngay
+            <button className="lookup-btn" onClick={handleLookup}>
+              Tra cứu dữ liệu
             </button>
           </div>
 
-          <div className="lookup-results" id="lookup-results">
+          <div className="lookup-results">
             {lookupResults !== null && (
               <>
                 {lookupResults.length === 0 ? (
@@ -750,7 +1165,7 @@ export default function Home() {
                       fontSize: "0.9rem",
                     }}
                   >
-                    Không tìm thấy điểm ngập nặng trùng khớp với từ khóa &quot;<strong>{lookupQuery}</strong>&quot;. Tuyến đường của bạn có thể thuộc danh mục ngập nhẹ cục bộ hoặc đã được đầu tư cải tạo!
+                    Không tìm thấy dữ liệu trùng khớp với từ khóa &quot;<strong>{lookupQuery}</strong>&quot;. Hãy thử tìm với &quot;Artemia&quot;, &quot;cá tra&quot;, &quot;Nông Dân 2&quot; hoặc &quot;Cà Mau&quot;!
                   </div>
                 ) : (
                   lookupResults.map((s) => (
@@ -758,7 +1173,7 @@ export default function Home() {
                       key={s.id}
                       style={{
                         background: "white",
-                        border: "1px solid #bae6fd",
+                        border: "1px solid #bbf7d0",
                         borderRadius: "10px",
                         padding: "1.25rem",
                         marginBottom: "0.75rem",
@@ -773,7 +1188,7 @@ export default function Home() {
                           marginBottom: "0.5rem",
                         }}
                       >
-                        <h4 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#0369a1" }}>
+                        <h4 style={{ fontSize: "1.05rem", fontWeight: 800, color: "var(--primary-green)" }}>
                           {s.name}
                         </h4>
                         <span
@@ -782,29 +1197,29 @@ export default function Home() {
                             fontWeight: 700,
                             padding: "0.2rem 0.6rem",
                             borderRadius: "999px",
-                            background: "#ffe4e6",
-                            color: "#be123c",
+                            background: "#fef3c7",
+                            color: "#b45309",
                           }}
                         >
-                          {s.severityText}
+                          {s.badge}
                         </span>
                       </div>
-                      <p style={{ fontSize: "0.88rem", color: "#475569", marginBottom: "0.6rem" }}>
-                        {s.description}
-                      </p>
-                      <div style={{ fontSize: "0.82rem", color: "#0f172a" }}>
-                        <strong>Độ sâu:</strong> {s.depth} | <strong>Thời gian:</strong> {s.duration} | <strong>Khu vực:</strong> {s.district}
+                      <div style={{ fontSize: "0.88rem", color: "#334155", marginBottom: "0.4rem" }}>
+                        <strong>Công nghệ:</strong> {s.technology}
+                      </div>
+                      <div style={{ fontSize: "0.85rem", color: "#065f46", marginBottom: "0.4rem" }}>
+                        <strong>Kết quả thực tiễn:</strong> {s.achievements}
                       </div>
                       <div
                         style={{
                           marginTop: "0.6rem",
                           paddingTop: "0.6rem",
                           borderTop: "1px dashed #e2e8f0",
-                          fontSize: "0.82rem",
-                          color: "#047857",
+                          fontSize: "0.8rem",
+                          color: "#64748b",
                         }}
                       >
-                        <strong>Dự án giải quyết:</strong> {s.status}
+                        <strong>Văn bằng / Nguồn:</strong> {s.legalDoc} • {s.source}
                       </div>
                     </div>
                   ))
@@ -817,14 +1232,13 @@ export default function Home() {
         {/* NGUỒN TÀI LIỆU & NÚT TẢI BỘ DỮ LIỆU */}
         <div className="data-sources-box">
           <div className="source-text">
-            <h4>Nguồn dữ liệu & Phương pháp luận</h4>
+            <h4>Nguồn tư liệu & Minh chứng khoa học</h4>
             <p>
-              Số liệu thu thập từ Sở Xây dựng TP.HCM, Báo cáo Quy hoạch Đô thị 2026, Bản tin Khí tượng Thủy văn Nam Bộ và tư liệu chuyên đề của Báo Thanh Niên.
+              Ấn phẩm kỷ niệm 60 năm “Đại học vì đồng bằng: Kiến tạo tri thức - Tiếp bước tiên phong”; Báo Cần Thơ, Báo Đồng Tháp, Báo Lao Động, VietnamPlus; Bằng độc quyền GPHI số 4743, 4797 và Quyết định công nhận lưu hành giống lúa Nông Dân 2.
             </p>
           </div>
           <a
             href="#"
-            id="download-dataset-btn"
             className="download-btn"
             onClick={handleDownloadDataset}
           >
@@ -849,13 +1263,13 @@ export default function Home() {
       <footer className="site-footer">
         <div className="footer-inner">
           <div className="footer-brand">
-            <h4>BÁO DỮ LIỆU TƯƠNG TÁC • DATA JOURNALISM TEMPLATE</h4>
+            <h4>TRI THỨC ĐẠI HỌC CẦN THƠ: TỪ NGHIÊN CỨU ĐẾN SẢN XUẤT THỰC TIỄN</h4>
             <p>
-              Thiết kế chuẩn hóa cho các bài báo chuyên sâu, phóng sự điều tra và trực quan hóa số liệu đô thị.
+              Sản phẩm báo chí dữ liệu đa phương tiện • Tôn vinh hành trình hơn 30 năm nghiên cứu ứng dụng phục vụ sự phát triển bền vững của Đồng bằng sông Cửu Long.
             </p>
           </div>
           <div className="footer-copy">
-            © 2026 Báo Thanh Niên & Tác giả Dữ liệu. Mẫu giao diện hỗ trợ tái sử dụng cho các dự án báo chí dữ liệu.
+            © 2026 Nhóm Phóng sự Dữ liệu ĐBSCL. Bản quyền nội dung và minh chứng số liệu thuộc Đại học Cần Thơ và các cơ quan truyền thông đối tác.
           </div>
         </div>
       </footer>
