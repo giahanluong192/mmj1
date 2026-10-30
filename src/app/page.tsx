@@ -188,11 +188,11 @@ export default function Home() {
 
           <div className="hero-meta">
             <span>
-              <strong>Nhóm thực hiện:</strong> {ARTICLE_DATA.meta.author}
+              <strong>Thực hiện:</strong> {ARTICLE_DATA.meta.author}
             </span>
             <span>•</span>
             <span>
-              <strong>Đồ họa:</strong> {ARTICLE_DATA.meta.graphics}
+              <strong>Người hướng dẫn:</strong> {ARTICLE_DATA.meta.advisor}
             </span>
             <span>•</span>
             <span>

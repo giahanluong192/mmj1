@@ -120,6 +120,7 @@ export interface ArticleData {
     title: string;
     subtitle: string;
     author: string;
+    advisor: string;
     graphics: string;
     sources: string;
     publishedDate: string;
@@ -191,7 +192,8 @@ export const ARTICLE_DATA: ArticleData = {
     subCategory: "KHOA HỌC VÀ ĐỜI SỐNG VÙNG ĐỒNG BẰNG SÔNG CỬU LONG",
     title: "TRI THỨC ĐẠI HỌC CẦN THƠ: TỪ NGHIÊN CỨU ĐẾN SẢN XUẤT THỰC TIỄN",
     subtitle: "Hơn 30 năm qua, tri thức ngành Nông - Thủy sản Đại học Cần Thơ luôn được kiểm chứng bằng thực tiễn, từng bước mở rộng theo hướng ứng dụng trong đời sống sản xuất. Những đóng góp ấy được nhìn nhận qua các số liệu về giống cây trồng, quy trình kỹ thuật và hoạt động chuyển giao công nghệ, qua đó phản ánh mối liên hệ giữa nghiên cứu khoa học và nhu cầu phát triển của vùng Đồng bằng sông Cửu Long.",
-    author: "Nhóm Phóng sự Dữ liệu & Đồ họa ĐBSCL",
+    author: "Nhóm 01",
+    advisor: "ThS. Nguyễn Thanh Liêm",
     graphics: "Interactive Visuals, Timeline & Map Storytelling",
     sources: "Ấn phẩm 60 năm ĐH Cần Thơ, Báo Cần Thơ, Báo Đồng Tháp, Báo Lao Động, VietnamPlus, Sở KH&CN các tỉnh ĐBSCL",
     publishedDate: "Tháng 10/2026",
