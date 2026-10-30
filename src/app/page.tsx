@@ -155,20 +155,18 @@ export default function Home() {
         </ul>
       </header>
 
-      {/* Bìa bài báo (Hero Section với Split Screen: Ruộng lúa & Bể cá) */}
+      {/* Bìa bài báo (Hero Section với hình nền toàn cảnh Đại học Cần Thơ) */}
       <section className="hero-section">
-        <div className="hero-split-bg">
-          <div className="split-panel split-rice" />
-          <div className="split-panel split-fish" />
-        </div>
+        <div
+          className="hero-campus-bg"
+          role="img"
+          aria-label="Toàn cảnh Khu II Trường Đại học Cần Thơ nhìn từ trên cao"
+        />
         <div className="hero-overlay-texture" />
 
         <div className="split-badge-container">
           <div className="split-badge-item">
-            <span>🌾</span> Ruộng khảo nghiệm lúa giống
-          </div>
-          <div className="split-badge-item">
-            <span>🐟</span> Bể tuần hoàn nghiên cứu thủy sản
+            <span>📍</span> Toàn cảnh Khu II – Đại học Cần Thơ (Đường 3/2, TP. Cần Thơ)
           </div>
         </div>
 

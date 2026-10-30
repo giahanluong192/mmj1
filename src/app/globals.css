@@ -136,7 +136,7 @@ body {
   background: var(--primary-emerald) !important;
 }
 
-/* --- HERO COVER SECTION (SPLIT BACKGROUND: RUỘNG LÚA & BỂ CÁ) --- */
+/* --- HERO COVER SECTION (TOÀN CẢNH ĐẠI HỌC CẦN THƠ) --- */
 .hero-section {
   position: relative;
   min-height: 85vh;
@@ -148,41 +148,28 @@ body {
   padding: 5rem 1.5rem 9rem;
   text-align: center;
   overflow: hidden;
+  background-color: #042f24;
 }
 
-/* Khung chia đôi background nghệ thuật */
-.hero-split-bg {
+/* Ảnh nền toàn cảnh Đại học Cần Thơ */
+.hero-campus-bg {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  display: flex;
+  inset: 0;
   z-index: 1;
-}
-
-.split-panel {
-  flex: 1;
-  position: relative;
-  overflow: hidden;
-}
-
-.split-rice {
-  background: linear-gradient(135deg, rgba(6, 78, 59, 0.88), rgba(180, 83, 9, 0.85)),
-              radial-gradient(circle at 30% 40%, rgba(245, 158, 11, 0.4), transparent 60%);
-  border-right: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-.split-fish {
-  background: linear-gradient(135deg, rgba(2, 132, 199, 0.88), rgba(6, 78, 59, 0.92)),
-              radial-gradient(circle at 70% 60%, rgba(14, 165, 233, 0.4), transparent 60%);
+  background-image: url("/ctu-campus.jpg");
+  background-size: cover;
+  background-position: center 55%;
+  background-repeat: no-repeat;
+  transform: scale(1.02);
 }
 
 .hero-overlay-texture {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  inset: 0;
   z-index: 2;
-  background-image: 
-    radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(6, 78, 59, 0.3) 0%, rgba(6, 78, 59, 0.92) 100%);
-  background-size: 24px 24px, 100% 100%;
+  background:
+    radial-gradient(ellipse 75% 65% at 50% 48%, rgba(4, 38, 29, 0.72) 0%, rgba(4, 38, 29, 0.42) 68%, rgba(4, 38, 29, 0.25) 100%),
+    linear-gradient(to bottom, rgba(4, 38, 29, 0.52) 0%, rgba(6, 78, 59, 0.45) 52%, rgba(4, 47, 36, 0.88) 100%);
   pointer-events: none;
 }
 
@@ -194,23 +181,22 @@ body {
   flex-wrap: wrap;
   gap: 0.5rem;
   padding: 0 1rem;
-  justify-content: space-around;
+  justify-content: center;
   z-index: 3;
-  opacity: 0.85;
+  opacity: 0.92;
   font-size: 0.8rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  letter-spacing: 0.6px;
 }
 
 .split-badge-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(4, 47, 36, 0.65);
   backdrop-filter: blur(8px);
-  padding: 0.4rem 1rem;
+  padding: 0.42rem 1.05rem;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.22);
 }
 
 .hero-container {
@@ -222,8 +208,8 @@ body {
 
 .category-tag {
   display: inline-block;
-  background: rgba(254, 243, 199, 0.2);
-  border: 1px solid rgba(245, 158, 11, 0.6);
+  background: rgba(4, 47, 36, 0.72);
+  border: 1px solid rgba(251, 191, 36, 0.75);
   color: #fef08a;
   font-size: 0.76rem;
   font-weight: 800;
@@ -232,7 +218,7 @@ body {
   border-radius: 999px;
   margin-bottom: 1.5rem;
   text-transform: uppercase;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(8px);
 }
 
 .hero-title {
@@ -242,17 +228,17 @@ body {
   font-weight: 900;
   margin-bottom: 1.5rem;
   letter-spacing: -0.5px;
-  text-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), 0 6px 28px rgba(0, 0, 0, 0.6);
 }
 
 .hero-subtitle {
   font-size: clamp(1.05rem, 1.8vw, 1.25rem);
-  color: #f1f5f9;
+  color: #f8fafc;
   max-width: 840px;
   margin: 0 auto 2.5rem;
-  font-weight: 350;
+  font-weight: 400;
   line-height: 1.7;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.65);
 }
 
 .hero-meta {
@@ -1725,7 +1711,7 @@ body {
     line-height: 1.3;
   }
   .hero-section {
-    padding: 3.5rem 1rem 12rem;
+    padding: 3.75rem 1rem 8.75rem;
     min-height: auto;
   }
   .split-badge-container {
