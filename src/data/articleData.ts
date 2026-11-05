@@ -241,7 +241,7 @@ export const ARTICLE_META = {
   titleMain: "BẢN ĐỒ CONCERT VIỆT\u00A0NAM:",
   titleAccent: "SỨC BẬT NỘI\u00A0SINH",
   // Sapo ngắn gọn, đi thẳng vào nội dung chính và tương quan dữ liệu theo chuẩn báo chí dữ liệu
-  sapo: "Hơn 810 sự kiện âm nhạc bùng nổ trong một năm cùng những đại nhạc hội nội địa 20.000–50.000 khán giả liên tục “cháy vé” chỉ sau vài chục phút mở bán đang đưa thị trường biểu diễn Việt\u00A0Nam bước vào độ chín chưa từng có. Thế nhưng, đằng sau những khán đài rực sáng ấy là dấu hỏi về tính bền vững của chuỗi giá trị kinh tế địa phương và một thực tế đáng suy ngẫm: Vì sao trên bản đồ World\u00A0Tour toàn cầu của các siêu sao quốc tế, Việt\u00A0Nam vẫn là điểm dừng chân đầy\u00A0thách\u00A0thức?",
+  sapo: "Những đại nhạc hội nội địa quy mô từ 20.000 đến 50.000 khán giả liên tục “cháy vé” chỉ sau chục phút mở bán đã minh chứng cho sự bùng nổ chưa từng có của thị trường biểu diễn Việt\u00A0Nam. Tuy nhiên, đằng sau những kỷ lục ấy là bài toán về tính bền vững của chuỗi giá trị kinh tế địa phương, cùng một thực tế đáng suy ngẫm: Vì sao Việt\u00A0Nam vẫn là một điểm dừng chân đầy thách thức trên bản đồ lưu diễn của các siêu sao quốc\u00A0tế?",
   publishDate: "Tháng 11/2026",
   author: "Nhóm 01",
   advisor: "ThS. Nguyễn Thanh Liêm",
