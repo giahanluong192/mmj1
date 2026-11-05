@@ -2668,24 +2668,67 @@ textarea {
   box-shadow: var(--shadow-card);
 }
 
-.sources-header-row {
+.sources-header-row,
+.sources-header-col {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  flex-wrap: wrap;
-  gap: 1.2rem;
+  flex-direction: column;
   margin-bottom: 1.4rem;
 }
 
 .sources-main-heading {
-  max-width: 640px;
-  font-size: clamp(1.16rem, 1.7vw, 1.32rem);
+  max-width: 720px;
+  font-size: clamp(1.2rem, 1.8vw, 1.42rem);
   font-weight: 800;
-  line-height: 1.38;
+  line-height: 1.36;
   letter-spacing: -0.012em;
   word-spacing: normal;
   margin-bottom: 0.35rem;
   text-wrap: balance;
+}
+
+.sources-stacked-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  width: 100%;
+}
+
+.sources-stacked-controls .sources-search-wrapper {
+  width: fit-content;
+  max-width: 100%;
+}
+
+.sources-stacked-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.58rem 1.25rem;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card-subtle);
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  width: fit-content;
+  max-width: 100%;
+  text-align: left;
+}
+
+.sources-stacked-tab-btn:hover {
+  background: var(--bg-inset);
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+.sources-stacked-tab-btn.active {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.28);
 }
 
 .sources-controls {

@@ -351,18 +351,16 @@ export function DataSourcesProvenance() {
 
   return (
     <section className="sources-provenance-section" id="bang-nguon">
-      <div className="sources-header-row">
-        <div>
-          <span className="pos-badge">HỒ SƠ MINH BẠCH DỮ LIỆU</span>
-          <h2 className="sources-main-heading">
-            Bảng đối chiếu toàn bộ nguồn số liệu, báo cáo học thuật &amp; văn&nbsp;kiện&nbsp;chính&nbsp;sách
-          </h2>
-          <p className="viz-subtitle">
-            Tra cứu vị trí trang chính xác trong Báo cáo RMIT 2025–2026 và các nguồn báo chí chính thống sử dụng trong&nbsp;bài
-          </p>
-        </div>
+      <div className="sources-header-col">
+        <h2 className="sources-main-heading">
+          Bảng đối chiếu dữ kiện, số liệu
+        </h2>
+        <p className="viz-subtitle">
+          Tra cứu vị trí trang chính xác trong Báo cáo RMIT 2025–2026 và các nguồn báo chí chính thống sử dụng trong&nbsp;bài
+        </p>
 
-        <div className="sources-controls">
+        <div className="sources-stacked-controls">
+          {/* Shape 1: Tìm số liệu */}
           <div className="sources-search-wrapper">
             <span className="sources-search-icon" aria-hidden="true">🔍</span>
             <input
@@ -384,22 +382,23 @@ export function DataSourcesProvenance() {
             )}
           </div>
 
-          <div className="viz-tabs">
-            <button
-              type="button"
-              className={`viz-tab-btn ${sourceTab === "rmit" ? "active" : ""}`}
-              onClick={() => setSourceTab("rmit")}
-            >
-              1. Báo cáo RMIT PDF ({filteredRmit.length})
-            </button>
-            <button
-              type="button"
-              className={`viz-tab-btn ${sourceTab === "press" ? "active" : ""}`}
-              onClick={() => setSourceTab("press")}
-            >
-              2. Chính sách &amp; Báo chính thống ({filteredPressAll.length})
-            </button>
-          </div>
+          {/* Shape 2: Tab 1 */}
+          <button
+            type="button"
+            className={`sources-stacked-tab-btn ${sourceTab === "rmit" ? "active" : ""}`}
+            onClick={() => setSourceTab("rmit")}
+          >
+            1. Từ Báo cáo của Trường Đại học RMIT Việt&nbsp;Nam ({filteredRmit.length})
+          </button>
+
+          {/* Shape 3: Tab 2 */}
+          <button
+            type="button"
+            className={`sources-stacked-tab-btn ${sourceTab === "press" ? "active" : ""}`}
+            onClick={() => setSourceTab("press")}
+          >
+            2. Từ các nguồn báo &amp; trang thông tin chính&nbsp;thống ({filteredPressAll.length})
+          </button>
         </div>
       </div>
 
