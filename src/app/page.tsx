@@ -216,7 +216,7 @@ export default function Home() {
           </h2>
 
           <p className="body-p">
-            Sự sôi động của các đêm nhạc nội sinh dễ mang lại cảm giác rằng Việt&nbsp;Nam đã sẵn sàng trở thành một “trung tâm biểu diễn mới” của châu&nbsp;Á. Thế nhưng, khi đặt số liệu sự kiện của nghệ sĩ nội địa cạnh các sự kiện của nghệ sĩ quốc tế tại Việt&nbsp;Nam, một khoảng cách lớn lập tức lộ&nbsp;diện.
+            Cũng trong năm 2025, bản đồ world tour của các nghệ sĩ quốc tế như G-Dragon, Tiffany Young hay BABYMONSTER đã chính thức gọi tên Hà&nbsp;Nội và TP.HCM. Tâm điểm phải kể đến đêm diễn thuộc tour <em>Übermensch</em> của “ông hoàng K-pop” G-Dragon tại Hà&nbsp;Nội, thiết lập kỷ lục với gần <strong>100.000 khán giả</strong> tham dự. Cột mốc này không chỉ đưa <em>Übermensch</em> trở thành show diễn quốc tế có quy mô lớn nhất từng tổ chức tại Việt&nbsp;Nam, mà còn giúp Hà&nbsp;Nội vươn lên thành điểm dừng chân đông đúc thứ hai toàn cầu của nam nghệ sĩ, chỉ xếp sau “thánh đường” Tokyo&nbsp;Dome. Dù những điểm sáng quốc tế này vẫn còn khá hiếm hoi, nhưng khi cộng hưởng cùng sức nóng của thị trường nội sinh, chúng dễ tạo ra cảm giác Việt&nbsp;Nam đã sẵn sàng trở thành một “trung tâm biểu diễn mới” của châu&nbsp;Á. Thế nhưng, khi đặt số liệu của các sự kiện nội địa lên bàn cân với số lượng tour diễn quốc tế thực sự tổ chức tại Việt&nbsp;Nam, một sự chênh lệch rõ nét lập tức lộ&nbsp;diện.
           </p>
         </div>
 
