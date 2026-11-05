@@ -42,6 +42,12 @@
   --badge-blue-border: #BAE6FD;
   --badge-red-bg: #FEF2F2;
   --badge-red-border: #FECACA;
+  --badge-gray-bg: #F1F5F9;
+  --badge-gray-border: #CBD5E1;
+  --badge-gray-text: #475569;
+  --badge-amber-bg: #FFFBEB;
+  --badge-amber-border: #FDE68A;
+  --badge-amber-text: #B45309;
 
   --tint-blue-bg: #F0F9FF;
   --tint-blue-border: #BAE6FD;
@@ -111,6 +117,12 @@
   --badge-blue-border: rgba(56, 189, 248, 0.35);
   --badge-red-bg: rgba(239, 68, 68, 0.16);
   --badge-red-border: rgba(239, 68, 68, 0.38);
+  --badge-gray-bg: rgba(148, 163, 184, 0.14);
+  --badge-gray-border: rgba(148, 163, 184, 0.3);
+  --badge-gray-text: #E2E8F0;
+  --badge-amber-bg: rgba(245, 158, 11, 0.14);
+  --badge-amber-border: rgba(245, 158, 11, 0.35);
+  --badge-amber-text: #FBBF24;
 
   --tint-blue-bg: rgba(56, 189, 248, 0.11);
   --tint-blue-border: rgba(56, 189, 248, 0.32);
@@ -298,7 +310,7 @@ textarea {
 .nav-chapter-links {
   display: flex;
   align-items: center;
-  gap: 1.15rem;
+  gap: 0.75rem;
   list-style: none;
   flex-wrap: wrap;
 }
@@ -308,20 +320,50 @@ textarea {
   color: var(--text-secondary);
   font-size: 0.86rem;
   font-weight: 600;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .nav-chapter-links a:hover {
   color: var(--accent-blue);
 }
 
+.nav-pill {
+  padding: 0.32rem 0.85rem;
+  border-radius: 999px;
+  font-weight: 700 !important;
+  display: inline-block;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.nav-pill-gray {
+  background: var(--badge-gray-bg);
+  border: 1px solid var(--badge-gray-border);
+  color: var(--badge-gray-text) !important;
+}
+
+.nav-pill-blue {
+  background: var(--badge-blue-bg);
+  border: 1px solid var(--badge-blue-border);
+  color: var(--accent-blue) !important;
+}
+
+.nav-pill-amber {
+  background: var(--badge-amber-bg);
+  border: 1px solid var(--badge-amber-border);
+  color: var(--badge-amber-text) !important;
+}
+
+.nav-pill-red,
 .nav-redstar-pill {
   background: var(--badge-red-bg);
   border: 1px solid var(--badge-red-border);
   color: var(--vn-red) !important;
-  padding: 0.32rem 0.85rem;
-  border-radius: 999px;
-  font-weight: 700 !important;
+}
+
+.nav-pill:hover {
+  filter: brightness(0.95);
+  transform: translateY(-1px);
 }
 
 /* --- SECTION / VIZ TOPIC BADGE --- */

@@ -86,17 +86,23 @@ export default function Home() {
         <nav aria-label="Điều hướng các phần bài báo">
           <ul className="nav-chapter-links">
             <li>
-              <a href="#chuong-1">1. Concert nội sinh</a>
+              <a href="#chuong-1" className="nav-pill nav-pill-gray">
+                1. Concert nội sinh
+              </a>
             </li>
             <li>
-              <a href="#chuong-2">2. Hiệu ứng pháo hoa</a>
+              <a href="#chuong-2" className="nav-pill nav-pill-blue">
+                2. Hiệu ứng pháo hoa
+              </a>
             </li>
             <li>
-              <a href="#chuong-3">3. Khoảng cách World Tour</a>
+              <a href="#chuong-3" className="nav-pill nav-pill-amber">
+                3. Khoảng cách đến World Tour
+              </a>
             </li>
             <li>
-              <a href="#chuong-4" className="nav-redstar-pill">
-                4. Bệ phóng Nghị quyết 80
+              <a href="#chuong-4" className="nav-pill nav-pill-red">
+                4. Phát triển văn hóa Việt
               </a>
             </li>
             <li>
