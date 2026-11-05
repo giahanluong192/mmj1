@@ -313,7 +313,7 @@ export default function Home() {
             ★ BỆ PHÓNG THỂ CHẾ & CHIẾN LƯỢC CẤT CÁNH
           </div>
           <h2 className="chapter-h2">
-            Lời giải để Việt&nbsp;Nam lên bản đồ tour&nbsp;diễn&nbsp;thế&nbsp;giới
+            LỜI GIẢI ĐỂ VIỆT&nbsp;NAM LÊN BẢN ĐỒ WORLD&nbsp;TOUR
           </h2>
 
           <p className="body-p">
