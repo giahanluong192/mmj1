@@ -113,7 +113,6 @@ export default function Home() {
           ===================================================================== */}
       <main className="editorial-section" id="chuong-1">
         <div className="prose-column">
-          <div className="chapter-kicker">SỨC BẬT THỊ TRƯỜNG NỘI ĐỊA</div>
           <h2 className="chapter-h2">
             KỶ NGUYÊN “CONCERT NỘI SINH” — KHI NGƯỜI&nbsp;VIỆT
             <br />
@@ -179,7 +178,6 @@ export default function Home() {
           ===================================================================== */}
       <section className="editorial-section alt-dark-band" id="chuong-2">
         <div className="prose-column">
-          <div className="chapter-kicker">PHẢN BIỆN CHUỖI GIÁ TRỊ & TÍNH BỀN VỮNG</div>
           <h2 className="chapter-h2">
             HIỆU ỨNG PHÁO HOA VÀ CUỘC ĐUA ĐẠI NHẠC HỘI TẠI ĐỊA&nbsp;PHƯƠNG
           </h2>
@@ -209,7 +207,6 @@ export default function Home() {
           ===================================================================== */}
       <section className="editorial-section" id="chuong-3">
         <div className="prose-column">
-          <div className="chapter-kicker">TƯƠNG QUAN NỘI – NGOẠI & 5 ĐIỂM NGHẼN HỆ THỐNG</div>
           <h2 className="chapter-h2">
             BỨC TRANH TƯƠNG QUAN GIỮA CONCERT NỘI ĐỊA VÀ QUỐC TẾ TẠI VIỆT&nbsp;NAM
           </h2>
