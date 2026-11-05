@@ -117,7 +117,9 @@ export default function Home() {
         <div className="prose-column">
           <div className="chapter-kicker">SỨC BẬT THỊ TRƯỜNG NỘI ĐỊA</div>
           <h2 className="chapter-h2">
-            Kỷ nguyên “Concert nội sinh” — Khi người Việt chi tiền triệu cho&nbsp;nhạc&nbsp;Việt
+            Kỷ nguyên “Concert nội sinh” — Khi người&nbsp;Việt
+            <br />
+            chi tiền triệu cho&nbsp;nhạc&nbsp;Việt
           </h2>
 
           <p className="body-p">
