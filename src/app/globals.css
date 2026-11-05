@@ -623,7 +623,7 @@ textarea {
   word-spacing: normal;
   color: var(--text-primary);
   margin-bottom: 1.5rem;
-  text-wrap: balance;
+  text-wrap: normal;
 }
 
 .editorial-sub-h3 {
