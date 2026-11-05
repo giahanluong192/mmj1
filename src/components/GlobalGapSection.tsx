@@ -30,7 +30,7 @@ export function ArtistOriginGroupedChart() {
       <div className="viz-header">
         <div>
           <span className="pos-badge">
-            VỊ TRÍ 9 • BIỂU ĐỒ CỘT GHÉP (GROUPED BAR): NGUỒN GỐC NGHỆ SĨ & QUY MÔ KHÁN GIẢ
+            NGUỒN GỐC NGHỆ SĨ & QUY MÔ KHÁN GIẢ
           </span>
           <h3 className="viz-title">
             Khoảng cách lộ diện: 101 đại nhạc hội thuần nội địa nhưng chỉ có 4 đêm diễn độc lập của sao quốc tế ở quy mô 10.000–40.000 người
@@ -43,13 +43,13 @@ export function ArtistOriginGroupedChart() {
 
       <div className="grouped-legend-row">
         <span>
-          <i style={{ backgroundColor: "#0284C7" }} /> Chỉ có Nghệ sĩ Nội địa
+          <i style={{ backgroundColor: "var(--accent-blue)" }} /> Chỉ có Nghệ sĩ Nội địa
         </span>
         <span>
-          <i style={{ backgroundColor: "#E11D48" }} /> Chỉ có Nghệ sĩ Quốc tế
+          <i style={{ backgroundColor: "var(--accent-rose)" }} /> Chỉ có Nghệ sĩ Quốc tế
         </span>
         <span>
-          <i style={{ backgroundColor: "#D97706" }} /> Kết hợp Nội địa & Quốc tế
+          <i style={{ backgroundColor: "var(--accent-amber)" }} /> Kết hợp Nội địa & Quốc tế
         </span>
       </div>
 
@@ -67,40 +67,40 @@ export function ArtistOriginGroupedChart() {
             >
               <div className="grouped-columns-stage">
                 <div className="g-bar-wrap">
-                  <span className="g-bar-num" style={{ color: "#0284C7" }}>
+                  <span className="g-bar-num" style={{ color: "var(--accent-blue)" }}>
                     {row.domesticOnly}
                   </span>
                   <div
                     className="g-bar"
                     style={{
                       height: `${Math.max(4, (row.domesticOnly / maxEvents) * 100)}%`,
-                      backgroundColor: "#0284C7",
+                      backgroundColor: "var(--accent-blue)",
                     }}
                   />
                 </div>
 
                 <div className="g-bar-wrap">
-                  <span className="g-bar-num" style={{ color: "#E11D48" }}>
+                  <span className="g-bar-num" style={{ color: "var(--accent-rose)" }}>
                     {row.internationalOnly}
                   </span>
                   <div
                     className="g-bar"
                     style={{
                       height: `${Math.max(3, (row.internationalOnly / maxEvents) * 100)}%`,
-                      backgroundColor: "#E11D48",
+                      backgroundColor: "var(--accent-rose)",
                     }}
                   />
                 </div>
 
                 <div className="g-bar-wrap">
-                  <span className="g-bar-num" style={{ color: "#D97706" }}>
+                  <span className="g-bar-num" style={{ color: "var(--accent-amber)" }}>
                     {row.combined}
                   </span>
                   <div
                     className="g-bar"
                     style={{
                       height: `${Math.max(3, (row.combined / maxEvents) * 100)}%`,
-                      backgroundColor: "#D97706",
+                      backgroundColor: "var(--accent-amber)",
                     }}
                   />
                 </div>
@@ -119,11 +119,11 @@ export function ArtistOriginGroupedChart() {
         <div>
           <strong>Phân khúc đang chọn ({activeItem.scale}):</strong> Tổng cộng{" "}
           <strong>{totalInActive} sự kiện</strong> — trong đó chương trình độc lập của nghệ sĩ quốc tế chỉ chiếm{" "}
-          <strong style={{ color: "#E11D48" }}>
+          <strong style={{ color: "var(--accent-rose)" }}>
             {activeItem.internationalOnly} sự kiện ({intlPct}%)
           </strong>
           , nghệ sĩ nội địa áp đảo với{" "}
-          <strong style={{ color: "#0284C7" }}>{activeItem.domesticOnly} sự kiện</strong> (và{" "}
+          <strong style={{ color: "var(--accent-blue)" }}>{activeItem.domesticOnly} sự kiện</strong> (và{" "}
           {activeItem.combined} sự kiện kết hợp).
         </div>
       </div>
@@ -181,13 +181,13 @@ export function SeaInfrastructureRadarAndTable() {
       <div className="viz-header">
         <div>
           <span className="pos-badge">
-            VỊ TRÍ 10 • BIỂU ĐỒ RADAR 5 TRỤC & BẢNG SO SÁNH HẠ TẦNG BIỂU DIỄN ĐÔNG NAM Á
+            SO SÁNH HẠ TẦNG BIỂU DIỄN ĐÔNG NAM Á
           </span>
           <h3 className="viz-title">
             Đặt TP.HCM & Hà Nội cạnh Singapore, Bangkok và Jakarta trên 5 trụ cột đón World Tour
           </h3>
           <p className="viz-subtitle">
-            Bật/tắt từng quốc gia trên biểu đồ Radar và đối chiếu thông số hạ tầng kỹ thuật – ARPU nhạc số dự báo đến năm 2030
+            Bật/tắt từng quốc gia để đối chiếu tương quan 5 trụ cột hạ tầng kỹ thuật và ARPU nhạc số dự báo đến năm 2030
           </p>
         </div>
 
@@ -200,8 +200,8 @@ export function SeaInfrastructureRadarAndTable() {
                 type="button"
                 className={`radar-toggle-chip ${active ? "on" : "off"}`}
                 style={{
-                  borderColor: active ? c.color : "#CBD5E1",
-                  color: active ? "#0F172A" : "#94A3B8",
+                  borderColor: active ? c.color : "var(--border-strong)",
+                  color: active ? "var(--text-primary)" : "var(--text-muted)",
                 }}
                 onClick={() => toggleCountry(c.id)}
               >
@@ -220,7 +220,7 @@ export function SeaInfrastructureRadarAndTable() {
             viewBox="0 0 390 365"
             className="radar-svg"
             role="img"
-            aria-label="Biểu đồ Radar 5 chỉ số hạ tầng biểu diễn Đông Nam Á"
+            aria-label="Đối chiếu 5 chỉ số hạ tầng biểu diễn Đông Nam Á"
           >
             {/* Concentric pentagons (2, 4, 6, 8, 10) */}
             {[2, 4, 6, 8, 10].map((level) => {
@@ -233,13 +233,13 @@ export function SeaInfrastructureRadarAndTable() {
                   <polygon
                     points={pts}
                     fill="none"
-                    stroke="#CBD5E1"
+                    stroke="var(--svg-grid)"
                     strokeWidth={level === 10 ? 1.5 : 1}
                   />
                   <text
                     x={cx + 4}
                     y={cy - (level / 10) * maxR + 10}
-                    fill="#64748B"
+                    fill="var(--text-muted)"
                     fontSize="9"
                   >
                     {level}
@@ -265,14 +265,14 @@ export function SeaInfrastructureRadarAndTable() {
                     y1={cy}
                     x2={outer.x}
                     y2={outer.y}
-                    stroke="#94A3B8"
+                    stroke="var(--svg-axis)"
                     strokeWidth="1"
                   />
                   <text
                     x={labelPos.x}
                     y={labelPos.y}
                     textAnchor={anchor}
-                    fill="#1E293B"
+                    fill="var(--text-body)"
                     fontSize="10.5"
                     fontWeight="700"
                   >
@@ -417,7 +417,7 @@ export function MotionGraphic90sPlayer() {
       <div className="viz-header">
         <div>
           <span className="pos-badge">
-            VỊ TRÍ 11 • MOTION GRAPHIC EXPLAINER (90 GIÂY): HÀNH TRÌNH ĐƯA SAO QUỐC TẾ VỀ VIỆT NAM
+            HÀNH TRÌNH ĐƯA SAO QUỐC TẾ VỀ VIỆT NAM
           </span>
           <h3 className="viz-title">
             Từ khoản cọc 2 triệu USD đến bài toán cân não giá vé của Promoter nội địa

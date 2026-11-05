@@ -1,9 +1,9 @@
 /* ============================================================================
    BẢN ĐỒ CONCERT VIỆT NAM: SỨC BẬT NỘI SINH
-   MULTIMEDIA DATA JOURNALISM & SCROLLYTELLING STYLESHEET (LIGHT MODE)
+   MULTIMEDIA DATA JOURNALISM & SCROLLYTELLING STYLESHEET (LIGHT + DARK MODES)
    ----------------------------------------------------------------------------
-   - Background: Editorial Light Mode (#FAF9F6 / #F1F5F9 / #FFFFFF)
-   - Accents: Sapphire Blue (#0284C7), Rose (#E11D48), Amber (#D97706), Đỏ Sao Vàng (#DA251D)
+   - Default Theme (:root): Editorial Light Mode (#FAF9F6 / #F1F5F9 / #FFFFFF)
+   - Alternate Theme ([data-theme="dark"]): Concert Dark Mode (#0B0C10 / #151926)
    - Typography: Montserrat (Headings) & Inter 18px / 1.68 (Body Copy)
    ============================================================================ */
 
@@ -13,11 +13,13 @@
   --bg-card: #FFFFFF;
   --bg-card-subtle: #F8FAFC;
   --bg-inset: #F1F5F9;
+  --bg-nav: rgba(250, 249, 246, 0.92);
 
   --border-subtle: #E2E8F0;
   --border-strong: #CBD5E1;
 
   --text-primary: #0F172A;
+  --text-secondary: #334155;
   --text-body: #1E293B;
   --text-muted: #64748B;
 
@@ -30,8 +32,114 @@
   --vn-gold-text: #B45309;
   --vn-gold-bright: #F59E0B;
 
+  --svg-track: #E2E8F0;
+  --svg-grid: #CBD5E1;
+  --svg-axis: #94A3B8;
+  --map-land: #E2E8F0;
+  --map-stroke: #94A3B8;
+
+  --badge-blue-bg: #E0F2FE;
+  --badge-blue-border: #BAE6FD;
+  --badge-red-bg: #FEF2F2;
+  --badge-red-border: #FECACA;
+
+  --tint-blue-bg: #F0F9FF;
+  --tint-blue-border: #BAE6FD;
+  --tint-rose-bg: #FFF1F2;
+  --tint-rose-border: #FECDD3;
+  --tint-amber-bg: #FFFBEB;
+  --tint-amber-border: #FDE68A;
+  --tint-amber-text: #78350F;
+  --tint-red-bg: #FEF2F2;
+  --tint-red-border: #FECACA;
+  --tint-red-text: #7F1D1D;
+  --tint-purple-bg: #F5F3FF;
+
+  --hero-bg: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 55%, #F1F5F9 100%);
+  --hero-stage-bg: radial-gradient(circle at 50% 18%, #EFF6FF 0%, #FAF9F6 76%);
+  --hero-vignette: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.42) 0%,
+    rgba(250, 249, 246, 0.35) 50%,
+    rgba(250, 249, 246, 0.94) 100%
+  );
+  --chapter4-bg:
+    radial-gradient(circle at 85% 8%, rgba(218, 37, 29, 0.06), transparent 45%),
+    linear-gradient(180deg, #FFFDF9 0%, #FAF9F6 100%);
+  --redstar-card-bg: linear-gradient(180deg, #FFFFFF 0%, #FFFDF9 100%);
+  --callout-national-bg: linear-gradient(135deg, #FEF2F2, #FFFBEB);
+  --motion-screen-bg: linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%);
+  --manifesto-bg: linear-gradient(135deg, #F0F9FF, #FEF2F2);
+  --shadow-card: 0 12px 36px rgba(15, 23, 42, 0.05);
+
   --font-display: var(--font-montserrat), "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: var(--font-inter), "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+[data-theme="dark"] {
+  --bg-page: #0B0C10;
+  --bg-band: #10131C;
+  --bg-card: #151926;
+  --bg-card-subtle: #1B2030;
+  --bg-inset: #22283B;
+  --bg-nav: rgba(11, 12, 16, 0.9);
+
+  --border-subtle: #262D42;
+  --border-strong: #36415E;
+
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-body: #E2E8F0;
+  --text-muted: #94A3B8;
+
+  --accent-blue: #38BDF8;
+  --accent-rose: #FB7185;
+  --accent-purple: #A78BFA;
+  --accent-amber: #FBBF24;
+
+  --vn-red: #EF4444;
+  --vn-gold-text: #FBBF24;
+  --vn-gold-bright: #FACC15;
+
+  --svg-track: #262D42;
+  --svg-grid: #2D364F;
+  --svg-axis: #475569;
+  --map-land: #1E263B;
+  --map-stroke: #475569;
+
+  --badge-blue-bg: rgba(56, 189, 248, 0.14);
+  --badge-blue-border: rgba(56, 189, 248, 0.35);
+  --badge-red-bg: rgba(239, 68, 68, 0.16);
+  --badge-red-border: rgba(239, 68, 68, 0.38);
+
+  --tint-blue-bg: rgba(56, 189, 248, 0.11);
+  --tint-blue-border: rgba(56, 189, 248, 0.32);
+  --tint-rose-bg: rgba(251, 113, 133, 0.11);
+  --tint-rose-border: rgba(251, 113, 133, 0.32);
+  --tint-amber-bg: rgba(245, 158, 11, 0.12);
+  --tint-amber-border: rgba(245, 158, 11, 0.34);
+  --tint-amber-text: #FDE68A;
+  --tint-red-bg: rgba(239, 68, 68, 0.12);
+  --tint-red-border: rgba(239, 68, 68, 0.34);
+  --tint-red-text: #FECACA;
+  --tint-purple-bg: rgba(167, 139, 250, 0.13);
+
+  --hero-bg: linear-gradient(180deg, #090A10 0%, #0E111B 55%, #121624 100%);
+  --hero-stage-bg: radial-gradient(circle at 50% 18%, #172038 0%, #0B0C10 78%);
+  --hero-vignette: linear-gradient(
+    to bottom,
+    rgba(11, 12, 16, 0.35) 0%,
+    rgba(11, 12, 16, 0.45) 50%,
+    rgba(11, 12, 16, 0.94) 100%
+  );
+  --chapter4-bg:
+    radial-gradient(circle at 85% 8%, rgba(239, 68, 68, 0.12), transparent 45%),
+    linear-gradient(180deg, #131118 0%, #0B0C10 100%);
+  --redstar-card-bg: linear-gradient(180deg, #171824 0%, #1B1620 100%);
+  --callout-national-bg: linear-gradient(135deg, rgba(218, 37, 29, 0.16), rgba(245, 158, 11, 0.1));
+  --motion-screen-bg: linear-gradient(135deg, #161B2B 0%, #101728 100%);
+  --manifesto-bg: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(239, 68, 68, 0.12));
+  --shadow-card: 0 16px 40px rgba(0, 0, 0, 0.42);
 }
 
 * {
@@ -45,6 +153,7 @@ html {
   font-size: 16px;
   background-color: var(--bg-page);
   color: var(--text-body);
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 body {
@@ -55,6 +164,13 @@ body {
   line-height: 1.68;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.concert-page-root {
+  background-color: var(--bg-page);
+  color: var(--text-body);
+  min-height: 100vh;
 }
 
 h1,
@@ -96,9 +212,16 @@ textarea {
   align-items: center;
   gap: 1rem;
   padding: 0.8rem 1.75rem;
-  background: rgba(250, 249, 246, 0.92);
+  background: var(--bg-nav);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border-subtle);
+}
+
+.nav-left-group {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
 }
 
 .nav-brand {
@@ -120,13 +243,39 @@ textarea {
   flex-shrink: 0;
   border-radius: 50%;
   background: var(--vn-red);
-  box-shadow: 0 0 0 3px rgba(218, 37, 29, 0.18);
+  box-shadow: 0 0 0 3px rgba(218, 37, 29, 0.22);
   animation: pulseGlow 1.8s infinite;
 }
 
 @keyframes pulseGlow {
   0%, 100% { transform: scale(0.95); opacity: 0.85; }
   50% { transform: scale(1.18); opacity: 1; }
+}
+
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.34rem 0.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--accent-blue);
+  transform: translateY(-1px);
+}
+
+.theme-toggle-icon {
+  font-size: 0.85rem;
+  line-height: 1;
 }
 
 .nav-chapter-links {
@@ -139,7 +288,7 @@ textarea {
 
 .nav-chapter-links a {
   text-decoration: none;
-  color: #475569;
+  color: var(--text-secondary);
   font-size: 0.86rem;
   font-weight: 600;
   transition: color 0.2s ease;
@@ -150,15 +299,15 @@ textarea {
 }
 
 .nav-redstar-pill {
-  background: #FEF2F2;
-  border: 1px solid rgba(218, 37, 29, 0.35);
+  background: var(--badge-red-bg);
+  border: 1px solid var(--badge-red-border);
   color: var(--vn-red) !important;
   padding: 0.32rem 0.85rem;
   border-radius: 999px;
   font-weight: 700 !important;
 }
 
-/* --- POSITION BADGE --- */
+/* --- SECTION / VIZ TOPIC BADGE --- */
 .pos-badge {
   display: inline-block;
   font-family: var(--font-display);
@@ -167,8 +316,8 @@ textarea {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent-blue);
-  background: #E0F2FE;
-  border: 1px solid #BAE6FD;
+  background: var(--badge-blue-bg);
+  border: 1px solid var(--badge-blue-border);
   padding: 0.28rem 0.75rem;
   border-radius: 999px;
   margin-bottom: 0.65rem;
@@ -176,30 +325,31 @@ textarea {
 
 .redstar-badge {
   color: var(--vn-red);
-  background: #FEF2F2;
-  border-color: #FECACA;
+  background: var(--badge-red-bg);
+  border-color: var(--badge-red-border);
 }
 
 /* ============================================================================
-   [VỊ TRÍ 1] HERO CONCERT LOOP SECTION (LIGHT MODE)
+   HERO CONCERT LOOP SECTION
    ============================================================================ */
 .hero-concert-section {
   position: relative;
-  min-height: 82vh;
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 1.75rem 1.5rem 5rem;
+  justify-content: center;
+  align-items: center;
+  padding: 4.25rem 1.5rem 5.25rem;
   overflow: hidden;
   border-bottom: 1px solid var(--border-subtle);
-  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 55%, #F1F5F9 100%);
+  background: var(--hero-bg);
 }
 
 .hero-video-stage {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: radial-gradient(circle at 50% 18%, #EFF6FF 0%, #FAF9F6 76%);
+  background: var(--hero-stage-bg);
 }
 
 .hero-stadium-svg {
@@ -213,92 +363,22 @@ textarea {
 }
 
 @keyframes lightstickWave {
-  0% { opacity: 0.22; transform: translateY(0px); }
-  100% { opacity: 0.62; transform: translateY(-0.6px); }
+  0% { opacity: 0.24; transform: translateY(0px); }
+  100% { opacity: 0.68; transform: translateY(-0.6px); }
 }
 
-.hero-light-vignette {
+.hero-stage-vignette {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.45) 0%,
-    rgba(250, 249, 246, 0.35) 50%,
-    rgba(250, 249, 246, 0.94) 100%
-  );
-}
-
-.hero-loop-hud {
-  position: relative;
-  z-index: 3;
-  max-width: 1180px;
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.flycam-switcher {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.flycam-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-muted);
-  font-size: 0.76rem;
-  font-weight: 600;
-  padding: 0.35rem 0.75rem;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.flycam-pill.active {
-  border-color: var(--accent-blue);
-  color: var(--text-primary);
-  background: #FFFFFF;
-  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.12);
-}
-
-.flycam-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
+  background: var(--hero-vignette);
 }
 
 .hero-content-wrap {
   position: relative;
   z-index: 3;
   max-width: 980px;
-  margin: 2.25rem auto 0;
+  margin: 0 auto;
   text-align: center;
-}
-
-.hero-kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #334155;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid var(--border-strong);
-  padding: 0.38rem 1rem;
-  border-radius: 999px;
-  margin-bottom: 1.4rem;
 }
 
 .hero-main-title {
@@ -327,46 +407,8 @@ textarea {
   margin: 0 auto 1.75rem;
   font-size: clamp(1.05rem, 1.45vw, 1.2rem);
   line-height: 1.68;
-  color: #334155;
+  color: var(--text-secondary);
   font-weight: 500;
-}
-
-.hero-shot-caption-bar {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  max-width: 820px;
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid var(--border-subtle);
-  border-radius: 12px;
-  padding: 0.65rem 1rem;
-  font-size: 0.86rem;
-  color: #334155;
-  text-align: left;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
-}
-
-.shot-live-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  white-space: nowrap;
-  font-family: var(--font-display);
-  font-size: 0.72rem;
-  font-weight: 800;
-  color: var(--vn-red);
-  background: #FEF2F2;
-  border: 1px solid #FECACA;
-  padding: 0.24rem 0.55rem;
-  border-radius: 6px;
-}
-
-.rec-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--vn-red);
 }
 
 .hero-meta-strip {
@@ -376,7 +418,7 @@ textarea {
   flex-wrap: wrap;
   gap: 0.75rem;
   font-size: 0.92rem;
-  color: #334155;
+  color: var(--text-secondary);
   padding-top: 1rem;
   border-top: 1px solid var(--border-subtle);
 }
@@ -386,7 +428,7 @@ textarea {
 }
 
 .meta-pipe {
-  color: #94A3B8;
+  color: var(--text-muted);
 }
 
 /* --- 4 KEY METRICS STRIP --- */
@@ -410,7 +452,7 @@ textarea {
   border-top-width: 4px;
   border-radius: 16px;
   padding: 1.35rem 1.25rem;
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+  box-shadow: var(--shadow-card);
 }
 
 .kpi-neon-card.accent-cyan { border-top-color: var(--accent-blue); }
@@ -449,7 +491,7 @@ textarea {
 .kpi-detail {
   font-size: 0.86rem;
   line-height: 1.5;
-  color: #475569;
+  color: var(--text-secondary);
   margin-bottom: 0.6rem;
 }
 
@@ -474,10 +516,8 @@ textarea {
 }
 
 .chapter4-redstar-band {
-  background:
-    radial-gradient(circle at 85% 8%, rgba(218, 37, 29, 0.06), transparent 45%),
-    linear-gradient(180deg, #FFFDF9 0%, #FAF9F6 100%);
-  border-top: 2px solid rgba(218, 37, 29, 0.35);
+  background: var(--chapter4-bg);
+  border-top: 2px solid rgba(218, 37, 29, 0.38);
 }
 
 .prose-column {
@@ -537,8 +577,8 @@ textarea {
 }
 
 .national-concert-callout {
-  background: linear-gradient(135deg, #FEF2F2, #FFFBEB);
-  border: 1px solid #FECACA;
+  background: var(--callout-national-bg);
+  border: 1px solid var(--tint-red-border);
   border-left: 5px solid var(--vn-red);
   border-radius: 14px;
   padding: 1.35rem 1.5rem;
@@ -561,7 +601,7 @@ textarea {
 .national-concert-callout p {
   font-size: 1.04rem;
   line-height: 1.65;
-  color: #1E293B;
+  color: var(--text-body);
 }
 
 .editorial-bullet-list {
@@ -582,12 +622,12 @@ textarea {
   border: 1px solid var(--border-subtle);
   border-radius: 20px;
   padding: 2rem;
-  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.05);
+  box-shadow: var(--shadow-card);
 }
 
 .redstar-card {
-  border-color: #FECACA;
-  background: linear-gradient(180deg, #FFFFFF 0%, #FFFDF9 100%);
+  border-color: var(--tint-red-border);
+  background: var(--redstar-card-bg);
 }
 
 .viz-header {
@@ -624,7 +664,7 @@ textarea {
 .viz-tab-btn {
   background: var(--bg-inset);
   border: 1px solid var(--border-strong);
-  color: #475569;
+  color: var(--text-secondary);
   font-size: 0.84rem;
   font-weight: 700;
   padding: 0.5rem 0.95rem;
@@ -635,13 +675,17 @@ textarea {
 
 .viz-tab-btn:hover {
   color: var(--text-primary);
-  background: #E2E8F0;
+  border-color: var(--accent-blue);
 }
 
 .viz-tab-btn.active {
   background: var(--accent-blue);
   border-color: var(--accent-blue);
   color: #FFFFFF;
+}
+
+[data-theme="dark"] .viz-tab-btn.active {
+  color: #0B0C10;
 }
 
 .viz-caption-footer {
@@ -653,7 +697,7 @@ textarea {
 }
 
 /* ============================================================================
-   [VỊ TRÍ 2] DONUT CHART & ICONIC CONCERTS CARDS
+   DONUT CHART & ICONIC CONCERTS CARDS
    ============================================================================ */
 .donut-layout {
   display: grid;
@@ -694,7 +738,7 @@ textarea {
 
 .donut-center-muted {
   font-size: 9.5px;
-  fill: #64748B;
+  fill: var(--text-muted);
 }
 
 .donut-spotlight-box {
@@ -727,7 +771,7 @@ textarea {
 
 .spotlight-note {
   font-size: 0.84rem;
-  color: #475569;
+  color: var(--text-secondary);
   line-height: 1.45;
 }
 
@@ -753,7 +797,7 @@ textarea {
 
 .donut-legend-row.selected {
   border-color: var(--accent-blue);
-  background: #F0F9FF;
+  background: var(--tint-blue-bg);
   transform: translateX(4px);
 }
 
@@ -786,15 +830,15 @@ textarea {
   text-transform: uppercase;
   padding: 0.12rem 0.45rem;
   border-radius: 999px;
-  background: #FCE7F3;
-  color: #BE185D;
+  background: var(--tint-rose-bg);
+  color: var(--accent-rose);
 }
 
 .legend-mini-bar-track {
   width: 180px;
   max-width: 100%;
   height: 5px;
-  background: #E2E8F0;
+  background: var(--svg-track);
   border-radius: 999px;
   margin-top: 0.35rem;
   overflow: hidden;
@@ -822,7 +866,7 @@ textarea {
 .mini-filter-pill {
   background: var(--bg-inset);
   border: 1px solid var(--border-subtle);
-  color: #475569;
+  color: var(--text-secondary);
   font-size: 0.8rem;
   font-weight: 600;
   padding: 0.38rem 0.8rem;
@@ -864,7 +908,7 @@ textarea {
   border: 1px solid;
   padding: 0.15rem 0.55rem;
   border-radius: 999px;
-  background: #FFFFFF;
+  background: var(--bg-card);
 }
 
 .concert-time-tag {
@@ -895,7 +939,7 @@ textarea {
 
 .concert-audience-track {
   height: 6px;
-  background: #E2E8F0;
+  background: var(--svg-track);
   border-radius: 999px;
   overflow: hidden;
   margin-bottom: 0.65rem;
@@ -908,12 +952,12 @@ textarea {
 
 .concert-speed-note {
   font-size: 0.82rem;
-  color: #334155;
+  color: var(--text-secondary);
   line-height: 1.45;
 }
 
 /* ============================================================================
-   [VỊ TRÍ 3] 100% STACKED HORIZONTAL BAR CHART
+   100% STACKED HORIZONTAL BAR CHART
    ============================================================================ */
 .stacked-legend-bar {
   display: flex;
@@ -921,7 +965,7 @@ textarea {
   gap: 1rem;
   margin-bottom: 1.25rem;
   font-size: 0.82rem;
-  color: #334155;
+  color: var(--text-secondary);
   font-weight: 600;
 }
 
@@ -953,7 +997,7 @@ textarea {
 
 .stacked-row-card.focused {
   border-color: var(--accent-blue);
-  background: #F0F9FF;
+  background: var(--tint-blue-bg);
 }
 
 .stacked-row-top {
@@ -982,7 +1026,7 @@ textarea {
   height: 30px;
   border-radius: 8px;
   overflow: hidden;
-  background: #E2E8F0;
+  background: var(--svg-track);
 }
 
 .stacked-segment {
@@ -990,7 +1034,7 @@ textarea {
   align-items: center;
   justify-content: center;
   height: 100%;
-  border-right: 1px solid rgba(255, 255, 255, 0.7);
+  border-right: 1px solid var(--bg-card);
   transition: filter 0.2s ease;
 }
 
@@ -1006,12 +1050,12 @@ textarea {
 
 .stacked-insight-panel {
   margin-top: 1.2rem;
-  background: #F0F9FF;
-  border: 1px solid #BAE6FD;
+  background: var(--tint-blue-bg);
+  border: 1px solid var(--tint-blue-border);
   border-radius: 12px;
   padding: 0.95rem 1.15rem;
   font-size: 0.92rem;
-  color: #1E293B;
+  color: var(--text-body);
 }
 
 .insight-tag {
@@ -1023,7 +1067,7 @@ textarea {
 }
 
 /* ============================================================================
-   [VỊ TRÍ 4] AUDIO VOXPOP & TEXT VOXBOX
+   AUDIO VOXPOP & TEXT VOXBOX
    ============================================================================ */
 .vox-speaker-tabs {
   display: flex;
@@ -1065,7 +1109,7 @@ textarea {
 
 .waveform-bar {
   flex: 1;
-  background: #CBD5E1;
+  background: var(--svg-grid);
   border-radius: 999px;
   cursor: pointer;
   transition: background-color 0.15s ease;
@@ -1079,7 +1123,7 @@ textarea {
   font-family: var(--font-display);
   font-size: 0.82rem;
   font-weight: 700;
-  color: #475569;
+  color: var(--text-secondary);
   white-space: nowrap;
 }
 
@@ -1138,23 +1182,23 @@ textarea {
 .vox-blockquote {
   font-size: 0.98rem;
   line-height: 1.65;
-  color: #1E293B;
+  color: var(--text-body);
   font-style: italic;
   margin-bottom: 1rem;
 }
 
 .vox-worth-highlight {
   font-size: 0.86rem;
-  background: #F5F3FF;
+  background: var(--tint-purple-bg);
   border-left: 3px solid var(--accent-purple);
-  color: #334155;
+  color: var(--text-secondary);
   padding: 0.65rem 0.85rem;
   border-radius: 8px;
 }
 
 .vox-receipt-pane {
-  background: #FFFBEB;
-  border: 1px dashed #F59E0B;
+  background: var(--tint-amber-bg);
+  border: 1px dashed var(--accent-amber);
   border-radius: 14px;
   padding: 1.25rem;
   display: flex;
@@ -1167,7 +1211,7 @@ textarea {
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.06em;
-  color: #B45309;
+  color: var(--vn-gold-text);
   margin-bottom: 0.85rem;
 }
 
@@ -1176,7 +1220,7 @@ textarea {
   display: grid;
   gap: 0.65rem;
   font-size: 0.86rem;
-  color: #334155;
+  color: var(--text-body);
 }
 
 .receipt-list li {
@@ -1184,13 +1228,13 @@ textarea {
   justify-content: space-between;
   gap: 0.75rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid #FDE68A;
+  border-bottom: 1px solid var(--tint-amber-border);
 }
 
 .receipt-total-row {
   margin-top: 1rem;
   padding-top: 0.75rem;
-  border-top: 2px solid #F59E0B;
+  border-top: 2px solid var(--accent-amber);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1205,7 +1249,7 @@ textarea {
 }
 
 /* ============================================================================
-   [VỊ TRÍ 5] ECONOMIC ECOSYSTEM INFOGRAPHIC
+   ECONOMIC ECOSYSTEM INFOGRAPHIC
    ============================================================================ */
 .ecosystem-infographic-grid {
   display: grid;
@@ -1256,7 +1300,7 @@ textarea {
 .eco-info-block {
   margin-bottom: 0.9rem;
   font-size: 0.9rem;
-  color: #334155;
+  color: var(--text-secondary);
 }
 
 .eco-info-label {
@@ -1270,11 +1314,11 @@ textarea {
 
 .eco-spillover-highlight {
   border: 1px solid;
-  background: #FFFFFF;
+  background: var(--bg-card);
   border-radius: 10px;
   padding: 0.75rem 0.9rem;
   font-size: 0.86rem;
-  color: #1E293B;
+  color: var(--text-body);
   margin-bottom: 1rem;
 }
 
@@ -1285,9 +1329,9 @@ textarea {
 }
 
 .eco-mini-btn {
-  background: #FFFFFF;
+  background: var(--bg-card);
   border: 1px solid var(--border-strong);
-  color: #475569;
+  color: var(--text-secondary);
   font-size: 0.75rem;
   font-weight: 600;
   padding: 0.3rem 0.6rem;
@@ -1301,8 +1345,12 @@ textarea {
   color: #FFFFFF;
 }
 
+[data-theme="dark"] .eco-mini-btn.active {
+  color: #0B0C10;
+}
+
 /* ============================================================================
-   [VỊ TRÍ 6] VIETNAM HEATMAP
+   VIETNAM HEATMAP
    ============================================================================ */
 .heatmap-layout {
   display: grid;
@@ -1336,7 +1384,7 @@ textarea {
   flex-direction: column;
   gap: 0.35rem;
   font-size: 0.78rem;
-  color: #475569;
+  color: var(--text-secondary);
   padding-top: 0.75rem;
   border-top: 1px solid var(--border-subtle);
 }
@@ -1372,13 +1420,13 @@ textarea {
 }
 
 .hub-cluster-badge.high {
-  background: #FFE4E6;
-  color: #BE123C;
+  background: var(--tint-rose-bg);
+  color: var(--accent-rose);
 }
 
 .hub-cluster-badge.tourism {
-  background: #E0F2FE;
-  color: #0369A1;
+  background: var(--badge-blue-bg);
+  color: var(--accent-blue);
 }
 
 .hub-city-heading {
@@ -1388,19 +1436,19 @@ textarea {
 
 .hub-volume-stat {
   font-size: 0.92rem;
-  color: #334155;
+  color: var(--text-secondary);
   font-weight: 600;
 }
 
 .hub-events-box,
 .hub-overnight-analysis {
-  background: #FFFFFF;
+  background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: 12px;
   padding: 0.9rem 1rem;
   font-size: 0.88rem;
   line-height: 1.58;
-  color: #334155;
+  color: var(--text-secondary);
 }
 
 .hub-box-title {
@@ -1413,7 +1461,7 @@ textarea {
 }
 
 .hub-retention-meter {
-  background: #FFFFFF;
+  background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: 12px;
   padding: 0.85rem 1rem;
@@ -1429,7 +1477,7 @@ textarea {
 
 .retention-bar-track {
   height: 8px;
-  background: #E2E8F0;
+  background: var(--svg-track);
   border-radius: 999px;
   overflow: hidden;
   margin-bottom: 0.35rem;
@@ -1447,7 +1495,7 @@ textarea {
 }
 
 /* ============================================================================
-   [VỊ TRÍ 7] SANKEY CASHFLOW DIAGRAM
+   SANKEY CASHFLOW DIAGRAM
    ============================================================================ */
 .sankey-column-headers {
   display: grid;
@@ -1456,7 +1504,7 @@ textarea {
   font-family: var(--font-display);
   font-size: 0.74rem;
   font-weight: 800;
-  color: #475569;
+  color: var(--text-secondary);
   text-align: center;
   margin-bottom: 0.5rem;
 }
@@ -1489,7 +1537,7 @@ textarea {
   border-radius: 12px;
   padding: 1rem 1.2rem;
   font-size: 0.92rem;
-  color: #334155;
+  color: var(--text-secondary);
 }
 
 .sankey-inspector-badge {
@@ -1506,13 +1554,13 @@ textarea {
 
 .sankey-pain-note {
   margin-top: 0.45rem;
-  color: #B45309;
+  color: var(--vn-gold-text);
   font-weight: 600;
   font-size: 0.86rem;
 }
 
 /* ============================================================================
-   [VỊ TRÍ 8] JUXTAPOSE IMAGE SLIDER
+   JUXTAPOSE IMAGE SLIDER
    ============================================================================ */
 .juxtapose-stage {
   position: relative;
@@ -1569,7 +1617,7 @@ textarea {
   gap: 1rem;
   margin-top: 0.9rem;
   font-size: 0.84rem;
-  color: #475569;
+  color: var(--text-secondary);
   font-weight: 600;
 }
 
@@ -1579,7 +1627,7 @@ textarea {
 }
 
 /* ============================================================================
-   [VỊ TRÍ 9] GROUPED BAR CHART (ARTIST ORIGIN VS. AUDIENCE SCALE)
+   GROUPED BAR CHART (ARTIST ORIGIN VS. AUDIENCE SCALE)
    ============================================================================ */
 .grouped-legend-row {
   display: flex;
@@ -1587,7 +1635,7 @@ textarea {
   gap: 1.25rem;
   font-size: 0.85rem;
   font-weight: 600;
-  color: #334155;
+  color: var(--text-secondary);
   margin-bottom: 1.25rem;
 }
 
@@ -1622,14 +1670,14 @@ textarea {
 }
 
 .grouped-tier-col.tier-highlight {
-  background: #FFF1F2;
-  border-color: #FECDD3;
+  background: var(--tint-rose-bg);
+  border-color: var(--tint-rose-border);
 }
 
 .grouped-tier-col.tier-selected {
   border-color: var(--accent-blue);
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.1);
+  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.12);
 }
 
 .grouped-columns-stage {
@@ -1686,11 +1734,11 @@ textarea {
   border-radius: 12px;
   padding: 0.95rem 1.15rem;
   font-size: 0.92rem;
-  color: #1E293B;
+  color: var(--text-body);
 }
 
 /* ============================================================================
-   [VỊ TRÍ 10] RADAR CHART, ARPU & SEA COMPARISON TABLE + 5 BOTTLENECKS
+   RADAR CHART, ARPU & SEA COMPARISON TABLE + 5 BOTTLENECKS
    ============================================================================ */
 .radar-country-toggles {
   display: flex;
@@ -1702,7 +1750,7 @@ textarea {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  background: #FFFFFF;
+  background: var(--bg-card);
   border: 1.5px solid;
   padding: 0.36rem 0.78rem;
   border-radius: 999px;
@@ -1764,12 +1812,12 @@ textarea {
 
 .arpu-row {
   font-size: 0.84rem;
-  color: #1E293B;
+  color: var(--text-body);
 }
 
 .arpu-row.vietnam-row {
-  background: #FEF2F2;
-  border: 1px solid #FECACA;
+  background: var(--tint-red-bg);
+  border: 1px solid var(--tint-red-border);
   padding: 0.45rem 0.6rem;
   border-radius: 8px;
 }
@@ -1788,7 +1836,7 @@ textarea {
 
 .arpu-bar-bg {
   height: 7px;
-  background: #E2E8F0;
+  background: var(--svg-track);
   border-radius: 999px;
   overflow: hidden;
 }
@@ -1800,12 +1848,12 @@ textarea {
 
 .radar-methodology-note {
   margin: 1.25rem 0;
-  background: #FFFBEB;
+  background: var(--tint-amber-bg);
   border-left: 4px solid var(--accent-amber);
   border-radius: 8px;
   padding: 0.8rem 1rem;
   font-size: 0.85rem;
-  color: #78350F;
+  color: var(--tint-amber-text);
 }
 
 .sea-table-scroll {
@@ -1825,7 +1873,7 @@ textarea {
   text-align: left;
   vertical-align: top;
   border-bottom: 1px solid var(--border-subtle);
-  color: #334155;
+  color: var(--text-secondary);
 }
 
 .sea-comparison-table th {
@@ -1838,7 +1886,7 @@ textarea {
 }
 
 .highlight-vn-row {
-  background: #FEF2F2;
+  background: var(--tint-red-bg);
 }
 
 .td-sub {
@@ -1860,7 +1908,7 @@ textarea {
   border: 1px solid var(--border-subtle);
   border-radius: 16px;
   padding: 1.35rem;
-  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.03);
+  box-shadow: var(--shadow-card);
 }
 
 .bottleneck-num {
@@ -1885,16 +1933,16 @@ textarea {
 
 .bottleneck-quote-note {
   margin-top: 0.7rem;
-  background: #FFFBEB;
+  background: var(--tint-amber-bg);
   border-left: 3px solid var(--accent-amber);
   padding: 0.65rem 0.9rem;
   border-radius: 8px;
   font-size: 0.88rem;
-  color: #78350F;
+  color: var(--tint-amber-text);
 }
 
 /* ============================================================================
-   [VỊ TRÍ 11] MOTION GRAPHIC 90S EXPLAINER
+   MOTION GRAPHIC 90S EXPLAINER
    ============================================================================ */
 .motion-play-cta {
   background: var(--accent-blue);
@@ -1907,13 +1955,17 @@ textarea {
   cursor: pointer;
 }
 
+[data-theme="dark"] .motion-play-cta {
+  color: #0B0C10;
+}
+
 .motion-play-cta.playing {
   background: var(--vn-red);
   color: #FFFFFF;
 }
 
 .motion-stage-screen {
-  background: linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%);
+  background: var(--motion-screen-bg);
   border: 1px solid var(--border-strong);
   border-radius: 16px;
   padding: 1.6rem;
@@ -1951,7 +2003,7 @@ textarea {
 
 .motion-narrative {
   font-size: 0.96rem;
-  color: #334155;
+  color: var(--text-secondary);
   margin-bottom: 1.25rem;
 }
 
@@ -1967,7 +2019,7 @@ textarea {
 .mg-promoter-meter {
   flex: 1;
   min-width: 240px;
-  background: #FFFFFF;
+  background: var(--bg-card);
   border: 1px solid var(--border-strong);
   border-radius: 14px;
   padding: 1.15rem;
@@ -2006,8 +2058,8 @@ textarea {
 }
 
 .mg-toll-card {
-  background: #FEF2F2;
-  border: 1px solid #FECACA;
+  background: var(--tint-red-bg);
+  border: 1px solid var(--tint-red-border);
   border-radius: 12px;
   padding: 1rem;
 }
@@ -2032,7 +2084,7 @@ textarea {
 .mg-cost-jump {
   font-size: 0.78rem;
   font-weight: 800;
-  color: #B91C1C;
+  color: var(--vn-red);
 }
 
 .mg-toll-card h5 {
@@ -2043,12 +2095,12 @@ textarea {
 
 .mg-toll-card p {
   font-size: 0.83rem;
-  color: #334155;
+  color: var(--text-secondary);
   line-height: 1.48;
 }
 
 .mg-balance-simulator {
-  background: #FFFFFF;
+  background: var(--bg-card);
   border: 1px solid var(--border-strong);
   border-radius: 12px;
   padding: 1rem;
@@ -2065,7 +2117,7 @@ textarea {
 .mg-sim-buttons button {
   background: var(--bg-inset);
   border: 1px solid var(--border-subtle);
-  color: #475569;
+  color: var(--text-secondary);
   font-size: 0.8rem;
   font-weight: 700;
   padding: 0.45rem 0.8rem;
@@ -2079,10 +2131,14 @@ textarea {
   background: var(--accent-blue);
 }
 
+[data-theme="dark"] .mg-sim-buttons button.active {
+  color: #0B0C10;
+}
+
 .mg-sim-outcome {
   font-size: 0.9rem;
   line-height: 1.55;
-  color: #1E293B;
+  color: var(--text-body);
 }
 
 .motion-cue-footer {
@@ -2106,12 +2162,12 @@ textarea {
   padding: 0.65rem 0.8rem;
   text-align: left;
   cursor: pointer;
-  color: #475569;
+  color: var(--text-secondary);
 }
 
 .motion-scrub-seg.active {
   border-color: var(--accent-blue);
-  background: #F0F9FF;
+  background: var(--tint-blue-bg);
   color: var(--text-primary);
 }
 
@@ -2129,7 +2185,7 @@ textarea {
 }
 
 /* ============================================================================
-   NGHỊ QUYẾT 80, MA TRẬN LỜI GIẢI, QUOTE CARDS [12] & POLL [13]
+   NGHỊ QUYẾT 80, MA TRẬN LỜI GIẢI, QUOTE CARDS & POLL
    ============================================================================ */
 .nq80-targets-grid {
   display: grid;
@@ -2139,8 +2195,8 @@ textarea {
 }
 
 .nq80-metric-tile {
-  background: linear-gradient(155deg, #FEF2F2, #FFFBEB);
-  border: 1px solid #FECACA;
+  background: var(--callout-national-bg);
+  border: 1px solid var(--tint-red-border);
   border-radius: 14px;
   padding: 1.15rem 1rem;
 }
@@ -2157,7 +2213,7 @@ textarea {
 .nq80-desc {
   font-size: 0.83rem;
   line-height: 1.45;
-  color: #334155;
+  color: var(--text-secondary);
 }
 
 .solutions-pillars-list {
@@ -2172,7 +2228,7 @@ textarea {
   border-left: 4px solid var(--vn-red);
   border-radius: 14px;
   padding: 1.35rem 1.45rem;
-  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.03);
+  box-shadow: var(--shadow-card);
 }
 
 .pillar-item h4 {
@@ -2215,7 +2271,7 @@ textarea {
 
 .matrix-selector-btn.selected {
   border-color: var(--vn-red);
-  background: #FEF2F2;
+  background: var(--tint-red-bg);
 }
 
 .matrix-idx {
@@ -2239,18 +2295,18 @@ textarea {
 }
 
 .matrix-solution-detail {
-  background: #FFFFFF;
-  border: 1px solid #FECACA;
+  background: var(--bg-card);
+  border: 1px solid var(--tint-red-border);
   border-radius: 16px;
   padding: 1.45rem;
 }
 
 .matrix-problem-strip {
-  background: #FEF2F2;
+  background: var(--tint-red-bg);
   border-radius: 10px;
   padding: 0.75rem 0.95rem;
   font-size: 0.88rem;
-  color: #7F1D1D;
+  color: var(--tint-red-text);
 }
 
 .matrix-problem-strip span {
@@ -2277,17 +2333,17 @@ textarea {
 .matrix-sol-desc {
   font-size: 0.94rem;
   line-height: 1.6;
-  color: #334155;
+  color: var(--text-secondary);
   margin-bottom: 1rem;
 }
 
 .matrix-milestone-box {
-  background: #FFFBEB;
+  background: var(--tint-amber-bg);
   border-left: 3px solid var(--vn-gold-bright);
   padding: 0.7rem 0.9rem;
   border-radius: 8px;
   font-size: 0.85rem;
-  color: #78350F;
+  color: var(--tint-amber-text);
 }
 
 .matrix-milestone-box span {
@@ -2298,7 +2354,7 @@ textarea {
   margin-bottom: 0.15rem;
 }
 
-/* [VỊ TRÍ 12] Quote Cards Carousel */
+/* Quote Cards Carousel */
 .carousel-nav-controls {
   display: flex;
   align-items: center;
@@ -2310,7 +2366,7 @@ textarea {
   height: 38px;
   border-radius: 50%;
   border: 1px solid var(--border-strong);
-  background: #FFFFFF;
+  background: var(--bg-card);
   color: var(--text-primary);
   font-size: 1rem;
   cursor: pointer;
@@ -2346,10 +2402,10 @@ textarea {
 
 .expert-quote-card.focused {
   opacity: 1;
-  background: #FFFFFF;
+  background: var(--bg-card);
   transform: translateY(-4px);
   border-color: var(--border-strong);
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+  box-shadow: var(--shadow-card);
 }
 
 .quote-mark {
@@ -2384,10 +2440,10 @@ textarea {
   font-weight: 700;
 }
 
-/* [VỊ TRÍ 13] Interactive Poll */
+/* Interactive Poll */
 .poll-box-card {
   margin: 2.25rem 0;
-  border-color: #FECACA;
+  border-color: var(--tint-red-border);
 }
 
 .poll-question-heading {
@@ -2414,7 +2470,7 @@ textarea {
 
 .poll-option-item.chosen {
   border-color: var(--vn-red);
-  background: #FEF2F2;
+  background: var(--tint-red-bg);
 }
 
 .poll-opt-top {
@@ -2435,7 +2491,7 @@ textarea {
   font-weight: 900;
   color: #FFFFFF;
   flex-shrink: 0;
-  background: #FFFFFF;
+  background: var(--bg-card);
 }
 
 .poll-option-item.chosen .poll-checkbox-circle {
@@ -2470,7 +2526,7 @@ textarea {
 
 .poll-result-bar-bg {
   height: 7px;
-  background: #E2E8F0;
+  background: var(--svg-track);
   border-radius: 999px;
   margin-top: 0.65rem;
   overflow: hidden;
@@ -2507,11 +2563,11 @@ textarea {
   flex-wrap: wrap;
   gap: 0.75rem;
   font-size: 0.9rem;
-  color: #334155;
+  color: var(--text-secondary);
 }
 
 .poll-reset-link {
-  background: #FFFFFF;
+  background: var(--bg-card);
   border: 1px solid var(--border-strong);
   color: var(--accent-blue);
   padding: 0.35rem 0.8rem;
@@ -2522,7 +2578,7 @@ textarea {
 }
 
 .closing-manifesto-box {
-  background: linear-gradient(135deg, #F0F9FF, #FEF2F2);
+  background: var(--manifesto-bg);
   border: 1px solid var(--border-strong);
   border-radius: 16px;
   padding: 1.6rem 1.75rem;
@@ -2545,7 +2601,7 @@ textarea {
   border-radius: 20px;
   padding: 2rem;
   margin-bottom: 3.5rem;
-  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.05);
+  box-shadow: var(--shadow-card);
 }
 
 .sources-header-row {
@@ -2598,7 +2654,7 @@ textarea {
   vertical-align: top;
   border-bottom: 1px solid var(--border-subtle);
   line-height: 1.55;
-  color: #334155;
+  color: var(--text-secondary);
 }
 
 .provenance-table th {
@@ -2627,7 +2683,7 @@ textarea {
   border-top: 1px solid var(--border-subtle);
   padding: 2.75rem 1.5rem;
   font-size: 0.88rem;
-  color: #475569;
+  color: var(--text-secondary);
 }
 
 .footer-inner-wrap {
@@ -2693,9 +2749,5 @@ textarea {
 
   .juxtapose-stage {
     height: 280px;
-  }
-
-  .flycam-name {
-    display: none;
   }
 }

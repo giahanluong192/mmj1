@@ -51,7 +51,7 @@ export function EventScaleAndConcertsWidget() {
       <div className="viz-header">
         <div>
           <span className="pos-badge">
-            VỊ TRÍ 2 • BIỂU ĐỒ 1: QUY MÔ SỰ KIỆN & TỐC ĐỘ BÁN VÉ CONCERT NỘI ĐỊA
+            QUY MÔ SỰ KIỆN & TỐC ĐỘ BÁN VÉ CONCERT NỘI ĐỊA
           </span>
           <h3 className="viz-title">
             Sự trỗi dậy của phân khúc đại nhạc hội trên bức tranh 810+ sự kiện âm nhạc
@@ -69,7 +69,7 @@ export function EventScaleAndConcertsWidget() {
             className={`viz-tab-btn ${activeTab === "donut" ? "active" : ""}`}
             onClick={() => setActiveTab("donut")}
           >
-            Tab 1: Phân bố quy mô 810+ sự kiện
+            Phân bố quy mô 810+ sự kiện
           </button>
           <button
             type="button"
@@ -78,7 +78,7 @@ export function EventScaleAndConcertsWidget() {
             className={`viz-tab-btn ${activeTab === "concerts" ? "active" : ""}`}
             onClick={() => setActiveTab("concerts")}
           >
-            Tab 2: Các concert đại chúng tiêu biểu
+            Các concert đại chúng tiêu biểu
           </button>
         </div>
       </div>
@@ -86,14 +86,14 @@ export function EventScaleAndConcertsWidget() {
       {activeTab === "donut" ? (
         <div className="donut-layout">
           <div className="donut-svg-box">
-            <svg viewBox="0 0 210 210" className="donut-svg" role="img" aria-label="Biểu đồ tròn phân bố quy mô 810+ sự kiện âm nhạc năm 2025">
+            <svg viewBox="0 0 210 210" className="donut-svg" role="img" aria-label="Phân bố quy mô 810+ sự kiện âm nhạc năm 2025">
               <g transform="rotate(-90 105 105)">
                 <circle
                   cx="105"
                   cy="105"
                   r={radius}
                   fill="none"
-                  stroke="#E2E8F0"
+                  stroke="var(--svg-track)"
                   strokeWidth="26"
                 />
                 {donutSegments.map(({ slice, dashArray, dashOffset }) => {
@@ -268,13 +268,13 @@ export function SpendingWillingnessChart() {
       <div className="viz-header">
         <div>
           <span className="pos-badge">
-            VỊ TRÍ 3 • BIỂU ĐỒ 2: SỨC MUA & MỨC SẴN SÀNG CHI TRẢ CỦA KHÁN GIẢ VIỆT (N=471)
+            SỨC MUA & MỨC SẴN SÀNG CHI TRẢ CỦA KHÁN GIẢ VIỆT (N=471)
           </span>
           <h3 className="viz-title">
             Khán giả Việt chi bao nhiêu mỗi tháng cho sự kiện trực tiếp và vật phẩm thần tượng?
           </h3>
           <p className="viz-subtitle">
-            Biểu đồ cột ngang chồng 100% phân bổ mức chi trung bình/tháng, đặt cạnh tỷ lệ người dùng sẵn sàng trả phí cho từng hạng mục
+            Phân bổ mức chi trung bình/tháng đặt cạnh tỷ lệ người dùng sẵn sàng trả phí cho từng hạng mục sản phẩm âm nhạc
           </p>
         </div>
       </div>
@@ -433,7 +433,7 @@ export function VoxpopWaveformBox() {
       <div className="viz-header">
         <div>
           <span className="pos-badge">
-            VỊ TRÍ 4 • AUDIO VOXPOP & TEXT VOXBOX (30–45 GIÂY) — TIẾNG NÓI TỪ KHÁN ĐÀI
+            TIẾNG NÓI TỪ KHÁN ĐÀI
           </span>
           <h3 className="viz-title">
             “Tổng chi phí chuyến đi xem concert vừa rồi của bạn là bao nhiêu — và điều gì khiến bạn thấy xứng đáng?”
@@ -549,7 +549,7 @@ export function ConcertEconomicInfographic() {
       <div className="viz-header">
         <div>
           <span className="pos-badge">
-            VỊ TRÍ 5 • INFOGRAPHIC: TÁC ĐỘNG KINH TẾ LAN TỎA TỪ 1 ĐÊM CONCERT
+            TÁC ĐỘNG KINH TẾ LAN TỎA TỪ 1 ĐÊM CONCERT
           </span>
           <h3 className="viz-title">
             Hệ sinh thái 5 nhánh dịch vụ hưởng lợi quanh một đêm đại nhạc hội 30.000 khán giả
@@ -570,9 +570,9 @@ export function ConcertEconomicInfographic() {
           >
             <defs>
               <radialGradient id="stadiumCoreGlow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#0284C7" stopOpacity="0.16" />
-                <stop offset="65%" stopColor="#7C3AED" stopOpacity="0.06" />
-                <stop offset="100%" stopColor="#F8FAFC" stopOpacity="0" />
+                <stop offset="0%" stopColor="var(--accent-blue)" stopOpacity="0.18" />
+                <stop offset="65%" stopColor="var(--accent-purple)" stopOpacity="0.08" />
+                <stop offset="100%" stopColor="var(--bg-card-subtle)" stopOpacity="0" />
               </radialGradient>
             </defs>
 
@@ -582,7 +582,7 @@ export function ConcertEconomicInfographic() {
               cy={centerY}
               r={orbitRadius}
               fill="none"
-              stroke="#CBD5E1"
+              stroke="var(--svg-grid)"
               strokeWidth="1.5"
               strokeDasharray="5 5"
             />
@@ -616,8 +616,8 @@ export function ConcertEconomicInfographic() {
                 cx={centerX}
                 cy={centerY}
                 r="66"
-                fill="#FFFFFF"
-                stroke="#0284C7"
+                fill="var(--bg-card)"
+                stroke="var(--accent-blue)"
                 strokeWidth="2.5"
               />
               <circle
@@ -625,17 +625,17 @@ export function ConcertEconomicInfographic() {
                 cy={centerY}
                 r="58"
                 fill="none"
-                stroke="#7C3AED"
+                stroke="var(--accent-purple)"
                 strokeWidth="1"
                 strokeDasharray="3 3"
               />
-              <text x={centerX} y={centerY - 16} textAnchor="middle" fill="#0284C7" fontSize="11" fontWeight="800">
+              <text x={centerX} y={centerY - 16} textAnchor="middle" fill="var(--accent-blue)" fontSize="11" fontWeight="800">
                 TÂM ĐIỂM CONCERT
               </text>
-              <text x={centerX} y={centerY + 6} textAnchor="middle" fill="#0F172A" fontSize="18" fontWeight="900">
+              <text x={centerX} y={centerY + 6} textAnchor="middle" fill="var(--text-primary)" fontSize="18" fontWeight="900">
                 30.000
               </text>
-              <text x={centerX} y={centerY + 24} textAnchor="middle" fill="#475569" fontSize="11" fontWeight="600">
+              <text x={centerX} y={centerY + 24} textAnchor="middle" fill="var(--text-secondary)" fontSize="11" fontWeight="600">
                 KHÁN GIẢ / ĐÊM
               </text>
             </g>
@@ -677,7 +677,7 @@ export function ConcertEconomicInfographic() {
                     cx={nx}
                     cy={ny}
                     r={isSelected ? 31 : 27}
-                    fill="#FFFFFF"
+                    fill="var(--bg-card)"
                     stroke={spoke.color}
                     strokeWidth={isSelected ? 3 : 2}
                   />
@@ -688,7 +688,7 @@ export function ConcertEconomicInfographic() {
                     x={nx + labelXOffset}
                     y={ny + labelYOffset}
                     textAnchor={anchor}
-                    fill={isSelected ? "#0F172A" : "#334155"}
+                    fill={isSelected ? "var(--text-primary)" : "var(--text-secondary)"}
                     fontSize="12.5"
                     fontWeight={isSelected ? "800" : "600"}
                   >

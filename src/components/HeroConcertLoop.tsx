@@ -22,7 +22,7 @@ const LIGHTSTICK_DOTS = Array.from({ length: 84 }, (_, idx) => {
 export default function HeroConcertLoop() {
   const [shotIndex, setShotIndex] = useState(0);
 
-  // 6-second seamless loop: 3 aerial flycam shots x 2 seconds each
+  // 6-second seamless loop: 3 aerial flycam color palettes x 2 seconds each
   useEffect(() => {
     const interval = setInterval(() => {
       setShotIndex((prev) => (prev + 1) % HERO_FLYCAM_SHOTS.length);
@@ -35,7 +35,7 @@ export default function HeroConcertLoop() {
   return (
     <>
       <section className="hero-concert-section" id="vi-tri-1">
-        {/* Animated 6s Flycam Video Loop Stage (Light Mode) */}
+        {/* Animated 6s Flycam Stage Loop */}
         <div
           className="hero-video-stage"
           style={
@@ -53,25 +53,25 @@ export default function HeroConcertLoop() {
           >
             <defs>
               <radialGradient id="stageBeamA" cx="50%" cy="18%" r="62%">
-                <stop offset="0%" stopColor={currentShot.primaryColor} stopOpacity="0.22" />
-                <stop offset="55%" stopColor={currentShot.secondaryColor} stopOpacity="0.1" />
-                <stop offset="100%" stopColor="#FAF9F6" stopOpacity="0" />
+                <stop offset="0%" stopColor={currentShot.primaryColor} stopOpacity="0.24" />
+                <stop offset="55%" stopColor={currentShot.secondaryColor} stopOpacity="0.12" />
+                <stop offset="100%" stopColor="var(--bg-page)" stopOpacity="0" />
               </radialGradient>
               <linearGradient id="laserLeft" x1="50%" y1="12%" x2="5%" y2="95%">
-                <stop offset="0%" stopColor={currentShot.secondaryColor} stopOpacity="0.24" />
+                <stop offset="0%" stopColor={currentShot.secondaryColor} stopOpacity="0.26" />
                 <stop offset="100%" stopColor={currentShot.primaryColor} stopOpacity="0" />
               </linearGradient>
               <linearGradient id="laserRight" x1="50%" y1="12%" x2="95%" y2="95%">
-                <stop offset="0%" stopColor={currentShot.primaryColor} stopOpacity="0.24" />
+                <stop offset="0%" stopColor={currentShot.primaryColor} stopOpacity="0.26" />
                 <stop offset="100%" stopColor={currentShot.secondaryColor} stopOpacity="0" />
               </linearGradient>
             </defs>
 
             {/* Stage glow & sweeping concert laser cones */}
             <rect width="100" height="100" fill="url(#stageBeamA)" />
-            <polygon points="48,14 4,100 26,100" fill="url(#laserLeft)" opacity="0.65" />
-            <polygon points="52,14 74,100 96,100" fill="url(#laserRight)" opacity="0.65" />
-            <polygon points="50,14 36,100 64,100" fill="url(#stageBeamA)" opacity="0.55" />
+            <polygon points="48,14 4,100 26,100" fill="url(#laserLeft)" opacity="0.68" />
+            <polygon points="52,14 74,100 96,100" fill="url(#laserRight)" opacity="0.68" />
+            <polygon points="50,14 36,100 64,100" fill="url(#stageBeamA)" opacity="0.58" />
 
             {/* Curved stadium tiers */}
             <ellipse
@@ -113,58 +113,17 @@ export default function HeroConcertLoop() {
             ))}
           </svg>
 
-          <div className="hero-light-vignette" />
+          <div className="hero-stage-vignette" />
         </div>
 
-        {/* Top Flycam Loop Telemetry Indicator */}
-        <div className="hero-loop-hud">
-          <span className="pos-badge">VỊ TRÍ 1 • HEADER VIDEO LOOP (6S FLYCAM)</span>
-          <div className="flycam-switcher" role="tablist" aria-label="3 cú máy flycam đại nhạc hội">
-            {HERO_FLYCAM_SHOTS.map((shot, idx) => (
-              <button
-                key={shot.id}
-                type="button"
-                role="tab"
-                aria-selected={idx === shotIndex}
-                className={`flycam-pill ${idx === shotIndex ? "active" : ""}`}
-                onClick={() => setShotIndex(idx)}
-              >
-                <span
-                  className="flycam-dot"
-                  style={{ backgroundColor: shot.primaryColor }}
-                />
-                <span>{shot.timeRange}</span>
-                <span className="flycam-name">{shot.concertName}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Main Editorial Headline & Concise Sapo */}
+        {/* Main Editorial Headline, Sapo & Byline Metadata */}
         <div className="hero-content-wrap">
-          <div className="hero-kicker">
-            <span>{ARTICLE_META.category}</span>
-            <span className="kicker-sep">•</span>
-            <span>{ARTICLE_META.specialIssue}</span>
-          </div>
-
           <h1 className="hero-main-title">
             <span className="title-line-top">{ARTICLE_META.titleMain}</span>
             <span className="title-line-accent">{ARTICLE_META.titleAccent}</span>
           </h1>
 
           <p className="hero-sapo">{ARTICLE_META.sapo}</p>
-
-          <div className="hero-shot-caption-bar">
-            <div className="shot-live-tag">
-              <span className="rec-dot" />
-              <span>FLYCAM {shotIndex + 1}/3</span>
-            </div>
-            <div className="shot-caption-copy">
-              <strong>{currentShot.concertName}</strong> ({currentShot.audienceScale}) —{" "}
-              {currentShot.caption}
-            </div>
-          </div>
 
           <div className="hero-meta-strip">
             <span>

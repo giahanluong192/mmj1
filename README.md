@@ -41,9 +41,9 @@ Repository: [https://github.com/giahanluong192/mmj1](https://github.com/giahanlu
 
 ## 🎨 Định Hướng Thiết Kế (UI/UX)
 
-- **Giao diện nền sáng (Editorial Light Mode)**: `#FAF9F6` & `#FFFFFF` mang lại độ tương phản cao, thoáng đãng và tối ưu cho báo chí dữ liệu chuyên sâu.
+- **Chuyển đổi Giao diện Sáng / Tối (Light & Dark Mode)**: Mặc định nền sáng báo chí (`#FAF9F6` & `#FFFFFF`) kèm nút chuyển nhanh sang nền tối (`#0B0C10` & `#151926`) ngay cạnh thương hiệu **TIẾNG NÓI TRẺ** trên thanh điều hướng.
 - **Điểm nhấn Đỏ Sao Vàng (`#DA251D` / `#D97706`)**: Tôn vinh xu hướng Concert Quốc gia, Ngày Văn hóa Việt Nam 24/11 và Nghị quyết số 80-NQ/TW.
-- **Typography**: `Montserrat` mạnh mẽ cho hệ thống tiêu đề và `Inter` (`18px`, `line-height: 1.7`) tối ưu trải nghiệm đọc dài đồng nhất trên nền sáng.
+- **Typography**: `Montserrat` mạnh mẽ cho hệ thống tiêu đề và `Inter` (`18px`, `line-height: 1.68`) tối ưu trải nghiệm đọc dài đồng nhất.
 
 ---
 

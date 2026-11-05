@@ -30,7 +30,7 @@ export function VietnamEventHeatmap() {
       <div className="viz-header">
         <div>
           <span className="pos-badge">
-            VỊ TRÍ 6 • BẢN ĐỒ NHIỆT (SYMBOL HEATMAP): PHÂN BỐ SỰ KIỆN & GIỮ CHÂN DU KHÁCH
+            PHÂN BỐ SỰ KIỆN & GIỮ CHÂN DU KHÁCH
           </span>
           <h3 className="viz-title">
             Hai cực đại nhạc hội và bài toán: Khán giả lưu trú qua đêm hay “xem xong rời đi ngay”?
@@ -93,7 +93,7 @@ export function VietnamEventHeatmap() {
             </defs>
 
             {/* Subtle coordinate grid */}
-            <g stroke="#CBD5E1" strokeWidth="0.7" strokeDasharray="3 5">
+            <g stroke="var(--svg-grid)" strokeWidth="0.7" strokeDasharray="3 5">
               <line x1="0" y1="140" x2="460" y2="140" />
               <line x1="0" y1="300" x2="460" y2="300" />
               <line x1="0" y1="460" x2="460" y2="460" />
@@ -104,28 +104,28 @@ export function VietnamEventHeatmap() {
             {/* Stylized S-curve silhouette of Vietnam mainland + Phu Quoc + Con Dao */}
             <path
               d="M 185 48 L 236 52 L 268 78 L 280 112 L 252 142 L 228 168 L 216 208 L 245 252 L 288 308 L 310 356 L 315 412 L 298 462 L 265 498 L 246 534 L 208 566 L 186 552 L 195 512 L 214 480 L 246 446 L 268 402 L 264 348 L 236 300 L 202 252 L 186 204 L 178 156 L 146 120 L 154 78 Z"
-              fill="#E2E8F0"
-              stroke="#94A3B8"
+              fill="var(--map-land)"
+              stroke="var(--map-stroke)"
               strokeWidth="1.8"
             />
             {/* Phú Quốc */}
-            <ellipse cx="164" cy="518" rx="8" ry="13" fill="#E2E8F0" stroke="#94A3B8" strokeWidth="1.3" />
+            <ellipse cx="164" cy="518" rx="8" ry="13" fill="var(--map-land)" stroke="var(--map-stroke)" strokeWidth="1.3" />
             {/* Côn Đảo */}
-            <circle cx="248" cy="570" r="4.5" fill="#E2E8F0" stroke="#94A3B8" strokeWidth="1.2" />
+            <circle cx="248" cy="570" r="4.5" fill="var(--map-land)" stroke="var(--map-stroke)" strokeWidth="1.2" />
 
             {/* Quần đảo Hoàng Sa & Trường Sa (Chủ quyền biển đảo Việt Nam) */}
             <g opacity="0.95">
-              <circle cx="378" cy="272" r="3" fill="#DA251D" />
-              <circle cx="390" cy="278" r="2.5" fill="#DA251D" />
-              <circle cx="372" cy="283" r="2" fill="#DA251D" />
-              <text x="382" y="299" textAnchor="middle" fill="#475569" fontSize="9.5" fontWeight="700">
+              <circle cx="378" cy="272" r="3" fill="var(--vn-red)" />
+              <circle cx="390" cy="278" r="2.5" fill="var(--vn-red)" />
+              <circle cx="372" cy="283" r="2" fill="var(--vn-red)" />
+              <text x="382" y="299" textAnchor="middle" fill="var(--text-secondary)" fontSize="9.5" fontWeight="700">
                 QĐ. Hoàng Sa (Việt Nam)
               </text>
 
-              <circle cx="384" cy="482" r="3" fill="#DA251D" />
-              <circle cx="396" cy="490" r="2.5" fill="#DA251D" />
-              <circle cx="374" cy="495" r="2.2" fill="#DA251D" />
-              <text x="382" y="512" textAnchor="middle" fill="#475569" fontSize="9.5" fontWeight="700">
+              <circle cx="384" cy="482" r="3" fill="var(--vn-red)" />
+              <circle cx="396" cy="490" r="2.5" fill="var(--vn-red)" />
+              <circle cx="374" cy="495" r="2.2" fill="var(--vn-red)" />
+              <text x="382" y="512" textAnchor="middle" fill="var(--text-secondary)" fontSize="9.5" fontWeight="700">
                 QĐ. Trường Sa (Việt Nam)
               </text>
             </g>
@@ -134,7 +134,7 @@ export function VietnamEventHeatmap() {
             {visibleHubs.map((hub) => {
               const isSelected = hub.id === activeHub.id;
               const isHigh = hub.clusterType === "high-density";
-              const coreColor = isHigh ? "#E11D48" : "#0284C7";
+              const coreColor = isHigh ? "var(--accent-rose)" : "var(--accent-blue)";
 
               return (
                 <g
@@ -154,14 +154,14 @@ export function VietnamEventHeatmap() {
                     cy={hub.y}
                     r={isSelected ? 8.5 : 6}
                     fill={coreColor}
-                    stroke="#FFFFFF"
+                    stroke="var(--bg-card)"
                     strokeWidth={isSelected ? 2.5 : 1.5}
                   />
                   <text
                     x={hub.x < 225 ? hub.x - 13 : hub.x + 13}
                     y={hub.y + 4}
                     textAnchor={hub.x < 225 ? "end" : "start"}
-                    fill={isSelected ? "#0F172A" : "#334155"}
+                    fill={isSelected ? "var(--text-primary)" : "var(--text-secondary)"}
                     fontSize={isSelected ? "12" : "10.8"}
                     fontWeight={isSelected ? "800" : "600"}
                   >
@@ -299,7 +299,7 @@ export function ConcertCashflowSankey() {
       <div className="viz-header">
         <div>
           <span className="pos-badge">
-            VỊ TRÍ 7 • BIỂU ĐỒ SANKEY: DÒNG TIỀN & ĐƠN VỊ VẬN HÀNH CONCERT CHẢY ĐI ĐÂU?
+            DÒNG TIỀN & ĐƠN VỊ VẬN HÀNH CONCERT CHẢY ĐI ĐÂU?
           </span>
           <h3 className="viz-title">
             Giải phẫu dòng tiền một đêm đại nhạc hội: Vì sao “cháy vé” vẫn đối mặt nguy cơ thua lỗ?
@@ -398,7 +398,7 @@ export function ConcertCashflowSankey() {
               }
             >
               <rect x="218" y={y} width="20" height={h} rx="4" fill={node.color} />
-              <text x="208" y={y + h / 2 - 2} textAnchor="end" fill="#0F172A" fontSize="11.5" fontWeight="700">
+              <text x="208" y={y + h / 2 - 2} textAnchor="end" fill="var(--text-primary)" fontSize="11.5" fontWeight="700">
                 {node.label}
               </text>
               <text x="208" y={y + h / 2 + 12} textAnchor="end" fill={node.color} fontSize="11" fontWeight="800">
@@ -435,11 +435,11 @@ export function ConcertCashflowSankey() {
                 width="150"
                 height={h}
                 rx="8"
-                fill="#FFFFFF"
+                fill="var(--bg-card)"
                 stroke={node.color}
                 strokeWidth="2"
               />
-              <text x="470" y={y + h / 2 - 4} textAnchor="middle" fill="#0F172A" fontSize="11" fontWeight="800">
+              <text x="470" y={y + h / 2 - 4} textAnchor="middle" fill="var(--text-primary)" fontSize="11" fontWeight="800">
                 {node.label.split("(")[0].trim()}
               </text>
               <text x="470" y={y + h / 2 + 12} textAnchor="middle" fill={node.color} fontSize="11" fontWeight="700">
@@ -473,7 +473,7 @@ export function ConcertCashflowSankey() {
               }
             >
               <rect x="698" y={y} width="20" height={h} rx="4" fill={node.color} />
-              <text x="728" y={y + h / 2 - 3} textAnchor="start" fill="#0F172A" fontSize="11.5" fontWeight="700">
+              <text x="728" y={y + h / 2 - 3} textAnchor="start" fill="var(--text-primary)" fontSize="11.5" fontWeight="700">
                 {node.label.length > 34 ? `${node.label.slice(0, 34)}…` : node.label}
               </text>
               <text x="728" y={y + h / 2 + 12} textAnchor="start" fill={node.color} fontSize="11" fontWeight="800">
@@ -522,7 +522,7 @@ export function StageTeardownSlider() {
       <div className="viz-header">
         <div>
           <span className="pos-badge">
-            VỊ TRÍ 8 • INTERACTIVE IMAGE SLIDER (JUXTAPOSE): HẬU TRƯỜNG THÁO DỠ & RÁC THẢI SỰ KIỆN
+            HẬU TRƯỜNG THÁO DỠ & RÁC THẢI SỰ KIỆN
           </span>
           <h3 className="viz-title">
             22h00 đêm thăng hoa vs. 06h00 sáng hôm sau: “Đừng để đêm trước vỗ tay, sáng sau tháo sân khấu là xong công nghiệp văn hóa”

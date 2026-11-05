@@ -96,7 +96,7 @@ export function ExpertQuotesCarousel() {
       <div className="viz-header">
         <div>
           <span className="pos-badge">
-            VỊ TRÍ 12 • QUOTE CARDS CAROUSEL: GÓC NHÌN CHUYÊN GIA & NHÀ QUẢN LÝ
+            GÓC NHÌN CHUYÊN GIA & NHÀ QUẢN LÝ
           </span>
           <h3 className="viz-title">
             Từ “cơn sốt” ngắn hạn đến nền công nghiệp biểu diễn có chiều sâu và bản sắc
@@ -195,7 +195,7 @@ export function InteractiveReaderPoll() {
   return (
     <section className="viz-card poll-box-card" id="vi-tri-13" aria-label="Thăm dò ý kiến độc giả">
       <span className="pos-badge redstar-badge">
-        VỊ TRÍ 13 • INTERACTIVE POLL: GÓC TƯƠNG TÁC ĐỘC GIẢ
+        GÓC TƯƠNG TÁC ĐỘC GIẢ
       </span>
       <h3 className="poll-question-heading">{READER_POLL_CONFIG.question}</h3>
       <p className="viz-subtitle">
@@ -308,7 +308,7 @@ export function DataSourcesProvenance() {
     <section className="sources-provenance-section" id="bang-nguon">
       <div className="sources-header-row">
         <div>
-          <span className="pos-badge">HỒ SƠ MINH BẠCH DỮ LIỆU • DATA PROVENANCE</span>
+          <span className="pos-badge">HỒ SƠ MINH BẠCH DỮ LIỆU</span>
           <h2 className="sources-main-heading">
             Bảng đối chiếu toàn bộ nguồn số liệu, báo cáo học thuật & văn kiện chính sách
           </h2>

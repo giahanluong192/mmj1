@@ -28,6 +28,11 @@ import { ARTICLE_META, FIVE_SYSTEMIC_BOTTLENECKS } from "@/data/articleData";
 
 export default function Home() {
   const [readingProgress, setReadingProgress] = useState(0);
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,9 +47,13 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleToggleTheme = () => {
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  };
+
   return (
-    <div className="concert-page-root">
-      {/* Top Neon Scrollytelling Reading Progress Bar */}
+    <div className="concert-page-root" data-theme={theme}>
+      {/* Top Scrollytelling Reading Progress Bar */}
       <div
         className="reading-progress-bar"
         style={{ width: `${readingProgress}%` }}
@@ -52,10 +61,28 @@ export default function Home() {
 
       {/* Sticky Editorial Navigation */}
       <header className="top-editorial-nav">
-        <a href="#vi-tri-1" className="nav-brand">
-          <span className="nav-live-pulse" />
-          <span>TIẾNG NÓI TRẺ</span>
-        </a>
+        <div className="nav-left-group">
+          <a href="#vi-tri-1" className="nav-brand">
+            <span className="nav-live-pulse" />
+            <span>TIẾNG NÓI TRẺ</span>
+          </a>
+
+          <button
+            type="button"
+            className="theme-toggle-btn"
+            onClick={handleToggleTheme}
+            aria-label={
+              theme === "light"
+                ? "Chuyển sang giao diện tối"
+                : "Chuyển sang giao diện sáng"
+            }
+          >
+            <span className="theme-toggle-icon" aria-hidden="true">
+              {theme === "light" ? "🌙" : "☀️"}
+            </span>
+            <span>{theme === "light" ? "Giao diện tối" : "Giao diện sáng"}</span>
+          </button>
+        </div>
 
         <nav aria-label="Điều hướng các phần bài báo">
           <ul className="nav-chapter-links">
