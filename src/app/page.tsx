@@ -355,28 +355,46 @@ export default function Home() {
           <div className="solutions-pillars-list">
             <div className="pillar-item">
               <h4>
-                1. Hoàn thiện cơ chế “Một cửa” và chính sách ưu đãi theo tinh thần Nghị&nbsp;quyết&nbsp;80-NQ/TW
+                1. Giải bài toán hạ tầng sân bãi bằng quy hoạch Tổ hợp biểu diễn đa năng qua mô hình Hợp tác Công&nbsp;–&nbsp;Tư&nbsp;(PPP)
               </h4>
               <p>
-                Giải quyết trực tiếp điểm nghẽn thủ tục và bài toán tài chính bằng cách cụ thể hóa chủ trương coi trọng yếu tố văn hóa trong hoạch định chính sách kinh tế: rút gọn quy trình thẩm định hồ sơ biểu diễn quốc tế, thiết lập luồng hải quan nhanh cho thiết bị sân khấu tạm nhập tái xuất, hỗ trợ thị thực làm việc cho đoàn lưu diễn và nghiên cứu các gói ưu đãi thuế nhà thầu đối với những đại nhạc hội gắn liền với xúc tiến du lịch quốc&nbsp;gia.
+                Báo cáo của Đại học RMIT chỉ ra rằng sự thiếu hụt các sân khấu và nhà hát đa năng đạt chuẩn quốc tế đang là lực cản lớn nhất của ngành sự kiện Việt&nbsp;Nam. Trong khi đó, mô hình PPP đã chiếm tới <strong>17,8%</strong> tổng số sự kiện âm nhạc năm 2025 và bước đầu chứng minh hiệu quả trong việc huy động nguồn lực xã hội hóa cho các đại nhạc hội quy mô lớn, tiêu biểu như sự kiện concert chào mừng Ngày Văn hóa Việt&nbsp;Nam 24/11 tại SVĐ Mỹ&nbsp;Đình với quy mô dự kiến <strong>60.000 khán giả</strong>. Vận dụng chủ trương đẩy mạnh hợp tác công&nbsp;–&nbsp;tư trong lĩnh vực văn hóa, thể thao của Nghị quyết 80-NQ/TW, các đô thị trọng điểm như Hà&nbsp;Nội, TP.HCM và Đà&nbsp;Nẵng cần ưu tiên quỹ đất để quy hoạch các Tổ hợp biểu diễn trong nhà có mái che (Indoor Arena 15.000–20.000 chỗ) và nâng cấp sân vận động đạt chuẩn tải trọng âm thanh, ánh sáng quốc tế thay vì phụ thuộc vào các công trình thể thao cũ&nbsp;kỹ.
               </p>
             </div>
 
             <div className="pillar-item">
               <h4>
-                2. Đột phá hạ tầng biểu diễn có mái che gắn kết Metro qua mô hình Hợp tác Công&nbsp;–&nbsp;Tư&nbsp;(PPP)
+                2. Giải bài toán chuỗi cung ứng kỹ thuật và nhân lực bằng việc chuẩn hóa đào tạo và nội địa hóa sản&nbsp;xuất
               </h4>
               <p>
-                Tháo gỡ đồng thời hai nút thắt vật lý lớn nhất là sân bãi và giao thông giải tỏa đám đông. Dữ liệu từ báo cáo RMIT cho thấy mô hình PPP đã chiếm tới <strong>17,8%</strong> tổng số sự kiện năm 2025 và chứng minh hiệu quả vượt trội qua các “concert quốc gia” — điển hình nhất là đại nhạc hội chào mừng Ngày Văn hóa Việt Nam 24/11 đầu tiên được giao cho Hà Nội chủ trì tại SVĐ Mỹ Đình với quy mô dự kiến lên tới <strong>60.000 khán giả</strong>. Xa hơn, mô hình PPP cần được áp dụng để quy hoạch và xây dựng các Tổ hợp biểu diễn – thể thao – thương mại đa năng (Indoor Arena 15.000–20.000 chỗ và Stadium có mái che) đạt chuẩn âm học quốc tế tại Hà Nội, TP.HCM và Đà Nẵng, kết nối trực tiếp với nhà ga các tuyến Metro đô thị vận hành tăng cường đêm sự&nbsp;kiện.
+                Để giảm tỷ lệ phụ thuộc vào thiết bị nhập khẩu đắt đỏ mỗi khi đón tour diễn nước ngoài, ngành biểu diễn cần các chính sách khuyến khích đầu tư vào nghiên cứu và phát triển (R&amp;D), chuyển giao công nghệ sản xuất và đào tạo chuyên sâu các ngành nghề kỹ thuật âm thanh, ánh sáng, quản trị sân khấu. Những thương vụ hợp tác chiến lược như việc Sony Music mua lại 49% mảng phát hành và quản lý nghệ sĩ của YeaH1 hay sự xuất hiện của các không gian sản xuất chuẩn quốc tế tại TP.HCM trong năm 2025 là tín hiệu tích cực giúp chuyển giao quy trình vận hành toàn cầu vào nội địa. Đồng thời, chính các đại nhạc hội nội sinh hiện nay là môi trường thực hành để ê-kíp Việt&nbsp;Nam chuẩn hóa năng lực điều phối và định hình những thương hiệu lễ hội âm nhạc bản địa (IP) có sức sống dài hạn theo chiến lược “Bản địa hóa đẳng cấp toàn cầu” (<em>Glocalization</em>).
               </p>
             </div>
 
             <div className="pillar-item">
               <h4>
-                3. Lấy “concert nội sinh” làm thao trường chuẩn hóa chuỗi cung ứng, xây dựng IP bản địa bền vững &amp; minh bạch hóa dữ&nbsp;liệu
+                3. Giải bài toán tài chính và phí bảo lãnh thông qua ưu đãi thuế và mô hình đồng sở hữu thương&nbsp;hiệu
               </h4>
               <p>
-                Khắc phục sự phụ thuộc vào thiết bị nhập khẩu và tình trạng thiếu IP dài hạn thông qua chiến lược “Bản địa hóa đẳng cấp toàn cầu” (<em>Glocalization</em>). Sự bùng nổ của các concert Việt hiện tại chính là bước đệm thực tiễn để đội ngũ đạo diễn, kỹ thuật viên âm thanh – ánh sáng, các liên doanh kho thiết bị chuẩn <em>Technical Rider</em>, 13 nền tảng bán vé trực tuyến (như Ticketbox hay Eventista/1Zone hỗ trợ hơn 200 phương thức thanh toán tại 145 quốc gia) và lực lượng quản trị đám đông rèn luyện tay nghề quốc tế, đồng thời áp dụng bộ tiêu chí “Âm nhạc xanh” giảm rác thải sau đêm diễn. Song hành với đó, sự ra mắt chính thức của <strong>IFPI Official Vietnam Chart</strong>, <strong>Billboard Vietnam</strong> cùng <strong>Nền tảng Bản đồ số Văn hóa Việt Nam</strong> (công bố tháng 11/2026) sẽ là mảnh ghép quyết định để minh bạch hóa dữ liệu doanh thu vé và tỷ lệ lấp đầy trước các hãng giải trí toàn&nbsp;cầu.
+                Trong bối cảnh mức chi tiêu bình quân của người dùng nhạc số tại Việt&nbsp;Nam dự kiến đến năm 2030 mới đạt khoảng <strong>5,44 USD/người</strong>, việc cân đối chi phí bảo lãnh hàng triệu USD cho nghệ sĩ quốc tế là bài toán quá sức nếu nhà tổ chức chỉ dựa vào doanh thu bán vé. Lời giải đến từ hai phía: Về mặt chính sách, Nghị quyết 80-NQ/TW đã mở đường cho việc áp dụng cơ chế miễn, giảm thuế thu nhập doanh nghiệp vượt trội đối với lĩnh vực công nghiệp văn hóa, công nghiệp giải trí và khuyến khích hình thành các quỹ đầu tư văn hóa. Về mặt thị trường, xu hướng các tập đoàn tài chính – ngân hàng, bán lẻ, F&amp;B tham gia đồng sở hữu hoặc chủ trì tổ chức <strong>107 sự kiện âm nhạc</strong> trong năm 2025 (như trường hợp VPBank đưa G-Dragon về Việt&nbsp;Nam) cho thấy mô hình chia sẻ rủi ro tài chính giữa nhà sản xuất và các thương hiệu lớn đang trở thành đòn bẩy quan&nbsp;trọng.
+              </p>
+            </div>
+
+            <div className="pillar-item">
+              <h4>
+                4. Giải bài toán giao thông kết nối điểm diễn bằng quy hoạch tích hợp hạ tầng đô thị&nbsp;–&nbsp;du&nbsp;lịch
+              </h4>
+              <p>
+                Theo tinh thần của Nghị quyết 80-NQ/TW về việc yếu tố văn hóa phải được tính toán đồng bộ trong mọi quy hoạch phát triển kinh tế và đô thị, việc xây dựng các tổ hợp biểu diễn mới bắt buộc phải gắn liền với mạng lưới giao thông công cộng khối lượng lớn (tàu điện đô thị Metro, xe buýt nhanh). Bên cạnh đó, chính quyền địa phương và ban tổ chức cần thiết lập quy trình phối hợp điều tiết giao thông, kéo dài giờ hoạt động của hệ thống vận tải công cộng trong các đêm diễn nhằm giải tỏa nhanh lượng khán giả từ <strong>40.000 đến 60.000 người</strong>, giảm thiểu tình trạng ùn tắc và ô nhiễm cục bộ quanh khu vực sự&nbsp;kiện.
+              </p>
+            </div>
+
+            <div className="pillar-item">
+              <h4>
+                5. Giải bài toán thủ tục hành chính và thiếu hụt dữ liệu bằng cơ chế “tiền kiểm sang hậu kiểm” và chuẩn hóa thống&nbsp;kê
+              </h4>
+              <p>
+                Nghị quyết 80-NQ/TW nhấn mạnh yêu cầu đẩy mạnh cải cách thủ tục hành chính, phân cấp phân quyền và chuyển từ “tiền kiểm sang hậu kiểm” gắn với minh bạch hóa các quy chuẩn quản lý. Khi được cụ thể hóa thành cơ chế liên thông (“một cửa”) trong việc cấp phép biểu diễn, cấp thị thực và tạm nhập tái xuất thiết bị sân khấu, thời gian chuẩn bị của các nhà tổ chức quốc tế sẽ được rút ngắn đáng kể. Song song đó, sự hiện diện chính thức của các bảng xếp hạng âm nhạc quốc tế như <strong>IFPI Official Vietnam Chart</strong> và <strong>Billboard Vietnam</strong>, kết hợp với dữ liệu giao dịch từ các nền tảng bán vé công nghệ (Ticketbox, Eventista/1Zone) và <strong>Nền tảng Bản đồ số Văn hóa Việt&nbsp;Nam</strong> (công bố tháng 11/2026), sẽ tạo lập hệ thống dữ liệu thị trường minh bạch — cơ sở không thể thiếu để thuyết phục các đơn vị tổ chức World&nbsp;Tour toàn&nbsp;cầu.
               </p>
             </div>
           </div>
