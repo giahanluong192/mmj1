@@ -162,7 +162,11 @@ export default function Home() {
 
         <div className="prose-column">
           <p className="body-p">
-            Không chỉ dừng lại ở doanh thu bán vé cho nhà sản xuất, mỗi đại nhạc hội quy mô hàng chục nghìn người còn kích hoạt hiệu ứng lan tỏa lên toàn bộ hệ sinh thái dịch vụ tại địa phương đăng cai tổ chức. Khán giả di chuyển liên tỉnh để xem biểu diễn kéo theo nhu cầu lưu trú khách sạn, hàng không, vận tải nội đô, ẩm thực (F&amp;B), mua sắm trang phục và cả dịch vụ quảng cáo ngoài trời do cộng đồng người hâm mộ đầu&nbsp;tư.
+            Mỗi đại nhạc hội quy mô hàng chục nghìn người không chỉ mang lại doanh thu bán vé “khủng” cho nhà sản xuất, mà còn kích hoạt hiệu ứng lan tỏa lên toàn bộ hệ sinh thái dịch vụ tại địa&nbsp;phương. Sự dịch chuyển của hàng ngàn khán giả đã kéo theo sự bùng nổ nhu cầu về lưu trú, hàng không, vận tải nội đô, ẩm thực (F&amp;B) và mua sắm bán&nbsp;lẻ.
+          </p>
+
+          <p className="body-p">
+            Nhìn nhận sâu hơn về hiện tượng này, chuyên gia truyền thông xã hội Nguyễn Ngọc Long cho rằng đây chính là sức mạnh của “nền kinh tế trải nghiệm”. Tác động lớn nhất của nó không chỉ nằm ở những con số lợi nhuận cục bộ, mà nằm ở việc giữ chân dòng tiền: Dòng tiền thay vì chảy ra nước ngoài để khán giả đi xem show quốc tế, nay được giữ lại, luân chuyển mạnh mẽ trong thị trường nội&nbsp;địa.
           </p>
         </div>
 
