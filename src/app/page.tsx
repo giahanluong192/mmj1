@@ -278,6 +278,10 @@ export default function Home() {
 
         {/* 5 Systemic Bottlenecks Cards */}
         <div className="prose-column">
+          <p className="body-p" style={{ marginBottom: "1.75rem" }}>
+            Tuy nhiên, khi nhìn sâu vào cấu trúc thị trường, giới chuyên môn nhận định rằng những cú hích như BIGBANG hay G-Dragon dù rất rực rỡ nhưng vẫn mang tính chất “điểm sáng đơn lẻ” và phụ thuộc lớn vào tiềm lực tài trợ của một số ít tập đoàn, ngân hàng lớn (như Vingroup hay VPBank). Như thống kê của Trường Đại học RMIT đã chỉ ra, ở phân khúc đại nhạc hội 10.000–40.000 khán giả, số sự kiện độc lập của nghệ sĩ quốc tế vẫn chiếm tỷ trọng rất nhỏ so với các đêm nhạc nội địa (4 sự kiện quốc tế so với 101 sự kiện nội&nbsp;địa). Tổng Giám đốc SCBC Vietnam &amp; Novel Production Loki Vũ từng chia sẻ trong báo cáo của RMIT rằng việc làm một concert lớn ở Việt&nbsp;Nam nhiều khi giống như “khai phá vùng đất mới”: thiếu mức giá sàn, thiếu quy trình chuẩn và chi phí phát sinh liên tục do hạ tầng địa điểm phức tạp, dẫn đến nghịch lý có những sự kiện bán “cháy vé” nhưng nhà tổ chức vẫn đối mặt với nguy cơ thua&nbsp;lỗ. Khi đặt TP.&nbsp;Hồ&nbsp;Chí&nbsp;Minh và Hà&nbsp;Nội lên bàn cân so sánh với Bangkok, Singapore và Jakarta, có thể nhận diện <strong>5 điểm nghẽn mang tính hệ&nbsp;thống</strong> khiến các nhà tổ chức quốc tế còn e dè với thị trường Việt&nbsp;Nam:
+          </p>
+
           <div className="bottlenecks-stack">
             {FIVE_SYSTEMIC_BOTTLENECKS.map((b) => (
               <article key={b.number} className="bottleneck-card">
