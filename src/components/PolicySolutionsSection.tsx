@@ -282,8 +282,39 @@ export function InteractiveReaderPoll() {
 /* ============================================================================
    BẢNG NGUỒN ĐỐI CHIẾU DỮ LIỆU MINH BẠCH (RMIT PDF & BÁO CHÍNH THỐNG)
    ============================================================================ */
+function FormattedSourceText({ text }: { text: string }) {
+  if (!text) return null;
+  const lines = text.split("\n");
+  if (lines.length === 1 && !lines[0].trim().startsWith("•")) {
+    return <span>{text}</span>;
+  }
+  return (
+    <div className="source-multiline-text">
+      {lines.map((line, idx) => {
+        const trimmed = line.trim();
+        if (trimmed.startsWith("•")) {
+          return (
+            <div key={idx} className="source-bullet-item">
+              <span className="source-bullet-icon" aria-hidden="true">•</span>
+              <span className="source-bullet-content">{trimmed.replace(/^[•\s]+/, "")}</span>
+            </div>
+          );
+        }
+        return (
+          <p key={idx} className={idx > 0 ? "source-sub-para" : ""}>
+            {trimmed}
+          </p>
+        );
+      })}
+    </div>
+  );
+}
+
 export function DataSourcesProvenance() {
   const [sourceTab, setSourceTab] = useState<"rmit" | "press">("rmit");
+  const [pressSubFilter, setPressSubFilter] = useState<
+    "all" | "press" | "international" | "policy"
+  >("all");
   const [searchTerm, setSearchTerm] = useState<string>("");
 
   const q = searchTerm.trim().toLowerCase();
@@ -296,13 +327,27 @@ export function DataSourcesProvenance() {
       r.originalSourceNote.toLowerCase().includes(q)
   );
 
-  const filteredPress = PRESS_POLICY_SOURCES.filter(
+  const filteredPressAll = PRESS_POLICY_SOURCES.filter(
     (p) =>
       !q ||
       p.factUsed.toLowerCase().includes(q) ||
       p.articleSource.toLowerCase().includes(q) ||
-      p.authorityOrExpert.toLowerCase().includes(q)
+      p.authorityOrExpert.toLowerCase().includes(q) ||
+      (p.categoryLabel && p.categoryLabel.toLowerCase().includes(q))
   );
+
+  const filteredPress = filteredPressAll.filter((p) => {
+    if (pressSubFilter === "all") return true;
+    return p.category === pressSubFilter;
+  });
+
+  const countPress = filteredPressAll.filter((p) => p.category === "press").length;
+  const countIntl = filteredPressAll.filter(
+    (p) => p.category === "international"
+  ).length;
+  const countPolicy = filteredPressAll.filter(
+    (p) => p.category === "policy"
+  ).length;
 
   return (
     <section className="sources-provenance-section" id="bang-nguon">
@@ -318,13 +363,27 @@ export function DataSourcesProvenance() {
         </div>
 
         <div className="sources-controls">
-          <input
-            type="search"
-            className="sources-search-input"
-            placeholder="Tìm số liệu: 810, ARPU, 944, Nghị quyết 80, Mỹ Đình..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
+          <div className="sources-search-wrapper">
+            <span className="sources-search-icon" aria-hidden="true">🔍</span>
+            <input
+              type="search"
+              className="sources-search-input"
+              placeholder="Tìm số liệu: 810, ARPU, 944, BIGBANG, 122.000..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            {searchTerm && (
+              <button
+                type="button"
+                className="sources-search-clear"
+                onClick={() => setSearchTerm("")}
+                aria-label="Xóa tìm kiếm"
+              >
+                ✕
+              </button>
+            )}
+          </div>
+
           <div className="viz-tabs">
             <button
               type="button"
@@ -338,49 +397,141 @@ export function DataSourcesProvenance() {
               className={`viz-tab-btn ${sourceTab === "press" ? "active" : ""}`}
               onClick={() => setSourceTab("press")}
             >
-              2. Chính sách & Báo chính thống ({filteredPress.length})
+              2. Chính sách &amp; Báo chính thống ({filteredPressAll.length})
             </button>
           </div>
         </div>
       </div>
+
+      {/* Sub-filters for Tab 2 */}
+      {sourceTab === "press" && (
+        <div className="source-sub-filter-row">
+          <span className="source-sub-filter-label">Phân nhóm nguồn:</span>
+          <div className="source-sub-filter-pills">
+            <button
+              type="button"
+              className={`source-sub-btn ${pressSubFilter === "all" ? "active" : ""}`}
+              onClick={() => setPressSubFilter("all")}
+            >
+              Tất cả ({filteredPressAll.length})
+            </button>
+            <button
+              type="button"
+              className={`source-sub-btn ${pressSubFilter === "press" ? "active" : ""}`}
+              onClick={() => setPressSubFilter("press")}
+            >
+              Báo chí &amp; Chuyên gia ({countPress})
+            </button>
+            <button
+              type="button"
+              className={`source-sub-btn ${pressSubFilter === "international" ? "active" : ""}`}
+              onClick={() => setPressSubFilter("international")}
+            >
+              Sự kiện quốc tế 2026 ({countIntl})
+            </button>
+            <button
+              type="button"
+              className={`source-sub-btn ${pressSubFilter === "policy" ? "active" : ""}`}
+              onClick={() => setPressSubFilter("policy")}
+            >
+              Nghị quyết 80 &amp; 5 Giải pháp ({countPolicy})
+            </button>
+          </div>
+        </div>
+      )}
 
       <div className="sources-table-wrap">
         {sourceTab === "rmit" ? (
           <table className="provenance-table">
             <thead>
               <tr>
-                <th style={{ width: "44%" }}>Số liệu / Thông tin đã dùng trong bài</th>
-                <th style={{ width: "24%" }}>Vị trí chính xác trong file PDF của RMIT</th>
+                <th style={{ width: "42%" }}>Số liệu / Thông tin đã dùng trong bài</th>
+                <th style={{ width: "26%" }}>Vị trí chính xác trong file PDF của RMIT</th>
                 <th style={{ width: "32%" }}>Nguồn gốc dữ liệu sơ cấp / thứ cấp được RMIT ghi nhận</th>
               </tr>
             </thead>
             <tbody>
-              {filteredRmit.map((row) => (
-                <tr key={row.id}>
-                  <td>{row.factUsed}</td>
-                  <td className="td-highlight-cyan">{row.pdfLocation}</td>
-                  <td>{row.originalSourceNote}</td>
+              {filteredRmit.length === 0 ? (
+                <tr>
+                  <td colSpan={3} className="sources-empty-row">
+                    Không tìm thấy số liệu phù hợp với từ khóa &ldquo;{searchTerm}&rdquo;
+                  </td>
                 </tr>
-              ))}
+              ) : (
+                filteredRmit.map((row) => (
+                  <tr key={row.id}>
+                    <td className="source-fact-td">
+                      <FormattedSourceText text={row.factUsed} />
+                    </td>
+                    <td className="td-highlight-cyan">
+                      <div className="source-location-tag">{row.pdfLocation}</div>
+                    </td>
+                    <td className="source-note-td">
+                      <FormattedSourceText text={row.originalSourceNote} />
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         ) : (
           <table className="provenance-table">
             <thead>
               <tr>
-                <th style={{ width: "44%" }}>Số liệu / Nhận định đã dùng trong bài</th>
-                <th style={{ width: "28%" }}>Nguồn bài báo / Văn kiện cụ thể</th>
-                <th style={{ width: "28%" }}>Cơ quan ban hành / Chuyên gia phát ngôn</th>
+                <th style={{ width: "42%" }}>
+                  {pressSubFilter === "international"
+                    ? "Số liệu / Sự kiện quốc tế năm 2026 tại Việt Nam"
+                    : pressSubFilter === "policy"
+                    ? "Nội dung / Giải pháp trong Chương 4"
+                    : pressSubFilter === "press"
+                    ? "Số liệu / Nhận định đã dùng trong bài"
+                    : "Số liệu / Nhận định / Giải pháp trong bài"}
+                </th>
+                <th style={{ width: "32%" }}>
+                  {pressSubFilter === "international"
+                    ? "Nguồn bài báo / Đơn vị công bố chính thức"
+                    : pressSubFilter === "policy"
+                    ? "Vị trí & Nội dung gốc trong Nghị quyết 80-NQ/TW"
+                    : "Nguồn bài báo / Văn kiện cụ thể"}
+                </th>
+                <th style={{ width: "26%" }}>
+                  {pressSubFilter === "international"
+                    ? "Thời gian đăng tải"
+                    : pressSubFilter === "policy"
+                    ? "Nguồn đối chiếu RMIT & Báo chí"
+                    : "Cơ quan ban hành / Chuyên gia"}
+                </th>
               </tr>
             </thead>
             <tbody>
-              {filteredPress.map((row) => (
-                <tr key={row.id}>
-                  <td>{row.factUsed}</td>
-                  <td className="td-highlight-gold">{row.articleSource}</td>
-                  <td>{row.authorityOrExpert}</td>
+              {filteredPress.length === 0 ? (
+                <tr>
+                  <td colSpan={3} className="sources-empty-row">
+                    Không tìm thấy nội dung phù hợp với từ khóa &ldquo;{searchTerm}&rdquo;
+                  </td>
                 </tr>
-              ))}
+              ) : (
+                filteredPress.map((row) => (
+                  <tr key={row.id}>
+                    <td className="source-fact-td">
+                      {pressSubFilter === "all" && row.categoryLabel && (
+                        <span
+                          className={`source-cat-badge cat-${row.category || "press"}`}
+                        >
+                          {row.categoryLabel}
+                        </span>
+                      )}
+                      <FormattedSourceText text={row.factUsed} />
+                    </td>
+                    <td className="td-highlight-gold">
+                      <FormattedSourceText text={row.articleSource} />
+                    </td>
+                    <td className="source-authority-td">
+                      <FormattedSourceText text={row.authorityOrExpert} />
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         )}
