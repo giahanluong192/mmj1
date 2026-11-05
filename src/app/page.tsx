@@ -317,11 +317,11 @@ export default function Home() {
           </h2>
 
           <p className="body-p">
-            Để chuyển hóa “cơn sốt” concert nội sinh thành một ngành công nghiệp biểu diễn chuyên nghiệp và đưa Việt&nbsp;Nam trở thành điểm đến sáng giá trên bản đồ âm nhạc quốc tế, thị trường không thể chỉ dựa vào nỗ lực tự thân của từng nghệ sĩ hay nhà sản xuất tư nhân, mà cần một bệ phóng thể chế đồng&nbsp;bộ.
+            Để chuyển hóa làn sóng concert nội sinh thành một ngành công nghiệp biểu diễn vận hành ổn định và từng bước thu hút các chuyến lưu diễn quốc tế, thị trường không thể chỉ dựa vào nỗ lực đơn lẻ của từng nghệ sĩ hay nhà sản xuất tư nhân, mà cần một hành lang thể chế và hạ tầng đồng&nbsp;bộ.
           </p>
 
           <p className="body-p">
-            Năm 2026 đánh dấu một cột mốc chính sách đặc biệt quan trọng: <strong>Nghị quyết số 80-NQ/TW</strong> của Bộ Chính trị về phát triển văn hóa Việt&nbsp;Nam (ban hành ngày 07/01/2026) và Nghị quyết của Quốc hội chính thức thống nhất chọn ngày <strong>24/11 hằng năm là “Ngày Văn hóa Việt&nbsp;Nam”</strong> (người lao động được nghỉ lễ và hưởng nguyên lương). Việc thiết lập một ngày nghỉ lễ văn hóa chính thức không chỉ mang ý nghĩa tôn vinh cội nguồn bản sắc dân tộc và quyền thụ hưởng văn hóa của nhân dân, mà còn kiến tạo một “mùa vàng tiêu dùng văn hóa – du lịch âm nhạc” định kỳ hằng năm trên toàn quốc, tạo xung lực cầu trực tiếp cho các nhà tổ chức biểu diễn và điểm đến địa&nbsp;phương.
+            Năm 2026 ghi nhận một cột mốc chính sách quan trọng khi Bộ Chính trị ban hành <strong>Nghị quyết số 80-NQ/TW</strong> về phát triển văn hóa Việt&nbsp;Nam (ngày 07/01/2026) và Quốc hội thống nhất chọn ngày <strong>24/11 hằng năm là “Ngày Văn hóa Việt&nbsp;Nam”</strong> (người lao động được nghỉ lễ và hưởng nguyên lương). Việc thiết lập một ngày nghỉ lễ chính thức dành riêng cho văn hóa không chỉ mang ý nghĩa tôn vinh đội ngũ sáng tạo và nâng cao mức độ thụ hưởng văn hóa của người dân, mà dưới góc độ thị trường biểu diễn, đây còn là “khung thời gian vàng” kích cầu tiêu dùng văn hóa, tạo điều kiện để công chúng di chuyển liên tỉnh tham gia các lễ hội âm nhạc kết hợp du lịch cuối&nbsp;năm.
           </p>
 
           {/* Quantitative Targets Box of Resolution 80-NQ/TW */}
