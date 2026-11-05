@@ -212,7 +212,7 @@ export default function Home() {
         <div className="prose-column">
           <div className="chapter-kicker">TƯƠNG QUAN NỘI – NGOẠI & 5 ĐIỂM NGHẼN HỆ THỐNG</div>
           <h2 className="chapter-h2">
-            Nhịp cầu dữ liệu: Bức tranh tương quan giữa concert nội địa và quốc tế tại&nbsp;Việt&nbsp;Nam
+            BỨC TRANH TƯƠNG QUAN GIỮA CONCERT NỘI ĐỊA VÀ QUỐC TẾ TẠI VIỆT&nbsp;NAM
           </h2>
 
           <p className="body-p">
