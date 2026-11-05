@@ -18,7 +18,6 @@ import {
   MotionGraphic90sPlayer,
 } from "@/components/GlobalGapSection";
 import {
-  BottleneckSolutionMatrix,
   ExpertQuotesCarousel,
   InteractiveReaderPoll,
   DataSourcesProvenance,
@@ -400,10 +399,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Ma trận đối chiếu trực tiếp 5 điểm nghẽn -> 5 lời giải */}
-        <div className="wide-viz-column">
-          <BottleneckSolutionMatrix />
-        </div>
 
         {/* [VỊ TRÍ 12] QUOTE CARDS – GÓC NHÌN CHUYÊN GIA & NHÀ QUẢN LÝ */}
         <div className="wide-viz-column">
