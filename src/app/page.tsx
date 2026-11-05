@@ -1,1240 +1,403 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
-import ARTICLE_DATA, { TechTransferLocation } from "@/data/articleData";
+import { useState, useEffect } from "react";
+import HeroConcertLoop from "@/components/HeroConcertLoop";
+import {
+  EventScaleAndConcertsWidget,
+  SpendingWillingnessChart,
+  VoxpopWaveformBox,
+  ConcertEconomicInfographic,
+} from "@/components/DomesticChartsSection";
+import {
+  VietnamEventHeatmap,
+  ConcertCashflowSankey,
+  StageTeardownSlider,
+} from "@/components/LocalSustainabilitySection";
+import {
+  ArtistOriginGroupedChart,
+  SeaInfrastructureRadarAndTable,
+  MotionGraphic90sPlayer,
+} from "@/components/GlobalGapSection";
+import {
+  BottleneckSolutionMatrix,
+  ExpertQuotesCarousel,
+  InteractiveReaderPoll,
+  DataSourcesProvenance,
+} from "@/components/PolicySolutionsSection";
+import { ARTICLE_META, FIVE_SYSTEMIC_BOTTLENECKS } from "@/data/articleData";
 
 export default function Home() {
-  // 1. Reading progress bar
   const [readingProgress, setReadingProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      if (totalHeight > 0) {
-        const progress = (window.scrollY / totalHeight) * 100;
-        setReadingProgress(Math.min(100, Math.max(0, progress)));
+      const total =
+        document.documentElement.scrollHeight - window.innerHeight;
+      if (total > 0) {
+        const pct = (window.scrollY / total) * 100;
+        setReadingProgress(Math.min(100, Math.max(0, pct)));
       }
     };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // 2. Timeline filter state
-  const [timelineFilter, setTimelineFilter] = useState<"all" | "agriculture" | "fisheries">("all");
-
-  const filteredMilestones = useMemo(() => {
-    if (timelineFilter === "all") return ARTICLE_DATA.timeline.milestones;
-    return ARTICLE_DATA.timeline.milestones.filter(
-      (m) => m.sector === timelineFilter || m.sector === "both"
-    );
-  }, [timelineFilter]);
-
-  // 3. Photo Story state (5 steps)
-  const [activePhotoStep, setActivePhotoStep] = useState<number>(1);
-  const currentPhoto = useMemo(() => {
-    return (
-      ARTICLE_DATA.riceResearch.photoStory.find((p) => p.step === activePhotoStep) ||
-      ARTICLE_DATA.riceResearch.photoStory[0]
-    );
-  }, [activePhotoStep]);
-
-  // 4. Video simulation state (75-90 seconds script)
-  const [currentVideoStepIdx, setCurrentVideoStepIdx] = useState<number>(0);
-  const [isVideoPlaying, setIsVideoPlaying] = useState<boolean>(false);
-
-  useEffect(() => {
-    let timer: NodeJS.Timeout;
-    if (isVideoPlaying) {
-      timer = setInterval(() => {
-        setCurrentVideoStepIdx((prev) => {
-          if (prev < ARTICLE_DATA.aquacultureResearch.videoSimulation.steps.length - 1) {
-            return prev + 1;
-          }
-          setIsVideoPlaying(false);
-          return 0;
-        });
-      }, 5000);
-    }
-    return () => clearInterval(timer);
-  }, [isVideoPlaying]);
-
-  const currentVideoStep = ARTICLE_DATA.aquacultureResearch.videoSimulation.steps[currentVideoStepIdx];
-
-  // 5. Technology Map state (Toggle 2 layers: domestic & international)
-  const [mapLayer, setMapLayer] = useState<"domestic" | "international">("domestic");
-  const [selectedSpotId, setSelectedSpotId] = useState<string>("vinhchau_baclieu");
-
-  const activeSpotsList = useMemo(() => {
-    return mapLayer === "domestic"
-      ? ARTICLE_DATA.technologyMap.domesticSpots
-      : ARTICLE_DATA.technologyMap.internationalSpots;
-  }, [mapLayer]);
-
-  useEffect(() => {
-    if (mapLayer === "domestic") {
-      setSelectedSpotId("vinhchau_baclieu");
-    } else {
-      setSelectedSpotId("japan_jica");
-    }
-  }, [mapLayer]);
-
-  const selectedLocation = useMemo(() => {
-    return (
-      activeSpotsList.find((s) => s.id === selectedSpotId) || activeSpotsList[0]
-    );
-  }, [activeSpotsList, selectedSpotId]);
-
-  // 6. Interactive Interviews state (3 groups: farmer, student, lecturer)
-  const [activeInterviewGroup, setActiveInterviewGroup] = useState<"farmer" | "student" | "lecturer">("farmer");
-  const currentInterview = useMemo(() => {
-    return (
-      ARTICLE_DATA.interviews.find((i) => i.group === activeInterviewGroup) ||
-      ARTICLE_DATA.interviews[0]
-    );
-  }, [activeInterviewGroup]);
-
-  // 7. Quick Lookup tool
-  const [lookupQuery, setLookupQuery] = useState("");
-  const [lookupResults, setLookupResults] = useState<TechTransferLocation[] | null>(null);
-
-  const handleLookup = () => {
-    const q = lookupQuery.trim().toLowerCase();
-    if (!q) {
-      setLookupResults([]);
-      return;
-    }
-    const allSpots = [
-      ...ARTICLE_DATA.technologyMap.domesticSpots,
-      ...ARTICLE_DATA.technologyMap.internationalSpots,
-    ];
-    const matches = allSpots.filter(
-      (s) =>
-        s.name.toLowerCase().includes(q) ||
-        s.province.toLowerCase().includes(q) ||
-        s.technology.toLowerCase().includes(q) ||
-        s.badge.toLowerCase().includes(q) ||
-        s.achievements.toLowerCase().includes(q)
-    );
-    setLookupResults(matches);
-  };
-
   return (
-    <>
-      {/* Thanh tiến trình đọc trên cùng */}
-      <div id="reading-progress" style={{ width: `${readingProgress}%` }} />
+    <div className="concert-page-root">
+      {/* Top Neon Scrollytelling Reading Progress Bar */}
+      <div
+        className="reading-progress-bar"
+        style={{ width: `${readingProgress}%` }}
+      />
 
-      {/* Header thanh điều hướng */}
-      <header className="site-nav">
-        <a href="#" className="brand-badge">
-          <span className="brand-dot" />
-          <span>ĐẠI HỌC CẦN THƠ</span>
+      {/* Sticky Editorial Navigation */}
+      <header className="top-editorial-nav">
+        <a href="#vi-tri-1" className="nav-brand">
+          <span className="nav-live-pulse" />
+          <span>CONCERT DATA MAP • VN 2026</span>
         </a>
-        <ul className="nav-links">
-          <li><a href="#lich-su">Dấu mốc 30 năm</a></li>
-          <li><a href="#giong-lua">Giống lúa Nông Dân</a></li>
-          <li><a href="#thuy-san">Cá tra & Bông lau</a></li>
-          <li><a href="#quoc-te">Hợp tác quốc tế</a></li>
-          <li><a href="#ban-do">Bản đồ công nghệ</a></li>
-          <li><a href="#phong-van">Góc nhìn thực tế</a></li>
-          <li><a href="#tra-cuu" className="nav-cta">Tra cứu giống & công nghệ</a></li>
-        </ul>
+
+        <nav aria-label="Điều hướng các chương bài báo">
+          <ul className="nav-chapter-links">
+            <li>
+              <a href="#chuong-1">1. Concert nội sinh</a>
+            </li>
+            <li>
+              <a href="#chuong-2">2. Sau đêm bùng nổ</a>
+            </li>
+            <li>
+              <a href="#chuong-3">3. Khoảng cách World Tour</a>
+            </li>
+            <li>
+              <a href="#chuong-4" className="nav-redstar-pill">
+                4. Bệ phóng Nghị quyết 80
+              </a>
+            </li>
+            <li>
+              <a href="#bang-nguon">Bảng nguồn</a>
+            </li>
+          </ul>
+        </nav>
       </header>
 
-      {/* Bìa bài báo (Hero Section với hình nền toàn cảnh Đại học Cần Thơ) */}
-      <section className="hero-section">
-        <div
-          className="hero-campus-bg"
-          role="img"
-          aria-label="Toàn cảnh Khu II Trường Đại học Cần Thơ nhìn từ trên cao"
-        />
-        <div className="hero-overlay-texture" />
+      {/* [VỊ TRÍ 1] HEADER VIDEO LOOP + TIÊU ĐỀ + SAPO NGẮN GỌN + 4 CHỈ SỐ ĐỊNH LƯỢNG */}
+      <HeroConcertLoop />
 
-        <div className="split-badge-container">
-          <div className="split-badge-item">
-            <span>📍</span> Toàn cảnh Khu II – Đại học Cần Thơ (Đường 3/2, TP. Cần Thơ)
+      {/* =====================================================================
+          CHƯƠNG 1: KỶ NGUYÊN "CONCERT NỘI SINH" - KHI NGƯỜI VIỆT CHI TIỀN TRIỆU CHO NHẠC VIỆT
+          ===================================================================== */}
+      <main className="editorial-section" id="chuong-1">
+        <div className="prose-column">
+          <div className="chapter-kicker">CHƯƠNG 01 • SỨC BẬT THỊ TRƯỜNG NỘI ĐỊA</div>
+          <h2 className="chapter-h2">
+            Kỷ nguyên “Concert nội sinh” — Khi người Việt chi tiền triệu cho nhạc Việt
+          </h2>
+
+          <p className="body-p dropcap-p">
+            Nếu như vài năm trước, thị trường biểu diễn tại Việt Nam chủ yếu vận hành theo hai mô hình quen thuộc — một là các đêm nhạc do nhãn hàng tài trợ toàn bộ kinh phí mời nghệ sĩ biểu diễn nhằm quảng bá thương hiệu (thường phát vé miễn phí kèm điều kiện mua sản phẩm), hai là liveshow do chính nghệ sĩ tự đứng ra tổ chức ở quy mô vừa và nhỏ dựa trên tệp người hâm mộ trung thành ổn định — còn khái niệm bán vé thương mại hàng chục nghìn khán giả hiếm hoi lắm mới gắn liền với một số ít tên tuổi gạo cội hoặc ngôi sao K-Pop, thì giai đoạn 2024–2026 đã ghi nhận sự dịch chuyển mang tính bước ngoặt về cả quy mô lẫn hành vi tiêu dùng.
+          </p>
+
+          <p className="body-p">
+            Theo <em>Báo cáo Tổng quan ngành công nghiệp âm nhạc Việt Nam 2025–2026</em> của Đại học RMIT Việt Nam, năm 2025 ghi nhận hơn <strong>810 sự kiện âm nhạc</strong> đã diễn ra hoặc được công bố trên cả nước (đạt đỉnh vào tháng 8 với 108 sự kiện). Riêng tại đầu tàu kinh tế TP.HCM, số liệu thống kê trong 9 tháng đầu năm 2026 của Sở Văn hóa và Thể thao TP.HCM cho thấy thành phố đã tiếp nhận, thẩm định và chấp thuận <strong>1.064 hồ sơ</strong> hoạt động nghệ thuật biểu diễn, trong đó có tới <strong>944 chương trình nghệ thuật, sân khấu</strong>. Tần suất sự kiện tăng cao vào mùa hè và nửa cuối năm phản ánh nhu cầu thưởng thức âm nhạc trực tiếp (<em>live music</em>) đang dần trở thành một phần trong lối sống thường nhật của người trẻ đô thị.
+          </p>
+        </div>
+
+        {/* [VỊ TRÍ 2] BIỂU ĐỒ 1: SỰ TĂNG TRƯỞNG QUY MÔ & TỐC ĐỘ BÁN VÉ CONCERT NỘI ĐỊA */}
+        <div className="wide-viz-column">
+          <EventScaleAndConcertsWidget />
+        </div>
+
+        <div className="prose-column">
+          <p className="body-p">
+            Đáng chú ý, phân khúc các sự kiện quy mô lớn (trên 5.000 khán giả) đã chiếm khoảng <strong>23,8%</strong> tổng số sự kiện được khảo sát trong báo cáo của RMIT, trong đó nhóm đại nhạc hội từ 10.000 đến 40.000 người chiếm <strong>14,6%</strong> và trên 40.000 người chiếm <strong>2,5%</strong>. Sự trỗi dậy của các “concert phái sinh” bước ra từ truyền hình thực tế như <em>Anh Trai Vượt Ngàn Chông Gai</em>, <em>Anh Trai “Say Hi”</em>, <em>Em Xinh “Say Hi”</em>, cùng chuỗi liveshow cá nhân của Mỹ Tâm (<em>See The Light</em> – khoảng 40.000 khán giả), Hà Anh Tuấn (<em>Sketch A Rose</em> – khoảng 30.000 khán giả), Soobin (<em>All-Rounder</em> – khoảng 26.000 khán giả qua 3 đêm) đã thiết lập những cột mốc mới. Ngay trong tháng 10 và đầu tháng 11/2026, hai đêm diễn của <em>Anh Trai Vượt Ngàn Chông Gai 2026</em> tại TP.HCM thu hút khoảng <strong>100.000 khán giả</strong> (vé đêm 1 bán hết sau 5 giờ), trong khi đợt diễn tại Hưng Yên tiếp tục “cháy vé” ngay trong buổi trưa mở bán ngày 04/11/2026.
+          </p>
+
+          {/* Điểm nhấn Đỏ Sao Vàng cho xu hướng Concert Quốc gia & mốc 60.000 người tại Hà Nội */}
+          <div className="national-concert-callout">
+            <div className="redstar-flag-pill">★ XU HƯỚNG “CONCERT QUỐC GIA” & DẤU MỐC 24/11</div>
+            <p>
+              Song song với làn sóng giải trí thương mại, xu hướng <strong>“concert quốc gia”</strong> gắn với niềm tự hào dân tộc (như <em>Tổ Quốc Trong Tim</em>, <em>V Concert – Rạng Rỡ Việt Nam</em> cùng 128 sự kiện âm nhạc chủ đề văn hóa dịp đại lễ A50–A80) cũng thu hút từ <strong>25.000 đến hơn 50.000 người mỗi đêm</strong>. Tiếp nối đà thành công ấn tượng của các mùa nhạc hội quốc gia trước đó, TP. Hà Nội đã được giao chủ trì tổ chức đại nhạc hội chào mừng <strong>Ngày Văn hóa Việt Nam 24/11</strong> (diễn ra tối 23/11/2026 tại SVĐ Quốc gia Mỹ Đình) với quy mô dự kiến khoảng <strong>60.000 khán giả</strong> — xác lập một cột mốc biểu tượng mới trong năm nay.
+            </p>
+          </div>
+
+          <p className="body-p">
+            Sự bùng nổ này bắt nguồn từ sự thay đổi rõ nét trong tâm lý sẵn sàng chi trả của công chúng. Khảo sát định lượng của Đại học RMIT (N=471) chỉ ra rằng sự kiện trực tiếp (concert, liveshow, fan meeting) đứng thứ hai trong nhóm các sản phẩm âm nhạc được khán giả sẵn sàng chi tiền nhiều nhất (chiếm <strong>60,9%</strong>), chỉ xếp sau gói đăng ký nghe nhạc trực tuyến (<strong>71,7%</strong>). Đặc biệt, văn hóa fandom chuyên nghiệp (<em>Prosumer Fandom</em>) đã thúc đẩy mạnh mẽ chi tiêu cho các vật phẩm đi kèm (<em>merchandise</em>): có tới <strong>33,2%</strong> người hâm mộ sẵn sàng chi từ 500.000 đến 1.000.000 đồng/tháng và <strong>22,9%</strong> chi trên 1.000.000 đồng/tháng cho nhóm sản phẩm này.
+          </p>
+        </div>
+
+        {/* [VỊ TRÍ 3] BIỂU ĐỒ 2: CƠ CẤU GIÁ VÉ & MỨC SẴN SÀNG CHI TRẢ CỦA KHÁN GIẢ VIỆT */}
+        <div className="wide-viz-column">
+          <SpendingWillingnessChart />
+        </div>
+
+        {/* [VỊ TRÍ 4] AUDIO VOXPOP & TEXT VOXBOX – TIẾNG NÓI TỪ KHÁN ĐÀI */}
+        <div className="wide-viz-column">
+          <VoxpopWaveformBox />
+        </div>
+
+        <div className="prose-column">
+          <p className="body-p">
+            Không chỉ dừng lại ở doanh thu bán vé cho nhà sản xuất, mỗi đại nhạc hội quy mô hàng chục nghìn người còn kích hoạt hiệu ứng lan tỏa lên toàn bộ hệ sinh thái dịch vụ tại địa phương đăng cai tổ chức. Khán giả di chuyển liên tỉnh để xem biểu diễn kéo theo nhu cầu lưu trú khách sạn, hàng không, vận tải nội đô, ẩm thực (F&amp;B), mua sắm trang phục và cả dịch vụ quảng cáo ngoài trời do cộng đồng người hâm mộ đầu tư.
+          </p>
+        </div>
+
+        {/* [VỊ TRÍ 5] INFOGRAPHIC TÁC ĐỘNG KINH TẾ LAN TỎA TỪ 1 ĐÊM CONCERT */}
+        <div className="wide-viz-column">
+          <ConcertEconomicInfographic />
+        </div>
+      </main>
+
+      {/* =====================================================================
+          CHƯƠNG 2: NHỮNG CUỘC ĐUA TẠI ĐỊA PHƯƠNG VÀ CÂU HỎI "SAU ĐÊM BÙNG NỔ CÒN LẠI GÌ?"
+          ===================================================================== */}
+      <section className="editorial-section alt-dark-band" id="chuong-2">
+        <div className="prose-column">
+          <div className="chapter-kicker">CHƯƠNG 02 • PHẢN BIỆN CHUỖI GIÁ TRỊ & TÍNH BỀN VỮNG</div>
+          <h2 className="chapter-h2">
+            Những cuộc đua tại địa phương và câu hỏi: “Sau đêm bùng nổ còn lại gì?”
+          </h2>
+
+          <p className="body-p">
+            Trước sức hút truyền thông và khả năng kích cầu du lịch tức thời của các sự kiện âm nhạc, nhiều địa phương từ Hà Nội, TP.HCM đến Đà Nẵng, Quảng Ninh, Lâm Đồng, Thừa Thiên Huế, Quảng Bình... đã tích cực đưa đại nhạc hội vào chiến lược quảng bá điểm đến. Tuy nhiên, khi làn sóng này lan rộng, các chuyên gia văn hóa và những người làm nghề bắt đầu đặt ra những góc nhìn phản biện sâu sắc.
+          </p>
+
+          <p className="body-p">
+            Như PGS.TS Bùi Hoài Sơn đã nhận định trên báo <em>Tuổi Trẻ</em>, phát triển công nghiệp văn hóa không phải là một cuộc đua xem địa phương nào tổ chức được concert lớn hơn, mời nhiều ngôi sao hơn hay dựng sân khấu hoành tráng hơn. Một đêm nhạc bùng nổ đôi khi rất giống một trận pháo hoa: rực rỡ trên bầu trời trong vài tiếng đồng hồ, tạo ra “nền kinh tế chú ý” (<em>attention economy</em>) sôi động trên mạng xã hội, nhưng nếu thiếu một hệ sinh thái dịch vụ đêm và bản sắc văn hóa bản địa để neo giữ cảm xúc, hiệu ứng kinh tế sẽ nhanh chóng tan biến khi khán giả rời sân vận động ngay trong đêm.
+          </p>
+        </div>
+
+        {/* [VỊ TRÍ 6] BẢN ĐỒ NHIỆT: PHÂN BỐ SỰ KIỆN & KHẢ NĂNG GIỮ CHÂN DU KHÁCH */}
+        <div className="wide-viz-column">
+          <VietnamEventHeatmap />
+        </div>
+
+        <div className="prose-column">
+          <p className="body-p">
+            Tại Hội thảo <em>“Công nghiệp concert và giải trí: Từ bùng nổ đến bền vững”</em> diễn ra vào tháng 10/2026, nhiều nghịch lý trong cấu trúc vận hành của thị trường biểu diễn nội địa đã được mổ xẻ. Đầu tiên là bài toán thiếu vắng các tài sản trí tuệ (IP) có sức sống độc lập lâu dài. Đa số concert quy mô lớn tại Việt Nam hiện nay vẫn mang tính chất sự kiện đơn lẻ hoặc là sản phẩm phái sinh dựa trên sức nóng của các chương trình truyền hình thực tế. Khi chương trình truyền hình hạ nhiệt qua các mùa, việc duy trì tỷ lệ lấp đầy khán đài nếu không có một bản sắc lễ hội độc lập (như cách Glastonbury, Coachella hay Fuji Rock đã làm trên thế giới) là một thách thức lớn.
+          </p>
+
+          <p className="body-p">
+            Thứ hai, dòng tiền trong một đêm concert tại Việt Nam vẫn chịu áp lực chi phí sản xuất quá cao. Tổng Giám đốc SCBC Vietnam &amp; Novel Production Loki Vũ từng chia sẻ trong báo cáo của RMIT rằng việc làm một concert lớn ở Việt Nam nhiều khi giống như “đi khai phá vùng đất mới”: thiếu mức giá sàn, thiếu quy trình chuẩn và chi phí phát sinh liên tục do hạ tầng địa điểm phức tạp, dẫn đến nghịch lý có những sự kiện bán “cháy vé” nhưng nhà tổ chức vẫn đối mặt với nguy cơ thua lỗ. Thêm vào đó, thói quen tổ chức các đêm nhạc miễn phí từ một số doanh nghiệp nhằm quảng bá thương hiệu trong thời gian dài cũng phần nào tạo ra tâm lý thụ động cho một bộ phận khán giả đại chúng, gây áp lực định giá vé lên các đơn vị kinh doanh biểu diễn thuần túy.
+          </p>
+
+          <p className="body-p">
+            Thứ ba, khi bóc tách sâu hơn cấu trúc dòng tiền và vận hành hậu trường, phần lớn ngân sách thu về từ bán vé và tài trợ hiện bị “ngốn” vào khâu thuê mặt bằng trống rồi dựng mới toàn bộ kết cấu giàn giáo, khán đài, âm thanh – ánh sáng từ con số 0 cho vỏn vẹn một đến hai đêm diễn, trước khi phải tháo dỡ hoàn toàn vào sáng hôm sau. Mô hình “lắp tạm – dỡ nhanh” này không chỉ bào mòn biên lợi nhuận tái đầu tư cho nghệ sĩ và nhà sản xuất, mà còn để lại bài toán môi trường nhức nhối với hàng tấn rác thải nhựa, chai nước và áo mưa dùng một lần sau mỗi sự kiện ngoài trời — vấn đề đã được báo cáo RMIT gióng lên hồi chuông cảnh báo trong chuyên đề <em>“Âm nhạc xanh”</em>.
+          </p>
+        </div>
+
+        {/* [VỊ TRÍ 7] BIỂU ĐỒ SANKEY: DÒNG TIỀN CỦA MỘT ĐÊM CONCERT CHẢY ĐI ĐÂU? */}
+        <div className="wide-viz-column">
+          <ConcertCashflowSankey />
+        </div>
+
+        {/* [VỊ TRÍ 8] PHOTO STORY / INTERACTIVE SLIDER: HẬU TRƯỜNG THÁO DỠ SÂN KHẤU & RÁC THẢI SỰ KIỆN */}
+        <div className="wide-viz-column">
+          <StageTeardownSlider />
+        </div>
+      </section>
+
+      {/* =====================================================================
+          CHƯƠNG 3: NHỊP CẦU DỮ LIỆU & VÌ SAO SIÊU SAO QUỐC TẾ VẪN "NGẠI" ĐẾN VIỆT NAM?
+          ===================================================================== */}
+      <section className="editorial-section" id="chuong-3">
+        <div className="prose-column">
+          <div className="chapter-kicker">CHƯƠNG 03 • TƯƠNG QUAN NỘI – NGOẠI & 5 ĐIỂM NGHẼN HỆ THỐNG</div>
+          <h2 className="chapter-h2">
+            Nhịp cầu dữ liệu: Bức tranh tương quan giữa concert nội địa và quốc tế tại Việt Nam
+          </h2>
+
+          <p className="body-p">
+            Sự sôi động của các đêm nhạc nội sinh dễ mang lại cảm giác rằng Việt Nam đã sẵn sàng trở thành một “trung tâm biểu diễn mới” của châu Á. Thế nhưng, khi đặt số liệu sự kiện của nghệ sĩ nội địa cạnh các sự kiện của nghệ sĩ quốc tế tại Việt Nam, một khoảng cách lớn lập tức lộ diện.
+          </p>
+        </div>
+
+        {/* [VỊ TRÍ 9] BIỂU ĐỒ TƯƠNG QUAN NGUỒN GỐC NGHỆ SĨ & QUY MÔ KHÁN GIẢ */}
+        <div className="wide-viz-column">
+          <ArtistOriginGroupedChart />
+        </div>
+
+        <div className="prose-column">
+          <p className="body-p">
+            Phân tích dữ liệu từ hơn 810 sự kiện âm nhạc năm 2025 của Đại học RMIT cho thấy sự áp đảo tuyệt đối của các chương trình thuần nội địa:
+          </p>
+
+          <ul className="editorial-bullet-list">
+            <li>
+              <strong>Ở phân khúc quy mô 1.000 – 5.000 khán giả:</strong> Có tới <strong>200 sự kiện</strong> chỉ có nghệ sĩ nội địa, trong khi sự kiện chỉ có nghệ sĩ quốc tế dừng ở con số <strong>29</strong>, và sự kiện kết hợp cả hai là <strong>28</strong>.
+            </li>
+            <li>
+              <strong>Ở phân khúc đại nhạc hội 10.000 – 40.000 khán giả:</strong> Trong khi nghệ sĩ nội địa làm chủ <strong>101 sự kiện</strong>, số lượng sự kiện độc lập của nghệ sĩ quốc tế tại Việt Nam chỉ vỏn vẹn <strong>4 sự kiện</strong> (và <strong>12 sự kiện</strong> kết hợp nghệ sĩ nội – ngoại).
+            </li>
+            <li>
+              <strong>Ở phân khúc siêu sự kiện (&gt;40.000 khán giả):</strong> Các chương trình nội địa ghi nhận <strong>16 sự kiện</strong>, trong khi sự kiện độc lập của nghệ sĩ quốc tế chỉ đếm trên đầu ngón tay với <strong>3 sự kiện</strong> (tiêu biểu như 2 đêm diễn thuộc <em>Übermensch World Tour</em> của G-Dragon thu hút gần 100.000 khán giả tại Hà Nội).
+            </li>
+          </ul>
+
+          <p className="body-p">
+            Con số chỉ <strong>4 sự kiện độc lập</strong> của nghệ sĩ quốc tế ở quy mô 10.000–40.000 khán giả trong cả một năm sôi động là minh chứng định lượng rõ ràng nhất: Dù nhu cầu của khán giả trong nước rất lớn, Việt Nam vẫn chưa phải là điểm dừng chân quen thuộc trên bản đồ World Tour của các ngôi sao hàng đầu thế giới.
+          </p>
+
+          <h3 className="editorial-sub-h3">
+            Vì sao siêu sao quốc tế vẫn “ngại” đến Việt Nam?
+          </h3>
+
+          <p className="body-p">
+            Nhìn sang khu vực Đông Nam Á trong giai đoạn 2025–2026, cuộc cạnh tranh giành quyền đăng cai các chuyến lưu diễn toàn cầu đang diễn ra rất quyết liệt. <strong>Singapore</strong> củng cố vị thế “cửa ngõ biểu diễn” với 4 đêm diễn độc quyền châu Á của Lady Gaga (<em>MAYHEM Ball Tour</em>, tháng 5/2025), bán ra <strong>193.000 vé</strong>, thu về <strong>40,8 triệu USD</strong> và đóng góp ước tính <strong>100–150 triệu USD</strong> cho ngành du lịch đảo quốc này. <strong>Thái Lan</strong> đẩy mạnh chiến lược <em>IGNITE Thailand</em> và thành lập Học viện Lễ hội để đón hàng loạt tên tuổi như Mariah Carey, BLACKPINK, Jackson Wang. <strong>Indonesia</strong> thiết lập Quỹ Du lịch trị giá <strong>86 triệu USD</strong> để thu hút nghệ sĩ quốc tế, trong khi <strong>Malaysia</strong> hướng tới cột mốc <strong>450 sự kiện âm nhạc</strong> mang về <strong>1,7 tỷ RM</strong>.
+          </p>
+
+          <p className="body-p">
+            Nhìn nhận một cách công bằng, bức tranh giai đoạn 2025–2026 tại Việt Nam đã có nhiều dấu hiệu khởi sắc hơn hẳn những năm trước chứ không còn hiu hắt. Cú hích gần 100.000 khán giả từ hai đêm diễn của G-Dragon tại Hà Nội, cùng sự xuất hiện đều đặn hơn của các nghệ sĩ K-Pop, US-UK và dàn sao châu Á trong các đại nhạc hội kết hợp, fancon quy mô nhà thi đấu tại TP.HCM và Thủ đô đã chứng minh sức hấp dẫn thực chất của thị trường gần 100 triệu dân. Tuy nhiên, để chuyển từ những thương vụ điểm sáng đơn lẻ sang một điểm hẹn thường trực của các chuyến lưu diễn sân vận động toàn cầu, việc đặt TP.HCM và Hà Nội lên bàn cân so sánh đa chiều với Bangkok, Singapore và Jakarta cho thấy <strong>5 điểm nghẽn mang tính hệ thống</strong>:
+          </p>
+        </div>
+
+        {/* [VỊ TRÍ 10] BIỂU ĐỒ RADAR & BẢNG SO SÁNH 5 CHỈ SỐ HẠ TẦNG BIỂU DIỄN ĐÔNG NAM Á */}
+        <div className="wide-viz-column">
+          <SeaInfrastructureRadarAndTable />
+        </div>
+
+        {/* 5 Systemic Bottlenecks Cards */}
+        <div className="prose-column">
+          <div className="bottlenecks-stack">
+            {FIVE_SYSTEMIC_BOTTLENECKS.map((b) => (
+              <article key={b.number} className="bottleneck-card">
+                <div className="bottleneck-num">{b.number}</div>
+                <div className="bottleneck-body">
+                  <h4>{b.title}</h4>
+                  <p>{b.summary}</p>
+                  {b.evidenceQuote && (
+                    <div className="bottleneck-quote-note">{b.evidenceQuote}</div>
+                  )}
+                </div>
+              </article>
+            ))}
           </div>
         </div>
 
-        <div className="hero-container">
-          <span className="category-tag">
-            {ARTICLE_DATA.meta.category} • {ARTICLE_DATA.meta.subCategory}
-          </span>
-          <h1 className="hero-title">
-            TRI THỨC ĐẠI HỌC CẦN THƠ:{" "}
-            <span className="hero-title-subline">
-              TỪ NGHIÊN CỨU ĐẾN
-              <br />
-              SẢN XUẤT THỰC TIỄN
-            </span>
-          </h1>
-          <p className="hero-subtitle">
-            {ARTICLE_DATA.meta.subtitle}
+        {/* [VỊ TRÍ 11] VIDEO ĐỒ HỌA GIẢI THÍCH (MOTION GRAPHIC 90 GIÂY) */}
+        <div className="wide-viz-column">
+          <MotionGraphic90sPlayer />
+        </div>
+      </section>
+
+      {/* =====================================================================
+          CHƯƠNG 4: LỜI GIẢI ĐỂ VIỆT NAM LÊN BẢN ĐỒ TOUR DIỄN THẾ GIỚI (ACCENT ĐỎ SAO VÀNG)
+          ===================================================================== */}
+      <section className="editorial-section chapter4-redstar-band" id="chuong-4">
+        <div className="prose-column">
+          <div className="chapter-kicker redstar-kicker">
+            ★ CHƯƠNG 04 • BỆ PHÓNG THỂ CHẾ & CHIẾN LƯỢC CẤT CÁNH
+          </div>
+          <h2 className="chapter-h2">
+            Lời giải để Việt Nam lên bản đồ tour diễn thế giới
+          </h2>
+
+          <p className="body-p">
+            Để chuyển hóa “cơn sốt” concert nội sinh thành một ngành công nghiệp biểu diễn chuyên nghiệp và đưa Việt Nam trở thành điểm đến sáng giá trên bản đồ âm nhạc quốc tế, thị trường không thể chỉ dựa vào nỗ lực tự thân của từng nghệ sĩ hay nhà sản xuất tư nhân, mà cần một bệ phóng thể chế đồng bộ.
           </p>
 
-          <div className="hero-meta">
-            <span>
-              <strong>Thực hiện:</strong> {ARTICLE_DATA.meta.author}
-            </span>
-            <span>•</span>
-            <span>
-              <strong>Người hướng dẫn:</strong> {ARTICLE_DATA.meta.advisor}
-            </span>
-            <span>•</span>
-            <span>
-              <strong>Thời lượng:</strong> {ARTICLE_DATA.meta.readTime}
-            </span>
+          <p className="body-p">
+            Năm 2026 đánh dấu một cột mốc chính sách đặc biệt quan trọng: <strong>Nghị quyết số 80-NQ/TW</strong> của Bộ Chính trị về phát triển văn hóa Việt Nam (ban hành ngày 07/01/2026) và Nghị quyết của Quốc hội chính thức thống nhất chọn ngày <strong>24/11 hằng năm là “Ngày Văn hóa Việt Nam”</strong> (người lao động được nghỉ lễ và hưởng nguyên lương). Việc thiết lập một ngày nghỉ lễ văn hóa chính thức không chỉ mang ý nghĩa tôn vinh cội nguồn bản sắc dân tộc và quyền thụ hưởng văn hóa của nhân dân, mà còn kiến tạo một “mùa vàng tiêu dùng văn hóa – du lịch âm nhạc” định kỳ hằng năm trên toàn quốc, tạo xung lực cầu trực tiếp cho các nhà tổ chức biểu diễn và điểm đến địa phương.
+          </p>
+
+          {/* Quantitative Targets Box of Resolution 80-NQ/TW */}
+          <div className="nq80-targets-grid">
+            <div className="nq80-metric-tile">
+              <span className="nq80-num">7% GDP</span>
+              <span className="nq80-desc">Đóng góp của công nghiệp văn hóa vào năm 2030 theo Nghị quyết 80-NQ/TW</span>
+            </div>
+            <div className="nq80-metric-tile">
+              <span className="nq80-num">05 thương hiệu</span>
+              <span className="nq80-desc">Liên hoan nghệ thuật, lễ hội văn hóa quốc tế về điện ảnh, âm nhạc, mỹ thuật</span>
+            </div>
+            <div className="nq80-metric-tile">
+              <span className="nq80-num">Top 3 ASEAN</span>
+              <span className="nq80-desc">&amp; Top 30 thế giới về Chỉ số Sức mạnh mềm (Soft Power Index) và xuất khẩu văn hóa</span>
+            </div>
+            <div className="nq80-metric-tile">
+              <span className="nq80-num">122.000 tỷ đ</span>
+              <span className="nq80-desc">Nguồn lực Quốc hội phê duyệt cho Chương trình Mục tiêu Quốc gia Phát triển Văn hóa 2025–2030</span>
+            </div>
+          </div>
+
+          <p className="body-p">
+            Cùng với nguồn lực 122.000 tỷ đồng cho giai đoạn 2025–2030, đây chính là “đường băng” pháp lý để tháo gỡ trực diện từng điểm nghẽn thông qua ba trụ cột giải pháp chiến lược:
+          </p>
+
+          <div className="solutions-pillars-list">
+            <div className="pillar-item">
+              <h4>
+                1. Hoàn thiện cơ chế “Một cửa” và chính sách ưu đãi theo tinh thần Nghị quyết 80-NQ/TW
+              </h4>
+              <p>
+                Giải quyết trực tiếp điểm nghẽn thủ tục và bài toán tài chính bằng cách cụ thể hóa chủ trương coi trọng yếu tố văn hóa trong hoạch định chính sách kinh tế: rút gọn quy trình thẩm định hồ sơ biểu diễn quốc tế, thiết lập luồng hải quan nhanh cho thiết bị sân khấu tạm nhập tái xuất, hỗ trợ thị thực làm việc cho đoàn lưu diễn và nghiên cứu các gói ưu đãi thuế nhà thầu đối với những đại nhạc hội gắn liền với xúc tiến du lịch quốc gia.
+              </p>
+            </div>
+
+            <div className="pillar-item">
+              <h4>
+                2. Đột phá hạ tầng biểu diễn có mái che gắn kết Metro qua mô hình Hợp tác Công – Tư (PPP)
+              </h4>
+              <p>
+                Tháo gỡ đồng thời hai nút thắt vật lý lớn nhất là sân bãi và giao thông giải tỏa đám đông. Dữ liệu từ báo cáo RMIT cho thấy mô hình PPP đã chiếm tới <strong>17,8%</strong> tổng số sự kiện năm 2025 và chứng minh hiệu quả vượt trội qua các “concert quốc gia” — điển hình nhất là đại nhạc hội chào mừng Ngày Văn hóa Việt Nam 24/11 đầu tiên được giao cho Hà Nội chủ trì tại SVĐ Mỹ Đình với quy mô dự kiến lên tới <strong>60.000 khán giả</strong>. Xa hơn, mô hình PPP cần được áp dụng để quy hoạch và xây dựng các Tổ hợp biểu diễn – thể thao – thương mại đa năng (Indoor Arena 15.000–20.000 chỗ và Stadium có mái che) đạt chuẩn âm học quốc tế tại Hà Nội, TP.HCM và Đà Nẵng, kết nối trực tiếp với nhà ga các tuyến Metro đô thị vận hành tăng cường đêm sự kiện.
+              </p>
+            </div>
+
+            <div className="pillar-item">
+              <h4>
+                3. Lấy “concert nội sinh” làm thao trường chuẩn hóa chuỗi cung ứng, xây dựng IP bản địa bền vững &amp; minh bạch hóa dữ liệu
+              </h4>
+              <p>
+                Khắc phục sự phụ thuộc vào thiết bị nhập khẩu và tình trạng thiếu IP dài hạn thông qua chiến lược “Bản địa hóa đẳng cấp toàn cầu” (<em>Glocalization</em>). Sự bùng nổ của các concert Việt hiện tại chính là bước đệm thực tiễn để đội ngũ đạo diễn, kỹ thuật viên âm thanh – ánh sáng, các liên doanh kho thiết bị chuẩn <em>Technical Rider</em>, 13 nền tảng bán vé trực tuyến (như Ticketbox hay Eventista/1Zone hỗ trợ hơn 200 phương thức thanh toán tại 145 quốc gia) và lực lượng quản trị đám đông rèn luyện tay nghề quốc tế, đồng thời áp dụng bộ tiêu chí “Âm nhạc xanh” giảm rác thải sau đêm diễn. Song hành với đó, sự ra mắt chính thức của <strong>IFPI Official Vietnam Chart</strong>, <strong>Billboard Vietnam</strong> cùng <strong>Nền tảng Bản đồ số Văn hóa Việt Nam</strong> (công bố tháng 11/2026) sẽ là mảnh ghép quyết định để minh bạch hóa dữ liệu doanh thu vé và tỷ lệ lấp đầy trước các hãng giải trí toàn cầu.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Ma trận đối chiếu trực tiếp 5 điểm nghẽn -> 5 lời giải */}
+        <div className="wide-viz-column">
+          <BottleneckSolutionMatrix />
+        </div>
+
+        {/* [VỊ TRÍ 12] QUOTE CARDS – GÓC NHÌN CHUYÊN GIA & NHÀ QUẢN LÝ */}
+        <div className="wide-viz-column">
+          <ExpertQuotesCarousel />
+        </div>
+
+        {/* [VỊ TRÍ 13] BOX TƯƠNG TÁC ĐỘC GIẢ (INTERACTIVE POLL) */}
+        <div className="prose-column">
+          <InteractiveReaderPoll />
+
+          {/* Đoạn kết bài báo */}
+          <div className="closing-manifesto-box">
+            <p>
+              Khi những “cơn sốt” bán vé được nâng đỡ bởi một hạ tầng đạt chuẩn, một hệ thống dữ liệu minh bạch và những thương hiệu lễ hội (IP) mang đậm bản sắc Việt, các đêm hội âm nhạc sẽ không còn là những pháo hoa rực sáng rồi tắt trong đêm. Đó sẽ là lúc công nghiệp biểu diễn Việt Nam thực sự cất cánh — vừa đủ sức giữ chân khán giả nội địa, vừa tự tin đón những chuyến lưu diễn lớn nhất hành tinh, đồng thời đưa thanh âm Việt Nam vươn xa trên bản đồ quyền lực mềm thế giới.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Bốn chỉ số vàng (Key Takeaway Metrics) */}
-      <section className="metrics-section">
-        <div className="metrics-grid">
-          {ARTICLE_DATA.keyMetrics.map((item) => (
-            <div key={item.id} className={`metric-card ${item.color}`}>
-              <span className="metric-badge">{item.badge}</span>
-              <div className="metric-number-group">
-                <span className="metric-value">{item.value}</span>
-                <span className="metric-unit">{item.unit}</span>
-              </div>
-              <div className="metric-label">{item.label}</div>
-              <div className="metric-desc">{item.desc}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Phần 1: Từ cơ sở đào tạo của vùng đến các công trình nghiên cứu ứng dụng */}
-      <main className="article-container" id="lich-su">
-        <h2 className="editorial-h2">
-          1. Từ cơ sở đào tạo của vùng đến các công trình{" "}
-          <span className="nowrap-phrase">nghiên cứu ứng dụng</span>
-        </h2>
-
-        <p className="article-lead">
-          Từ năm 1966, khi Viện Đại học Cần Thơ có Trường Cao đẳng Nông nghiệp, lĩnh vực nông nghiệp đã trở thành một phần gắn bó mật thiết trong quá trình phát triển của nhà trường. Đến năm 1976, bộ phận chuyên môn trong lĩnh vực thủy sản được hình thành trong Khoa Nông nghiệp, trên cơ sở đó Khoa Thủy sản được thành lập năm 1978, tái thành lập năm 2002 và phát triển thành Trường Thủy sản vào tháng 12/2022.
-        </p>
-
-        <p className="editorial-p">
-          Song song với quá trình phát triển trong khâu tổ chức, các nghiên cứu từng bước hướng đến giải quyết nhu cầu sản xuất của vùng ĐBSCL. Tháng 5/1991, Trường Đại học Cần Thơ cung cấp <strong>18 tấn giống lúa kháng rầy</strong> cho các địa phương sản xuất vụ Hè - Thu. Đây là một trong những điểm sáng về phục vụ cộng đồng của Trường, góp phần giải quyết vấn đề an ninh lương thực của quốc gia.
-        </p>
-
-        <p className="editorial-p">
-          Giai đoạn 1990–2007, Trường đẩy mạnh nghiên cứu và đạt nhiều thành quả. Đặc biệt là quy trình sản xuất giống cá tra được triển khai từ đầu năm 1995 trong Dự án cá da trơn châu Á - Catfish Asia do Cộng đồng châu Âu tài trợ, góp phần đưa Đồng bằng sông Cửu Long đứng đầu cả nước về sản lượng xuất khẩu cá tra cho đến nay.
-        </p>
-
-        <p className="editorial-p">
-          Đến năm 2026, quá trình nghiên cứu tiếp tục ghi nhận những dấu mốc mới với giống lúa Nông Dân 2 được công nhận lưu hành tại Đồng bằng sông Cửu Long. Bên cạnh đó, Đại học Cần Thơ đã ghi nhận thành công trong việc nuôi cá bố mẹ, nhân giống nhân tạo cá bông lau. Từ giống lúa phục vụ sản xuất đến quy trình nhân giống thủy sản, các kết quả này phản ánh những bước tiến trong nghiên cứu của Đại học Cần Thơ; đồng thời đặt ra yêu cầu tiếp tục đánh giá khả năng nhân rộng và hiệu quả ứng dụng trong thực tế.
-        </p>
-
-        {/* TIMELINE TƯƠNG TÁC 2 NHÁNH: NÔNG NGHIỆP & THỦY SẢN */}
-        <div className="timeline-block">
-          <div className="timeline-header-row">
-            <div>
-              <h3 style={{ fontSize: "1.25rem", fontWeight: 800, color: "var(--primary-green)" }}>
-                Dòng chảy thời gian: Nông nghiệp song hành Thủy sản
-              </h3>
-              <p style={{ fontSize: "0.85rem", color: "var(--text-muted)" }}>
-                Cuộn xem các mốc lịch sử kiến tạo và chuyển giao công nghệ tiêu biểu
-              </p>
-            </div>
-            <div className="timeline-nav-tabs">
-              <button
-                className={`timeline-tab-btn ${timelineFilter === "all" ? "active-all" : ""}`}
-                onClick={() => setTimelineFilter("all")}
-              >
-                Tất cả mốc son
-              </button>
-              <button
-                className={`timeline-tab-btn ${timelineFilter === "agriculture" ? "active-agri" : ""}`}
-                onClick={() => setTimelineFilter("agriculture")}
-              >
-                🌾 Chỉ Nông nghiệp
-              </button>
-              <button
-                className={`timeline-tab-btn ${timelineFilter === "fisheries" ? "active-fish" : ""}`}
-                onClick={() => setTimelineFilter("fisheries")}
-              >
-                🐟 Chỉ Thủy sản
-              </button>
-            </div>
-          </div>
-
-          <div className="dual-timeline-grid">
-            {filteredMilestones.map((m) => {
-              const cardClass =
-                m.sector === "agriculture"
-                  ? "agri"
-                  : m.sector === "fisheries"
-                  ? "fish"
-                  : "both";
-
-              return (
-                <div key={m.id} className={`timeline-card ${cardClass}`}>
-                  <div className="timeline-card-header">
-                    <span className="timeline-year-badge">{m.year}</span>
-                    <span className="timeline-metric-pill">
-                      {m.sectorName} • {m.metricValue}
-                    </span>
-                  </div>
-                  <h4 className="timeline-card-title">{m.title}</h4>
-                  <div className="timeline-card-subtitle">{m.subtitle}</div>
-                  <p className="timeline-card-desc">{m.description}</p>
-                  <div className="timeline-card-source">Nguồn: {m.source}</div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </main>
-
-      {/* Phần 2: Hành trình nghiên cứu đi vào đời sống sản xuất */}
-      <main className="article-container" id="giong-lua">
-        <h2 className="editorial-h2">
-          2. Hành trình nghiên cứu đi vào đời sống sản xuất
-        </h2>
-
-        <h3 className="editorial-h3">
-          2.1. Giống lúa: Từ chống chịu sâu bệnh đến phân hóa theo chất lượng{" "}
-          <span className="nowrap-phrase">và thị trường</span>
-        </h3>
-
-        <p className="editorial-p">
-          Tháng 5/1991, Đại học Cần Thơ cung cấp 18 tấn giống lúa kháng rầy cho các địa phương trong vùng ĐBSCL. Đây là một dấu mốc cho thấy nghiên cứu chọn tạo giống của trường đã hướng đến nhu cầu sản xuất thực tế. Từ những giống MTL được nghiên cứu, khảo nghiệm và đưa vào sản xuất, đến năm 2026 giống lúa Nông Dân 1 và Nông Dân 2, lần lượt được lai tạo và công nhận lưu hành, hoạt động chọn tạo giống tiếp tục mở rộng theo hướng kết hợp khả năng thích ứng với điều kiện canh tác và đặc tính chất lượng gạo.
-        </p>
-
-        <p className="editorial-p">
-          Hai giống lúa Nông Dân 1 và Nông Dân 2 thuộc Dự án BOLD giai đoạn 2023-2027, do Đại học Cần Thơ phối hợp với các đơn vị liên quan triển khai, với sự tài trợ của Crop Trust. Tính đến giai đoạn đánh giá giữa kỳ, dự án đã đạt những số liệu ấn tượng:
-        </p>
-
-        {/* 4 Chỉ số BOLD Project */}
-        <div className="bold-project-stats-grid">
-          {ARTICLE_DATA.riceResearch.boldStats.map((item) => (
-            <div key={item.label} className="bold-stat-card">
-              <div className="bold-stat-number">{item.value}</div>
-              <div className="bold-stat-unit">{item.unit}</div>
-              <div className="bold-stat-label">{item.label}</div>
-              <div className="bold-stat-desc">{item.desc}</div>
-            </div>
-          ))}
-        </div>
-
-        <p className="editorial-p">
-          Trong quá trình đánh giá <strong>252 giống lúa mùa truyền thống</strong> của Việt Nam, nhóm nghiên cứu xác định 15 giống có khả năng chịu mặn, 10 giống có chất lượng triển vọng, 3 giống kháng bệnh bạc lá và 16 giống kháng bệnh đạo ôn. Những số liệu này cho thấy hoạt động nghiên cứu không chỉ tạo ra giống mới mà còn khai thác nguồn gen để mở rộng vật liệu chọn tạo giống thích ứng với điều kiện ĐBSCL.
-        </p>
-
-        {/* Bảng phân bổ 4 đặc tính nguồn gen */}
-        <div className="traits-grid">
-          {ARTICLE_DATA.riceResearch.genTraits.map((t) => (
-            <div key={t.trait} className="trait-pill-card">
-              <div className="trait-pill-header">
-                <span className="trait-name">{t.trait}</span>
-                <span className="trait-count">{t.count} giống</span>
-              </div>
-              <div className="trait-desc">{t.desc}</div>
-            </div>
-          ))}
-        </div>
-
-        {/* PHÓNG SỰ ẢNH THEO TRÌNH TỰ NGHIÊN CỨU 5 BƯỚC */}
-        <div className="photo-story-wrapper">
-          <div style={{ marginBottom: "1.25rem" }}>
-            <span
-              style={{
-                fontSize: "0.75rem",
-                fontWeight: 800,
-                textTransform: "uppercase",
-                color: "var(--accent-gold)",
-                letterSpacing: "1px",
-              }}
-            >
-              Phóng sự ảnh tương tác theo trình tự nghiên cứu
-            </span>
-            <h3 style={{ fontSize: "1.35rem", fontWeight: 800, color: "var(--primary-green)", marginTop: "0.25rem" }}>
-              Năm bước đưa giống lúa từ phòng thí nghiệm ra đồng ruộng
-            </h3>
-          </div>
-
-          <div className="photo-story-nav">
-            {ARTICLE_DATA.riceResearch.photoStory.map((s) => (
-              <button
-                key={s.step}
-                className={`step-nav-btn ${activePhotoStep === s.step ? "active" : ""}`}
-                onClick={() => setActivePhotoStep(s.step)}
-              >
-                Bước {s.step}: {s.stageName}
-              </button>
-            ))}
-          </div>
-
-          <div className="photo-story-content-layout">
-            <div className="photo-visual-card">
-              <span className="photo-visual-tag">{currentPhoto.badge}</span>
-              <div className="photo-visual-overlay" />
-              <div className="photo-stage-title">{currentPhoto.title}</div>
-              <div className="photo-caption-text">{currentPhoto.caption}</div>
-            </div>
-
-            <div className="photo-details-pane">
-              <span className="photo-context-badge">Bối cảnh: {currentPhoto.context}</span>
-              <h4>{currentPhoto.stageName}</h4>
-              <p className="photo-desc-p">{currentPhoto.description}</p>
-              <ul className="photo-bullets-list">
-                {currentPhoto.keyDetails.map((detail, idx) => (
-                  <li key={idx}>{detail}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* BIỂU ĐỒ NĂNG SUẤT KHẢO NGHIỆM CỦA HAI GIỐNG LÚA (HÌNH MINH HỌA) */}
-        <div className="yield-chart-wrapper">
-          <h3 className="chart-title-main">Năng suất khảo nghiệm của hai giống lúa</h3>
-          <p className="chart-subtitle-note">
-            Khoảng năng suất thấp nhất–cao nhất, theo giống và vụ; đơn vị tấn/ha. Đây là kết quả khảo nghiệm, không phải năng suất sản xuất đại trà.
-          </p>
-
-          <div className="yield-legend-row">
-            <div className="legend-item">
-              <span className="legend-dot-low" />
-              <span>Mức thấp</span>
-            </div>
-            <div className="legend-item">
-              <span className="legend-dot-high" />
-              <span>Mức cao</span>
-            </div>
-          </div>
-
-          <div className="yield-chart-body">
-          <div className="yield-bars-container">
-            {/* Các vạch mốc Y (0, 2, 4, 6, 8 tấn/ha) */}
-            <div className="grid-line-y" style={{ bottom: "0%" }}>
-              <span className="grid-label-y">0</span>
-            </div>
-            <div className="grid-line-y" style={{ bottom: "25%" }}>
-              <span className="grid-label-y">2</span>
-            </div>
-            <div className="grid-line-y" style={{ bottom: "50%" }}>
-              <span className="grid-label-y">4</span>
-            </div>
-            <div className="grid-line-y" style={{ bottom: "75%" }}>
-              <span className="grid-label-y">6</span>
-            </div>
-            <div className="grid-line-y" style={{ bottom: "100%" }}>
-              <span className="grid-label-y">8</span>
-            </div>
-
-            {/* 4 Cặp cột: Nông Dân 1 ĐX, Nông Dân 1 HT, Nông Dân 2 ĐX, Nông Dân 2 HT */}
-            {ARTICLE_DATA.riceResearch.yieldData.map((d) => {
-              // Quy đổi ra tỉ lệ trên trục max 8 tấn/ha (100% = 8 tấn/ha)
-              const maxChartValue = 8;
-              const lowPercent = (d.minYield / maxChartValue) * 100;
-              const highPercent = (d.maxYield / maxChartValue) * 100;
-
-              return (
-                <div key={`${d.variety}-${d.season}`} className="yield-bar-group">
-                  {/* Cột Mức Thấp */}
-                  <div
-                    className="bar-column bar-low"
-                    style={{ height: `${lowPercent}%` }}
-                    title={`Mức thấp: ${d.minYield} tấn/ha`}
-                  >
-                    <span className="bar-value-tooltip">{d.minYield}</span>
-                  </div>
-                  {/* Cột Mức Cao */}
-                  <div
-                    className="bar-column bar-high"
-                    style={{ height: `${highPercent}%` }}
-                    title={`Mức cao: ${d.maxYield} tấn/ha`}
-                  >
-                    <span className="bar-value-tooltip">{d.maxYield}</span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Nhãn bên dưới từng nhóm */}
-          <div className="yield-labels-row">
-            <div className="yield-group-label">Nông Dân 1 • Đông Xuân</div>
-            <div className="yield-group-label">Nông Dân 1 • Hè Thu</div>
-            <div className="yield-group-label">Nông Dân 2 • Đông Xuân</div>
-            <div className="yield-group-label">Nông Dân 2 • Hè Thu</div>
-          </div>
-          </div>
-        </div>
-
-        {/* BẢNG ĐỐI CHIẾU HAI GIỐNG LÚA NÔNG DÂN (HÌNH MINH HỌA) */}
-        <div className="comparison-table-wrapper">
-          <div className="comparison-table-title">Đối chiếu hai giống lúa Nông Dân</div>
-          <table className="comparison-table">
-            <thead>
-              <tr>
-                <th style={{ width: "32%" }}>Chỉ tiêu</th>
-                <th style={{ width: "34%" }}>Nông Dân 1</th>
-                <th style={{ width: "34%" }}>Nông Dân 2</th>
-              </tr>
-            </thead>
-            <tbody>
-              {ARTICLE_DATA.riceResearch.comparisonTable.map((row, idx) => (
-                <tr key={idx}>
-                  <td><strong>{row.criteria}</strong></td>
-                  <td>{row.nongDan1}</td>
-                  <td style={{ color: "var(--primary-green)", fontWeight: 600 }}>{row.nongDan2}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <div className="comparison-table-source">
-            Nguồn số liệu: Báo Cần Thơ, bài “Triển vọng từ giống lúa mới Nông Dân 1 và Nông Dân 2” • Bằng bảo hộ giống cây trồng ĐHCT.
-          </div>
-        </div>
-
-        {/* 2.2. Cá da trơn: Từ sản xuất giống cá tra/basa đến bước đầu chủ động nguồn giống cá bông lau */}
-        <h3 className="editorial-h3" id="thuy-san">
-          2.2. Cá da trơn: Từ sản xuất giống cá tra/basa đến bước đầu chủ động nguồn giống cá bông lau
-        </h3>
-
-        <p className="editorial-p">
-          Nếu nghiên cứu lúa cho thấy quá trình chọn tạo và hoàn thiện giống theo nhu cầu canh tác, lĩnh vực thủy sản lại phản ánh một bài toán khác: làm chủ quy trình sinh sản để chủ động nguồn con giống phục vụ nuôi trồng.
-        </p>
-
-        <p className="editorial-p">
-          Năm 1995, Đại học Cần Thơ cùng chuyên gia và các nhà nghiên cứu đã đạt kết quả trong sinh sản nhân tạo cá basa. Đến năm 1999, quy trình sản xuất giống cá tra được phát triển rộng hơn. Những dấu mốc này đặt nền tảng cho hoạt động nghiên cứu và sản xuất giống cá da trơn, một nhóm đối tượng có vai trò quan trọng trong nuôi trồng thủy sản ĐBSCL.
-        </p>
-
-        <p className="editorial-p">
-          Năm 2026, Đại học Cần Thơ công bố <strong>sinh sản nhân tạo thành công cá bông lau (Pangasius krempfi)</strong> sau hơn hai năm nghiên cứu. Trong khuôn khổ dự án hợp tác quốc tế DIVERSAQUA, nhóm nghiên cứu nuôi cá bố mẹ thành thục từ cá giống trong hệ thống bể tuần hoàn, kích thích sinh sản nhân tạo, sau đó ương cá bột đến giai đoạn cá hương và cá giống.
-        </p>
-
-        <p className="editorial-p">
-          Điểm đáng chú ý nằm ở sự khác biệt về bài toán nghiên cứu: Với cá tra/basa, các thành tựu trước đây góp phần phát triển quy trình sản xuất giống cho những đối tượng nuôi đã được thương mại hóa rộng rãi. Với cá bông lau, kết quả sinh sản nhân tạo mở ra hướng chủ động nguồn giống của một loài cá da trơn nước lợ có giá trị kinh tế, lâu nay còn phụ thuộc chủ yếu vào khai thác tự nhiên.
-        </p>
-
-        {/* BẢNG SO SÁNH CÁ TRA VS CÁ BÔNG LAU */}
-        <div className="comparison-table-wrapper">
-          <div className="comparison-table-title">Đối chiếu bài toán nghiên cứu cá tra/basa và cá bông lau</div>
-          <table className="comparison-table">
-            <thead>
-              <tr>
-                <th style={{ width: "25%" }}>Tiêu chí</th>
-                <th style={{ width: "37%" }}>Cá tra / Basa (1995 – 1999)</th>
-                <th style={{ width: "38%" }}>Cá bông lau (2026)</th>
-              </tr>
-            </thead>
-            <tbody>
-              {ARTICLE_DATA.aquacultureResearch.pangasiusComparison.map((row, idx) => (
-                <tr key={idx}>
-                  <td><strong>{row.aspect}</strong></td>
-                  <td>{row.commercialCatfish}</td>
-                  <td style={{ color: "var(--accent-water)", fontWeight: 600 }}>{row.bongLauCatfish}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
-        {/* TRÌNH PHÁT MÔ PHỎNG VIDEO NGHIÊN CỨU CÁ BÔNG LAU (KỊCH BẢN 75-90 GIÂY) */}
-        <div className="video-sim-wrapper">
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
-            <div>
-              <span style={{ fontSize: "0.75rem", fontWeight: 800, color: "var(--accent-water)", textTransform: "uppercase" }}>
-                Kịch bản hình ảnh video ngắn (75 – 90 giây)
-              </span>
-              <h3 style={{ fontSize: "1.35rem", fontWeight: 800, color: "var(--primary-green)", marginTop: "0.25rem" }}>
-                Sinh sản nhân tạo cá bông lau tại Trường Thủy sản
-              </h3>
-            </div>
-            <button
-              className="video-play-btn"
-              onClick={() => setIsVideoPlaying(!isVideoPlaying)}
-            >
-              {isVideoPlaying ? "⏸ Tạm dừng trình chiếu" : "▶ Mô phỏng kịch bản (Auto Play)"}
-            </button>
-          </div>
-
-          <div className="video-player-container">
-            <div className="video-screen-display">
-              <div className="video-top-meta">
-                <span className="video-phase-badge">{currentVideoStep.phase}</span>
-                <span className="video-time-counter">Mốc thời gian: {currentVideoStep.seconds}</span>
-              </div>
-
-              <div className="video-main-scene">
-                <div className="video-scene-title">{currentVideoStep.title}</div>
-                <div className="video-scene-desc">{currentVideoStep.sceneDescription}</div>
-
-                {currentVideoStep.interviewQuote && (
-                  <div className="video-interview-quote">
-                    <div className="video-speaker-tag">
-                      🎙 {currentVideoStep.interviewQuote.speaker} • {currentVideoStep.interviewQuote.role}
-                    </div>
-                    &quot;{currentVideoStep.interviewQuote.content}&quot;
-                  </div>
-                )}
-              </div>
-
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "0.5rem" }}>
-                <div className="video-audio-cue">
-                  <span>🔊</span>
-                  <span><strong>Âm thanh:</strong> {currentVideoStep.audioCue}</span>
-                </div>
-                {currentVideoStep.graphicsOverlay && (
-                  <div style={{ fontSize: "0.76rem", color: "#fef08a", fontWeight: 700, background: "rgba(0,0,0,0.5)", padding: "0.25rem 0.6rem", borderRadius: "4px" }}>
-                    {currentVideoStep.graphicsOverlay}
-                  </div>
-                )}
-              </div>
-            </div>
-
-            {/* Thanh điều khiển Scrubber 5 phân đoạn */}
-            <div className="video-controls-bar">
-              <div className="video-timeline-scrub">
-                {ARTICLE_DATA.aquacultureResearch.videoSimulation.steps.map((step, idx) => (
-                  <div
-                    key={step.seconds}
-                    className={`scrub-segment ${idx === currentVideoStepIdx ? "active" : idx < currentVideoStepIdx ? "completed" : ""}`}
-                    onClick={() => {
-                      setCurrentVideoStepIdx(idx);
-                      setIsVideoPlaying(false);
-                    }}
-                    title={`${step.seconds}: ${step.title}`}
-                  />
-                ))}
-              </div>
-              <div className="video-buttons-row">
-                <span style={{ fontSize: "0.78rem", color: "#94a3b8" }}>
-                  Phân đoạn {currentVideoStepIdx + 1}/5: {currentVideoStep.seconds}
-                </span>
-                <span style={{ fontSize: "0.78rem", color: "#38bdf8" }}>
-                  Nhấp vào từng thanh để xem chi tiết cảnh quay
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* 5 Bước quy trình vòng đời */}
-          <div className="video-lifecycle-steps">
-            {ARTICLE_DATA.aquacultureResearch.videoSimulation.lifecycleSteps.map((s) => (
-              <div key={s.step} className="lifecycle-step-card">
-                <div className="lifecycle-step-num">BƯỚC {s.step}</div>
-                <div className="lifecycle-step-name">{s.name}</div>
-                <div className="lifecycle-step-desc">{s.desc}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </main>
-
-      {/* Phần 3: Từ ĐBSCL ra quốc tế: Năng lực hợp tác và giá trị thực tế */}
-      <main className="article-container" id="quoc-te">
-        <h2 className="editorial-h2">
-          3. Từ Đồng bằng sông Cửu Long ra quốc tế: Năng lực{" "}
-          <span className="nowrap-phrase">hợp tác và giá trị thực tế</span>
-        </h2>
-
-        <p className="article-lead">
-          Thu hút các dự án hợp tác quốc tế và hiện diện trên các bảng xếp hạng uy tín toàn cầu là minh chứng cho năng lực học thuật của Đại học Cần Thơ. Tuy nhiên, dưới góc nhìn phân tích báo chí, số lượng dự án hay tổng kinh phí đầu tư không tự động đồng nghĩa với hiệu quả kinh tế của từng công trình ngoài thực địa, mà đóng vai trò là nguồn lực nền tảng hỗ trợ nghiên cứu, đào tạo và chuyển giao công nghệ.
-        </p>
-
-        <p className="editorial-p">
-          Giai đoạn 2010–2018, Đại học Cần Thơ đã phối hợp với các đối tác quốc tế triển khai <strong>203 dự án</strong> với tổng kinh phí khoảng <strong>351 tỷ đồng</strong>. Bên cạnh đó, các chương trình hợp tác chiến lược dài hạn đã tạo dựng cơ sở vật chất quan trọng cho nhà trường:
-        </p>
-
-        {/* Khối các đối tác chiến lược quốc tế */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.25rem", margin: "2rem 0" }}>
-          {ARTICLE_DATA.internationalImpact.strategicPrograms.map((p) => (
-            <div
-              key={p.programName}
-              style={{
-                background: "#ffffff",
-                border: "1px solid var(--border-light)",
-                borderRadius: "14px",
-                padding: "1.5rem",
-                boxShadow: "0 4px 12px rgba(0,0,0,0.02)",
-              }}
-            >
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.5rem" }}>
-                <span style={{ fontSize: "0.78rem", fontWeight: 800, color: "var(--accent-water)", textTransform: "uppercase" }}>
-                  {p.partner}
-                </span>
-                <span style={{ fontSize: "0.75rem", fontFamily: "var(--font-mono)", color: "#64748b" }}>
-                  {p.years}
-                </span>
-              </div>
-              <h4 style={{ fontSize: "1.05rem", fontWeight: 800, color: "var(--primary-green)", marginBottom: "0.5rem" }}>
-                {p.programName}
-              </h4>
-              <p style={{ fontSize: "0.88rem", color: "#334155", marginBottom: "0.75rem", lineHeight: 1.5 }}>
-                {p.scope}
-              </p>
-              <div style={{ fontSize: "0.8rem", color: "#047857", background: "#f0fdf4", padding: "0.4rem 0.65rem", borderRadius: "6px" }}>
-                <strong>Tác động:</strong> {p.impact}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <p className="editorial-p">
-          Trên bản đồ giáo dục thế giới, vị thế học thuật của nhà trường được ghi nhận khi nhóm ngành Nông – Lâm nghiệp thuộc <strong>QS World University Rankings</strong> xếp trong nhóm <strong>251–300 toàn cầu năm 2020</strong> và tiếp tục duy trì ở nhóm <strong>351–400 giai đoạn 2020–2025</strong>, giữ vị trí dẫn đầu tại Việt Nam. Thứ hạng này đóng vai trò như một chỉ dấu về uy tín học thuật quốc tế, tạo tiền đề để các kết quả nghiên cứu bước ra khỏi giảng đường và đi vào thực tiễn sản xuất tại Đồng bằng sông Cửu Long.
-        </p>
-
-        {/* Phần 4: Tác động đối với phát triển kinh tế - xã hội vùng ĐBSCL */}
-        <h2 className="editorial-h2">
-          4. Tác động đối với phát triển kinh tế - xã hội vùng{" "}
-          <span className="nowrap-phrase">Đồng bằng sông Cửu Long</span>
-        </h2>
-
-        <p className="editorial-p">
-          Các kết quả nghiên cứu của Đại học Cần Thơ đã trực tiếp giải quyết các yêu cầu kỹ thuật trong sản xuất, hỗ trợ phát triển các ngành hàng xuất khẩu chủ lực và chuyển đổi sinh kế cho người dân toàn vùng:
-        </p>
-
-        {/* 4 Trụ cột tác động */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem", margin: "2rem 0" }}>
-          {ARTICLE_DATA.socioEconomicImpact.keyThemes.map((theme) => (
-            <div
-              key={theme.id}
-              style={{
-                background: "#ffffff",
-                border: "1px solid var(--border-light)",
-                borderRadius: "14px",
-                padding: "1.75rem 1.5rem",
-                borderTop: "4px solid var(--primary-leaf)",
-                boxShadow: "0 6px 18px rgba(6, 78, 59, 0.03)",
-              }}
-            >
-              <h4 style={{ fontSize: "1.15rem", fontWeight: 800, color: "var(--primary-green)", marginBottom: "0.75rem" }}>
-                {theme.title}
-              </h4>
-              <p style={{ fontSize: "0.92rem", color: "#334155", lineHeight: 1.65, marginBottom: "1rem" }}>
-                {theme.content}
-              </p>
-              <div style={{ fontSize: "0.78rem", color: "var(--text-muted)", fontStyle: "italic", borderTop: "1px dashed var(--border-light)", paddingTop: "0.5rem" }}>
-                Minh chứng: {theme.proof}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Phần 5: Tác động ngược lại đối với năng lực và vị thế của Đại học Cần Thơ */}
-        <h2 className="editorial-h2">
-          5. Tác động ngược lại đối với năng lực và vị thế của{" "}
-          <span className="nowrap-phrase">Đại học Cần Thơ</span>
-        </h2>
-
-        <p className="editorial-p">
-          Việc chủ động nghiên cứu giải quyết các bài toán thực tiễn của vùng ĐBSCL cũng tạo động lực phát triển ngược lại cho Đại học Cần Thơ trên nhiều phương diện:
-        </p>
-
-        <p className="editorial-p">
-          <strong>Khẳng định vị thế học thuật và thu hút nguồn lực:</strong> Nguồn dữ liệu thực nghiệm phong phú từ vùng sinh thái ĐBSCL là nền tảng giúp nhà trường khẳng định uy tín khoa học, giữ vững vị trí dẫn đầu tại Việt Nam trong lĩnh vực Nông – Lâm nghiệp nhiều năm liền. Kết quả ứng dụng thực tế cũng tạo cơ sở vững chắc để trường thu hút các dự án hợp tác quốc tế lớn như Catfish Asia (EU), BOLD Rice Vietnam, cùng hơn 200 dự án hợp tác quốc tế khác. Nguồn lực này kết hợp với dự án ODA Nhật Bản 105,9 triệu USD đã hiện đại hóa cơ sở vật chất, tạo tiền đề cho việc gia tăng các bằng độc quyền sở hữu trí tuệ.
-        </p>
-
-        <p className="editorial-p">
-          <strong>Nâng cao chất lượng đào tạo:</strong> Quá trình tích lũy nghiên cứu ứng dụng đã thúc đẩy sự phát triển về thể chế, dẫn đến việc thành lập Trường Nông nghiệp và Trường Thủy sản (tháng 12/2022 và tháng 7/2025) trên cơ sở các khoa chuyên môn, đồng thời xây dựng Ngân hàng giống lúa (Rice Genbank) bảo tồn hơn 3.000 mẫu lúa.
-        </p>
-
-        <p className="editorial-p">
-          Tính đến tháng 9/2026, nhà trường sở hữu <strong>28 văn bằng độc quyền sở hữu công nghiệp</strong>. Các tài sản trí tuệ này được đưa trực tiếp vào công tác giảng dạy và thực hành, giúp sinh viên tiếp cận bài học thực tế ngoài ruộng đồng. Nhờ đó, chất lượng đào tạo được nâng cao, góp phần đưa <strong>tỷ lệ sinh viên có việc làm sau tốt nghiệp của khối Nông – Thủy sản đạt 78,26%</strong>.
-        </p>
-      </main>
-
-      {/* ĐỒ HỌA 4: BẢN ĐỒ CÁC DỰ ÁN VÀ ĐỊA BÀN TIẾP NHẬN CÔNG NGHỆ (2 LỚP DỮ LIỆU) */}
-      <div className="wide-container" id="ban-do">
-        <div className="map-story-block">
-          <div className="map-story-header">
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "1rem" }}>
-              <div>
-                <span style={{ fontSize: "0.78rem", fontWeight: 800, color: "var(--primary-emerald)", textTransform: "uppercase" }}>
-                  Đồ họa dữ liệu tương tác • Đồ họa 4
-                </span>
-                <h3 style={{ fontSize: "1.45rem", fontWeight: 800, color: "var(--primary-green)", marginTop: "0.25rem" }}>
-                  Bản đồ các dự án và địa bàn tiếp nhận công nghệ
-                </h3>
-                <p style={{ fontSize: "0.88rem", color: "var(--text-muted)", marginTop: "0.25rem" }}>
-                  Chỉ ghim điểm tại đúng các tọa độ đã có minh chứng báo chí, văn bằng và hợp đồng chuyển giao công nghệ.
-                </p>
-              </div>
-
-              {/* Bộ lọc Toggle 2 lớp: Nội địa (ĐBSCL) vs Quốc tế (R&D) */}
-              <div className="map-layer-toggle-group">
-                <button
-                  className={`layer-toggle-btn ${mapLayer === "domestic" ? "active-domestic" : ""}`}
-                  onClick={() => setMapLayer("domestic")}
-                >
-                  🌾 Lớp Ứng dụng & Chuyển giao (ĐBSCL)
-                </button>
-                <button
-                  className={`layer-toggle-btn ${mapLayer === "international" ? "active-intl" : ""}`}
-                  onClick={() => setMapLayer("international")}
-                >
-                  🌐 Lớp Hợp tác R&D & Tài trợ (Quốc tế)
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div className="map-story-content-layout">
-            {/* SVG Vector Map Viewport */}
-            <div className="map-vector-viewport">
-              <svg
-                className="svg-mekong-map"
-                viewBox="0 0 800 550"
-                preserveAspectRatio="xMidYMid meet"
-              >
-                <defs>
-                  <linearGradient id="mekong-map-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#042f24" />
-                    <stop offset="100%" stopColor="#064e3b" />
-                  </linearGradient>
-                  <radialGradient id="hub-glow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.6" />
-                    <stop offset="100%" stopColor="#f59e0b" stopOpacity="0" />
-                  </radialGradient>
-                </defs>
-
-                <rect width="100%" height="100%" fill="url(#mekong-map-bg)" />
-
-                {/* Gridlines */}
-                <g stroke="#0f5132" strokeWidth="0.5" strokeDasharray="3 6">
-                  <line x1="0" y1="130" x2="800" y2="130" />
-                  <line x1="0" y1="270" x2="800" y2="270" />
-                  <line x1="0" y1="410" x2="800" y2="410" />
-                  <line x1="200" y1="0" x2="200" y2="550" />
-                  <line x1="400" y1="0" x2="400" y2="550" />
-                  <line x1="600" y1="0" x2="600" y2="550" />
-                </g>
-
-                {mapLayer === "domestic" ? (
-                  /* LỚP 1: BẢN ĐỒ VÙNG ĐỒNG BẰNG SÔNG CỬU LONG */
-                  <g>
-                    {/* Dòng sông Mê Kông: Sông Tiền & Sông Hậu */}
-                    <g fill="none" stroke="#0ea5e9" opacity="0.8">
-                      {/* Sông Tiền */}
-                      <path
-                        d="M 330 60 Q 380 130 420 180 T 520 240 T 630 290 T 710 330"
-                        strokeWidth="8"
-                      />
-                      {/* Sông Hậu */}
-                      <path
-                        d="M 290 80 Q 340 160 380 230 T 450 290 T 540 370 T 620 440"
-                        strokeWidth="9"
-                      />
-                      {/* Các kênh rạch kết nối */}
-                      <path d="M 420 180 Q 480 230 550 150" strokeWidth="3" opacity="0.6" />
-                      <path d="M 450 290 Q 370 380 280 470" strokeWidth="4" opacity="0.6" />
-                      <path d="M 450 290 Q 520 340 570 390" strokeWidth="3.5" opacity="0.6" />
-                    </g>
-
-                    <text x="510" y="215" fill="#bae6fd" fontSize="11" fontStyle="italic">
-                      Sông Tiền
-                    </text>
-                    <text x="470" y="340" fill="#bae6fd" fontSize="11" fontStyle="italic">
-                      Sông Hậu
-                    </text>
-
-                    {/* Vùng Đồng Tháp Mười (Mảng đất phèn 700.000 ha) */}
-                    <path
-                      d="M 440 90 L 610 90 L 630 180 L 460 170 Z"
-                      fill="#854d0e"
-                      fillOpacity="0.25"
-                      stroke="#d97706"
-                      strokeWidth="1.2"
-                      strokeDasharray="4 3"
-                    />
-                    <text x="470" y="112" fill="#fef08a" fontSize="11" fontWeight="700" letterSpacing="0.5">
-                      VÙNG ĐỒNG THÁP MƯỜI (700.000 ha)
-                    </text>
-
-                    {/* Vùng Bán đảo Cà Mau & Rừng ngập mặn */}
-                    <path
-                      d="M 210 420 Q 280 440 330 520 L 220 540 Z"
-                      fill="#065f46"
-                      fillOpacity="0.3"
-                    />
-
-                    {/* Đường bờ biển Biển Đông & Vịnh Thái Lan */}
-                    <text x="650" y="470" fill="#38bdf8" fontSize="12" fontWeight="700" opacity="0.7">
-                      BIỂN ĐÔNG
-                    </text>
-                    <text x="120" y="380" fill="#38bdf8" fontSize="12" fontWeight="700" opacity="0.7">
-                      VỊNH THÁI LAN
-                    </text>
-                  </g>
-                ) : (
-                  /* LỚP 2: BẢN ĐỒ KẾT NỐI HỢP TÁC QUỐC TẾ (R&D) */
-                  <g>
-                    {/* Các đường liên kết từ ĐH Cần Thơ tỏa ra thế giới */}
-                    <g fill="none" stroke="#38bdf8" strokeWidth="1.5" strokeDasharray="5 5" opacity="0.8">
-                      {/* Cần Thơ -> Nhật Bản */}
-                      <path d="M 450 320 Q 560 210 670 110" />
-                      {/* Cần Thơ -> Bỉ */}
-                      <path d="M 450 320 Q 320 240 230 150" />
-                      {/* Cần Thơ -> Hà Lan */}
-                      <path d="M 450 320 Q 300 200 210 110" />
-                      {/* Cần Thơ -> EU Catfish Asia */}
-                      <path d="M 450 320 Q 340 260 260 195" />
-                      {/* Cần Thơ -> Crop Trust Đức */}
-                      <path d="M 450 320 Q 370 190 300 65" />
-                    </g>
-
-                    {/* Vòng sáng trung tâm Cần Thơ */}
-                    <circle cx="450" cy="320" r="35" fill="url(#hub-glow)" />
-                    <circle cx="450" cy="320" r="8" fill="#f59e0b" stroke="#ffffff" strokeWidth="2.5" />
-                    <text x="465" y="325" fill="#fef08a" fontSize="12" fontWeight="800">
-                      ĐẠI HỌC CẦN THƠ (R&D HUB)
-                    </text>
-                  </g>
-                )}
-
-                {/* Các Marker Pins tương tác */}
-                <g>
-                  {activeSpotsList.map((spot) => {
-                    const isSelected = spot.id === selectedLocation.id;
-                    const pinColor =
-                      spot.type === "domestic" ? "#f59e0b" : "#38bdf8";
-
-                    return (
-                      <g
-                         key={spot.id}
-                         transform={`translate(${spot.coordinates.x}, ${spot.coordinates.y})`}
-                         onClick={() => setSelectedSpotId(spot.id)}
-                       >
-                         <g className="map-marker-pin">
-                           {isSelected && (
-                             <circle
-                               className="map-marker-pulse"
-                               r="12"
-                               fill={pinColor}
-                               fillOpacity="0.4"
-                             />
-                           )}
-                           <circle
-                             r={isSelected ? 11 : 8}
-                             fill={pinColor}
-                             stroke="#ffffff"
-                             strokeWidth={isSelected ? 3 : 2}
-                           />
-                         </g>
-                         <text
-                           x={spot.coordinates.x > 600 ? -16 : 16}
-                           y="4"
-                           textAnchor={spot.coordinates.x > 600 ? "end" : "start"}
-                           fill="#ffffff"
-                           fontSize="12"
-                           fontWeight={isSelected ? 800 : 600}
-                           style={{
-                             textShadow: "0 2px 5px rgba(0,0,0,0.8)",
-                             pointerEvents: "none",
-                           }}
-                         >
-                           {spot.name.split("(")[0].trim()}
-                         </text>
-                       </g>
-                    );
-                  })}
-                </g>
-              </svg>
-
-              {/* Chú giải bản đồ (Legend) */}
-              <div
-                className="map-legend"
-                style={{
-                  
-                  background: "rgba(4, 47, 36, 0.9)",
-                  backdropFilter: "blur(6px)",
-                  border: "1px solid rgba(255,255,255,0.15)",
-                  borderRadius: "8px",
-                  padding: "8px 12px",
-                  fontSize: "11px",
-                  color: "#cbd5e1",
-                  display: "flex",
-                  gap: "14px",
-                  zIndex: 5,
-                }}
-              >
-                <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                  <span
-                    style={{
-                      width: "10px",
-                      height: "10px",
-                      borderRadius: "50%",
-                      background: "#f59e0b",
-                      display: "inline-block",
-                    }}
-                  />
-                  Điểm tiếp nhận ĐBSCL
-                </div>
-                <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                  <span
-                    style={{
-                      width: "10px",
-                      height: "10px",
-                      borderRadius: "50%",
-                      background: "#38bdf8",
-                      display: "inline-block",
-                    }}
-                  />
-                  Đối tác R&D Quốc tế
-                </div>
-              </div>
-            </div>
-
-            {/* Cột hiển thị chi tiết điểm tiếp nhận công nghệ */}
-            <div className="map-detail-sidebar">
-              <div className="location-detail-card">
-                <span
-                  style={{
-                    fontSize: "0.74rem",
-                    fontWeight: 800,
-                    textTransform: "uppercase",
-                    padding: "0.25rem 0.65rem",
-                    borderRadius: "999px",
-                    background: mapLayer === "domestic" ? "#fef3c7" : "#e0f2fe",
-                    color: mapLayer === "domestic" ? "#b45309" : "#0369a1",
-                    display: "inline-block",
-                    marginBottom: "0.75rem",
-                  }}
-                >
-                  {selectedLocation.badge}
-                </span>
-
-                <h3>{selectedLocation.name}</h3>
-
-                <div style={{ fontSize: "0.85rem", color: "#475569", marginBottom: "0.75rem" }}>
-                  <strong>Đối tượng tiếp nhận:</strong> {selectedLocation.targetUser}
-                </div>
-
-                <div className="loc-tech-box">
-                  <div className="title">Công nghệ & Giải pháp chuyển giao</div>
-                  <div className="desc">{selectedLocation.technology}</div>
-                </div>
-
-                <div className="loc-tech-box" style={{ background: "#fefce8", borderLeftColor: "var(--accent-amber)" }}>
-                  <div className="title" style={{ color: "#b45309" }}>Kết quả & Tác động đo lường</div>
-                  <div className="desc" style={{ color: "#78350f" }}>{selectedLocation.achievements}</div>
-                </div>
-
-                <div className="location-metrics-grid">
-                  {selectedLocation.metrics.map((m, idx) => (
-                    <div key={idx} className="loc-metric-item">
-                      <div className="label">{m.label}</div>
-                      <div className="val">{m.val}</div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="loc-legal-box">
-                  <div><strong>Văn bằng / Minh chứng:</strong> {selectedLocation.legalDoc}</div>
-                  <div style={{ marginTop: "0.25rem" }}><strong>Nguồn:</strong> {selectedLocation.source}</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      {/* BẢNG NGUỒN ĐỐI CHIẾU TOÀN DIỆN (FILE PDF RMIT & BÁO CHÍNH THỐNG) */}
+      <div className="wide-viz-column">
+        <DataSourcesProvenance />
       </div>
 
-      {/* CÁC NGUỒN PHỎNG VẤN TRỰC TIẾP (3 NHÓM NGUỒN CHÍNH) */}
-      <main className="article-container" id="phong-van">
-        <div className="interviews-wrapper">
-          <div style={{ marginBottom: "1.25rem" }}>
-            <span
-              style={{
-                fontSize: "0.75rem",
-                fontWeight: 800,
-                textTransform: "uppercase",
-                color: "var(--accent-gold)",
-                letterSpacing: "1px",
-              }}
-            >
-              Góc nhìn điều tra báo chí • Phỏng vấn độc quyền
-            </span>
-            <h3 style={{ fontSize: "1.45rem", fontWeight: 800, color: "var(--primary-green)", marginTop: "0.25rem" }}>
-              Tiếng nói từ ba chủ thể: Nông dân, Sinh viên và Nhà khoa học
-            </h3>
-            <p style={{ fontSize: "0.88rem", color: "var(--text-muted)", marginTop: "0.25rem" }}>
-              Đối chiếu số liệu thực tế ngoài ruộng đồng với những giả định trong giảng đường
-            </p>
-          </div>
-
-          <div className="interview-tabs-nav">
-            <button
-              className={`interview-tab-btn ${activeInterviewGroup === "farmer" ? "active" : ""}`}
-              onClick={() => setActiveInterviewGroup("farmer")}
-            >
-              🌾 Nông dân tiếp nhận
-            </button>
-            <button
-              className={`interview-tab-btn ${activeInterviewGroup === "student" ? "active" : ""}`}
-              onClick={() => setActiveInterviewGroup("student")}
-            >
-              🔬 Sinh viên & Học viên thực nghiệm
-            </button>
-            <button
-              className={`interview-tab-btn ${activeInterviewGroup === "lecturer" ? "active" : ""}`}
-              onClick={() => setActiveInterviewGroup("lecturer")}
-            >
-              🎓 Giảng viên & Nhà khoa học chủ trì
-            </button>
-          </div>
-
-          <div className="interview-card-content">
-            <div className="interviewee-header">
-              <div className="interviewee-avatar-circle">
-                {activeInterviewGroup === "farmer" ? "🌾" : activeInterviewGroup === "student" ? "🔬" : "🎓"}
-              </div>
-              <div>
-                <h4 style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--primary-green)" }}>
-                  {currentInterview.interviewee}
-                </h4>
-                <div style={{ fontSize: "0.85rem", color: "var(--text-sub)", fontWeight: 600 }}>
-                  {currentInterview.role}
-                </div>
-                <div style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>
-                  📍 {currentInterview.location} • {currentInterview.avatarDesc}
-                </div>
-              </div>
-            </div>
-
-            <div className="interview-qa-list">
-              {currentInterview.qa.map((item, idx) => (
-                <div key={idx} className="interview-qa-item">
-                  <div className="interview-question">{item.question}</div>
-                  <div className="interview-answer">{item.answer}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* CÔNG CỤ TRA CỨU NHANH CÔNG NGHỆ & ĐỊA BÀN CHUYỂN GIAO */}
-        <div className="lookup-widget" id="tra-cuu">
-          <h3>Tra cứu giống cây trồng & công nghệ chuyển giao</h3>
-          <p>
-            Nhập tên tỉnh thành (Sóc Trăng, An Giang, Cà Mau, Đồng Tháp...) hoặc đối tượng (lúa Nông Dân, Artemia, cá tra, cá bông lau, CTU-RAS, cá trê vàng...) để xem minh chứng văn bằng và kết quả thực tiễn.
-          </p>
-
-          <div className="lookup-input-group">
-            <input
-              type="text"
-              className="lookup-input"
-              placeholder="Ví dụ: Artemia, cá bông lau, Nông Dân 2, CTU-RAS, An Giang, Cà Mau..."
-              value={lookupQuery}
-              onChange={(e) => setLookupQuery(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") handleLookup();
-              }}
-            />
-            <button className="lookup-btn" onClick={handleLookup}>
-              Tra cứu dữ liệu
-            </button>
-          </div>
-
-          <div className="lookup-results">
-            {lookupResults !== null && (
-              <>
-                {lookupResults.length === 0 ? (
-                  <div
-                    style={{
-                      background: "#fef2f2",
-                      border: "1px solid #fecaca",
-                      padding: "1rem",
-                      borderRadius: "8px",
-                      color: "#991b1b",
-                      fontSize: "0.9rem",
-                    }}
-                  >
-                    Không tìm thấy dữ liệu trùng khớp với từ khóa &quot;<strong>{lookupQuery}</strong>&quot;. Hãy thử tìm với &quot;Artemia&quot;, &quot;cá tra&quot;, &quot;Nông Dân 2&quot; hoặc &quot;Cà Mau&quot;!
-                  </div>
-                ) : (
-                  lookupResults.map((s) => (
-                    <div
-                      key={s.id}
-                      style={{
-                        background: "white",
-                        border: "1px solid #bbf7d0",
-                        borderRadius: "10px",
-                        padding: "1.25rem",
-                        marginBottom: "0.75rem",
-                        boxShadow: "0 2px 6px rgba(0,0,0,0.02)",
-                      }}
-                    >
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "flex-start",
-                          marginBottom: "0.5rem",
-                        }}
-                      >
-                        <h4 style={{ fontSize: "1.05rem", fontWeight: 800, color: "var(--primary-green)" }}>
-                          {s.name}
-                        </h4>
-                        <span
-                          style={{
-                            fontSize: "0.75rem",
-                            fontWeight: 700,
-                            padding: "0.2rem 0.6rem",
-                            borderRadius: "999px",
-                            background: "#fef3c7",
-                            color: "#b45309",
-                          }}
-                        >
-                          {s.badge}
-                        </span>
-                      </div>
-                      <div style={{ fontSize: "0.88rem", color: "#334155", marginBottom: "0.4rem" }}>
-                        <strong>Công nghệ:</strong> {s.technology}
-                      </div>
-                      <div style={{ fontSize: "0.85rem", color: "#065f46", marginBottom: "0.4rem" }}>
-                        <strong>Kết quả thực tiễn:</strong> {s.achievements}
-                      </div>
-                      <div
-                        style={{
-                          marginTop: "0.6rem",
-                          paddingTop: "0.6rem",
-                          borderTop: "1px dashed #e2e8f0",
-                          fontSize: "0.8rem",
-                          color: "#64748b",
-                        }}
-                      >
-                        <strong>Văn bằng / Nguồn:</strong> {s.legalDoc} • {s.source}
-                      </div>
-                    </div>
-                  ))
-                )}
-              </>
-            )}
-          </div>
-        </div>
-
-        {/* NGUỒN TÀI LIỆU */}
-        <div className="data-sources-box">
-          <div className="source-text">
-            <h4>Nguồn tư liệu & Minh chứng khoa học</h4>
+      {/* FOOTER BẢN QUYỀN & NGUỒN FOOTAGE */}
+      <footer className="concert-footer">
+        <div className="footer-inner-wrap">
+          <div className="footer-col-main">
+            <h3>BẢN ĐỒ CONCERT VIỆT NAM: SỨC BẬT NỘI SINH</h3>
             <p>
-              Ấn phẩm kỷ niệm 60 năm “Đại học vì đồng bằng: Kiến tạo tri thức - Tiếp bước tiên phong”; Báo Cần Thơ, Báo Đồng Tháp, Báo Lao Động, VietnamPlus; Bằng độc quyền GPHI số 4743, 4797 và Quyết định công nhận lưu hành giống lúa Nông Dân 2.
+              Tác phẩm Báo chí Dữ liệu Đa phương tiện (Interactive Data Journalism &amp; Scrollytelling) • Phân tích toàn cảnh thị trường biểu diễn Việt Nam giai đoạn 2024–2026 và tầm nhìn chiến lược công nghiệp văn hóa 2030.
             </p>
+            <p className="footer-footage-credit">{ARTICLE_META.footageCredits}</p>
           </div>
-        </div>
-      </main>
-
-      {/* FOOTER TRANG WEB */}
-      <footer className="site-footer">
-        <div className="footer-inner">
-          <div className="footer-brand">
-            <h4>TRI THỨC ĐẠI HỌC CẦN THƠ: TỪ NGHIÊN CỨU ĐẾN SẢN XUẤT THỰC TIỄN</h4>
-            <p>
-              Sản phẩm báo chí dữ liệu đa phương tiện • Tôn vinh hành trình hơn 30 năm nghiên cứu ứng dụng phục vụ sự phát triển bền vững của Đồng bằng sông Cửu Long.
-            </p>
-          </div>
-          <div className="footer-copy">
-            © 2026 Nhóm Phóng sự Dữ liệu ĐBSCL. Bản quyền nội dung và minh chứng số liệu thuộc Đại học Cần Thơ và các cơ quan truyền thông đối tác.
+          <div className="footer-col-meta">
+            <div>
+              <strong>Dữ liệu &amp; Tài liệu tham chiếu:</strong> Báo cáo Tổng quan ngành công nghiệp âm nhạc Việt Nam 2025–2026 (ĐH RMIT Việt Nam), Nghị quyết 80-NQ/TW, Sở VH&amp;TT TP.HCM, Bộ VHTTDL, Statista, Báo Nhân Dân, Tuổi Trẻ, Đại biểu Nhân dân, VietnamPlus, Znews.
+            </div>
           </div>
         </div>
       </footer>
-    </>
+    </div>
   );
 }

@@ -1,45 +1,44 @@
 import type { Metadata, Viewport } from "next";
-import { Merriweather, K2D } from "next/font/google";
+import { Montserrat, Inter } from "next/font/google";
 import "./globals.css";
 
-const merriweather = Merriweather({
-  variable: "--font-merriweather",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin", "vietnamese"],
-  weight: ["300", "400", "700", "900"],
-  style: ["normal", "italic"],
+  weight: ["600", "700", "800", "900"],
   display: "swap",
 });
 
-const k2d = K2D({
-  variable: "--font-k2d",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin", "vietnamese"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-  style: ["normal", "italic"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Tri thức Đại học Cần Thơ: Từ nghiên cứu đến sản xuất thực tiễn | Báo chí Dữ liệu",
-  description: "Phóng sự dữ liệu chuyên sâu về hơn 30 năm tri thức Nông - Thủy sản Đại học Cần Thơ: Từ lúa kháng rầy 1991, công nghiệp cá tra tỷ USD đến giống lúa Nông Dân và sinh sản nhân tạo cá bông lau.",
+  title: "Bản đồ Concert Việt Nam: Sức bật nội sinh | Báo chí Dữ liệu Đa phương tiện",
+  description:
+    "Phóng sự dữ liệu đa phương tiện giải mã làn sóng concert nội sinh 2024–2026 (810+ sự kiện/năm), bài toán bền vững của kinh tế đêm địa phương, khoảng cách đón World Tour quốc tế và bệ phóng thể chế từ Nghị quyết 80-NQ/TW.",
   keywords: [
-    "Đại học Cần Thơ",
-    "Nông nghiệp",
-    "Thủy sản",
-    "Lúa Nông Dân",
-    "Cá bông lau",
-    "Cá tra",
-    "CTU-RAS",
-    "Artemia Vĩnh Châu",
+    "Bản đồ Concert Việt Nam",
+    "Sức bật nội sinh",
+    "Công nghiệp văn hóa",
+    "Anh Trai Vượt Ngàn Chông Gai",
+    "Anh Trai Say Hi",
+    "Tổ Quốc Trong Tim",
+    "Nghị quyết 80-NQ/TW",
+    "Ngày Văn hóa Việt Nam 24/11",
+    "Báo cáo âm nhạc RMIT 2025-2026",
     "Báo chí dữ liệu",
-    "Đồng bằng sông Cửu Long",
   ],
-  authors: [{ name: "Nhóm Phóng sự Dữ liệu & Đồ họa ĐBSCL" }],
+  authors: [{ name: "Nhóm Thực hiện Báo chí Dữ liệu Đa phương tiện" }],
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#064e3b",
+  themeColor: "#0B0C10",
 };
 
 export default function RootLayout({
@@ -48,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi" className={`${merriweather.variable} ${k2d.variable}`}>
+    <html lang="vi" className={`${montserrat.variable} ${inter.variable}`}>
       <body>{children}</body>
     </html>
   );

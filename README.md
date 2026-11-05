@@ -1,56 +1,49 @@
-# Tri Thức Đại Học Cần Thơ: Từ Nghiên Cứu Đến Sản Xuất Thực Tiễn
+# Bản Đồ Concert Việt Nam: Sức Bật Nội Sinh
 > **Báo chí Dữ liệu Đa phương tiện (Interactive Data Journalism & Scrollytelling)**
 
-Dự án trực quan hóa hành trình hơn 30 năm tri thức ngành **Nông nghiệp & Thủy sản Đại học Cần Thơ** được kiểm chứng bằng thực tiễn sản xuất tại Đồng bằng sông Cửu Long (ĐBSCL).
+Tác phẩm báo chí dữ liệu phân tích toàn cảnh làn sóng **“concert nội sinh”** giai đoạn 2024–2026 tại Việt Nam (810+ sự kiện âm nhạc/năm), phản biện bài toán bền vững của chuỗi giá trị kinh tế địa phương, lý giải khoảng cách đón các chuyến lưu diễn World Tour quốc tế và phác thảo bệ phóng thể chế từ **Nghị quyết số 80-NQ/TW** cùng **Ngày Văn hóa Việt Nam 24/11**.
 
-Repository: [https://github.com/v06012005/mmj1](https://github.com/v06012005/mmj1)
-
----
-
-## 🌟 Yếu Tố Đồ Họa & Tính Năng Nổi Bật
-
-1. **Ảnh bìa Split-Screen & Bảng màu chủ đạo**:
-   - Thiết kế ảnh bìa chia đôi: Một bên là ruộng khảo nghiệm lúa vàng óng, một bên là bể tuần hoàn nuôi cá trong phòng nghiên cứu của Đại học Cần Thơ.
-   - Bảng màu: Xanh lá đậm (`#064e3b`), Trắng ngà (`#faf8f5`), điểm nhấn Vàng lúa (`#d97706`, `#f59e0b`) và Xanh nước (`#0284c7`, `#0ea5e9`).
-
-2. **Timeline Tương Tác 2 Nhánh (Nông nghiệp & Thủy sản)**:
-   - Theo dõi hành trình từ 1966 (Cao đẳng Nông nghiệp), 1976-1978 (Khoa Thủy sản), mốc 18 tấn lúa kháng rầy 1991, Dự án Catfish Asia (1995–2007) đến năm 2026 với giống lúa Nông Dân 2 và sinh sản nhân tạo cá bông lau.
-   - Bộ lọc xem: Tất cả mốc son | Chỉ Nông nghiệp | Chỉ Thủy sản.
-
-3. **Phóng Sự Ảnh Trình Tự Nghiên Cứu 5 Bước**:
-   - Bước 1: Lưu giữ mẫu giống trong phòng thí nghiệm (MTL, Nông Dân 1-2).
-   - Bước 2: Bố trí ruộng khảo nghiệm nghiêm ngặt ngoài thực địa.
-   - Bước 3: Nhà nghiên cứu kiểm tra đặc tính bông lúa và độ chắc hạt.
-   - Bước 4: Đo đạc và đánh giá chất lượng hạt gạo sau thu hoạch (Amylose, độ bền gel).
-   - Bước 5: Đánh giá giống cùng nông dân tại hội thảo đầu bờ (xã Tân Hương, Đồng Tháp).
-
-4. **Biểu Đồ Năng Suất Khảo Nghiệm & Bảng Đối Chiếu Hai Giống Lúa Nông Dân**:
-   - Biểu đồ đoạn thẳng/cột thể hiện mức thấp nhất và cao nhất theo giống và mùa vụ (Đông Xuân & Hè Thu).
-   - Bảng đối chiếu chi tiết chỉ tiêu sinh trưởng, hàm lượng Amylose (26,51–27,3% vs 15,2–16,4%), phẩm chất cơm và phân khúc thị trường.
-
-5. **Trình Mô Phỏng Kịch Bản Video Ngắn Sinh Sản Cá Bông Lau (75–90s)**:
-   - Trình chiếu 5 phân đoạn: Mở đầu thực địa (0-8s), Phỏng vấn nghiên cứu sinh (8-25s), Minh họa quy trình nghiên cứu (25-45s), Phỏng vấn giảng viên (45-68s), Kết luận và bước tiếp theo (68-85s).
-   - Scrubber tương tác, âm thanh hiện trường và đồ họa chen giữa vòng đời cá bông lau.
-
-6. **Đồ Họa 4: Bản Đồ Tương Tác Các Dự Án & Địa Bàn Tiếp Nhận Công Nghệ (Toggle 2 Lớp)**:
-   - **Lớp Ứng dụng & Chuyển giao (ĐBSCL)**: Vĩnh Châu & Bạc Liêu (Artemia), An Giang (Cá tra AGIFISH), Cà Mau (Tôm thẻ CTU-RAS), Đồng Tháp (Lúa Nông Dân BOLD), Vùng Đồng Tháp Mười (Rửa phèn 700.000 ha), Cần Thơ (Tổng hành dinh R&D).
-   - **Lớp Hợp tác R&D & Tài trợ (Quốc tế)**: Nhật Bản (JICA ODA 105,9 triệu USD), Bỉ (VLIR), Hà Lan (MHO/VH10), Châu Âu (Catfish Asia), Crop Trust (Dự án BOLD).
-
-7. **Phỏng Vấn Độc Quyền Ba Nhóm Nguồn**:
-   - Nông dân tiếp nhận (Artemia Vĩnh Châu), Sinh viên thực nghiệm (Dự án DIVERSAQUA & RAS), Giảng viên/Nhà khoa học chủ trì (chọn tạo giống lúa & chính sách vùng).
-
-8. **Công Cụ Tra Cứu Nhanh & Tải Bộ Dữ Liệu JSON**:
-   - Tra cứu tức thời theo địa phương hoặc đối tượng công nghệ.
-   - Nút tải `dai-hoc-can-tho-nong-thuy-san-2026.json` phục vụ Open Data.
+Repository: [https://github.com/giahanluong192/mmj1](https://github.com/giahanluong192/mmj1)
 
 ---
 
-## 🛠️ Công Nghệ Sử Dụng
+## 🌟 Hệ Thống 13 Điểm Nhấn Đa Phương Tiện & Dữ Liệu Tương Tác
 
-- **Framework**: Next.js 16 (App Router)
-- **UI & Logic**: React 19, TypeScript 5
-- **Styling**: CSS Variables, Editorial Responsive Typography, Không phụ thuộc thư viện nặng ngoài
-- **Đồ họa**: SVG Vector Map, Scrollytelling, CSS Range Bars
+1. **[Vị trí 1] Header Video Loop (6 giây) & Nút Bật Âm Thanh**:
+   - Mô phỏng 3 cú máy flycam biển lightstick từ *Anh Trai Vượt Ngàn Chông Gai*, *Anh Trai "Say Hi"* và *Tổ Quốc Trong Tim* cùng nút `🔇 Bật âm thanh` tương tác ở góc phải màn hình.
+2. **[Vị trí 2] Biểu Đồ 1 – Phân Bố Quy Mô Sự Kiện & Các Concert Đại Chúng Tiêu Biểu**:
+   - Tab 1: Biểu đồ Donut phân bố quy mô 810+ sự kiện âm nhạc năm 2025 (nhóm >5.000 khán giả chiếm 23,8%).
+   - Tab 2: Dòng sự kiện & tốc độ bán vé các concert tiêu biểu 2025–2026 (*Anh Trai Vượt Ngàn Chông Gai 2026*, *G-Dragon Übermensch*, *Concert Ngày Văn hóa Việt Nam 24/11*, *Mỹ Tâm*, *Hà Anh Tuấn*, *Soobin*).
+3. **[Vị trí 3] Biểu Đồ 2 – Cơ Cấu Giá Vé & Mức Sẵn Sàng Chi Trả Của Khán Giả Việt**:
+   - Biểu đồ cột ngang chồng 100% (100% Stacked Horizontal Bar) từ khảo sát N=471 của Đại học RMIT Việt Nam.
+4. **[Vị trí 4] Audio Voxpop & Text Voxbox – Tiếng Nói Từ Khán Đài**:
+   - Trình phát sóng âm (Waveform) kết hợp hộp thoại và bảng bóc tách chi phí chuyến đi xem concert liên tỉnh của khán giả trẻ từ Cần Thơ và TP.HCM.
+5. **[Vị trí 5] Infographic – Hệ Sinh Thái Kinh Tế Lan Tỏa Quanh 1 Đêm Concert**:
+   - Sơ đồ tâm điểm sân vận động 30.000 khán giả tỏa ra 5 nhánh dịch vụ hưởng lợi (Lưu trú, Hàng không & Vận tải, F&B, Thời trang & Merchandise, OOH/LED Fan Project).
+6. **[Vị trí 6] Bản Đồ Nhiệt – Phân Bố Sự Kiện & Khả Năng Giữ Chân Du Khách**:
+   - Đối chiếu Cực tăng trưởng mật độ cao (TP.HCM, Hà Nội – Hưng Yên) và Cực du lịch âm nhạc (Đà Nẵng, Quảng Ninh, Huế, Quảng Bình, Đà Lạt) kèm phân tích tỷ lệ lưu trú qua đêm.
+7. **[Vị trí 7] Biểu Đồ Sankey – Dòng Tiền & Đơn Vị Vận Hành Concert Chảy Đi Đâu?**:
+   - Kết nối cơ cấu đơn vị tổ chức (RMIT), nguồn thu bán vé – tài trợ – merch và phân bổ chi phí hạ tầng, nghệ sĩ/VCPMC, vận hành, biên lợi nhuận ròng.
+8. **[Vị trí 8] Interactive Image Slider (Juxtapose) – Đêm Rực Sáng vs. Sáng Tháo Dỡ**:
+   - Thanh kéo trực quan đối chiếu 22h00 đêm diễn và 06h00 sáng hôm sau, dẫn chiếu chuyên đề *“Âm nhạc xanh”*.
+9. **[Vị trí 9] Biểu Đồ Tương Quan Nguồn Gốc Nghệ Sĩ & Quy Mô Khán Giả**:
+   - Biểu đồ cột ghép (Grouped Bar Chart) chứng minh khoảng cách `101 vs. 4` ở phân khúc đại nhạc hội 10.000–40.000 người.
+10. **[Vị trí 10] Biểu Đồ Radar 5 Trục & Bảng So Sánh Hạ Tầng Đông Nam Á**:
+    - Đặt TP.HCM & Hà Nội cạnh Singapore, Thái Lan và Indonesia kèm biểu đồ ARPU nhạc số dự báo 2030 (Statista) và ghi chú phương pháp luận.
+11. **[Vị trí 11] Motion Graphic Giải Thích (90 Giây) – Hành Trình Đưa Sao Quốc Tế Về Việt Nam**:
+    - Kịch bản phân cảnh từ khoản cọc 2 triệu USD qua 3 “trạm thu phí” đội giá đến trình mô phỏng bài toán giá vé – nhà tài trợ.
+12. **[Vị trí 12] Quote Cards Carousel – Góc Nhìn Chuyên Gia & Nhà Quản Lý**:
+    - Nhận định từ PGS.TS Bùi Hoài Sơn, PGS.TS Nguyễn Văn Thăng Long và Ông Loki Vũ.
+13. **[Vị trí 13] Interactive Poll – Box Thăm Dò Độc Giả & Bảng Nguồn Minh Bạch**:
+    - Bình chọn trực tiếp giải pháp ưu tiên đón World Tour và tra cứu toàn bộ bảng nguồn PDF RMIT + báo chí chính thống.
+
+---
+
+## 🎨 Định Hướng Thiết Kế (UI/UX)
+
+- **Chế độ nền tối (Concert Dark Mode)**: `#0B0C10` & `#12131A` tái hiện không gian đêm nhạc và ánh đèn sân khấu neon.
+- **Điểm nhấn Đỏ Sao Vàng (`#DA251D` / `#FFFF00`)**: Tôn vinh xu hướng Concert Quốc gia, Ngày Văn hóa Việt Nam 24/11 và Nghị quyết số 80-NQ/TW.
+- **Typography**: `Montserrat` mạnh mẽ cho hệ thống tiêu đề và `Inter` (`18px`, `line-height: 1.65`) tối ưu trải nghiệm đọc dài trên nền tối.
 
 ---
 
@@ -63,8 +56,7 @@ npm install
 # 2. Chạy môi trường phát triển
 npm run dev
 
-# 3. Build & Khởi chạy production
+# 3. Build production
 npm run build
 npm start
 ```
-Mở trình duyệt tại [http://localhost:3000](http://localhost:3000).
