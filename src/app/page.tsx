@@ -49,6 +49,10 @@ export default function Home() {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
 
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className="concert-page-root" data-theme={theme}>
       {/* Top Scrollytelling Reading Progress Bar */}
@@ -440,6 +444,29 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Floating Back to Top Button */}
+      <button
+        type="button"
+        onClick={handleScrollToTop}
+        className={`back-to-top-btn ${readingProgress > 3 ? "visible" : ""}`}
+        aria-label="Về đầu trang"
+        title="Về đầu trang"
+      >
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M18 15l-6-6-6 6" />
+        </svg>
+      </button>
     </div>
   );
 }
