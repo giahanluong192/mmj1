@@ -248,6 +248,12 @@ textarea {
   white-space: nowrap;
 }
 
+.nav-brand-category {
+  font-weight: 700;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+}
+
 .nav-live-pulse {
   width: 10px;
   height: 10px;

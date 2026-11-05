@@ -63,6 +63,7 @@ export default function Home() {
           <a href="#vi-tri-1" className="nav-brand">
             <span className="nav-live-pulse" />
             <span>TIẾNG NÓI TRẺ</span>
+            <span className="nav-brand-category">| CHUYÊN MỤC VĂN HÓA</span>
           </a>
 
           <button
