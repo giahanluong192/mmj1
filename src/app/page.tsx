@@ -11,7 +11,6 @@ import {
 import {
   VietnamEventHeatmap,
   ConcertCashflowSankey,
-  StageTeardownSlider,
 } from "@/components/LocalSustainabilitySection";
 import {
   ArtistOriginGroupedChart,
@@ -203,11 +202,6 @@ export default function Home() {
         {/* [VỊ TRÍ 7] BIỂU ĐỒ SANKEY: DÒNG TIỀN CỦA MỘT ĐÊM CONCERT CHẢY ĐI ĐÂU? */}
         <div className="wide-viz-column">
           <ConcertCashflowSankey />
-        </div>
-
-        {/* [VỊ TRÍ 8] PHOTO STORY / INTERACTIVE SLIDER: HẬU TRƯỜNG THÁO DỠ SÂN KHẤU & RÁC THẢI SỰ KIỆN */}
-        <div className="wide-viz-column">
-          <StageTeardownSlider />
         </div>
       </section>
 
