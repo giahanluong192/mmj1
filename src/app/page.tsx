@@ -409,12 +409,7 @@ export default function Home() {
         <div className="prose-column">
           <InteractiveReaderPoll />
 
-          {/* Đoạn kết bài báo */}
-          <div className="closing-manifesto-box">
-            <p>
-              Khi những “cơn sốt” bán vé được nâng đỡ bởi một hạ tầng đạt chuẩn, một hệ thống dữ liệu minh bạch và những thương hiệu lễ hội (IP) mang đậm bản sắc Việt, các đêm hội âm nhạc sẽ không còn là những pháo hoa rực sáng rồi tắt trong đêm. Đó sẽ là lúc công nghiệp biểu diễn Việt&nbsp;Nam thực sự cất cánh — vừa đủ sức giữ chân khán giả nội địa, vừa tự tin đón những chuyến lưu diễn lớn nhất hành tinh, đồng thời đưa thanh âm Việt&nbsp;Nam vươn xa trên bản đồ quyền lực mềm thế&nbsp;giới.
-            </p>
-          </div>
+
         </div>
       </section>
 
