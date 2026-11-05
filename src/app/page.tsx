@@ -345,7 +345,11 @@ export default function Home() {
           </div>
 
           <p className="body-p">
-            Cùng với nguồn lực 122.000 tỷ đồng cho giai đoạn 2025–2030, đây chính là “đường băng” pháp lý để tháo gỡ trực diện từng điểm nghẽn thông qua ba trụ cột giải pháp&nbsp;chiến&nbsp;lược:
+            Cùng với nguồn lực 122.000 tỷ đồng đã được Quốc hội phê duyệt cho Chương trình Mục tiêu Quốc gia về Phát triển Văn&nbsp;hóa giai đoạn 2025–2030, Nghị quyết 80-NQ/TW đã xác lập các chỉ tiêu định lượng cụ thể đến năm 2030: các ngành công nghiệp văn hóa đóng góp <strong>7% GDP</strong>; xây dựng thành công <strong>5 thương hiệu</strong> liên hoan nghệ thuật, lễ hội văn hóa quốc tế về điện ảnh, âm&nbsp;nhạc, mỹ&nbsp;thuật; đồng thời đưa Việt&nbsp;Nam vào nhóm <strong>3 quốc gia dẫn đầu ASEAN</strong> và nhóm <strong>30 thế giới</strong> về giá trị xuất khẩu sản phẩm công nghiệp văn&nbsp;hóa.
+          </p>
+
+          <p className="body-p">
+            Từ khung định hướng của Nghị quyết 80-NQ/TW và thực tiễn vận hành của thị trường, 5 nhóm giải pháp được đặt ra nhằm tháo gỡ tương ứng 5 điểm nghẽn đã phân tích ở&nbsp;trên:
           </p>
 
           <div className="solutions-pillars-list">
