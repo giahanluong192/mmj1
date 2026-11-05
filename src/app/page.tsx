@@ -313,9 +313,6 @@ export default function Home() {
           ===================================================================== */}
       <section className="editorial-section chapter4-redstar-band" id="chuong-4">
         <div className="prose-column">
-          <div className="chapter-kicker redstar-kicker">
-            ★ BỆ PHÓNG THỂ CHẾ & CHIẾN LƯỢC CẤT CÁNH
-          </div>
           <h2 className="chapter-h2">
             LỜI GIẢI ĐỂ VIỆT&nbsp;NAM LÊN BẢN ĐỒ WORLD&nbsp;TOUR
           </h2>
