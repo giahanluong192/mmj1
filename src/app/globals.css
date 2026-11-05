@@ -442,7 +442,7 @@ textarea {
 
 .metrics-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.15rem;
 }
 
@@ -451,7 +451,7 @@ textarea {
   border: 1px solid var(--border-subtle);
   border-top-width: 4px;
   border-radius: 16px;
-  padding: 1.35rem 1.25rem;
+  padding: 1.3rem 1.15rem;
   box-shadow: var(--shadow-card);
 }
 
@@ -463,22 +463,29 @@ textarea {
 .kpi-value-row {
   display: flex;
   align-items: baseline;
-  gap: 0.45rem;
-  margin-bottom: 0.35rem;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.4rem;
+  margin-bottom: 0.4rem;
 }
 
 .kpi-big-number {
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
   color: var(--text-primary);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .kpi-unit {
-  font-size: 0.84rem;
+  font-size: 0.74rem;
   font-weight: 700;
+  line-height: 1.25;
   color: var(--accent-blue);
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .kpi-label {
@@ -2204,10 +2211,11 @@ textarea {
 .nq80-num {
   display: block;
   font-family: var(--font-display);
-  font-size: 1.45rem;
+  font-size: 1.28rem;
   font-weight: 900;
   color: var(--vn-red);
   margin-bottom: 0.35rem;
+  white-space: nowrap;
 }
 
 .nq80-desc {
