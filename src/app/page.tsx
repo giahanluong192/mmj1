@@ -54,7 +54,7 @@ export default function Home() {
       <header className="top-editorial-nav">
         <a href="#vi-tri-1" className="nav-brand">
           <span className="nav-live-pulse" />
-          <span>CONCERT DATA MAP • VN 2026</span>
+          <span>TIẾNG NÓI TRẺ</span>
         </a>
 
         <nav aria-label="Điều hướng các chương bài báo">
