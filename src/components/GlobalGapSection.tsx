@@ -33,10 +33,10 @@ export function ArtistOriginGroupedChart() {
             NGUỒN GỐC NGHỆ SĨ & QUY MÔ KHÁN GIẢ
           </span>
           <h3 className="viz-title">
-            Khoảng cách lộ diện: 101 đại nhạc hội thuần nội địa nhưng chỉ có 4 đêm diễn độc lập của sao quốc tế ở quy mô 10.000–40.000 người
+            Khoảng cách lộ diện: 101 đại nhạc hội thuần nội địa nhưng chỉ có 4 đêm diễn độc lập của sao quốc tế ở quy mô 10.000–40.000&nbsp;người
           </h3>
           <p className="viz-subtitle">
-            Đối chiếu số lượng sự kiện âm nhạc năm 2025 theo nguồn gốc nghệ sĩ biểu diễn trên 6 phân khúc quy mô khán giả
+            Đối chiếu số lượng sự kiện âm nhạc năm 2025 theo nguồn gốc nghệ sĩ biểu diễn trên 6 phân khúc quy mô khán&nbsp;giả
           </p>
         </div>
       </div>
@@ -184,10 +184,10 @@ export function SeaInfrastructureRadarAndTable() {
             SO SÁNH HẠ TẦNG BIỂU DIỄN ĐÔNG NAM Á
           </span>
           <h3 className="viz-title">
-            Đặt TP.HCM & Hà Nội cạnh Singapore, Bangkok và Jakarta trên 5 trụ cột đón World Tour
+            Đặt TP.HCM &amp; Hà&nbsp;Nội cạnh Singapore, Bangkok và Jakarta trên 5 trụ cột đón World&nbsp;Tour
           </h3>
           <p className="viz-subtitle">
-            Bật/tắt từng quốc gia để đối chiếu tương quan 5 trụ cột hạ tầng kỹ thuật và ARPU nhạc số dự báo đến năm 2030
+            Bật/tắt từng quốc gia để đối chiếu tương quan 5 trụ cột hạ tầng kỹ thuật và ARPU nhạc số dự báo đến năm&nbsp;2030
           </p>
         </div>
 
@@ -420,10 +420,10 @@ export function MotionGraphic90sPlayer() {
             HÀNH TRÌNH ĐƯA SAO QUỐC TẾ VỀ VIỆT NAM
           </span>
           <h3 className="viz-title">
-            Từ khoản cọc 2 triệu USD đến bài toán cân não giá vé của Promoter nội địa
+            Từ khoản cọc 2 triệu USD đến bài toán cân não giá vé của Promoter nội&nbsp;địa
           </h3>
           <p className="viz-subtitle">
-             Bấm phát tự động hoặc chọn từng phân cảnh trên thanh thời gian 90 giây để theo dõi đường đi của chi phí
+            Bấm phát tự động hoặc chọn từng phân cảnh trên thanh thời gian 90 giây để theo dõi đường đi của chi&nbsp;phí
           </p>
         </div>
 

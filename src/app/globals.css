@@ -182,6 +182,15 @@ h6 {
   font-family: var(--font-display);
   color: var(--text-primary);
   letter-spacing: -0.02em;
+  word-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+p,
+li,
+blockquote,
+figcaption {
+  text-wrap: pretty;
 }
 
 button,
@@ -403,12 +412,14 @@ textarea {
 }
 
 .hero-sapo {
-  max-width: 820px;
+  max-width: 800px;
   margin: 0 auto 1.75rem;
-  font-size: clamp(1.05rem, 1.45vw, 1.2rem);
+  font-size: clamp(1.05rem, 1.4vw, 1.18rem);
   line-height: 1.68;
+  letter-spacing: -0.005em;
   color: var(--text-secondary);
   font-weight: 500;
+  text-wrap: pretty;
 }
 
 .hero-meta-strip {
@@ -554,28 +565,35 @@ textarea {
 }
 
 .chapter-h2 {
-  font-size: clamp(1.65rem, 3vw, 2.35rem);
+  font-size: clamp(1.55rem, 2.65vw, 2.12rem);
   font-weight: 900;
-  line-height: 1.25;
+  line-height: 1.28;
+  letter-spacing: -0.022em;
   color: var(--text-primary);
   margin-bottom: 1.5rem;
+  text-wrap: balance;
 }
 
 .editorial-sub-h3 {
-  font-size: clamp(1.35rem, 2.3vw, 1.8rem);
+  font-size: clamp(1.28rem, 2vw, 1.6rem);
   font-weight: 800;
-  line-height: 1.3;
+  line-height: 1.32;
+  letter-spacing: -0.018em;
   margin: 2.75rem 0 1.15rem;
   color: var(--text-primary);
   padding-left: 0.9rem;
   border-left: 4px solid var(--accent-rose);
+  text-wrap: balance;
 }
 
 .body-p {
   font-size: 1.125rem; /* 18px */
-  line-height: 1.68;
+  line-height: 1.7;
+  letter-spacing: -0.003em;
+  word-spacing: 0.01em;
   color: var(--text-body);
   margin-bottom: 1.4rem;
+  text-wrap: pretty;
 }
 
 .body-p strong {
@@ -648,18 +666,27 @@ textarea {
   border-bottom: 1px solid var(--border-subtle);
 }
 
+.viz-header > div:first-child {
+  flex: 1 1 560px;
+  min-width: 0;
+}
+
 .viz-title {
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-size: clamp(1.16rem, 1.8vw, 1.36rem);
   font-weight: 800;
-  line-height: 1.32;
+  line-height: 1.36;
+  letter-spacing: -0.018em;
   color: var(--text-primary);
   margin-bottom: 0.35rem;
+  text-wrap: balance;
 }
 
 .viz-subtitle {
+  max-width: 78ch;
   font-size: 0.92rem;
   color: var(--text-muted);
-  line-height: 1.5;
+  line-height: 1.54;
+  text-wrap: pretty;
 }
 
 .viz-tabs {

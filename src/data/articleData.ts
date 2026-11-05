@@ -241,7 +241,7 @@ export const ARTICLE_META = {
   titleMain: "BẢN ĐỒ CONCERT VIỆT NAM:",
   titleAccent: "SỨC BẬT NỘI SINH",
   // Sapo ngắn gọn, đi thẳng vào nội dung chính và tương quan dữ liệu theo chuẩn báo chí dữ liệu
-  sapo: "Hơn 810 sự kiện âm nhạc bùng nổ trong một năm cùng những đại nhạc hội nội địa 20.000–50.000 khán giả liên tục “cháy vé” chỉ sau vài chục phút mở bán đang đưa thị trường biểu diễn Việt Nam bước vào độ chín chưa từng có. Thế nhưng, đằng sau những khán đài rực sáng ấy là dấu hỏi về tính bền vững của chuỗi giá trị kinh tế địa phương và một thực tế đáng suy ngẫm: Vì sao trên bản đồ World Tour toàn cầu của các siêu sao quốc tế, Việt Nam vẫn là điểm dừng chân đầy thách thức?",
+  sapo: "Hơn 810 sự kiện âm nhạc bùng nổ trong một năm cùng những đại nhạc hội nội địa 20.000–50.000 khán giả liên tục “cháy vé” chỉ sau vài chục phút mở bán đang đưa thị trường biểu diễn Việt\u00A0Nam bước vào độ chín chưa từng có. Thế nhưng, đằng sau những khán đài rực sáng ấy là dấu hỏi về tính bền vững của chuỗi giá trị kinh tế địa phương và một thực tế đáng suy ngẫm: Vì sao trên bản đồ World\u00A0Tour toàn cầu của các siêu sao quốc tế, Việt\u00A0Nam vẫn là điểm dừng chân đầy thách\u00A0thức?",
   publishDate: "Tháng 11/2026",
   author: "Nhóm 01",
   advisor: "ThS. Nguyễn Thanh Liêm",
@@ -974,40 +974,40 @@ export const SEA_ARPU_2030: ArpuComparisonItem[] = [
 export const FIVE_SYSTEMIC_BOTTLENECKS: BottleneckItem[] = [
   {
     number: "01",
-    title: "Hạ tầng sân bãi thiếu chuẩn mực chuyên dụng",
+    title: "Hạ tầng sân bãi thiếu chuẩn mực chuyên\u00A0dụng",
     summary:
-      "Việt Nam thiếu hụt nghiêm trọng các nhà thi đấu đa năng có mái che (Indoor Arena) quy mô 15.000–20.000 chỗ hoặc các sân vận động (Stadium) 40.000–50.000 chỗ được thiết kế tối ưu cho âm học, tải trọng treo hệ thống âm thanh – ánh sáng (rigging load) và lối thoát hiểm tiêu chuẩn.",
+      "Việt\u00A0Nam thiếu hụt nghiêm trọng các nhà thi đấu đa năng có mái che (Indoor Arena) quy mô 15.000–20.000 chỗ hoặc các sân vận động (Stadium) 40.000–50.000 chỗ được thiết kế tối ưu cho âm học, tải trọng treo hệ thống âm thanh – ánh sáng (rigging load) và lối thoát hiểm tiêu\u00A0chuẩn.",
     evidenceQuote:
-      "Như ca sĩ Tùng Dương từng thẳng thắn chia sẻ trên Znews trước thềm concert tại Mỹ Đình: Việt Nam chưa có mô hình sân vận động có mái che phù hợp; chỉ cần thời tiết chuyển mưa, nhà sản xuất có thể phải thay đổi toàn bộ phương án sân khấu lẫn hình thức vận hành.",
-    solutionLink: "Quy hoạch Tổ hợp Arena có mái che qua mô hình PPP",
+      "Như ca sĩ Tùng Dương từng thẳng thắn chia sẻ trên Znews trước thềm concert tại Mỹ\u00A0Đình: Việt\u00A0Nam chưa có mô hình sân vận động có mái che phù hợp; chỉ cần thời tiết chuyển mưa, nhà sản xuất có thể phải thay đổi toàn bộ phương án sân khấu lẫn hình thức vận\u00A0hành.",
+    solutionLink: "Quy hoạch Tổ hợp Arena có mái che qua mô hình\u00A0PPP",
   },
   {
     number: "02",
-    title: "Chuỗi cung ứng kỹ thuật và logistics phụ thuộc nhập khẩu",
+    title: "Chuỗi cung ứng kỹ thuật và logistics phụ thuộc nhập\u00A0khẩu",
     summary:
-      "Đối với các World Tour hạng A, bản yêu cầu kỹ thuật (Technical Rider) của nghệ sĩ quốc tế rất khắt khe. Do thiết bị trong nước chưa đáp ứng đồng bộ các tiêu chuẩn đặc thù này, các nhà tổ chức tại Việt Nam thường phải thuê và vận chuyển thiết bị từ Singapore, Thái Lan hoặc Hồng Kông sang, khiến chi phí logistics và thuế quan đội lên rất cao.",
-    solutionLink: "Đơn giản hóa tạm nhập tái xuất & nội địa hóa kho thiết bị chuẩn quốc tế",
+      "Đối với các World\u00A0Tour hạng A, bản yêu cầu kỹ thuật (Technical Rider) của nghệ sĩ quốc tế rất khắt khe. Do thiết bị trong nước chưa đáp ứng đồng bộ các tiêu chuẩn đặc thù này, các nhà tổ chức tại Việt\u00A0Nam thường phải thuê và vận chuyển thiết bị từ Singapore, Thái\u00A0Lan hoặc Hồng\u00A0Kông sang, khiến chi phí logistics và thuế quan đội lên rất\u00A0cao.",
+    solutionLink: "Đơn giản hóa tạm nhập tái xuất & nội địa hóa kho thiết bị chuẩn quốc\u00A0tế",
   },
   {
     number: "03",
-    title: "Bài toán tài chính, phí bảo lãnh và sức mua trung bình",
+    title: "Bài toán tài chính, phí bảo lãnh và sức mua trung\u00A0bình",
     summary:
-      "Dù có bộ phận khán giả sẵn sàng mua vé VIP giá cao, mặt bằng chi tiêu chung vẫn cần thời gian tiệm cận khu vực. Theo dự báo của Statista trong báo cáo RMIT, doanh thu nhạc số bình quân mỗi người dùng (ARPU) tại Việt Nam giai đoạn 2025–2030 ước đạt 5,44 USD/người — đứng thứ 6 khu vực, cách khá xa Singapore (45,38 USD), Philippines (14,52 USD) hay Thái Lan (12,06 USD). Khi phí bảo lãnh (Minimum Guarantee) mời siêu sao quốc tế lên tới hàng triệu USD, Promoter nội địa rất khó cân đối thu – chi nếu không có tập đoàn, ngân hàng tài trợ lớn.",
-    solutionLink: "Ưu đãi thuế đại nhạc hội du lịch & cơ chế đồng tài trợ chiến lược",
+      "Dù có bộ phận khán giả sẵn sàng mua vé VIP giá cao, mặt bằng chi tiêu chung vẫn cần thời gian tiệm cận khu vực. Theo dự báo của Statista trong báo cáo RMIT, doanh thu nhạc số bình quân mỗi người dùng (ARPU) tại Việt\u00A0Nam giai đoạn 2025–2030 ước đạt 5,44 USD/người — đứng thứ 6 khu vực, cách khá xa Singapore (45,38 USD), Philippines (14,52 USD) hay Thái\u00A0Lan (12,06 USD). Khi phí bảo lãnh (Minimum Guarantee) mời siêu sao quốc tế lên tới hàng triệu USD, Promoter nội địa rất khó cân đối thu – chi nếu không có tập đoàn, ngân hàng tài trợ\u00A0lớn.",
+    solutionLink: "Ưu đãi thuế đại nhạc hội du lịch & cơ chế đồng tài trợ chiến\u00A0lược",
   },
   {
     number: "04",
-    title: "Hạ tầng giao thông công cộng kết nối điểm diễn",
+    title: "Hạ tầng giao thông công cộng kết nối điểm\u00A0diễn",
     summary:
-      "Khả năng giải tỏa an toàn 40.000–60.000 khán giả trong vòng 1 giờ sau khi đêm nhạc kết thúc là tiêu chí bắt buộc của các đơn vị bảo hiểm sự kiện quốc tế. Trong khi National Stadium (Singapore) hay Rajamangala (Bangkok) kết nối trực tiếp tàu điện ngầm (MRT/BTS) chạy tăng cường xuyên đêm, khán giả tại Việt Nam vẫn phụ thuộc chủ yếu vào phương tiện cá nhân và taxi công nghệ, dễ gây ùn tắc cục bộ quanh sân vận động.",
-    solutionLink: "Gắn quy hoạch tổ hợp biểu diễn mới với mạng lưới ga Metro & xe buýt nhanh",
+      "Khả năng giải tỏa an toàn 40.000–60.000 khán giả trong vòng 1 giờ sau khi đêm nhạc kết thúc là tiêu chí bắt buộc của các đơn vị bảo hiểm sự kiện quốc tế. Trong khi National Stadium (Singapore) hay Rajamangala (Bangkok) kết nối trực tiếp tàu điện ngầm (MRT/BTS) chạy tăng cường xuyên đêm, khán giả tại Việt\u00A0Nam vẫn phụ thuộc chủ yếu vào phương tiện cá nhân và taxi công nghệ, dễ gây ùn tắc cục bộ quanh sân vận\u00A0động.",
+    solutionLink: "Gắn quy hoạch tổ hợp biểu diễn mới với mạng lưới ga Metro & xe buýt\u00A0nhanh",
   },
   {
     number: "05",
-    title: "Quy trình thủ tục và sự thiếu vắng hệ thống dữ liệu minh bạch",
+    title: "Quy trình thủ tục và sự thiếu vắng hệ thống dữ liệu minh\u00A0bạch",
     summary:
-      "Dù thủ tục cấp phép biểu diễn đã có nhiều bước cải thiện tích cực, các nhà đầu tư nước ngoài vẫn mong đợi cơ chế \"một cửa\" nhanh gọn hơn về thị thực làm việc, tạm nhập tái xuất thiết bị và ưu đãi thuế nhà thầu. Đồng thời, như các đạo diễn Việt Tú và Phạm Hoàng Nam chỉ ra, Việt Nam vẫn thiếu bộ chỉ số đo lường chính thức về doanh thu vé, tỷ lệ lấp đầy và đóng góp kinh tế của từng sự kiện để thuyết phục các hãng giải trí toàn cầu.",
-    solutionLink: "Cơ chế \"Một cửa\" quốc tế & Bản đồ số Văn hóa / IFPI / Billboard Vietnam",
+      "Dù thủ tục cấp phép biểu diễn đã có nhiều bước cải thiện tích cực, các nhà đầu tư nước ngoài vẫn mong đợi cơ chế \"một cửa\" nhanh gọn hơn về thị thực làm việc, tạm nhập tái xuất thiết bị và ưu đãi thuế nhà thầu. Đồng thời, như các đạo diễn Việt Tú và Phạm Hoàng Nam chỉ ra, Việt\u00A0Nam vẫn thiếu bộ chỉ số đo lường chính thức về doanh thu vé, tỷ lệ lấp đầy và đóng góp kinh tế của từng sự kiện để thuyết phục các hãng giải trí toàn\u00A0cầu.",
+    solutionLink: "Cơ chế \"Một cửa\" quốc tế & Bản đồ số Văn hóa / IFPI / Billboard\u00A0Vietnam",
   },
 ];
 
@@ -1072,48 +1072,48 @@ export const MOTION_GRAPHIC_90S_SCENES: MotionGraphicScene[] = [
 export const BOTTLENECK_TO_SOLUTION_MATRIX: BottleneckSolutionPair[] = [
   {
     id: "sol-1",
-    bottleneck: "Thiếu Arena mái che 15.000–20.000 chỗ & Stadium chuẩn âm học",
+    bottleneck: "Thiếu Arena mái che 15.000–20.000 chỗ & Stadium chuẩn âm\u00A0học",
     pillarTag: "Trụ cột PPP Hạ tầng",
-    solutionTitle: "Quy hoạch Tổ hợp biểu diễn – thể thao – thương mại đa năng có mái che",
+    solutionTitle: "Quy hoạch Tổ hợp biểu diễn – thể thao – thương mại đa năng có mái\u00A0che",
     actionDetail:
-      "Nhân rộng mô hình Hợp tác Công – Tư (PPP đã chiếm 17,8% sự kiện năm 2025) để đầu tư các Indoor Arena và Stadium mái vòm tại Hà Nội, TP.HCM, Đà Nẵng thay vì để nhà sản xuất tự dựng giàn giáo tạm ngoài trời.",
-    milestoneMetric: "Mô hình PPP dẫn dắt đại nhạc hội 60.000 khách chào mừng Ngày Văn hóa VN 24/11 tại Mỹ Đình.",
+      "Nhân rộng mô hình Hợp tác Công – Tư (PPP đã chiếm 17,8% sự kiện năm 2025) để đầu tư các Indoor Arena và Stadium mái vòm tại Hà\u00A0Nội, TP.HCM, Đà\u00A0Nẵng thay vì để nhà sản xuất tự dựng giàn giáo tạm ngoài\u00A0trời.",
+    milestoneMetric: "Mô hình PPP dẫn dắt đại nhạc hội 60.000 khách chào mừng Ngày Văn hóa VN 24/11 tại Mỹ\u00A0Đình.",
   },
   {
     id: "sol-2",
-    bottleneck: "Thủ tục thị thực, tạm nhập tái xuất thiết bị & thuế nhà thầu phức tạp",
+    bottleneck: "Thủ tục thị thực, tạm nhập tái xuất thiết bị & thuế nhà thầu phức\u00A0tạp",
     pillarTag: "Trụ cột Thể chế 80-NQ/TW",
-    solutionTitle: "Cơ chế \"Một cửa\" liên thông quốc tế & ưu đãi thuế du lịch âm nhạc",
+    solutionTitle: "Cơ chế \"Một cửa\" liên thông quốc tế & ưu đãi thuế du lịch âm\u00A0nhạc",
     actionDetail:
-      "Rút gọn quy trình thẩm định hồ sơ biểu diễn quốc tế, luồng xanh hải quan cho container thiết bị sân khấu lưu diễn tạm nhập tái xuất và gói ưu đãi thuế cho đại nhạc hội gắn xúc tiến du lịch quốc gia.",
-    milestoneMetric: "Hành lang từ Nghị quyết 80-NQ/TW & gói 122.000 tỷ đồng giai đoạn 2025–2030.",
+      "Rút gọn quy trình thẩm định hồ sơ biểu diễn quốc tế, luồng xanh hải quan cho container thiết bị sân khấu lưu diễn tạm nhập tái xuất và gói ưu đãi thuế cho đại nhạc hội gắn xúc tiến du lịch quốc\u00A0gia.",
+    milestoneMetric: "Hành lang từ Nghị quyết 80-NQ/TW & gói 122.000 tỷ đồng giai đoạn\u00A02025–2030.",
   },
   {
     id: "sol-3",
-    bottleneck: "Ùn tắc giải tỏa 40.000–60.000 khán giả sau giờ diễn",
+    bottleneck: "Ùn tắc giải tỏa 40.000–60.000 khán giả sau giờ\u00A0diễn",
     pillarTag: "Trụ cột Đô thị TOD",
-    solutionTitle: "Kết nối trực tiếp điểm diễn với mạng lưới Metro & xe buýt nhanh lệch giờ",
+    solutionTitle: "Kết nối trực tiếp điểm diễn với mạng lưới Metro & xe buýt nhanh lệch\u00A0giờ",
     actionDetail:
-      "Tích hợp quy hoạch tổ hợp sự kiện ngay trên trục các tuyến đường sắt đô thị tại Hà Nội và TP.HCM; thiết lập quy chuẩn vận hành tàu Metro/xe buýt tăng cường sau 23h00 đáp ứng tiêu chuẩn bảo hiểm quốc tế.",
-    milestoneMetric: "Đáp ứng chuẩn giải tỏa đám đông an toàn trong vòng 60 phút sau đêm nhạc.",
+      "Tích hợp quy hoạch tổ hợp sự kiện ngay trên trục các tuyến đường sắt đô thị tại Hà\u00A0Nội và TP.HCM; thiết lập quy chuẩn vận hành tàu Metro/xe buýt tăng cường sau 23h00 đáp ứng tiêu chuẩn bảo hiểm quốc\u00A0tế.",
+    milestoneMetric: "Đáp ứng chuẩn giải tỏa đám đông an toàn trong vòng 60 phút sau đêm\u00A0nhạc.",
   },
   {
     id: "sol-4",
-    bottleneck: "Phụ thuộc thiết bị nhập khẩu, thiếu IP dài hạn & rác thải sự kiện",
+    bottleneck: "Phụ thuộc thiết bị nhập khẩu, thiếu IP dài hạn & rác thải sự\u00A0kiện",
     pillarTag: "Trụ cột Glocalization",
-    solutionTitle: "Lấy \"concert nội sinh\" làm thao trường chuẩn hóa nhân lực, thiết bị & IP xanh",
+    solutionTitle: "Lấy \"concert nội sinh\" làm thao trường chuẩn hóa nhân lực, thiết bị & IP\u00A0xanh",
     actionDetail:
-      "Rèn luyện đội ngũ đạo diễn, kỹ sư âm thanh – ánh sáng, liên doanh kho thiết bị đạt chuẩn Technical Rider ngay trong nước; xây dựng 5 thương hiệu lễ hội văn hóa – âm nhạc quốc tế đi kèm tiêu chuẩn \"Âm nhạc xanh\".",
-    milestoneMetric: "Mục tiêu 5 thương hiệu lễ hội quốc tế & Top 3 ASEAN về Soft Power Index năm 2030.",
+      "Rèn luyện đội ngũ đạo diễn, kỹ sư âm thanh – ánh sáng, liên doanh kho thiết bị đạt chuẩn Technical Rider ngay trong nước; xây dựng 5 thương hiệu lễ hội văn hóa – âm nhạc quốc tế đi kèm tiêu chuẩn \"Âm nhạc\u00A0xanh\".",
+    milestoneMetric: "Mục tiêu 5 thương hiệu lễ hội quốc tế & Top 3 ASEAN về Soft Power Index năm\u00A02030.",
   },
   {
     id: "sol-5",
-    bottleneck: "Thiếu hệ thống đo lường doanh thu vé & tỷ lệ lấp đầy minh bạch",
+    bottleneck: "Thiếu hệ thống đo lường doanh thu vé & tỷ lệ lấp đầy minh\u00A0bạch",
     pillarTag: "Trụ cột Hạ tầng dữ liệu",
-    solutionTitle: "Chuẩn hóa dữ liệu thị trường qua Bản đồ số Văn hóa & Bảng xếp hạng quốc tế",
+    solutionTitle: "Chuẩn hóa dữ liệu thị trường qua Bản đồ số Văn hóa & Bảng xếp hạng quốc\u00A0tế",
     actionDetail:
-      "Kết nối dữ liệu từ 13 nền tảng bán vé trực tuyến (Ticketbox, Eventista/1Zone hỗ trợ 200+ phương thức thanh toán tại 145 quốc gia) với Nền tảng Bản đồ số Văn hóa Việt Nam, IFPI Official Vietnam Chart và Billboard Vietnam.",
-    milestoneMetric: "Ra mắt Nền tảng Bản đồ số Văn hóa Việt Nam (11/2026), IFPI Chart & Billboard Vietnam.",
+      "Kết nối dữ liệu từ 13 nền tảng bán vé trực tuyến (Ticketbox, Eventista/1Zone hỗ trợ 200+ phương thức thanh toán tại 145 quốc gia) với Nền tảng Bản đồ số Văn hóa Việt\u00A0Nam, IFPI Official Vietnam Chart và Billboard\u00A0Vietnam.",
+    milestoneMetric: "Ra mắt Nền tảng Bản đồ số Văn hóa Việt\u00A0Nam (11/2026), IFPI Chart & Billboard\u00A0Vietnam.",
   },
 ];
 
@@ -1151,7 +1151,7 @@ export const EXPERT_QUOTES: ExpertQuoteCard[] = [
 // [VỊ TRÍ 13] BOX THĂM DÒ ĐỘC GIẢ (INTERACTIVE POLL)
 export const READER_POLL_CONFIG = {
   question:
-    "Theo bạn, yếu tố nào cần được ưu tiên tháo gỡ đầu tiên để Việt Nam trở thành điểm đến thường xuyên của các World Tour quốc tế?",
+    "Theo bạn, yếu tố nào cần được ưu tiên tháo gỡ đầu tiên để Việt\u00A0Nam trở thành điểm đến thường xuyên của các World\u00A0Tour quốc\u00A0tế?",
   options: [
     {
       id: "poll-venue",
