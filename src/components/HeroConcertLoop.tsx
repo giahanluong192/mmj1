@@ -123,7 +123,9 @@ export default function HeroConcertLoop() {
             <span className="title-line-accent">{ARTICLE_META.titleAccent}</span>
           </h1>
 
-          <p className="hero-sapo">{ARTICLE_META.sapo}</p>
+          <p className="hero-sapo">
+            <strong>{ARTICLE_META.sapo}</strong>
+          </p>
 
           <div className="hero-meta-strip">
             <span>

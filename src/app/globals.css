@@ -422,8 +422,8 @@ textarea {
   line-height: 1.72;
   letter-spacing: 0;
   word-spacing: normal;
-  color: var(--text-secondary);
-  font-weight: 500;
+  color: var(--text-primary);
+  font-weight: 700;
   text-wrap: balance;
 }
 
