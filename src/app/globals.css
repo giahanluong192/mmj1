@@ -2676,7 +2676,7 @@ textarea {
 }
 
 .sources-main-heading {
-  max-width: 720px;
+  max-width: 100%;
   font-size: clamp(1.2rem, 1.8vw, 1.42rem);
   font-weight: 800;
   line-height: 1.36;
@@ -2684,6 +2684,16 @@ textarea {
   word-spacing: normal;
   margin-bottom: 0.35rem;
   text-wrap: balance;
+}
+
+.sources-subtitle,
+.sources-provenance-section .viz-subtitle {
+  max-width: 100%;
+  font-size: 0.94rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  text-wrap: pretty;
+  margin-bottom: 0.35rem;
 }
 
 .sources-stacked-controls {

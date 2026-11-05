@@ -355,7 +355,7 @@ export function DataSourcesProvenance() {
         <h2 className="sources-main-heading">
           Bảng đối chiếu dữ kiện, số liệu
         </h2>
-        <p className="viz-subtitle">
+        <p className="viz-subtitle sources-subtitle">
           Tra cứu vị trí trang chính xác trong Báo cáo RMIT 2025–2026 và các nguồn báo chí chính thống sử dụng trong&nbsp;bài
         </p>
 
