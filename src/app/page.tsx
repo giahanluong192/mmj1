@@ -407,6 +407,10 @@ export default function Home() {
 
         {/* [VỊ TRÍ 13] BOX TƯƠNG TÁC ĐỘC GIẢ (INTERACTIVE POLL) */}
         <div className="prose-column">
+          <p className="body-p" style={{ marginBottom: "2rem" }}>
+            Nhìn tổng thể, làn sóng bùng nổ của các concert nội sinh giai đoạn 2024–2026 là minh chứng rõ nét cho thực lực và tiềm năng thương mại to lớn của thị trường biểu diễn Việt&nbsp;Nam. Thế nhưng, một nền công nghiệp không thể chỉ phát triển dựa trên sự cuồng nhiệt nhất thời. Để hoạt động biểu diễn âm nhạc thực sự thoát khỏi tính chất thời vụ, những định hướng từ <strong>Nghị quyết 80-NQ/TW</strong> phải khẩn trương được chuyển hóa thành hành động thực tiễn. Chỉ khi chúng ta kiến tạo được hệ thống sân bãi đạt chuẩn, quy trình cấp phép tinh gọn cùng chuỗi dịch vụ hậu cần đồng bộ, ngành công nghiệp biểu diễn mới đủ sức tạo ra giá trị bền vững, đóng góp thực chất vào mục tiêu <strong>7% GDP</strong> của toàn ngành công nghiệp văn hóa vào năm&nbsp;2030.
+          </p>
+
           <InteractiveReaderPoll />
 
 
