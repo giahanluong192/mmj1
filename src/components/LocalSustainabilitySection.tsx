@@ -81,19 +81,19 @@ export function VietnamEventHeatmap() {
           >
             <defs>
               <radialGradient id="heatHigh" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#FF2E93" stopOpacity="0.85" />
-                <stop offset="50%" stopColor="#DA251D" stopOpacity="0.38" />
+                <stop offset="0%" stopColor="#E11D48" stopOpacity="0.65" />
+                <stop offset="50%" stopColor="#DA251D" stopOpacity="0.24" />
                 <stop offset="100%" stopColor="#DA251D" stopOpacity="0" />
               </radialGradient>
               <radialGradient id="heatTourism" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#00F0FF" stopOpacity="0.82" />
-                <stop offset="55%" stopColor="#38BDF8" stopOpacity="0.32" />
+                <stop offset="0%" stopColor="#0284C7" stopOpacity="0.6" />
+                <stop offset="55%" stopColor="#38BDF8" stopOpacity="0.22" />
                 <stop offset="100%" stopColor="#38BDF8" stopOpacity="0" />
               </radialGradient>
             </defs>
 
             {/* Subtle coordinate grid */}
-            <g stroke="#1D2335" strokeWidth="0.7" strokeDasharray="3 5">
+            <g stroke="#CBD5E1" strokeWidth="0.7" strokeDasharray="3 5">
               <line x1="0" y1="140" x2="460" y2="140" />
               <line x1="0" y1="300" x2="460" y2="300" />
               <line x1="0" y1="460" x2="460" y2="460" />
@@ -104,28 +104,28 @@ export function VietnamEventHeatmap() {
             {/* Stylized S-curve silhouette of Vietnam mainland + Phu Quoc + Con Dao */}
             <path
               d="M 185 48 L 236 52 L 268 78 L 280 112 L 252 142 L 228 168 L 216 208 L 245 252 L 288 308 L 310 356 L 315 412 L 298 462 L 265 498 L 246 534 L 208 566 L 186 552 L 195 512 L 214 480 L 246 446 L 268 402 L 264 348 L 236 300 L 202 252 L 186 204 L 178 156 L 146 120 L 154 78 Z"
-              fill="#151928"
-              stroke="#334155"
+              fill="#E2E8F0"
+              stroke="#94A3B8"
               strokeWidth="1.8"
             />
             {/* Phú Quốc */}
-            <ellipse cx="164" cy="518" rx="8" ry="13" fill="#151928" stroke="#334155" strokeWidth="1.3" />
+            <ellipse cx="164" cy="518" rx="8" ry="13" fill="#E2E8F0" stroke="#94A3B8" strokeWidth="1.3" />
             {/* Côn Đảo */}
-            <circle cx="248" cy="570" r="4.5" fill="#151928" stroke="#334155" strokeWidth="1.2" />
+            <circle cx="248" cy="570" r="4.5" fill="#E2E8F0" stroke="#94A3B8" strokeWidth="1.2" />
 
             {/* Quần đảo Hoàng Sa & Trường Sa (Chủ quyền biển đảo Việt Nam) */}
-            <g opacity="0.9">
-              <circle cx="378" cy="272" r="3" fill="#FBBF24" />
-              <circle cx="390" cy="278" r="2.5" fill="#FBBF24" />
-              <circle cx="372" cy="283" r="2" fill="#FBBF24" />
-              <text x="382" y="299" textAnchor="middle" fill="#94A3B8" fontSize="9.5" fontWeight="700">
+            <g opacity="0.95">
+              <circle cx="378" cy="272" r="3" fill="#DA251D" />
+              <circle cx="390" cy="278" r="2.5" fill="#DA251D" />
+              <circle cx="372" cy="283" r="2" fill="#DA251D" />
+              <text x="382" y="299" textAnchor="middle" fill="#475569" fontSize="9.5" fontWeight="700">
                 QĐ. Hoàng Sa (Việt Nam)
               </text>
 
-              <circle cx="384" cy="482" r="3" fill="#FBBF24" />
-              <circle cx="396" cy="490" r="2.5" fill="#FBBF24" />
-              <circle cx="374" cy="495" r="2.2" fill="#FBBF24" />
-              <text x="382" y="512" textAnchor="middle" fill="#94A3B8" fontSize="9.5" fontWeight="700">
+              <circle cx="384" cy="482" r="3" fill="#DA251D" />
+              <circle cx="396" cy="490" r="2.5" fill="#DA251D" />
+              <circle cx="374" cy="495" r="2.2" fill="#DA251D" />
+              <text x="382" y="512" textAnchor="middle" fill="#475569" fontSize="9.5" fontWeight="700">
                 QĐ. Trường Sa (Việt Nam)
               </text>
             </g>
@@ -134,7 +134,7 @@ export function VietnamEventHeatmap() {
             {visibleHubs.map((hub) => {
               const isSelected = hub.id === activeHub.id;
               const isHigh = hub.clusterType === "high-density";
-              const coreColor = isHigh ? "#FF2E93" : "#00F0FF";
+              const coreColor = isHigh ? "#E11D48" : "#0284C7";
 
               return (
                 <g
@@ -161,7 +161,7 @@ export function VietnamEventHeatmap() {
                     x={hub.x < 225 ? hub.x - 13 : hub.x + 13}
                     y={hub.y + 4}
                     textAnchor={hub.x < 225 ? "end" : "start"}
-                    fill={isSelected ? "#FFFFFF" : "#CBD5E1"}
+                    fill={isSelected ? "#0F172A" : "#334155"}
                     fontSize={isSelected ? "12" : "10.8"}
                     fontWeight={isSelected ? "800" : "600"}
                   >
@@ -398,7 +398,7 @@ export function ConcertCashflowSankey() {
               }
             >
               <rect x="218" y={y} width="20" height={h} rx="4" fill={node.color} />
-              <text x="208" y={y + h / 2 - 2} textAnchor="end" fill="#F8FAFC" fontSize="11.5" fontWeight="700">
+              <text x="208" y={y + h / 2 - 2} textAnchor="end" fill="#0F172A" fontSize="11.5" fontWeight="700">
                 {node.label}
               </text>
               <text x="208" y={y + h / 2 + 12} textAnchor="end" fill={node.color} fontSize="11" fontWeight="800">
@@ -435,11 +435,11 @@ export function ConcertCashflowSankey() {
                 width="150"
                 height={h}
                 rx="8"
-                fill="#161B2B"
+                fill="#FFFFFF"
                 stroke={node.color}
                 strokeWidth="2"
               />
-              <text x="470" y={y + h / 2 - 4} textAnchor="middle" fill="#FFFFFF" fontSize="11" fontWeight="800">
+              <text x="470" y={y + h / 2 - 4} textAnchor="middle" fill="#0F172A" fontSize="11" fontWeight="800">
                 {node.label.split("(")[0].trim()}
               </text>
               <text x="470" y={y + h / 2 + 12} textAnchor="middle" fill={node.color} fontSize="11" fontWeight="700">
@@ -473,7 +473,7 @@ export function ConcertCashflowSankey() {
               }
             >
               <rect x="698" y={y} width="20" height={h} rx="4" fill={node.color} />
-              <text x="728" y={y + h / 2 - 3} textAnchor="start" fill="#F8FAFC" fontSize="11.5" fontWeight="700">
+              <text x="728" y={y + h / 2 - 3} textAnchor="start" fill="#0F172A" fontSize="11.5" fontWeight="700">
                 {node.label.length > 34 ? `${node.label.slice(0, 34)}…` : node.label}
               </text>
               <text x="728" y={y + h / 2 + 12} textAnchor="start" fill={node.color} fontSize="11" fontWeight="800">

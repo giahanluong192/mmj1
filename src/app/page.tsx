@@ -57,7 +57,7 @@ export default function Home() {
           <span>TIẾNG NÓI TRẺ</span>
         </a>
 
-        <nav aria-label="Điều hướng các chương bài báo">
+        <nav aria-label="Điều hướng các phần bài báo">
           <ul className="nav-chapter-links">
             <li>
               <a href="#chuong-1">1. Concert nội sinh</a>
@@ -88,12 +88,12 @@ export default function Home() {
           ===================================================================== */}
       <main className="editorial-section" id="chuong-1">
         <div className="prose-column">
-          <div className="chapter-kicker">CHƯƠNG 01 • SỨC BẬT THỊ TRƯỜNG NỘI ĐỊA</div>
+          <div className="chapter-kicker">SỨC BẬT THỊ TRƯỜNG NỘI ĐỊA</div>
           <h2 className="chapter-h2">
             Kỷ nguyên “Concert nội sinh” — Khi người Việt chi tiền triệu cho nhạc Việt
           </h2>
 
-          <p className="body-p dropcap-p">
+          <p className="body-p">
             Nếu như vài năm trước, thị trường biểu diễn tại Việt Nam chủ yếu vận hành theo hai mô hình quen thuộc — một là các đêm nhạc do nhãn hàng tài trợ toàn bộ kinh phí mời nghệ sĩ biểu diễn nhằm quảng bá thương hiệu (thường phát vé miễn phí kèm điều kiện mua sản phẩm), hai là liveshow do chính nghệ sĩ tự đứng ra tổ chức ở quy mô vừa và nhỏ dựa trên tệp người hâm mộ trung thành ổn định — còn khái niệm bán vé thương mại hàng chục nghìn khán giả hiếm hoi lắm mới gắn liền với một số ít tên tuổi gạo cội hoặc ngôi sao K-Pop, thì giai đoạn 2024–2026 đã ghi nhận sự dịch chuyển mang tính bước ngoặt về cả quy mô lẫn hành vi tiêu dùng.
           </p>
 
@@ -152,7 +152,7 @@ export default function Home() {
           ===================================================================== */}
       <section className="editorial-section alt-dark-band" id="chuong-2">
         <div className="prose-column">
-          <div className="chapter-kicker">CHƯƠNG 02 • PHẢN BIỆN CHUỖI GIÁ TRỊ & TÍNH BỀN VỮNG</div>
+          <div className="chapter-kicker">PHẢN BIỆN CHUỖI GIÁ TRỊ & TÍNH BỀN VỮNG</div>
           <h2 className="chapter-h2">
             Những cuộc đua tại địa phương và câu hỏi: “Sau đêm bùng nổ còn lại gì?”
           </h2>
@@ -201,7 +201,7 @@ export default function Home() {
           ===================================================================== */}
       <section className="editorial-section" id="chuong-3">
         <div className="prose-column">
-          <div className="chapter-kicker">CHƯƠNG 03 • TƯƠNG QUAN NỘI – NGOẠI & 5 ĐIỂM NGHẼN HỆ THỐNG</div>
+          <div className="chapter-kicker">TƯƠNG QUAN NỘI – NGOẠI & 5 ĐIỂM NGHẼN HỆ THỐNG</div>
           <h2 className="chapter-h2">
             Nhịp cầu dữ liệu: Bức tranh tương quan giữa concert nội địa và quốc tế tại Việt Nam
           </h2>
@@ -285,7 +285,7 @@ export default function Home() {
       <section className="editorial-section chapter4-redstar-band" id="chuong-4">
         <div className="prose-column">
           <div className="chapter-kicker redstar-kicker">
-            ★ CHƯƠNG 04 • BỆ PHÓNG THỂ CHẾ & CHIẾN LƯỢC CẤT CÁNH
+            ★ BỆ PHÓNG THỂ CHẾ & CHIẾN LƯỢC CẤT CÁNH
           </div>
           <h2 className="chapter-h2">
             Lời giải để Việt Nam lên bản đồ tour diễn thế giới

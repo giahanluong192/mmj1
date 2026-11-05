@@ -9,8 +9,8 @@ Repository: [https://github.com/giahanluong192/mmj1](https://github.com/giahanlu
 
 ## 🌟 Hệ Thống 13 Điểm Nhấn Đa Phương Tiện & Dữ Liệu Tương Tác
 
-1. **[Vị trí 1] Header Video Loop (6 giây) & Nút Bật Âm Thanh**:
-   - Mô phỏng 3 cú máy flycam biển lightstick từ *Anh Trai Vượt Ngàn Chông Gai*, *Anh Trai "Say Hi"* và *Tổ Quốc Trong Tim* cùng nút `🔇 Bật âm thanh` tương tác ở góc phải màn hình.
+1. **[Vị trí 1] Header Video Loop (6 giây)**:
+   - Mô phỏng 3 cú máy flycam biển lightstick từ *Anh Trai Vượt Ngàn Chông Gai*, *Anh Trai "Say Hi"* và *Tổ Quốc Trong Tim* trên nền sáng trực quan.
 2. **[Vị trí 2] Biểu Đồ 1 – Phân Bố Quy Mô Sự Kiện & Các Concert Đại Chúng Tiêu Biểu**:
    - Tab 1: Biểu đồ Donut phân bố quy mô 810+ sự kiện âm nhạc năm 2025 (nhóm >5.000 khán giả chiếm 23,8%).
    - Tab 2: Dòng sự kiện & tốc độ bán vé các concert tiêu biểu 2025–2026 (*Anh Trai Vượt Ngàn Chông Gai 2026*, *G-Dragon Übermensch*, *Concert Ngày Văn hóa Việt Nam 24/11*, *Mỹ Tâm*, *Hà Anh Tuấn*, *Soobin*).
@@ -41,9 +41,9 @@ Repository: [https://github.com/giahanluong192/mmj1](https://github.com/giahanlu
 
 ## 🎨 Định Hướng Thiết Kế (UI/UX)
 
-- **Chế độ nền tối (Concert Dark Mode)**: `#0B0C10` & `#12131A` tái hiện không gian đêm nhạc và ánh đèn sân khấu neon.
-- **Điểm nhấn Đỏ Sao Vàng (`#DA251D` / `#FFFF00`)**: Tôn vinh xu hướng Concert Quốc gia, Ngày Văn hóa Việt Nam 24/11 và Nghị quyết số 80-NQ/TW.
-- **Typography**: `Montserrat` mạnh mẽ cho hệ thống tiêu đề và `Inter` (`18px`, `line-height: 1.65`) tối ưu trải nghiệm đọc dài trên nền tối.
+- **Giao diện nền sáng (Editorial Light Mode)**: `#FAF9F6` & `#FFFFFF` mang lại độ tương phản cao, thoáng đãng và tối ưu cho báo chí dữ liệu chuyên sâu.
+- **Điểm nhấn Đỏ Sao Vàng (`#DA251D` / `#D97706`)**: Tôn vinh xu hướng Concert Quốc gia, Ngày Văn hóa Việt Nam 24/11 và Nghị quyết số 80-NQ/TW.
+- **Typography**: `Montserrat` mạnh mẽ cho hệ thống tiêu đề và `Inter` (`18px`, `line-height: 1.7`) tối ưu trải nghiệm đọc dài đồng nhất trên nền sáng.
 
 ---
 

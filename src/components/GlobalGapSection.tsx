@@ -43,13 +43,13 @@ export function ArtistOriginGroupedChart() {
 
       <div className="grouped-legend-row">
         <span>
-          <i style={{ backgroundColor: "#00F0FF" }} /> Chỉ có Nghệ sĩ Nội địa
+          <i style={{ backgroundColor: "#0284C7" }} /> Chỉ có Nghệ sĩ Nội địa
         </span>
         <span>
-          <i style={{ backgroundColor: "#FF2E93" }} /> Chỉ có Nghệ sĩ Quốc tế
+          <i style={{ backgroundColor: "#E11D48" }} /> Chỉ có Nghệ sĩ Quốc tế
         </span>
         <span>
-          <i style={{ backgroundColor: "#F59E0B" }} /> Kết hợp Nội địa & Quốc tế
+          <i style={{ backgroundColor: "#D97706" }} /> Kết hợp Nội địa & Quốc tế
         </span>
       </div>
 
@@ -67,40 +67,40 @@ export function ArtistOriginGroupedChart() {
             >
               <div className="grouped-columns-stage">
                 <div className="g-bar-wrap">
-                  <span className="g-bar-num" style={{ color: "#00F0FF" }}>
+                  <span className="g-bar-num" style={{ color: "#0284C7" }}>
                     {row.domesticOnly}
                   </span>
                   <div
                     className="g-bar"
                     style={{
                       height: `${Math.max(4, (row.domesticOnly / maxEvents) * 100)}%`,
-                      backgroundColor: "#00F0FF",
+                      backgroundColor: "#0284C7",
                     }}
                   />
                 </div>
 
                 <div className="g-bar-wrap">
-                  <span className="g-bar-num" style={{ color: "#FF2E93" }}>
+                  <span className="g-bar-num" style={{ color: "#E11D48" }}>
                     {row.internationalOnly}
                   </span>
                   <div
                     className="g-bar"
                     style={{
                       height: `${Math.max(3, (row.internationalOnly / maxEvents) * 100)}%`,
-                      backgroundColor: "#FF2E93",
+                      backgroundColor: "#E11D48",
                     }}
                   />
                 </div>
 
                 <div className="g-bar-wrap">
-                  <span className="g-bar-num" style={{ color: "#F59E0B" }}>
+                  <span className="g-bar-num" style={{ color: "#D97706" }}>
                     {row.combined}
                   </span>
                   <div
                     className="g-bar"
                     style={{
                       height: `${Math.max(3, (row.combined / maxEvents) * 100)}%`,
-                      backgroundColor: "#F59E0B",
+                      backgroundColor: "#D97706",
                     }}
                   />
                 </div>
@@ -119,11 +119,11 @@ export function ArtistOriginGroupedChart() {
         <div>
           <strong>Phân khúc đang chọn ({activeItem.scale}):</strong> Tổng cộng{" "}
           <strong>{totalInActive} sự kiện</strong> — trong đó chương trình độc lập của nghệ sĩ quốc tế chỉ chiếm{" "}
-          <strong style={{ color: "#FF2E93" }}>
+          <strong style={{ color: "#E11D48" }}>
             {activeItem.internationalOnly} sự kiện ({intlPct}%)
           </strong>
           , nghệ sĩ nội địa áp đảo với{" "}
-          <strong style={{ color: "#00F0FF" }}>{activeItem.domesticOnly} sự kiện</strong> (và{" "}
+          <strong style={{ color: "#0284C7" }}>{activeItem.domesticOnly} sự kiện</strong> (và{" "}
           {activeItem.combined} sự kiện kết hợp).
         </div>
       </div>
@@ -200,8 +200,8 @@ export function SeaInfrastructureRadarAndTable() {
                 type="button"
                 className={`radar-toggle-chip ${active ? "on" : "off"}`}
                 style={{
-                  borderColor: active ? c.color : "#334155",
-                  color: active ? "#FFFFFF" : "#64748B",
+                  borderColor: active ? c.color : "#CBD5E1",
+                  color: active ? "#0F172A" : "#94A3B8",
                 }}
                 onClick={() => toggleCountry(c.id)}
               >
@@ -233,7 +233,7 @@ export function SeaInfrastructureRadarAndTable() {
                   <polygon
                     points={pts}
                     fill="none"
-                    stroke="#242B42"
+                    stroke="#CBD5E1"
                     strokeWidth={level === 10 ? 1.5 : 1}
                   />
                   <text
@@ -265,14 +265,14 @@ export function SeaInfrastructureRadarAndTable() {
                     y1={cy}
                     x2={outer.x}
                     y2={outer.y}
-                    stroke="#2D3652"
+                    stroke="#94A3B8"
                     strokeWidth="1"
                   />
                   <text
                     x={labelPos.x}
                     y={labelPos.y}
                     textAnchor={anchor}
-                    fill="#E2E8F0"
+                    fill="#1E293B"
                     fontSize="10.5"
                     fontWeight="700"
                   >

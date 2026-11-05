@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, type CSSProperties } from "react";
+import { useState, useEffect, type CSSProperties } from "react";
 import {
   ARTICLE_META,
   HERO_FLYCAM_SHOTS,
@@ -21,9 +21,6 @@ const LIGHTSTICK_DOTS = Array.from({ length: 84 }, (_, idx) => {
 
 export default function HeroConcertLoop() {
   const [shotIndex, setShotIndex] = useState(0);
-  const [isAudioOn, setIsAudioOn] = useState(false);
-  const audioCtxRef = useRef<AudioContext | null>(null);
-  const gainNodeRef = useRef<GainNode | null>(null);
 
   // 6-second seamless loop: 3 aerial flycam shots x 2 seconds each
   useEffect(() => {
@@ -33,103 +30,12 @@ export default function HeroConcertLoop() {
     return () => clearInterval(interval);
   }, []);
 
-  // Cleanup Web Audio on unmount
-  useEffect(() => {
-    return () => {
-      if (audioCtxRef.current) {
-        audioCtxRef.current.close().catch(() => undefined);
-      }
-    };
-  }, []);
-
-  const toggleAmbientSound = () => {
-    if (isAudioOn) {
-      if (gainNodeRef.current && audioCtxRef.current) {
-        gainNodeRef.current.gain.setTargetAtTime(
-          0.0001,
-          audioCtxRef.current.currentTime,
-          0.15
-        );
-      }
-      setIsAudioOn(false);
-      return;
-    }
-
-    try {
-      const AudioContextClass =
-        window.AudioContext ||
-        (window as unknown as { webkitAudioContext: typeof AudioContext })
-          .webkitAudioContext;
-
-      if (!audioCtxRef.current) {
-        const ctx = new AudioContextClass();
-        const masterGain = ctx.createGain();
-        masterGain.gain.setValueAtTime(0.06, ctx.currentTime);
-        masterGain.connect(ctx.destination);
-
-        // Warm stadium concert chord pad (C major 9th atmospheric synth)
-        const freqs = [130.81, 196.0, 246.94, 293.66];
-        freqs.forEach((freq, i) => {
-          const osc = ctx.createOscillator();
-          const oscGain = ctx.createGain();
-          osc.type = i % 2 === 0 ? "sine" : "triangle";
-          osc.frequency.setValueAtTime(freq, ctx.currentTime);
-          oscGain.gain.setValueAtTime(0.22 / freqs.length, ctx.currentTime);
-          osc.connect(oscGain);
-          oscGain.connect(masterGain);
-          osc.start();
-        });
-
-        // Subtle crowd roar filtered noise
-        const bufferSize = ctx.sampleRate * 2;
-        const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
-        const output = noiseBuffer.getChannelData(0);
-        for (let i = 0; i < bufferSize; i++) {
-          output[i] = (((i * 9301 + 49297) % 233280) / 233280) * 2 - 1;
-        }
-        const whiteNoise = ctx.createBufferSource();
-        whiteNoise.buffer = noiseBuffer;
-        whiteNoise.loop = true;
-
-        const bandpass = ctx.createBiquadFilter();
-        bandpass.type = "bandpass";
-        bandpass.frequency.setValueAtTime(620, ctx.currentTime);
-        bandpass.Q.setValueAtTime(0.8, ctx.currentTime);
-
-        const crowdGain = ctx.createGain();
-        crowdGain.gain.setValueAtTime(0.08, ctx.currentTime);
-
-        whiteNoise.connect(bandpass);
-        bandpass.connect(crowdGain);
-        crowdGain.connect(masterGain);
-        whiteNoise.start();
-
-        audioCtxRef.current = ctx;
-        gainNodeRef.current = masterGain;
-      } else {
-        if (audioCtxRef.current.state === "suspended") {
-          audioCtxRef.current.resume().catch(() => undefined);
-        }
-        if (gainNodeRef.current) {
-          gainNodeRef.current.gain.setTargetAtTime(
-            0.06,
-            audioCtxRef.current.currentTime,
-            0.15
-          );
-        }
-      }
-      setIsAudioOn(true);
-    } catch {
-      setIsAudioOn(false);
-    }
-  };
-
   const currentShot = HERO_FLYCAM_SHOTS[shotIndex];
 
   return (
     <>
       <section className="hero-concert-section" id="vi-tri-1">
-        {/* Animated 6s Flycam Video Loop Stage */}
+        {/* Animated 6s Flycam Video Loop Stage (Light Mode) */}
         <div
           className="hero-video-stage"
           style={
@@ -146,26 +52,26 @@ export default function HeroConcertLoop() {
             aria-hidden="true"
           >
             <defs>
-              <radialGradient id="stageBeamA" cx="50%" cy="18%" r="60%">
-                <stop offset="0%" stopColor={currentShot.primaryColor} stopOpacity="0.52" />
-                <stop offset="55%" stopColor={currentShot.secondaryColor} stopOpacity="0.18" />
-                <stop offset="100%" stopColor="#0B0C10" stopOpacity="0" />
+              <radialGradient id="stageBeamA" cx="50%" cy="18%" r="62%">
+                <stop offset="0%" stopColor={currentShot.primaryColor} stopOpacity="0.22" />
+                <stop offset="55%" stopColor={currentShot.secondaryColor} stopOpacity="0.1" />
+                <stop offset="100%" stopColor="#FAF9F6" stopOpacity="0" />
               </radialGradient>
-              <linearGradient id="laserLeft" x1="50%" y1="15%" x2="5%" y2="95%">
-                <stop offset="0%" stopColor={currentShot.secondaryColor} stopOpacity="0.65" />
+              <linearGradient id="laserLeft" x1="50%" y1="12%" x2="5%" y2="95%">
+                <stop offset="0%" stopColor={currentShot.secondaryColor} stopOpacity="0.24" />
                 <stop offset="100%" stopColor={currentShot.primaryColor} stopOpacity="0" />
               </linearGradient>
-              <linearGradient id="laserRight" x1="50%" y1="15%" x2="95%" y2="95%">
-                <stop offset="0%" stopColor={currentShot.primaryColor} stopOpacity="0.65" />
+              <linearGradient id="laserRight" x1="50%" y1="12%" x2="95%" y2="95%">
+                <stop offset="0%" stopColor={currentShot.primaryColor} stopOpacity="0.24" />
                 <stop offset="100%" stopColor={currentShot.secondaryColor} stopOpacity="0" />
               </linearGradient>
             </defs>
 
             {/* Stage glow & sweeping concert laser cones */}
             <rect width="100" height="100" fill="url(#stageBeamA)" />
-            <polygon points="48,16 4,100 26,100" fill="url(#laserLeft)" opacity="0.55" />
-            <polygon points="52,16 74,100 96,100" fill="url(#laserRight)" opacity="0.55" />
-            <polygon points="50,15 36,100 64,100" fill="url(#stageBeamA)" opacity="0.5" />
+            <polygon points="48,14 4,100 26,100" fill="url(#laserLeft)" opacity="0.65" />
+            <polygon points="52,14 74,100 96,100" fill="url(#laserRight)" opacity="0.65" />
+            <polygon points="50,14 36,100 64,100" fill="url(#stageBeamA)" opacity="0.55" />
 
             {/* Curved stadium tiers */}
             <ellipse
@@ -175,31 +81,31 @@ export default function HeroConcertLoop() {
               ry="4.5"
               fill="none"
               stroke={currentShot.secondaryColor}
-              strokeWidth="0.45"
-              opacity="0.7"
+              strokeWidth="0.35"
+              opacity="0.35"
             />
             <path
               d="M 6 58 Q 50 38 94 58"
               fill="none"
               stroke={currentShot.primaryColor}
-              strokeWidth="0.25"
-              opacity="0.4"
+              strokeWidth="0.22"
+              opacity="0.25"
             />
             <path
               d="M 2 76 Q 50 52 98 76"
               fill="none"
               stroke={currentShot.secondaryColor}
-              strokeWidth="0.25"
-              opacity="0.35"
+              strokeWidth="0.22"
+              opacity="0.22"
             />
 
-            {/* Sea of tens of thousands of synchronized lightsticks */}
+            {/* Sea of synchronized lightsticks */}
             {LIGHTSTICK_DOTS.map((dot) => (
               <circle
                 key={dot.id}
                 cx={dot.x}
                 cy={dot.y}
-                r={dot.size * 0.16}
+                r={dot.size * 0.15}
                 fill={dot.id % 2 === 0 ? currentShot.primaryColor : currentShot.secondaryColor}
                 className="lightstick-particle"
                 style={{ animationDelay: `${dot.delay}s` }}
@@ -207,7 +113,7 @@ export default function HeroConcertLoop() {
             ))}
           </svg>
 
-          <div className="hero-dark-vignette" />
+          <div className="hero-light-vignette" />
         </div>
 
         {/* Top Flycam Loop Telemetry Indicator */}
@@ -261,24 +167,19 @@ export default function HeroConcertLoop() {
           </div>
 
           <div className="hero-meta-strip">
-            <span>📅 {ARTICLE_META.publishDate}</span>
-            <span>•</span>
-            <span>⏱ {ARTICLE_META.readTime}</span>
-            <span>•</span>
-            <span>📊 Dữ liệu: Đại học RMIT Việt Nam, Sở VH&TT TP.HCM, Statista & Nghị quyết 80-NQ/TW</span>
+            <span>
+              <strong>Thực hiện:</strong> {ARTICLE_META.author}
+            </span>
+            <span className="meta-pipe">|</span>
+            <span>
+              <strong>Người hướng dẫn:</strong> {ARTICLE_META.advisor}
+            </span>
+            <span className="meta-pipe">|</span>
+            <span>
+              <strong>Thời gian đọc:</strong> {ARTICLE_META.readTime}
+            </span>
           </div>
         </div>
-
-        {/* Audio Unmute Button in Bottom-Right Corner per Technical Spec */}
-        <button
-          type="button"
-          className={`hero-audio-toggle ${isAudioOn ? "audio-active" : ""}`}
-          onClick={toggleAmbientSound}
-          aria-pressed={isAudioOn}
-        >
-          <span>{isAudioOn ? "🔊" : "🔇"}</span>
-          <span>{isAudioOn ? "Tắt âm thanh sân vận động" : "Bật âm thanh"}</span>
-        </button>
       </section>
 
       {/* 4 Key Data Metrics Strip */}

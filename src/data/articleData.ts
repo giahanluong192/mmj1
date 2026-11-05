@@ -243,7 +243,9 @@ export const ARTICLE_META = {
   // Sapo ngắn gọn, đi thẳng vào nội dung chính và tương quan dữ liệu theo chuẩn báo chí dữ liệu
   sapo: "Hơn 810 sự kiện âm nhạc bùng nổ trong một năm cùng những đại nhạc hội nội địa 20.000–50.000 khán giả liên tục “cháy vé” chỉ sau vài chục phút mở bán đang đưa thị trường biểu diễn Việt Nam bước vào độ chín chưa từng có. Thế nhưng, đằng sau những khán đài rực sáng ấy là dấu hỏi về tính bền vững của chuỗi giá trị kinh tế địa phương và một thực tế đáng suy ngẫm: Vì sao trên bản đồ World Tour toàn cầu của các siêu sao quốc tế, Việt Nam vẫn là điểm dừng chân đầy thách thức?",
   publishDate: "Tháng 11/2026",
-  readTime: "10 phút đọc & tương tác dữ liệu",
+  author: "Nhóm 01",
+  advisor: "ThS. Nguyễn Thanh Liêm",
+  readTime: "10 phút",
   footageCredits:
     "Nguồn tư liệu hình ảnh & đối chiếu footage: Ban tổ chức Anh Trai Vượt Ngàn Chông Gai (YeaH1), Anh Trai \"Say Hi\" (Vie Channel / DatVietVAC), Concert Quốc gia Tổ Quốc Trong Tim & V-Concert (Báo Nhân Dân, VTV).",
 };
@@ -256,8 +258,8 @@ export const HERO_FLYCAM_SHOTS: HeroShot[] = [
     concertName: "Anh Trai Vượt Ngàn Chông Gai",
     location: "TP.HCM & Hưng Yên (2025–2026)",
     audienceScale: "~100.000 khán giả / 2 đêm",
-    primaryColor: "#FF4D4D",
-    secondaryColor: "#F59E0B",
+    primaryColor: "#E11D48",
+    secondaryColor: "#D97706",
     caption: "Cú máy flycam 01: Toàn cảnh biển lightstick rực lửa phủ kín đại đô thị trong 2 đêm diễn cháy vé.",
     credit: "Footage tham chiếu: BTC Anh Trai Vượt Ngàn Chông Gai / YeaH1",
   },
@@ -267,8 +269,8 @@ export const HERO_FLYCAM_SHOTS: HeroShot[] = [
     concertName: "Anh Trai \"Say Hi\"",
     location: "TP.HCM & SVĐ Quốc gia Mỹ Đình",
     audienceScale: "30.000 – 50.000 khán giả / đêm",
-    primaryColor: "#00F0FF",
-    secondaryColor: "#A855F7",
+    primaryColor: "#0284C7",
+    secondaryColor: "#7C3AED",
     caption: "Cú máy flycam 02: Sóng ánh sáng đồng bộ theo nhịp nhạc điện tử của thế hệ Prosumer Fandom trẻ.",
     credit: "Footage tham chiếu: BTC Anh Trai \"Say Hi\" / DatVietVAC",
   },
@@ -279,7 +281,7 @@ export const HERO_FLYCAM_SHOTS: HeroShot[] = [
     location: "Thủ đô Hà Nội",
     audienceScale: "25.000 – 50.000+ khán giả / đêm",
     primaryColor: "#DA251D",
-    secondaryColor: "#FFFF00",
+    secondaryColor: "#D97706",
     caption: "Cú máy flycam 03: Biển cờ Đỏ Sao Vàng hòa cùng ánh đèn flash tạo nên hiện tượng \"Concert Quốc gia\".",
     credit: "Footage tham chiếu: BTC Tổ Quốc Trong Tim / Báo Nhân Dân",
   },
@@ -401,7 +403,7 @@ export const ICONIC_CONCERTS_2025_2026: IconicConcertItem[] = [
     ticketSpeed: "Cháy vé thần tốc với hàng trăm nghìn lượt xếp hàng trực tuyến từ fan Việt và khu vực.",
     category: "quoc-te",
     categoryLabel: "World Tour Quốc tế",
-    highlightColor: "#00F0FF",
+    highlightColor: "#0284C7",
   },
   {
     id: "ngay-vhvn-2026",
@@ -427,7 +429,7 @@ export const ICONIC_CONCERTS_2025_2026: IconicConcertItem[] = [
     ticketSpeed: "Nằm trong làn sóng 128 sự kiện âm nhạc chủ đề văn hóa, tự hào dân tộc dịp đại lễ.",
     category: "quoc-gia",
     categoryLabel: "Concert Quốc gia",
-    highlightColor: "#EAB308",
+    highlightColor: "#D97706",
   },
   {
     id: "my-tam-see-the-light",
@@ -804,21 +806,21 @@ export const SANKEY_REVENUE_STREAMS: SankeyRevenueStream[] = [
     id: "rev-ticket",
     label: "Doanh thu bán vé (VIP / Fanzone / GA)",
     shareEstimate: 52,
-    color: "#00F0FF",
+    color: "#0284C7",
     detail: "Thu qua các nền tảng phân phối vé trực tuyến; chịu áp lực cân bằng giữa sức mua đại chúng và chi phí sản xuất.",
   },
   {
     id: "rev-sponsor",
     label: "Ngân sách Nhà tài trợ (Title / Co-Sponsor)",
     shareEstimate: 35,
-    color: "#FBBF24",
+    color: "#D97706",
     detail: "Nguồn bù đắp sống còn từ ngân hàng, nhãn hàng FMCG để đổi lấy quyền lợi thương hiệu (brand visibility) và vé mời.",
   },
   {
     id: "rev-merch",
     label: "Merchandise, F&B nội khu & Bản quyền số",
     shareEstimate: 13,
-    color: "#F472B6",
+    color: "#DB2777",
     detail: "Áo, lightstick, gian hàng trải nghiệm và khai thác phát sóng lại trên nền tảng OTT/YouTube.",
   },
 ];
@@ -890,7 +892,7 @@ export const SEA_RADAR_COUNTRIES: SeaRadarCountry[] = [
     id: "singapore",
     country: "Singapore",
     cities: "Singapore Sports Hub",
-    color: "#00F0FF",
+    color: "#0284C7",
     arpu2030: 45.38,
     scores: {
       venueStandard: 9.5,
@@ -1133,7 +1135,7 @@ export const EXPERT_QUOTES: ExpertQuoteCard[] = [
     quote:
       "Đã đến lúc chúng ta không chỉ tổ chức những sự kiện lớn, mà còn phải xây dựng một nền công nghiệp văn hóa có chiều sâu và bản sắc.",
     source: "Báo cáo Tổng quan ngành công nghiệp âm nhạc Việt Nam 2025–2026 (RMIT)",
-    accentColor: "#00F0FF",
+    accentColor: "#0284C7",
   },
   {
     id: "q-loki-vu",
@@ -1142,7 +1144,7 @@ export const EXPERT_QUOTES: ExpertQuoteCard[] = [
     quote:
       "Ở Việt Nam, làm được một concert lớn giống như 'đi khai phá vùng đất mới': không có mức giá sàn, quy trình chuẩn, chi phí phát sinh liên tục và rủi ro tài chính rất cao.",
     source: "Báo cáo Tổng quan ngành công nghiệp âm nhạc Việt Nam 2025–2026 (RMIT)",
-    accentColor: "#F59E0B",
+    accentColor: "#D97706",
   },
 ];
 

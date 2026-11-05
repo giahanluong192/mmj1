@@ -24,7 +24,7 @@ export function BottleneckSolutionMatrix() {
       <div className="viz-header">
         <div>
           <span className="pos-badge redstar-badge">
-            BẢN ĐỒ HÀNH ĐỘNG CHƯƠNG 4 • ĐỐI CHIẾU ĐIỂM NGHẼN & LỜI GIẢI THỂ CHẾ
+            BẢN ĐỒ HÀNH ĐỘNG • ĐỐI CHIẾU ĐIỂM NGHẼN & LỜI GIẢI THỂ CHẾ
           </span>
           <h3 className="viz-title">
             Từ 5 điểm nghẽn cấu trúc đến 5 mũi nhọn tháo gỡ đưa Việt Nam lên bản đồ World Tour

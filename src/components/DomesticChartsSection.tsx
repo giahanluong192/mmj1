@@ -93,7 +93,7 @@ export function EventScaleAndConcertsWidget() {
                   cy="105"
                   r={radius}
                   fill="none"
-                  stroke="#1E2333"
+                  stroke="#E2E8F0"
                   strokeWidth="26"
                 />
                 {donutSegments.map(({ slice, dashArray, dashOffset }) => {
@@ -570,9 +570,9 @@ export function ConcertEconomicInfographic() {
           >
             <defs>
               <radialGradient id="stadiumCoreGlow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#00F0FF" stopOpacity="0.32" />
-                <stop offset="65%" stopColor="#A855F7" stopOpacity="0.1" />
-                <stop offset="100%" stopColor="#0B0C10" stopOpacity="0" />
+                <stop offset="0%" stopColor="#0284C7" stopOpacity="0.16" />
+                <stop offset="65%" stopColor="#7C3AED" stopOpacity="0.06" />
+                <stop offset="100%" stopColor="#F8FAFC" stopOpacity="0" />
               </radialGradient>
             </defs>
 
@@ -582,7 +582,7 @@ export function ConcertEconomicInfographic() {
               cy={centerY}
               r={orbitRadius}
               fill="none"
-              stroke="#262D42"
+              stroke="#CBD5E1"
               strokeWidth="1.5"
               strokeDasharray="5 5"
             />
@@ -604,7 +604,7 @@ export function ConcertEconomicInfographic() {
                     y2={ny}
                     stroke={spoke.color}
                     strokeWidth={isSelected ? 3.5 : 1.8}
-                    strokeOpacity={isSelected ? 0.95 : 0.45}
+                    strokeOpacity={isSelected ? 0.95 : 0.5}
                   />
                 </g>
               );
@@ -616,8 +616,8 @@ export function ConcertEconomicInfographic() {
                 cx={centerX}
                 cy={centerY}
                 r="66"
-                fill="#121521"
-                stroke="#00F0FF"
+                fill="#FFFFFF"
+                stroke="#0284C7"
                 strokeWidth="2.5"
               />
               <circle
@@ -625,17 +625,17 @@ export function ConcertEconomicInfographic() {
                 cy={centerY}
                 r="58"
                 fill="none"
-                stroke="#A855F7"
+                stroke="#7C3AED"
                 strokeWidth="1"
                 strokeDasharray="3 3"
               />
-              <text x={centerX} y={centerY - 16} textAnchor="middle" fill="#00F0FF" fontSize="11" fontWeight="800">
+              <text x={centerX} y={centerY - 16} textAnchor="middle" fill="#0284C7" fontSize="11" fontWeight="800">
                 TÂM ĐIỂM CONCERT
               </text>
-              <text x={centerX} y={centerY + 6} textAnchor="middle" fill="#FFFFFF" fontSize="18" fontWeight="900">
+              <text x={centerX} y={centerY + 6} textAnchor="middle" fill="#0F172A" fontSize="18" fontWeight="900">
                 30.000
               </text>
-              <text x={centerX} y={centerY + 24} textAnchor="middle" fill="#CBD5E1" fontSize="11" fontWeight="600">
+              <text x={centerX} y={centerY + 24} textAnchor="middle" fill="#475569" fontSize="11" fontWeight="600">
                 KHÁN GIẢ / ĐÊM
               </text>
             </g>
@@ -670,14 +670,14 @@ export function ConcertEconomicInfographic() {
                       cy={ny}
                       r="39"
                       fill={spoke.color}
-                      fillOpacity="0.22"
+                      fillOpacity="0.18"
                     />
                   )}
                   <circle
                     cx={nx}
                     cy={ny}
                     r={isSelected ? 31 : 27}
-                    fill="#161927"
+                    fill="#FFFFFF"
                     stroke={spoke.color}
                     strokeWidth={isSelected ? 3 : 2}
                   />
@@ -688,7 +688,7 @@ export function ConcertEconomicInfographic() {
                     x={nx + labelXOffset}
                     y={ny + labelYOffset}
                     textAnchor={anchor}
-                    fill={isSelected ? "#FFFFFF" : "#CBD5E1"}
+                    fill={isSelected ? "#0F172A" : "#334155"}
                     fontSize="12.5"
                     fontWeight={isSelected ? "800" : "600"}
                   >
