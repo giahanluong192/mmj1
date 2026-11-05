@@ -27,7 +27,7 @@ export function BottleneckSolutionMatrix() {
             BẢN ĐỒ HÀNH ĐỘNG • ĐỐI CHIẾU ĐIỂM NGHẼN & LỜI GIẢI THỂ CHẾ
           </span>
           <h3 className="viz-title">
-            Từ 5 điểm nghẽn cấu trúc đến 5 mũi nhọn tháo gỡ đưa Việt&nbsp;Nam lên bản đồ World&nbsp;Tour
+            Từ 5 điểm nghẽn cấu trúc đến 5 mũi nhọn tháo gỡ đưa Việt&nbsp;Nam lên bản&nbsp;đồ&nbsp;World&nbsp;Tour
           </h3>
           <p className="viz-subtitle">
             Chọn từng điểm nghẽn để xem cơ chế giải quyết tương ứng gắn với Nghị quyết 80-NQ/TW và nguồn lực 122.000&nbsp;tỷ&nbsp;đồng
@@ -99,7 +99,7 @@ export function ExpertQuotesCarousel() {
             GÓC NHÌN CHUYÊN GIA & NHÀ QUẢN LÝ
           </span>
           <h3 className="viz-title">
-            Từ “cơn sốt” ngắn hạn đến nền công nghiệp biểu diễn có chiều sâu và bản&nbsp;sắc
+            Từ “cơn sốt” ngắn hạn đến nền công nghiệp biểu diễn có chiều&nbsp;sâu&nbsp;và&nbsp;bản&nbsp;sắc
           </h3>
         </div>
 
@@ -310,7 +310,7 @@ export function DataSourcesProvenance() {
         <div>
           <span className="pos-badge">HỒ SƠ MINH BẠCH DỮ LIỆU</span>
           <h2 className="sources-main-heading">
-            Bảng đối chiếu toàn bộ nguồn số liệu, báo cáo học thuật &amp; văn kiện chính&nbsp;sách
+            Bảng đối chiếu toàn bộ nguồn số liệu, báo cáo học thuật &amp; văn&nbsp;kiện&nbsp;chính&nbsp;sách
           </h2>
           <p className="viz-subtitle">
             Tra cứu vị trí trang chính xác trong Báo cáo RMIT 2025–2026 và các nguồn báo chí chính thống sử dụng trong&nbsp;bài

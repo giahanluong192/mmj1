@@ -117,7 +117,7 @@ export default function Home() {
         <div className="prose-column">
           <div className="chapter-kicker">SỨC BẬT THỊ TRƯỜNG NỘI ĐỊA</div>
           <h2 className="chapter-h2">
-            Kỷ nguyên “Concert nội sinh” — Khi người Việt chi tiền triệu cho nhạc&nbsp;Việt
+            Kỷ nguyên “Concert nội sinh” — Khi người Việt chi tiền triệu cho&nbsp;nhạc&nbsp;Việt
           </h2>
 
           <p className="body-p">
@@ -181,7 +181,7 @@ export default function Home() {
         <div className="prose-column">
           <div className="chapter-kicker">PHẢN BIỆN CHUỖI GIÁ TRỊ & TÍNH BỀN VỮNG</div>
           <h2 className="chapter-h2">
-            Những cuộc đua tại địa phương và câu hỏi: “Sau đêm bùng nổ còn&nbsp;lại&nbsp;gì?”
+            Những cuộc đua tại địa phương và câu hỏi: “Sau&nbsp;đêm bùng nổ còn&nbsp;lại&nbsp;gì?”
           </h2>
 
           <p className="body-p">
@@ -230,7 +230,7 @@ export default function Home() {
         <div className="prose-column">
           <div className="chapter-kicker">TƯƠNG QUAN NỘI – NGOẠI & 5 ĐIỂM NGHẼN HỆ THỐNG</div>
           <h2 className="chapter-h2">
-            Nhịp cầu dữ liệu: Bức tranh tương quan giữa concert nội địa và quốc tế tại Việt&nbsp;Nam
+            Nhịp cầu dữ liệu: Bức tranh tương quan giữa concert nội địa và quốc tế tại&nbsp;Việt&nbsp;Nam
           </h2>
 
           <p className="body-p">
@@ -245,27 +245,27 @@ export default function Home() {
 
         <div className="prose-column">
           <p className="body-p">
-            Phân tích dữ liệu từ hơn 810 sự kiện âm nhạc năm 2025 của Đại học RMIT cho thấy sự áp đảo tuyệt đối của các chương trình thuần nội địa:
+            Phân tích dữ liệu từ hơn 810 sự kiện âm nhạc năm 2025 của Đại học RMIT cho thấy sự áp đảo tuyệt đối của các chương trình thuần&nbsp;nội&nbsp;địa:
           </p>
 
           <ul className="editorial-bullet-list">
             <li>
-              <strong>Ở phân khúc quy mô 1.000 – 5.000 khán giả:</strong> Có tới <strong>200 sự kiện</strong> chỉ có nghệ sĩ nội địa, trong khi sự kiện chỉ có nghệ sĩ quốc tế dừng ở con số <strong>29</strong>, và sự kiện kết hợp cả hai là <strong>28</strong>.
+              <strong>Ở phân khúc quy mô 1.000 – 5.000 khán giả:</strong> Có tới <strong>200 sự kiện</strong> chỉ có nghệ sĩ nội địa, trong khi sự kiện chỉ có nghệ sĩ quốc tế dừng ở con số <strong>29</strong>, và sự kiện kết hợp cả hai&nbsp;là&nbsp;<strong>28</strong>.
             </li>
             <li>
-              <strong>Ở phân khúc đại nhạc hội 10.000 – 40.000 khán giả:</strong> Trong khi nghệ sĩ nội địa làm chủ <strong>101 sự kiện</strong>, số lượng sự kiện độc lập của nghệ sĩ quốc tế tại Việt Nam chỉ vỏn vẹn <strong>4 sự kiện</strong> (và <strong>12 sự kiện</strong> kết hợp nghệ sĩ nội – ngoại).
+              <strong>Ở phân khúc đại nhạc hội 10.000 – 40.000 khán giả:</strong> Trong khi nghệ sĩ nội địa làm chủ <strong>101 sự kiện</strong>, số lượng sự kiện độc lập của nghệ sĩ quốc tế tại Việt&nbsp;Nam chỉ vỏn vẹn <strong>4 sự kiện</strong> (và <strong>12 sự kiện</strong> kết hợp nghệ sĩ nội&nbsp;–&nbsp;ngoại).
             </li>
             <li>
-              <strong>Ở phân khúc siêu sự kiện (&gt;40.000 khán giả):</strong> Các chương trình nội địa ghi nhận <strong>16 sự kiện</strong>, trong khi sự kiện độc lập của nghệ sĩ quốc tế chỉ đếm trên đầu ngón tay với <strong>3 sự kiện</strong> (tiêu biểu như 2 đêm diễn thuộc <em>Übermensch World Tour</em> của G-Dragon thu hút gần 100.000 khán giả tại Hà Nội).
+              <strong>Ở phân khúc siêu sự kiện (&gt;40.000 khán giả):</strong> Các chương trình nội địa ghi nhận <strong>16 sự kiện</strong>, trong khi sự kiện độc lập của nghệ sĩ quốc tế chỉ đếm trên đầu ngón tay với <strong>3 sự kiện</strong> (tiêu biểu như 2 đêm diễn thuộc <em>Übermensch World Tour</em> của G-Dragon thu hút gần 100.000 khán giả tại&nbsp;Hà&nbsp;Nội).
             </li>
           </ul>
 
           <p className="body-p">
-            Con số chỉ <strong>4 sự kiện độc lập</strong> của nghệ sĩ quốc tế ở quy mô 10.000–40.000 khán giả trong cả một năm sôi động là minh chứng định lượng rõ ràng nhất: Dù nhu cầu của khán giả trong nước rất lớn, Việt&nbsp;Nam vẫn chưa phải là điểm dừng chân quen thuộc trên bản đồ World&nbsp;Tour của các ngôi sao hàng đầu thế&nbsp;giới.
+            Con số chỉ <strong>4 sự kiện độc lập</strong> của nghệ sĩ quốc tế ở quy mô 10.000–40.000 khán giả trong cả một năm sôi động là minh chứng định lượng rõ ràng nhất: Dù nhu cầu của khán giả trong nước rất lớn, Việt&nbsp;Nam vẫn chưa phải là điểm dừng chân quen thuộc trên bản đồ World&nbsp;Tour của các ngôi sao hàng đầu&nbsp;thế&nbsp;giới.
           </p>
 
           <h3 className="editorial-sub-h3">
-            Vì sao siêu sao quốc tế vẫn “ngại” đến Việt&nbsp;Nam?
+            Vì sao siêu sao quốc tế vẫn “ngại” đến&nbsp;Việt&nbsp;Nam?
           </h3>
 
           <p className="body-p">
@@ -315,7 +315,7 @@ export default function Home() {
             ★ BỆ PHÓNG THỂ CHẾ & CHIẾN LƯỢC CẤT CÁNH
           </div>
           <h2 className="chapter-h2">
-            Lời giải để Việt&nbsp;Nam lên bản đồ tour diễn thế&nbsp;giới
+            Lời giải để Việt&nbsp;Nam lên bản đồ tour&nbsp;diễn&nbsp;thế&nbsp;giới
           </h2>
 
           <p className="body-p">
@@ -330,24 +330,24 @@ export default function Home() {
           <div className="nq80-targets-grid">
             <div className="nq80-metric-tile">
               <span className="nq80-num">7% GDP</span>
-              <span className="nq80-desc">Đóng góp của công nghiệp văn hóa vào năm 2030 theo Nghị quyết 80-NQ/TW</span>
+              <span className="nq80-desc">Đóng góp của công nghiệp văn hóa vào năm 2030 theo Nghị&nbsp;quyết&nbsp;80-NQ/TW</span>
             </div>
             <div className="nq80-metric-tile">
               <span className="nq80-num">05 thương hiệu</span>
-              <span className="nq80-desc">Liên hoan nghệ thuật, lễ hội văn hóa quốc tế về điện ảnh, âm nhạc, mỹ thuật</span>
+              <span className="nq80-desc">Liên hoan nghệ thuật, lễ hội văn hóa quốc tế về điện ảnh, âm&nbsp;nhạc,&nbsp;mỹ&nbsp;thuật</span>
             </div>
             <div className="nq80-metric-tile">
               <span className="nq80-num">Top 3 ASEAN</span>
-              <span className="nq80-desc">&amp; Top 30 thế giới về Chỉ số Sức mạnh mềm (Soft Power Index) và xuất khẩu văn hóa</span>
+              <span className="nq80-desc">&amp; Top 30 thế giới về Chỉ số Sức mạnh mềm (Soft Power Index) và xuất&nbsp;khẩu&nbsp;văn&nbsp;hóa</span>
             </div>
             <div className="nq80-metric-tile">
               <span className="nq80-num">122.000 tỷ đ</span>
-              <span className="nq80-desc">Nguồn lực Quốc hội phê duyệt cho Chương trình Mục tiêu Quốc gia Phát triển Văn hóa 2025–2030</span>
+              <span className="nq80-desc">Nguồn lực Quốc hội phê duyệt cho Chương trình Mục tiêu Quốc gia Phát triển Văn&nbsp;hóa&nbsp;2025–2030</span>
             </div>
           </div>
 
           <p className="body-p">
-            Cùng với nguồn lực 122.000 tỷ đồng cho giai đoạn 2025–2030, đây chính là “đường băng” pháp lý để tháo gỡ trực diện từng điểm nghẽn thông qua ba trụ cột giải pháp chiến lược:
+            Cùng với nguồn lực 122.000 tỷ đồng cho giai đoạn 2025–2030, đây chính là “đường băng” pháp lý để tháo gỡ trực diện từng điểm nghẽn thông qua ba trụ cột giải pháp&nbsp;chiến&nbsp;lược:
           </p>
 
           <div className="solutions-pillars-list">

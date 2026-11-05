@@ -54,7 +54,7 @@ export function EventScaleAndConcertsWidget() {
             QUY MÔ SỰ KIỆN & TỐC ĐỘ BÁN VÉ CONCERT NỘI ĐỊA
           </span>
           <h3 className="viz-title">
-            Sự trỗi dậy của phân khúc đại nhạc hội trên bức tranh 810+ sự kiện âm&nbsp;nhạc
+            Sự trỗi dậy của phân khúc đại nhạc hội trên bức tranh 810+ sự&nbsp;kiện&nbsp;âm&nbsp;nhạc
           </h3>
           <p className="viz-subtitle">
             Chuyển đổi giữa cơ cấu quy mô sự kiện năm 2025 và các cột mốc bán vé tiêu biểu giai đoạn&nbsp;2025–2026
@@ -271,7 +271,7 @@ export function SpendingWillingnessChart() {
             SỨC MUA & MỨC SẴN SÀNG CHI TRẢ CỦA KHÁN GIẢ VIỆT (N=471)
           </span>
           <h3 className="viz-title">
-            Khán giả Việt chi bao nhiêu mỗi tháng cho sự kiện trực tiếp và vật phẩm thần&nbsp;tượng?
+            Khán giả Việt chi bao nhiêu mỗi tháng cho sự kiện trực tiếp và vật&nbsp;phẩm&nbsp;thần&nbsp;tượng?
           </h3>
           <p className="viz-subtitle">
             Phân bổ mức chi trung bình/tháng đặt cạnh tỷ lệ người dùng sẵn sàng trả phí cho từng hạng mục sản phẩm âm&nbsp;nhạc
@@ -436,7 +436,7 @@ export function VoxpopWaveformBox() {
             TIẾNG NÓI TỪ KHÁN ĐÀI
           </span>
           <h3 className="viz-title">
-            “Tổng chi phí chuyến đi xem concert vừa rồi của bạn là bao nhiêu — và điều gì khiến bạn thấy xứng&nbsp;đáng?”
+            “Tổng chi phí chuyến đi xem concert vừa rồi của bạn là bao nhiêu — và điều gì khiến bạn thấy&nbsp;xứng&nbsp;đáng?”
           </h3>
           <p className="viz-subtitle">
             Ghi nhận thực tế từ khán giả trẻ di chuyển liên tỉnh từ Cần Thơ và TP.HCM đi xem đại nhạc hội nội&nbsp;địa
@@ -552,7 +552,7 @@ export function ConcertEconomicInfographic() {
             TÁC ĐỘNG KINH TẾ LAN TỎA TỪ 1 ĐÊM CONCERT
           </span>
           <h3 className="viz-title">
-            Hệ sinh thái 5 nhánh dịch vụ hưởng lợi quanh một đêm đại nhạc hội 30.000 khán&nbsp;giả
+            Hệ sinh thái 5 nhánh dịch vụ hưởng lợi quanh một đêm đại nhạc hội 30.000&nbsp;khán&nbsp;giả
           </h3>
           <p className="viz-subtitle">
             Nhấp hoặc di chuột vào từng nhánh dịch vụ để xem cơ chế kích hoạt tiêu dùng liên ngành tại địa phương đăng&nbsp;cai

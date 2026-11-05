@@ -302,7 +302,7 @@ export function ConcertCashflowSankey() {
             DÒNG TIỀN & ĐƠN VỊ VẬN HÀNH CONCERT CHẢY ĐI ĐÂU?
           </span>
           <h3 className="viz-title">
-            Giải phẫu dòng tiền một đêm đại nhạc hội: Vì sao “cháy vé” vẫn đối mặt nguy cơ thua&nbsp;lỗ?
+            Giải phẫu dòng tiền một đêm đại nhạc hội: Vì sao “cháy vé” vẫn đối mặt nguy&nbsp;cơ&nbsp;thua&nbsp;lỗ?
           </h3>
           <p className="viz-subtitle">
             Kết hợp cơ cấu chủ thể tổ chức (Báo cáo RMIT trang 30), 3 nguồn thu đầu vào và 4 nhánh phân bổ chi phí – lợi nhuận đầu&nbsp;ra
@@ -525,7 +525,7 @@ export function StageTeardownSlider() {
             HẬU TRƯỜNG THÁO DỠ & RÁC THẢI SỰ KIỆN
           </span>
           <h3 className="viz-title">
-            22h00 đêm thăng hoa vs. 06h00 sáng hôm sau: “Đừng để đêm trước vỗ tay, sáng sau tháo sân khấu là xong công nghiệp văn&nbsp;hóa”
+            22h00 đêm thăng hoa vs. 06h00 sáng hôm sau: “Đừng&nbsp;để đêm trước vỗ tay, sáng sau tháo sân khấu là xong công&nbsp;nghiệp&nbsp;văn&nbsp;hóa”
           </h3>
           <p className="viz-subtitle">
             Kéo thanh trượt ngang để đối chiếu hai lát cắt đối lập tại cùng một mặt sân vận động chỉ cách nhau 8 tiếng đồng&nbsp;hồ

@@ -181,8 +181,8 @@ h5,
 h6 {
   font-family: var(--font-display);
   color: var(--text-primary);
-  letter-spacing: -0.02em;
-  word-spacing: -0.01em;
+  letter-spacing: -0.012em;
+  word-spacing: normal;
   text-wrap: balance;
 }
 
@@ -190,6 +190,8 @@ p,
 li,
 blockquote,
 figcaption {
+  letter-spacing: 0;
+  word-spacing: normal;
   text-wrap: pretty;
 }
 
@@ -391,11 +393,13 @@ textarea {
 }
 
 .hero-main-title {
-  font-size: clamp(2.1rem, 4.7vw, 3.65rem);
+  font-size: clamp(1.95rem, 4.2vw, 3.35rem);
   font-weight: 900;
-  line-height: 1.15;
+  line-height: 1.18;
+  letter-spacing: -0.015em;
   text-transform: uppercase;
   margin-bottom: 1.35rem;
+  text-wrap: balance;
 }
 
 .title-line-top {
@@ -412,14 +416,15 @@ textarea {
 }
 
 .hero-sapo {
-  max-width: 800px;
+  max-width: 68ch;
   margin: 0 auto 1.75rem;
-  font-size: clamp(1.05rem, 1.4vw, 1.18rem);
-  line-height: 1.68;
-  letter-spacing: -0.005em;
+  font-size: clamp(1.04rem, 1.35vw, 1.16rem);
+  line-height: 1.72;
+  letter-spacing: 0;
+  word-spacing: normal;
   color: var(--text-secondary);
   font-weight: 500;
-  text-wrap: pretty;
+  text-wrap: balance;
 }
 
 .hero-meta-strip {
@@ -500,17 +505,20 @@ textarea {
 }
 
 .kpi-label {
-  font-size: 0.98rem;
+  font-size: 0.96rem;
   font-weight: 800;
+  line-height: 1.38;
   color: var(--text-primary);
   margin-bottom: 0.4rem;
+  text-wrap: balance;
 }
 
 .kpi-detail {
   font-size: 0.86rem;
-  line-height: 1.5;
+  line-height: 1.54;
   color: var(--text-secondary);
   margin-bottom: 0.6rem;
+  text-wrap: pretty;
 }
 
 .kpi-source {
@@ -565,20 +573,22 @@ textarea {
 }
 
 .chapter-h2 {
-  font-size: clamp(1.55rem, 2.65vw, 2.12rem);
-  font-weight: 900;
-  line-height: 1.28;
-  letter-spacing: -0.022em;
+  font-size: clamp(1.36rem, 2vw, 1.62rem);
+  font-weight: 800;
+  line-height: 1.36;
+  letter-spacing: -0.014em;
+  word-spacing: normal;
   color: var(--text-primary);
   margin-bottom: 1.5rem;
   text-wrap: balance;
 }
 
 .editorial-sub-h3 {
-  font-size: clamp(1.28rem, 2vw, 1.6rem);
+  font-size: clamp(1.2rem, 1.75vw, 1.44rem);
   font-weight: 800;
-  line-height: 1.32;
-  letter-spacing: -0.018em;
+  line-height: 1.38;
+  letter-spacing: -0.012em;
+  word-spacing: normal;
   margin: 2.75rem 0 1.15rem;
   color: var(--text-primary);
   padding-left: 0.9rem;
@@ -588,9 +598,9 @@ textarea {
 
 .body-p {
   font-size: 1.125rem; /* 18px */
-  line-height: 1.7;
-  letter-spacing: -0.003em;
-  word-spacing: 0.01em;
+  line-height: 1.74;
+  letter-spacing: 0;
+  word-spacing: normal;
   color: var(--text-body);
   margin-bottom: 1.4rem;
   text-wrap: pretty;
@@ -672,20 +682,24 @@ textarea {
 }
 
 .viz-title {
-  font-size: clamp(1.16rem, 1.8vw, 1.36rem);
+  max-width: 680px;
+  font-size: clamp(1.14rem, 1.68vw, 1.32rem);
   font-weight: 800;
-  line-height: 1.36;
-  letter-spacing: -0.018em;
+  line-height: 1.4;
+  letter-spacing: -0.012em;
+  word-spacing: normal;
   color: var(--text-primary);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.4rem;
   text-wrap: balance;
 }
 
 .viz-subtitle {
-  max-width: 78ch;
+  max-width: 68ch;
   font-size: 0.92rem;
   color: var(--text-muted);
-  line-height: 1.54;
+  line-height: 1.58;
+  letter-spacing: 0;
+  word-spacing: normal;
   text-wrap: pretty;
 }
 
@@ -1954,15 +1968,19 @@ textarea {
 }
 
 .bottleneck-body h4 {
-  font-size: 1.08rem;
+  font-size: 1.06rem;
   font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
   margin-bottom: 0.45rem;
+  text-wrap: balance;
 }
 
 .bottleneck-body p {
   font-size: 0.98rem;
-  line-height: 1.62;
+  line-height: 1.66;
   color: var(--text-body);
+  text-wrap: pretty;
 }
 
 .bottleneck-quote-note {
@@ -2029,10 +2047,14 @@ textarea {
 }
 
 .motion-headline {
-  font-size: 1.3rem;
-  font-weight: 900;
+  max-width: 640px;
+  font-size: clamp(1.12rem, 1.65vw, 1.26rem);
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: -0.012em;
   color: var(--text-primary);
   margin-bottom: 0.6rem;
+  text-wrap: balance;
 }
 
 .motion-narrative {
@@ -2267,16 +2289,20 @@ textarea {
 }
 
 .pillar-item h4 {
-  font-size: 1.08rem;
+  font-size: 1.06rem;
   font-weight: 800;
+  line-height: 1.42;
+  letter-spacing: -0.01em;
   color: var(--vn-red);
   margin-bottom: 0.55rem;
+  text-wrap: balance;
 }
 
 .pillar-item p {
   font-size: 1rem;
-  line-height: 1.65;
+  line-height: 1.68;
   color: var(--text-body);
+  text-wrap: pretty;
 }
 
 /* Matrix */
@@ -2482,10 +2508,13 @@ textarea {
 }
 
 .poll-question-heading {
-  font-size: 1.28rem;
+  font-size: clamp(1.12rem, 1.6vw, 1.24rem);
   font-weight: 800;
-  line-height: 1.38;
-  margin-bottom: 0.4rem;
+  line-height: 1.42;
+  letter-spacing: -0.012em;
+  word-spacing: normal;
+  margin-bottom: 0.45rem;
+  text-wrap: balance;
 }
 
 .poll-options-list {
@@ -2649,9 +2678,14 @@ textarea {
 }
 
 .sources-main-heading {
-  font-size: 1.4rem;
+  max-width: 640px;
+  font-size: clamp(1.16rem, 1.7vw, 1.32rem);
   font-weight: 800;
-  margin-bottom: 0.3rem;
+  line-height: 1.38;
+  letter-spacing: -0.012em;
+  word-spacing: normal;
+  margin-bottom: 0.35rem;
+  text-wrap: balance;
 }
 
 .sources-controls {
