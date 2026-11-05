@@ -90,7 +90,7 @@ export default function Home() {
               <a href="#chuong-1">1. Concert nội sinh</a>
             </li>
             <li>
-              <a href="#chuong-2">2. Sau đêm bùng nổ</a>
+              <a href="#chuong-2">2. Hiệu ứng pháo hoa</a>
             </li>
             <li>
               <a href="#chuong-3">3. Khoảng cách World Tour</a>
@@ -187,7 +187,7 @@ export default function Home() {
         <div className="prose-column">
           <div className="chapter-kicker">PHẢN BIỆN CHUỖI GIÁ TRỊ & TÍNH BỀN VỮNG</div>
           <h2 className="chapter-h2">
-            Những cuộc đua tại địa phương và câu hỏi: “Sau&nbsp;đêm bùng nổ còn&nbsp;lại&nbsp;gì?”
+            HIỆU ỨNG PHÁO HOA VÀ CUỘC ĐUA ĐẠI NHẠC HỘI TẠI ĐỊA&nbsp;PHƯƠNG
           </h2>
 
           <p className="body-p">
