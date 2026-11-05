@@ -29,9 +29,6 @@ export function ArtistOriginGroupedChart() {
     <figure className="viz-card" id="vi-tri-9">
       <div className="viz-header">
         <div>
-          <span className="pos-badge">
-            NGUỒN GỐC NGHỆ SĨ & QUY MÔ KHÁN GIẢ
-          </span>
           <h3 className="viz-title">
             Khoảng cách lộ diện: 101 đại nhạc hội thuần nội địa nhưng chỉ có 4 đêm diễn độc lập của sao quốc tế ở quy mô 10.000–40.000&nbsp;người
           </h3>
@@ -180,9 +177,6 @@ export function SeaInfrastructureRadarAndTable() {
     <figure className="viz-card" id="vi-tri-10">
       <div className="viz-header">
         <div>
-          <span className="pos-badge">
-            SO SÁNH HẠ TẦNG BIỂU DIỄN ĐÔNG NAM Á
-          </span>
           <h3 className="viz-title">
             Đặt TP.HCM &amp; Hà&nbsp;Nội cạnh Singapore, Bangkok và Jakarta trên 5 trụ cột đón&nbsp;World&nbsp;Tour
           </h3>

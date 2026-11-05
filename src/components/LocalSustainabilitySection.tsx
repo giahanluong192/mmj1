@@ -34,9 +34,6 @@ export function VietnamEventHeatmap() {
     <figure className="viz-card" id="vi-tri-6">
       <div className="viz-header">
         <div>
-          <span className="pos-badge">
-            BẢN ĐỒ NHIỆT (CHOROPLETH / SYMBOL MAP)
-          </span>
           <h3 className="viz-title">
             Phân bố các cụm điểm nóng sự kiện &amp; Tỷ lệ lưu trú qua đêm
           </h3>
@@ -321,9 +318,6 @@ export function ConcertCashflowSankey() {
     <figure className="viz-card" id="vi-tri-7">
       <div className="viz-header">
         <div>
-          <span className="pos-badge">
-            DÒNG TIỀN & ĐƠN VỊ VẬN HÀNH CONCERT CHẢY ĐI ĐÂU?
-          </span>
           <h3 className="viz-title">
             Giải phẫu dòng tiền một đêm đại nhạc hội: Vì sao “cháy vé” vẫn đối mặt nguy&nbsp;cơ&nbsp;thua&nbsp;lỗ?
           </h3>
