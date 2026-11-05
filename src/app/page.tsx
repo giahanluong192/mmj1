@@ -105,9 +105,6 @@ export default function Home() {
                 4. Phát triển văn hóa Việt
               </a>
             </li>
-            <li>
-              <a href="#bang-nguon">Bảng nguồn</a>
-            </li>
           </ul>
         </nav>
       </header>
