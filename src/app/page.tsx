@@ -195,23 +195,9 @@ export default function Home() {
           </p>
         </div>
 
-        {/* [VỊ TRÍ 6] BẢN ĐỒ NHIỆT: PHÂN BỐ SỰ KIỆN & KHẢ NĂNG GIỮ CHÂN DU KHÁCH */}
+        {/* [VỊ TRÍ 6] BẢN ĐỒ NHIỆT (CHOROPLETH / SYMBOL MAP): PHÂN BỐ SỰ KIỆN & KHẢ NĂNG GIỮ CHÂN DU KHÁCH */}
         <div className="wide-viz-column">
           <VietnamEventHeatmap />
-        </div>
-
-        <div className="prose-column">
-          <p className="body-p">
-            Tại Hội thảo <em>“Công nghiệp concert và giải trí: Từ bùng nổ đến bền vững”</em> diễn ra vào tháng 10/2026, nhiều nghịch lý trong cấu trúc vận hành của thị trường biểu diễn nội địa đã được mổ xẻ. Đầu tiên là bài toán thiếu vắng các tài sản trí tuệ (IP) có sức sống độc lập lâu dài. Đa số concert quy mô lớn tại Việt&nbsp;Nam hiện nay vẫn mang tính chất sự kiện đơn lẻ hoặc là sản phẩm phái sinh dựa trên sức nóng của các chương trình truyền hình thực tế. Khi chương trình truyền hình hạ nhiệt qua các mùa, việc duy trì tỷ lệ lấp đầy khán đài nếu không có một bản sắc lễ hội độc lập (như cách Glastonbury, Coachella hay Fuji Rock đã làm trên thế giới) là một thách thức&nbsp;lớn.
-          </p>
-
-          <p className="body-p">
-            Thứ hai, dòng tiền trong một đêm concert tại Việt&nbsp;Nam vẫn chịu áp lực chi phí sản xuất quá cao. Tổng Giám đốc SCBC Vietnam &amp; Novel Production Loki Vũ từng chia sẻ trong báo cáo của RMIT rằng việc làm một concert lớn ở Việt&nbsp;Nam nhiều khi giống như “đi khai phá vùng đất mới”: thiếu mức giá sàn, thiếu quy trình chuẩn và chi phí phát sinh liên tục do hạ tầng địa điểm phức tạp, dẫn đến nghịch lý có những sự kiện bán “cháy vé” nhưng nhà tổ chức vẫn đối mặt với nguy cơ thua lỗ. Thêm vào đó, thói quen tổ chức các đêm nhạc miễn phí từ một số doanh nghiệp nhằm quảng bá thương hiệu trong thời gian dài cũng phần nào tạo ra tâm lý thụ động cho một bộ phận khán giả đại chúng, gây áp lực định giá vé lên các đơn vị kinh doanh biểu diễn thuần&nbsp;túy.
-          </p>
-
-          <p className="body-p">
-            Thứ ba, khi bóc tách sâu hơn cấu trúc dòng tiền và vận hành hậu trường, phần lớn ngân sách thu về từ bán vé và tài trợ hiện bị “ngốn” vào khâu thuê mặt bằng trống rồi dựng mới toàn bộ kết cấu giàn giáo, khán đài, âm thanh – ánh sáng từ con số 0 cho vỏn vẹn một đến hai đêm diễn, trước khi phải tháo dỡ hoàn toàn vào sáng hôm sau. Mô hình “lắp tạm – dỡ nhanh” này không chỉ bào mòn biên lợi nhuận tái đầu tư cho nghệ sĩ và nhà sản xuất, mà còn để lại bài toán môi trường nhức nhối với hàng tấn rác thải nhựa, chai nước và áo mưa dùng một lần sau mỗi sự kiện ngoài trời — vấn đề đã được báo cáo RMIT gióng lên hồi chuông cảnh báo trong chuyên đề <em>“Âm&nbsp;nhạc&nbsp;xanh”</em>.
-          </p>
         </div>
 
         {/* [VỊ TRÍ 7] BIỂU ĐỒ SANKEY: DÒNG TIỀN CỦA MỘT ĐÊM CONCERT CHẢY ĐI ĐÂU? */}

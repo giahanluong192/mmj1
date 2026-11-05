@@ -35,13 +35,13 @@ export function VietnamEventHeatmap() {
       <div className="viz-header">
         <div>
           <span className="pos-badge">
-            PHÂN BỐ SỰ KIỆN & GIỮ CHÂN DU KHÁCH
+            BẢN ĐỒ NHIỆT (CHOROPLETH / SYMBOL MAP)
           </span>
           <h3 className="viz-title">
-            Hai cực đại nhạc hội và bài toán: Khán giả lưu trú qua đêm hay “xem xong rời&nbsp;đi&nbsp;ngay”?
+            Phân bố các cụm điểm nóng sự kiện &amp; Tỷ lệ lưu trú qua đêm
           </h3>
           <p className="viz-subtitle">
-            Rê chuột hoặc nhấp vào từng cụm điểm nóng để đối chiếu mật độ biểu diễn và tỷ lệ giữ chân du khách lưu&nbsp;trú
+            Rê chuột vào từng cụm điểm nóng để hiển thị nhận xét về tỷ lệ lưu trú qua đêm so với việc khán giả chỉ đến xem rồi rời đi
           </p>
         </div>
 
@@ -51,7 +51,7 @@ export function VietnamEventHeatmap() {
             className={`viz-tab-btn ${clusterFilter === "all" ? "active" : ""}`}
             onClick={() => setClusterFilter("all")}
           >
-            Toàn quốc (7 tâm điểm)
+            Toàn quốc (7 điểm nóng)
           </button>
           <button
             type="button"
@@ -61,7 +61,7 @@ export function VietnamEventHeatmap() {
               setSelectedHubId("tphcm");
             }}
           >
-            🔥 Cực mật độ cao
+            🔥 Cực tăng trưởng mật độ cao
           </button>
           <button
             type="button"
@@ -71,7 +71,7 @@ export function VietnamEventHeatmap() {
               setSelectedHubId("danang");
             }}
           >
-            🏖 Cực du lịch âm nhạc
+            🏖 Cực du lịch âm nhạc (Music Tourism)
           </button>
         </div>
       </div>
@@ -165,6 +165,7 @@ export function VietnamEventHeatmap() {
                   onClick={() => setSelectedHubId(hub.id)}
                   onMouseEnter={() => setSelectedHubId(hub.id)}
                 >
+                  <title>{`${hub.city} [${hub.clusterLabel}]\n• Sự kiện / Số liệu: ${hub.eventVolumeStat}\n• Nhận xét lưu trú: ${hub.overnightVsLeaveAnalysis}`}</title>
                   <circle
                     cx={hub.x}
                     cy={hub.y}
@@ -238,7 +239,7 @@ export function VietnamEventHeatmap() {
 
           <div className="hub-overnight-analysis">
             <div className="hub-box-title">
-              🏨 Lưu trú qua đêm vs. “Đến xem rồi rời đi ngay trong đêm”
+              🏨 Nhận xét: Tỷ lệ lưu trú qua đêm vs. Khán giả chỉ đến xem rồi rời đi
             </div>
             <p>{activeHub.overnightVsLeaveAnalysis}</p>
           </div>
