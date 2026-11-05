@@ -122,9 +122,7 @@ export default function Home() {
       <main className="editorial-section" id="chuong-1">
         <div className="prose-column">
           <h2 className="chapter-h2">
-            KỶ NGUYÊN “CONCERT NỘI SINH” — KHI NGƯỜI&nbsp;VIỆT
-            <br />
-            CHI TIỀN TRIỆU CHO&nbsp;NHẠC&nbsp;VIỆT
+            KỶ NGUYÊN “CONCERT NỘI SINH” — KHI NGƯỜI VIỆT CHI TIỀN TRIỆU CHO NHẠC VIỆT
           </h2>
 
           <p className="body-p">
