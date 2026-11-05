@@ -227,23 +227,23 @@ export default function Home() {
 
         <div className="prose-column">
           <p className="body-p">
-            Phân tích dữ liệu từ hơn 810 sự kiện âm nhạc năm 2025 của Đại học RMIT cho thấy sự áp đảo tuyệt đối của các chương trình thuần&nbsp;nội&nbsp;địa:
+            Phân tích dữ liệu từ hơn 810 sự kiện âm nhạc năm 2025 của Đại học RMIT cho thấy sự áp đảo của các chương trình thuần&nbsp;nội&nbsp;địa:
           </p>
 
           <ul className="editorial-bullet-list">
             <li>
-              <strong>Ở phân khúc quy mô 1.000 – 5.000 khán giả:</strong> Có tới <strong>200 sự kiện</strong> chỉ có nghệ sĩ nội địa, trong khi sự kiện chỉ có nghệ sĩ quốc tế dừng ở con số <strong>29</strong>, và sự kiện kết hợp cả hai&nbsp;là&nbsp;<strong>28</strong>.
+              <strong>Ở phân khúc quy mô 1.000 – 5.000 khán giả:</strong> Có tới <strong>200 sự kiện</strong> chỉ có nghệ sĩ nội địa, trong khi sự kiện chỉ có nghệ sĩ quốc tế dừng ở con số <strong>29</strong>, và sự kiện kết hợp cả hai là&nbsp;<strong>28</strong>.
             </li>
             <li>
-              <strong>Ở phân khúc đại nhạc hội 10.000 – 40.000 khán giả:</strong> Trong khi nghệ sĩ nội địa làm chủ <strong>101 sự kiện</strong>, số lượng sự kiện độc lập của nghệ sĩ quốc tế tại Việt&nbsp;Nam chỉ vỏn vẹn <strong>4 sự kiện</strong> (và <strong>12 sự kiện</strong> kết hợp nghệ sĩ nội&nbsp;–&nbsp;ngoại).
+              <strong>Ở phân khúc đại nhạc hội 10.000 – 40.000 khán giả:</strong> Trong khi nghệ sĩ nội địa làm chủ <strong>101 sự kiện</strong>, thì số lượng sự kiện độc lập của nghệ sĩ quốc tế tại Việt&nbsp;Nam chỉ vỏn vẹn <strong>4 sự kiện</strong> (và <strong>12 sự kiện</strong> kết hợp nghệ sĩ nội - ngoại).
             </li>
             <li>
-              <strong>Ở phân khúc siêu sự kiện (&gt;40.000 khán giả):</strong> Các chương trình nội địa ghi nhận <strong>16 sự kiện</strong>, trong khi sự kiện độc lập của nghệ sĩ quốc tế chỉ đếm trên đầu ngón tay với <strong>3 sự kiện</strong> (tiêu biểu như 2 đêm diễn thuộc <em>Übermensch World Tour</em> của G-Dragon thu hút gần 100.000 khán giả tại&nbsp;Hà&nbsp;Nội).
+              <strong>Ở phân khúc siêu sự kiện (&gt;40.000 khán giả):</strong> Các chương trình nội địa ghi nhận <strong>16 sự kiện</strong>, trong khi sự kiện của nghệ sĩ quốc tế chỉ đếm trên đầu ngón tay (tiêu biểu như 2 đêm diễn thuộc <em>Übermensch World Tour</em> của G-Dragon thu hút gần 100.000 khán giả tại&nbsp;Hà&nbsp;Nội).
             </li>
           </ul>
 
           <p className="body-p">
-            Con số chỉ <strong>4 sự kiện độc lập</strong> của nghệ sĩ quốc tế ở quy mô 10.000–40.000 khán giả trong cả một năm sôi động là minh chứng định lượng rõ ràng nhất: Dù nhu cầu của khán giả trong nước rất lớn, Việt&nbsp;Nam vẫn chưa phải là điểm dừng chân quen thuộc trên bản đồ World&nbsp;Tour của các ngôi sao hàng đầu&nbsp;thế&nbsp;giới.
+            Con số chỉ <strong>4 sự kiện độc lập</strong> của nghệ sĩ quốc tế ở quy mô 10.000 - 40.000 khán giả trong cả một năm sôi động là minh chứng định lượng rõ ràng nhất: Dù nhu cầu của khán giả trong nước rất lớn, Việt&nbsp;Nam vẫn chưa phải là điểm dừng chân quen thuộc trên bản đồ World&nbsp;Tour của các ngôi sao hàng đầu&nbsp;thế&nbsp;giới.
           </p>
 
           <h3 className="editorial-sub-h3">
