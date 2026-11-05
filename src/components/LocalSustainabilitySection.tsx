@@ -248,7 +248,7 @@ export function ConcertCashflowSankey() {
     color: SANKEY_COST_OUTPUTS[0].color,
   });
 
-  // Precompute Y positions in 380px SVG canvas (top=24, bottom=356 -> usable height 332)
+  // Precompute Y positions in 405px SVG canvas so all shapes & multi-line labels fit cleanly
   const leftNodes = SANKEY_ORGANIZER_INPUTS.reduce<
     {
       node: (typeof SANKEY_ORGANIZER_INPUTS)[number];
@@ -256,9 +256,9 @@ export function ConcertCashflowSankey() {
       h: number;
     }[]
   >((acc, node, idx) => {
-    const gap = 10;
-    const totalAvailable = 300;
-    const h = Math.max(16, (node.share / 100) * totalAvailable);
+    const gap = 12;
+    const totalAvailable = 290;
+    const h = Math.max(28, (node.share / 100) * totalAvailable);
     const prevBottom = idx === 0 ? 22 : acc[idx - 1].y + acc[idx - 1].h + gap;
     acc.push({ node, y: prevBottom, h });
     return acc;
@@ -272,9 +272,9 @@ export function ConcertCashflowSankey() {
     }[]
   >((acc, node, idx) => {
     const gap = 18;
-    const totalAvailable = 290;
-    const h = Math.max(28, (node.shareEstimate / 100) * totalAvailable);
-    const prevBottom = idx === 0 ? 32 : acc[idx - 1].y + acc[idx - 1].h + gap;
+    const totalAvailable = 275;
+    const h = Math.max(68, (node.shareEstimate / 100) * totalAvailable);
+    const prevBottom = idx === 0 ? 26 : acc[idx - 1].y + acc[idx - 1].h + gap;
     acc.push({ node, y: prevBottom, h });
     return acc;
   }, []);
@@ -286,9 +286,9 @@ export function ConcertCashflowSankey() {
       h: number;
     }[]
   >((acc, node, idx) => {
-    const gap = 14;
-    const totalAvailable = 296;
-    const h = Math.max(22, (node.visualWeight / 100) * totalAvailable);
+    const gap = 15;
+    const totalAvailable = 295;
+    const h = Math.max(28, (node.visualWeight / 100) * totalAvailable);
     const prevBottom = idx === 0 ? 26 : acc[idx - 1].y + acc[idx - 1].h + gap;
     acc.push({ node, y: prevBottom, h });
     return acc;
@@ -318,7 +318,7 @@ export function ConcertCashflowSankey() {
 
       <div className="sankey-svg-scroll">
         <svg
-          viewBox="0 0 920 385"
+          viewBox="0 0 960 405"
           className="sankey-svg"
           role="img"
           aria-label="Biểu đồ Sankey dòng tiền của một đêm concert tại Việt Nam"
@@ -331,7 +331,7 @@ export function ConcertCashflowSankey() {
             return (
               <path
                 key={`lm-${ln.node.id}`}
-                d={`M 238 ${y1} C 310 ${y1}, 325 ${y2}, 395 ${y2}`}
+                d={`M 254 ${y1} C 308 ${y1}, 314 ${y2}, 365 ${y2}`}
                 fill="none"
                 stroke={ln.node.color}
                 strokeWidth={Math.max(6, ln.h * 0.55)}
@@ -342,14 +342,14 @@ export function ConcertCashflowSankey() {
 
           {/* Extra cross-ribbons Left -> Sponsor/Ticket for realism */}
           <path
-            d={`M 238 ${leftNodes[0].y + 28} C 315 ${leftNodes[0].y + 28}, 320 ${midNodes[1].y + 25}, 395 ${midNodes[1].y + 25}`}
+            d={`M 254 ${leftNodes[0].y + 28} C 310 ${leftNodes[0].y + 28}, 315 ${midNodes[1].y + 25}, 365 ${midNodes[1].y + 25}`}
             fill="none"
             stroke="#38BDF8"
             strokeWidth="16"
             strokeOpacity="0.2"
           />
           <path
-            d={`M 238 ${leftNodes[3].y + 12} C 315 ${leftNodes[3].y + 12}, 325 ${midNodes[1].y + 40}, 395 ${midNodes[1].y + 40}`}
+            d={`M 254 ${leftNodes[3].y + 14} C 310 ${leftNodes[3].y + 14}, 315 ${midNodes[1].y + 42}, 365 ${midNodes[1].y + 42}`}
             fill="none"
             stroke="#F59E0B"
             strokeWidth="18"
@@ -360,12 +360,12 @@ export function ConcertCashflowSankey() {
           {midNodes.map((mn) =>
             rightNodes.map((rn) => {
               const weight = (mn.h * (rn.node.visualWeight / 100)) * 0.72;
-              const yStart = mn.y + mn.h * 0.45;
+              const yStart = mn.y + mn.h * 0.5;
               const yEnd = rn.y + rn.h * 0.5;
               return (
                 <path
                   key={`mr-${mn.node.id}-${rn.node.id}`}
-                  d={`M 545 ${yStart} C 618 ${yStart}, 630 ${yEnd}, 698 ${yEnd}`}
+                  d={`M 595 ${yStart} C 648 ${yStart}, 655 ${yEnd}, 706 ${yEnd}`}
                   fill="none"
                   stroke={rn.node.color}
                   strokeWidth={Math.max(3, weight)}
@@ -397,56 +397,120 @@ export function ConcertCashflowSankey() {
                 })
               }
             >
-              <rect x="218" y={y} width="20" height={h} rx="4" fill={node.color} />
-              <text x="208" y={y + h / 2 - 2} textAnchor="end" fill="var(--text-primary)" fontSize="11.5" fontWeight="700">
+              <rect x="236" y={y} width="18" height={h} rx="4" fill={node.color} />
+              <text x="226" y={y + h / 2 - 2} textAnchor="end" fill="var(--text-primary)" fontSize="11" fontWeight="700">
                 {node.label}
               </text>
-              <text x="208" y={y + h / 2 + 12} textAnchor="end" fill={node.color} fontSize="11" fontWeight="800">
+              <text x="226" y={y + h / 2 + 12} textAnchor="end" fill={node.color} fontSize="10.8" fontWeight="800">
                 {node.share.toFixed(1).replace(".", ",")}%
               </text>
             </g>
           ))}
 
           {/* Middle Column Nodes (Revenue Pool) */}
-          {midNodes.map(({ node, y, h }) => (
-            <g
-              key={node.id}
-              className="sankey-node-interactive"
-              onMouseEnter={() =>
-                setSelectedNodeInfo({
-                  badge: `NGUỒN THU ĐẦU VÀO • TỶ TRỌNG THAM CHIẾU ~${node.shareEstimate}%`,
-                  title: node.label,
-                  desc: node.detail,
-                  color: node.color,
-                })
-              }
-              onClick={() =>
-                setSelectedNodeInfo({
-                  badge: `NGUỒN THU ĐẦU VÀO • TỶ TRỌNG THAM CHIẾU ~${node.shareEstimate}%`,
-                  title: node.label,
-                  desc: node.detail,
-                  color: node.color,
-                })
-              }
-            >
-              <rect
-                x="395"
-                y={y}
-                width="150"
-                height={h}
-                rx="8"
-                fill="var(--bg-card)"
-                stroke={node.color}
-                strokeWidth="2"
-              />
-              <text x="470" y={y + h / 2 - 4} textAnchor="middle" fill="var(--text-primary)" fontSize="11" fontWeight="800">
-                {node.label.split("(")[0].trim()}
-              </text>
-              <text x="470" y={y + h / 2 + 12} textAnchor="middle" fill={node.color} fontSize="11" fontWeight="700">
-                ~{node.shareEstimate}% tổng thu
-              </text>
-            </g>
-          ))}
+          {midNodes.map(({ node, y, h }) => {
+            const shortTitle = node.label.split("(")[0].trim();
+            const ampSplitIdx = shortTitle.indexOf(" & ");
+            const titleLines =
+              shortTitle.length > 24 && ampSplitIdx !== -1
+                ? [
+                    shortTitle.slice(0, ampSplitIdx).trim(),
+                    shortTitle.slice(ampSplitIdx + 1).trim(),
+                  ]
+                : [shortTitle];
+            const centerY = y + h / 2;
+
+            return (
+              <g
+                key={node.id}
+                className="sankey-node-interactive"
+                onMouseEnter={() =>
+                  setSelectedNodeInfo({
+                    badge: `NGUỒN THU ĐẦU VÀO • TỶ TRỌNG THAM CHIẾU ~${node.shareEstimate}%`,
+                    title: node.label,
+                    desc: node.detail,
+                    color: node.color,
+                  })
+                }
+                onClick={() =>
+                  setSelectedNodeInfo({
+                    badge: `NGUỒN THU ĐẦU VÀO • TỶ TRỌNG THAM CHIẾU ~${node.shareEstimate}%`,
+                    title: node.label,
+                    desc: node.detail,
+                    color: node.color,
+                  })
+                }
+              >
+                <rect
+                  x="365"
+                  y={y}
+                  width="230"
+                  height={h}
+                  rx="10"
+                  fill="var(--bg-card)"
+                  stroke={node.color}
+                  strokeWidth="2"
+                />
+                {titleLines.length === 2 ? (
+                  <>
+                    <text
+                      x="480"
+                      y={centerY - 12}
+                      textAnchor="middle"
+                      fill="var(--text-primary)"
+                      fontSize="11"
+                      fontWeight="800"
+                    >
+                      {titleLines[0]}
+                    </text>
+                    <text
+                      x="480"
+                      y={centerY + 3}
+                      textAnchor="middle"
+                      fill="var(--text-primary)"
+                      fontSize="11"
+                      fontWeight="800"
+                    >
+                      {titleLines[1]}
+                    </text>
+                    <text
+                      x="480"
+                      y={centerY + 19}
+                      textAnchor="middle"
+                      fill={node.color}
+                      fontSize="11"
+                      fontWeight="700"
+                    >
+                      ~{node.shareEstimate}% tổng thu
+                    </text>
+                  </>
+                ) : (
+                  <>
+                    <text
+                      x="480"
+                      y={centerY - 4}
+                      textAnchor="middle"
+                      fill="var(--text-primary)"
+                      fontSize="11.2"
+                      fontWeight="800"
+                    >
+                      {titleLines[0]}
+                    </text>
+                    <text
+                      x="480"
+                      y={centerY + 13}
+                      textAnchor="middle"
+                      fill={node.color}
+                      fontSize="11"
+                      fontWeight="700"
+                    >
+                      ~{node.shareEstimate}% tổng thu
+                    </text>
+                  </>
+                )}
+              </g>
+            );
+          })}
 
           {/* Right Column Nodes (Cost & Profit Allocation) */}
           {rightNodes.map(({ node, y, h }) => (
@@ -472,11 +536,11 @@ export function ConcertCashflowSankey() {
                 })
               }
             >
-              <rect x="698" y={y} width="20" height={h} rx="4" fill={node.color} />
-              <text x="728" y={y + h / 2 - 3} textAnchor="start" fill="var(--text-primary)" fontSize="11.5" fontWeight="700">
+              <rect x="706" y={y} width="18" height={h} rx="4" fill={node.color} />
+              <text x="734" y={y + h / 2 - 3} textAnchor="start" fill="var(--text-primary)" fontSize="11" fontWeight="700">
                 {node.label.length > 34 ? `${node.label.slice(0, 34)}…` : node.label}
               </text>
-              <text x="728" y={y + h / 2 + 12} textAnchor="start" fill={node.color} fontSize="11" fontWeight="800">
+              <text x="734" y={y + h / 2 + 12} textAnchor="start" fill={node.color} fontSize="10.8" fontWeight="800">
                 {node.shareRange}
               </text>
             </g>

@@ -540,7 +540,7 @@ export function ConcertEconomicInfographic() {
   const activeSpoke =
     ECOSYSTEM_SPOKES.find((s) => s.id === activeSpokeId) || ECOSYSTEM_SPOKES[0];
 
-  const centerX = 360;
+  const centerX = 400;
   const centerY = 235;
   const orbitRadius = 158;
 
@@ -563,7 +563,7 @@ export function ConcertEconomicInfographic() {
       <div className="ecosystem-infographic-grid">
         <div className="ecosystem-svg-container">
           <svg
-            viewBox="0 0 720 470"
+            viewBox="0 0 800 470"
             className="ecosystem-svg"
             role="img"
             aria-label="Infographic tâm điểm sân vận động 30.000 khán giả tỏa ra 5 nhánh kinh tế"
@@ -615,7 +615,7 @@ export function ConcertEconomicInfographic() {
               <circle
                 cx={centerX}
                 cy={centerY}
-                r="66"
+                r="74"
                 fill="var(--bg-card)"
                 stroke="var(--accent-blue)"
                 strokeWidth="2.5"
@@ -623,19 +623,19 @@ export function ConcertEconomicInfographic() {
               <circle
                 cx={centerX}
                 cy={centerY}
-                r="58"
+                r="65"
                 fill="none"
                 stroke="var(--accent-purple)"
                 strokeWidth="1"
                 strokeDasharray="3 3"
               />
-              <text x={centerX} y={centerY - 16} textAnchor="middle" fill="var(--accent-blue)" fontSize="11" fontWeight="800">
+              <text x={centerX} y={centerY - 16} textAnchor="middle" fill="var(--accent-blue)" fontSize="9.8" fontWeight="800">
                 TÂM ĐIỂM CONCERT
               </text>
               <text x={centerX} y={centerY + 6} textAnchor="middle" fill="var(--text-primary)" fontSize="18" fontWeight="900">
                 30.000
               </text>
-              <text x={centerX} y={centerY + 24} textAnchor="middle" fill="var(--text-secondary)" fontSize="11" fontWeight="600">
+              <text x={centerX} y={centerY + 23} textAnchor="middle" fill="var(--text-secondary)" fontSize="10.2" fontWeight="600">
                 KHÁN GIẢ / ĐÊM
               </text>
             </g>

@@ -163,9 +163,9 @@ export function SeaInfrastructureRadarAndTable() {
     });
   };
 
-  const cx = 195;
-  const cy = 185;
-  const maxR = 122;
+  const cx = 250;
+  const cy = 188;
+  const maxR = 114;
 
   const getPoint = (axisIdx: number, scoreOutOf10: number) => {
     const angle = -Math.PI / 2 + (axisIdx * 2 * Math.PI) / RADAR_AXES.length;
@@ -217,7 +217,7 @@ export function SeaInfrastructureRadarAndTable() {
         {/* 5-Axis Radar SVG */}
         <div className="radar-svg-panel">
           <svg
-            viewBox="0 0 390 365"
+            viewBox="0 0 500 375"
             className="radar-svg"
             role="img"
             aria-label="Đối chiếu 5 chỉ số hạ tầng biểu diễn Đông Nam Á"
