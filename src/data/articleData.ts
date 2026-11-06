@@ -313,7 +313,7 @@ export const KEY_METRICS: KeyTakeawayMetric[] = [
     id: "m3",
     value: "101 : 4",
     unit: "nội địa vs. quốc tế",
-    label: "Chênh lệch ở phân khúc 10k–40k\u00A0khách",
+    label: "Chênh lệch ở phân khúc 10.000–40.000\u00A0khách",
     detail: "Nghệ sĩ nội địa làm chủ 101 đại nhạc hội, trong khi show độc lập của sao quốc tế chỉ\u00A0có\u00A04.",
     source: "Báo cáo RMIT 2025–2026 (Tr. 30)",
     accent: "gold",
