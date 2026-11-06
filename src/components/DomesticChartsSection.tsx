@@ -471,10 +471,12 @@ export function VoxpopWaveformBox() {
             TIẾNG NÓI TỪ KHÁN ĐÀI
           </span>
           <h3 className="viz-title">
-            “Tổng chi phí chuyến đi xem concert vừa rồi của bạn là bao nhiêu — và điều gì khiến bạn thấy&nbsp;xứng&nbsp;đáng?”
+            “Tổng chi phí chuyến đi xem concert vừa rồi của bạn là bao nhiêu — và điều gì khiến
+            <br />
+            bạn thấy xứng đáng?”
           </h3>
           <p className="viz-subtitle">
-            Ghi nhận thực tế từ khán giả trẻ di chuyển liên tỉnh từ Cần Thơ và TP.HCM đi xem đại nhạc hội nội&nbsp;địa
+            Ghi nhận thực tế từ khán giả trẻ di chuyển liên tỉnh từ Cần Thơ và TP.HCM đi xem đại nhạc hội nội địa
           </p>
         </div>
 

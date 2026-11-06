@@ -1160,6 +1160,20 @@ textarea {
 /* ============================================================================
    AUDIO VOXPOP & TEXT VOXBOX
    ============================================================================ */
+.voxpop-card .viz-header > div:first-child {
+  flex: 1 1 100%;
+}
+
+.voxpop-card .viz-title {
+  max-width: none;
+  text-wrap: unset;
+}
+
+.voxpop-card .viz-subtitle {
+  max-width: none;
+  text-wrap: unset;
+}
+
 .vox-speaker-tabs {
   display: flex;
   gap: 0.5rem;
