@@ -92,11 +92,11 @@ export function ExpertQuotesCarousel() {
   };
 
   return (
-    <section className="viz-card" id="vi-tri-12" aria-label="Góc nhìn chuyên gia và nhà quản lý">
+    <section className="viz-card" id="vi-tri-12" aria-label="Góc nhìn chuyên gia">
       <div className="viz-header">
         <div>
           <span className="pos-badge">
-            GÓC NHÌN CHUYÊN GIA & NHÀ QUẢN LÝ
+            GÓC NHÌN CHUYÊN GIA
           </span>
           <h3 className="viz-title">
             Từ “cơn sốt” ngắn hạn đến nền công nghiệp biểu diễn có chiều&nbsp;sâu&nbsp;và&nbsp;bản&nbsp;sắc
