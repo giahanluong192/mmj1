@@ -749,7 +749,7 @@ export function ConcertEconomicInfographic() {
                     fontSize="15"
                     fontWeight={isSelected ? "800" : "700"}
                   >
-                    ({spoke.code}) {spoke.shortTitle}
+                    {spoke.shortTitle}
                   </text>
                 </g>
               );
