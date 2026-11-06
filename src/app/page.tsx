@@ -432,7 +432,9 @@ export default function Home() {
             <p>
               Tác phẩm Báo chí Dữ liệu Đa phương tiện (Multimedia Data Journalism)
               <br />
-              • Phân tích toàn cảnh thị trường biểu diễn Việt Nam giai đoạn 2024–2026 và tầm nhìn chiến lược công nghiệp văn hóa 2030.
+              • Phân tích toàn cảnh thị trường biểu diễn Việt Nam giai đoạn 2024–2026 và tầm nhìn
+              <br />
+              chiến lược công nghiệp văn hóa 2030.
             </p>
             <p className="footer-footage-credit">{ARTICLE_META.footageCredits}</p>
           </div>
