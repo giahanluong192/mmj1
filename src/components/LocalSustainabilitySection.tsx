@@ -345,11 +345,8 @@ export function ConcertCashflowSankey() {
       <div className="viz-header">
         <div>
           <h3 className="viz-title">
-            Giải phẫu dòng tiền một đêm đại nhạc hội: Vì sao “cháy vé” vẫn đối mặt nguy&nbsp;cơ&nbsp;thua&nbsp;lỗ?
+            Giải phẫu dòng tiền: Vì sao “cháy vé” vẫn đối mặt nguy&nbsp;cơ thua&nbsp;lỗ?
           </h3>
-          <p className="viz-subtitle">
-            Kết hợp cơ cấu chủ thể tổ chức (Báo cáo RMIT trang 30), 3 nguồn thu đầu vào và 4 nhánh phân bổ chi phí – lợi nhuận đầu&nbsp;ra
-          </p>
         </div>
       </div>
 

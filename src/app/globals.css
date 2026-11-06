@@ -1057,7 +1057,8 @@ textarea {
    ============================================================================ */
 #vi-tri-2 .viz-header > div:first-child,
 #vi-tri-3 .viz-header > div:first-child,
-#vi-tri-5 .viz-header > div:first-child {
+#vi-tri-5 .viz-header > div:first-child,
+#vi-tri-7 .viz-header > div:first-child {
   flex: 1 1 100%;
 }
 
@@ -1066,9 +1067,15 @@ textarea {
 #vi-tri-3 .viz-title,
 #vi-tri-3 .viz-subtitle,
 #vi-tri-5 .viz-title,
-#vi-tri-5 .viz-subtitle {
+#vi-tri-5 .viz-subtitle,
+#vi-tri-7 .viz-title,
+#vi-tri-7 .viz-subtitle {
   max-width: none;
   text-wrap: unset;
+}
+
+#vi-tri-7 .viz-title {
+  margin-bottom: 0;
 }
 
 .stacked-legend-bar {
