@@ -271,10 +271,10 @@ export function SpendingWillingnessChart() {
             SỨC MUA & MỨC SẴN SÀNG CHI TRẢ CỦA KHÁN GIẢ VIỆT (N=471)
           </span>
           <h3 className="viz-title">
-            Khán giả Việt chi bao nhiêu mỗi tháng cho sự kiện trực tiếp và vật&nbsp;phẩm&nbsp;thần&nbsp;tượng?
+            Khán giả Việt chi bao nhiêu mỗi tháng cho thần tượng?
           </h3>
           <p className="viz-subtitle">
-            Phân bổ mức chi trung bình/tháng đặt cạnh tỷ lệ người dùng sẵn sàng trả phí cho từng hạng mục sản phẩm âm&nbsp;nhạc
+            Mức chi trung bình/tháng & tỷ lệ người dùng sẵn sàng trả phí cho sản phẩm văn hóa, âm nhạc
           </p>
         </div>
       </div>
