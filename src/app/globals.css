@@ -398,7 +398,7 @@ textarea {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 4.25rem 1.5rem 5.25rem;
+  padding: 4.25rem 0 5.25rem;
   overflow: hidden;
   border-bottom: 1px solid var(--border-subtle);
   background: var(--hero-bg);
@@ -430,9 +430,10 @@ textarea {
 .hero-content-wrap {
   position: relative;
   z-index: 3;
-  max-width: 1160px;
   width: 100%;
+  max-width: 1160px;
   margin: 0 auto;
+  padding: 0 1.5rem;
   text-align: center;
 }
 
@@ -460,16 +461,16 @@ textarea {
 }
 
 .hero-sapo {
-  max-width: 100%;
   width: 100%;
+  max-width: 100%;
   margin: 0 auto 1.75rem;
-  font-size: 1.125rem; /* 18px - chung size với .body-p */
-  line-height: 1.74;
+  font-size: clamp(1.04rem, 1.35vw, 1.16rem);
+  line-height: 1.72;
   letter-spacing: 0;
   word-spacing: normal;
   color: var(--text-primary);
   font-weight: 700;
-  text-wrap: pretty;
+  text-wrap: balance;
 }
 
 .hero-meta-strip {
