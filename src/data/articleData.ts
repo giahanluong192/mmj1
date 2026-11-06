@@ -80,6 +80,7 @@ export interface VoxpopItem {
   quote: string;
   worthItReason: string;
   waveformHeights: number[];
+  audioSrc?: string;
 }
 
 export interface EcosystemSpoke {
@@ -548,11 +549,11 @@ export const SPENDING_WILLINGNESS_DATA: SpendingWillingnessRow[] = [
 export const VOXPOP_STORIES: VoxpopItem[] = [
   {
     id: "vox-1",
-    speakerName: "Minh Thư",
+    speakerName: "Hoàng Yến",
     ageAndRole: "21 tuổi • Sinh viên năm 4 tại TP. Cần Thơ",
     route: "Cần Thơ → TP.HCM (Xe giường nằm khứ hồi + Lưu trú 2N1Đ)",
     concertAttended: "Anh Trai \"Say Hi\" Concert",
-    durationSec: 38,
+    durationSec: 33,
     totalCost: "4.650.000 VNĐ",
     costBreakdown: [
       { item: "Vé khu vực Fanzone đứng gần sân khấu", amount: "2.200.000 đ" },
@@ -563,6 +564,7 @@ export const VOXPOP_STORIES: VoxpopItem[] = [
     quote:
       "Tổng chuyến đi từ Cần Thơ lên TP.HCM vừa rồi của mình hết khoảng 4,65 triệu đồng — bằng gần hai tháng tiền làm thêm gia sư. Nhưng khoảnh khắc 30.000 người cùng hòa giọng hát tiếng Việt dưới biển lightstick đổi màu tự động khiến mình nổi da gà. Trước đây tụi mình cứ nghĩ phải bay sang Bangkok mới có cảm giác concert đẳng cấp như vậy, giờ ngay ở Việt Nam đã làm được nên mình thấy hoàn toàn xứng đáng!",
     worthItReason: "Cảm giác cộng hưởng trực tiếp cùng hàng chục nghìn khán giả trẻ Việt và chất lượng dàn dựng sân khấu nội địa vượt kỳ vọng.",
+    audioSrc: "/voxpop-hoang-yen.m4a",
     waveformHeights: [
       28, 45, 62, 38, 76, 88, 54, 42, 68, 92, 74, 50, 35, 64, 84, 95, 70, 48, 60, 82,
       66, 40, 55, 78, 90, 62, 46, 72, 85, 58, 36, 65, 80, 52, 44, 68, 50, 32,

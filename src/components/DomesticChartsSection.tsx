@@ -355,12 +355,15 @@ export function VoxpopWaveformBox() {
   const [selectedVoxId, setSelectedVoxId] = useState<string>("vox-1");
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [progressPct, setProgressPct] = useState<number>(0);
+  const [currentElapsedSec, setCurrentElapsedSec] = useState<number>(0);
   const audioCtxRef = useRef<AudioContext | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const activeVox =
     VOXPOP_STORIES.find((v) => v.id === selectedVoxId) || VOXPOP_STORIES[0];
 
   useEffect(() => {
+    if (activeVox.audioSrc) return;
     if (!isPlaying) return;
     const stepMs = 250;
     const increment = (stepMs / (activeVox.durationSec * 1000)) * 100;
@@ -369,17 +372,23 @@ export function VoxpopWaveformBox() {
       setProgressPct((prev) => {
         if (prev + increment >= 100) {
           setIsPlaying(false);
+          setCurrentElapsedSec(0);
           return 0;
         }
-        return prev + increment;
+        const next = prev + increment;
+        setCurrentElapsedSec(Math.round((next / 100) * activeVox.durationSec));
+        return next;
       });
     }, stepMs);
 
     return () => clearInterval(timer);
-  }, [isPlaying, activeVox.durationSec]);
+  }, [isPlaying, activeVox.durationSec, activeVox.audioSrc]);
 
   useEffect(() => {
     return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+      }
       if (audioCtxRef.current) {
         audioCtxRef.current.close().catch(() => undefined);
       }
@@ -387,6 +396,15 @@ export function VoxpopWaveformBox() {
   }, []);
 
   const handlePlayToggle = () => {
+    if (activeVox.audioSrc && audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play().catch(() => undefined);
+      }
+      return;
+    }
+
     const nextState = !isPlaying;
     setIsPlaying(nextState);
     if (nextState) {
@@ -421,12 +439,29 @@ export function VoxpopWaveformBox() {
   };
 
   const handleSelectSpeaker = (id: string) => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
     setSelectedVoxId(id);
     setIsPlaying(false);
     setProgressPct(0);
+    setCurrentElapsedSec(0);
   };
 
-  const elapsedSec = Math.round((progressPct / 100) * activeVox.durationSec);
+  const handleSeek = (barPct: number) => {
+    setProgressPct(barPct);
+    const targetSec = (barPct / 100) * activeVox.durationSec;
+    setCurrentElapsedSec(Math.round(targetSec));
+    if (activeVox.audioSrc && audioRef.current) {
+      const dur = audioRef.current.duration || activeVox.durationSec;
+      audioRef.current.currentTime = (barPct / 100) * dur;
+    }
+  };
+
+  const elapsedSec = activeVox.audioSrc
+    ? currentElapsedSec
+    : Math.round((progressPct / 100) * activeVox.durationSec);
 
   return (
     <section className="viz-card voxpop-card" id="vi-tri-4" aria-label="Tiếng nói từ khán đài">
@@ -459,11 +494,37 @@ export function VoxpopWaveformBox() {
 
       {/* Waveform Player Bar */}
       <div className="waveform-player-shell">
+        {activeVox.audioSrc && (
+          <audio
+            key={activeVox.id}
+            ref={audioRef}
+            src={activeVox.audioSrc}
+            preload="auto"
+            onTimeUpdate={() => {
+              if (audioRef.current) {
+                const cur = audioRef.current.currentTime;
+                const dur = audioRef.current.duration || activeVox.durationSec;
+                setCurrentElapsedSec(Math.round(cur));
+                if (dur > 0) {
+                  setProgressPct((cur / dur) * 100);
+                }
+              }
+            }}
+            onEnded={() => {
+              setIsPlaying(false);
+              setProgressPct(0);
+              setCurrentElapsedSec(0);
+            }}
+            onPlay={() => setIsPlaying(true)}
+            onPause={() => setIsPlaying(false)}
+          />
+        )}
+
         <button
           type="button"
           className={`waveform-play-btn ${isPlaying ? "playing" : ""}`}
           onClick={handlePlayToggle}
-          aria-label={isPlaying ? "Tạm dừng Voxpop" : "Phát mô phỏng sóng âm Voxpop"}
+          aria-label={isPlaying ? "Tạm dừng Voxpop" : "Phát âm thanh Voxpop"}
         >
           {isPlaying ? "⏸" : "▶"}
         </button>
@@ -477,7 +538,7 @@ export function VoxpopWaveformBox() {
                 key={idx}
                 className={`waveform-bar ${isPassed ? "passed" : ""} ${isPlaying ? "animating" : ""}`}
                 style={{ height: `${h}%` }}
-                onClick={() => setProgressPct(barPct)}
+                onClick={() => handleSeek(barPct)}
               />
             );
           })}
