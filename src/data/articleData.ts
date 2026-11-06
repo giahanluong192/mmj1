@@ -572,11 +572,11 @@ export const VOXPOP_STORIES: VoxpopItem[] = [
   },
   {
     id: "vox-2",
-    speakerName: "Hoàng Khang",
+    speakerName: "Ngọc Thuấn",
     ageAndRole: "24 tuổi • Nhân viên thiết kế truyền thông tại TP.HCM",
     route: "TP.HCM → Hà Nội / Hưng Yên (Vé máy bay khứ hồi + 3N2Đ)",
     concertAttended: "Anh Trai Vượt Ngàn Chông Gai",
-    durationSec: 42,
+    durationSec: 46,
     totalCost: "9.800.000 VNĐ",
     costBreakdown: [
       { item: "Vé hạng ghế ngồi tầm nhìn trực diện", amount: "3.500.000 đ" },
@@ -587,6 +587,7 @@ export const VOXPOP_STORIES: VoxpopItem[] = [
     quote:
       "Mình tốn gần 10 triệu đồng cho cả vé concert, vé máy bay khứ hồi từ Sài Gòn ra Bắc, khách sạn và bộ cổ phục cách tân mặc đi xem đêm nhạc. Điều làm mình xúc động nhất không chỉ là âm nhạc mà là cảnh hàng chục nghìn bạn trẻ mặc áo dài, Việt phục hát vang các làn điệu dân gian được phối mới hiện đại. Mình sẵn sàng kết hợp nghỉ phép để biến chuyến đi xem concert thành kỳ du lịch khám phá ẩm thực mùa thu Hà Nội luôn.",
     worthItReason: "Sự giao thoa giữa bản sắc văn hóa dân tộc với công nghệ trình diễn hiện đại, kết hợp trọn vẹn một chuyến du lịch âm nhạc liên vùng.",
+    audioSrc: "/voxpop-ngoc-thuan.m4a",
     waveformHeights: [
       34, 52, 74, 60, 85, 94, 68, 45, 58, 82, 90, 76, 48, 62, 88, 72, 54, 40, 70, 96,
       84, 64, 50, 78, 86, 56, 42, 66, 92, 74, 60, 80, 68, 46, 58, 72, 44, 30,
