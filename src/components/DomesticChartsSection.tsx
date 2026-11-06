@@ -50,9 +50,6 @@ export function EventScaleAndConcertsWidget() {
     <figure className="viz-card" id="vi-tri-2">
       <div className="viz-header">
         <div>
-          <span className="pos-badge">
-            QUY MÔ SỰ KIỆN & TỐC ĐỘ BÁN VÉ CONCERT NỘI ĐỊA
-          </span>
           <h3 className="viz-title">
             Sự trỗi dậy của phân khúc đại nhạc hội trên bức tranh 810+ sự&nbsp;kiện&nbsp;âm&nbsp;nhạc
           </h3>
@@ -267,9 +264,6 @@ export function SpendingWillingnessChart() {
     <figure className="viz-card" id="vi-tri-3">
       <div className="viz-header">
         <div>
-          <span className="pos-badge">
-            SỨC MUA & MỨC SẴN SÀNG CHI TRẢ CỦA KHÁN GIẢ VIỆT (N=471)
-          </span>
           <h3 className="viz-title">
             Khán giả Việt chi bao nhiêu mỗi tháng cho thần tượng?
           </h3>
