@@ -51,10 +51,10 @@ export function EventScaleAndConcertsWidget() {
       <div className="viz-header">
         <div>
           <h3 className="viz-title">
-            Sự trỗi dậy của phân khúc đại nhạc hội trên bức tranh 810+ sự&nbsp;kiện&nbsp;âm&nbsp;nhạc
+            Quy mô sự kiện &amp; các nhạc hội tiêu biểu
           </h3>
           <p className="viz-subtitle">
-            Chuyển đổi giữa cơ cấu quy mô sự kiện năm 2025 và các cột mốc bán vé tiêu biểu giai đoạn&nbsp;2025–2026
+            Chuyển đổi giữa cơ cấu quy mô sự kiện năm 2025 và các cột mốc bán vé tiêu biểu giai đoạn 2025–2026
           </p>
         </div>
 

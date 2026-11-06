@@ -1053,12 +1053,15 @@ textarea {
 }
 
 /* ============================================================================
-   100% STACKED HORIZONTAL BAR CHART
+   100% STACKED HORIZONTAL BAR CHART & SCALE DONUT WIDGET
    ============================================================================ */
+#vi-tri-2 .viz-header > div:first-child,
 #vi-tri-3 .viz-header > div:first-child {
   flex: 1 1 100%;
 }
 
+#vi-tri-2 .viz-title,
+#vi-tri-2 .viz-subtitle,
 #vi-tri-3 .viz-title,
 #vi-tri-3 .viz-subtitle {
   max-width: none;
