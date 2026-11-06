@@ -126,7 +126,7 @@ export function ArtistOriginGroupedChart() {
       </div>
 
       <figcaption className="viz-caption-footer">
-        Nguồn: Trích xuất chính xác từ trang 30 Báo cáo Tổng quan ngành công nghiệp âm nhạc Việt Nam 2025–2026 (Đại học RMIT Việt Nam).
+        Nguồn: Trích xuất chính xác từ trang 30 Báo cáo Tổng quan ngành công nghiệp âm nhạc Việt Nam 2025–2026 (Trường Đại học RMIT Việt Nam).
       </figcaption>
     </figure>
   );

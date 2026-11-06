@@ -236,7 +236,7 @@ export function EventScaleAndConcertsWidget() {
       )}
 
       <figcaption className="viz-caption-footer">
-        Nguồn: Báo cáo Tổng quan ngành công nghiệp âm nhạc Việt Nam 2025–2026 (Đại học RMIT Việt Nam, trang 18, 29, 30, 40, 82) & thống kê báo chí tháng 10–11/2026.
+        Nguồn: Báo cáo Tổng quan ngành công nghiệp âm nhạc Việt Nam 2025–2026 (Trường Đại học RMIT Việt Nam, trang 18, 29, 30, 40, 82) & thống kê báo chí tháng 10–11/2026.
       </figcaption>
     </figure>
   );
@@ -336,7 +336,7 @@ export function SpendingWillingnessChart() {
       </div>
 
       <figcaption className="viz-caption-footer">
-        Nguồn: Khảo sát sơ cấp định lượng của Đại học RMIT Việt Nam (N=471 người dùng trẻ, trang 27 & 28 Báo cáo Tổng quan ngành công nghiệp âm nhạc Việt Nam 2025–2026).
+        Nguồn: Khảo sát sơ cấp định lượng của Trường Đại học RMIT Việt Nam (N=471 người dùng trẻ, trang 27 & 28 Báo cáo Tổng quan ngành công nghiệp âm nhạc Việt Nam 2025–2026).
       </figcaption>
     </figure>
   );

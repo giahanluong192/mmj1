@@ -137,7 +137,7 @@ export default function Home() {
           </p>
 
           <p className="body-p">
-            Theo <em>Báo cáo Tổng quan ngành công nghiệp âm nhạc Việt&nbsp;Nam 2025-2026</em> của Đại học RMIT Việt&nbsp;Nam, năm 2025 ghi nhận hơn <strong>810 sự kiện âm nhạc</strong> đã diễn ra hoặc được công bố trên cả nước. Riêng tại đầu tàu kinh tế TP.HCM, số liệu thống kê trong 9 tháng đầu năm 2026 cho thấy thành phố đã tiếp nhận, thẩm định và chấp thuận <strong>1.064 hồ sơ</strong> hoạt động nghệ thuật biểu diễn, trong đó có tới <strong>944 chương trình nghệ thuật, sân khấu</strong>. Tần suất sự kiện tăng cao vào mùa hè và nửa cuối năm phản ánh nhu cầu thưởng thức âm nhạc trực tiếp (<em>live music</em>) đang dần trở thành một phần trong lối sống của người trẻ đô&nbsp;thị.
+            Theo <em>Báo cáo Tổng quan ngành công nghiệp âm nhạc Việt&nbsp;Nam 2025-2026</em> của Trường Đại học RMIT Việt&nbsp;Nam, năm 2025 ghi nhận hơn <strong>810 sự kiện âm nhạc</strong> đã diễn ra hoặc được công bố trên cả nước. Riêng tại đầu tàu kinh tế TP.HCM, số liệu thống kê trong 9 tháng đầu năm 2026 cho thấy thành phố đã tiếp nhận, thẩm định và chấp thuận <strong>1.064 hồ sơ</strong> hoạt động nghệ thuật biểu diễn, trong đó có tới <strong>944 chương trình nghệ thuật, sân khấu</strong>. Tần suất sự kiện tăng cao vào mùa hè và nửa cuối năm phản ánh nhu cầu thưởng thức âm nhạc trực tiếp (<em>live music</em>) đang dần trở thành một phần trong lối sống của người trẻ đô&nbsp;thị.
           </p>
         </div>
 
@@ -152,7 +152,7 @@ export default function Home() {
           </p>
 
           <p className="body-p">
-            Sự bùng nổ này bắt nguồn bởi sự thay đổi rõ nét trong tâm lý sẵn sàng chi trả của công chúng. Khảo sát của Đại học RMIT chỉ ra rằng sự kiện trực tiếp (concert, liveshow, fan meeting) đứng thứ hai trong nhóm các sản phẩm âm nhạc được khán giả sẵn sàng chi tiền nhiều nhất (chiếm <strong>60,9%</strong>), chỉ xếp sau gói đăng ký nghe nhạc trực tuyến (<strong>71,7%</strong>). Đặc biệt, văn hóa fandom chuyên nghiệp (<em>Prosumer Fandom</em>) đã thúc đẩy chi tiêu cho các vật phẩm đi kèm (<em>merchandise</em>): có tới <strong>33,2%</strong> người hâm mộ sẵn sàng chi từ 500.000 đến 1.000.000 đồng/tháng và <strong>22,9%</strong> chi trên 1.000.000 đồng/tháng cho nhóm sản phẩm&nbsp;này.
+            Sự bùng nổ này bắt nguồn bởi sự thay đổi rõ nét trong tâm lý sẵn sàng chi trả của công chúng. Khảo sát của Trường Đại học RMIT chỉ ra rằng sự kiện trực tiếp (concert, liveshow, fan meeting) đứng thứ hai trong nhóm các sản phẩm âm nhạc được khán giả sẵn sàng chi tiền nhiều nhất (chiếm <strong>60,9%</strong>), chỉ xếp sau gói đăng ký nghe nhạc trực tuyến (<strong>71,7%</strong>). Đặc biệt, văn hóa fandom chuyên nghiệp (<em>Prosumer Fandom</em>) đã thúc đẩy chi tiêu cho các vật phẩm đi kèm (<em>merchandise</em>): có tới <strong>33,2%</strong> người hâm mộ sẵn sàng chi từ 500.000 đến 1.000.000 đồng/tháng và <strong>22,9%</strong> chi trên 1.000.000 đồng/tháng cho nhóm sản phẩm&nbsp;này.
           </p>
         </div>
 
@@ -232,7 +232,7 @@ export default function Home() {
 
         <div className="prose-column">
           <p className="body-p">
-            Phân tích dữ liệu từ hơn 810 sự kiện âm nhạc năm 2025 của Đại học RMIT cho thấy sự áp đảo của các chương trình thuần&nbsp;nội&nbsp;địa:
+            Phân tích dữ liệu từ hơn 810 sự kiện âm nhạc năm 2025 của Trường Đại học RMIT cho thấy sự áp đảo của các chương trình thuần&nbsp;nội&nbsp;địa:
           </p>
 
           <ul className="editorial-bullet-list">
@@ -360,7 +360,7 @@ export default function Home() {
                 1. Giải bài toán hạ tầng sân bãi bằng quy hoạch Tổ hợp biểu diễn đa năng qua mô hình Hợp tác Công&nbsp;–&nbsp;Tư&nbsp;(PPP)
               </h4>
               <p>
-                Báo cáo của Đại học RMIT chỉ ra rằng sự thiếu hụt các sân khấu và nhà hát đa năng đạt chuẩn quốc tế đang là lực cản lớn nhất của ngành sự kiện Việt&nbsp;Nam. Trong khi đó, mô hình PPP đã chiếm tới <strong>17,8%</strong> tổng số sự kiện âm nhạc năm 2025 và bước đầu chứng minh hiệu quả trong việc huy động nguồn lực xã hội hóa cho các đại nhạc hội quy mô lớn, tiêu biểu như sự kiện concert chào mừng Ngày Văn hóa Việt&nbsp;Nam 24/11 tại SVĐ Mỹ&nbsp;Đình với quy mô dự kiến <strong>60.000 khán giả</strong>. Vận dụng chủ trương đẩy mạnh hợp tác công&nbsp;–&nbsp;tư trong lĩnh vực văn hóa, thể thao của Nghị quyết 80-NQ/TW, các đô thị trọng điểm như Hà&nbsp;Nội, TP.HCM và Đà&nbsp;Nẵng cần ưu tiên quỹ đất để quy hoạch các Tổ hợp biểu diễn trong nhà có mái che (Indoor Arena 15.000–20.000 chỗ) và nâng cấp sân vận động đạt chuẩn tải trọng âm thanh, ánh sáng quốc tế thay vì phụ thuộc vào các công trình thể thao cũ&nbsp;kỹ.
+                Báo cáo của Trường Đại học RMIT chỉ ra rằng sự thiếu hụt các sân khấu và nhà hát đa năng đạt chuẩn quốc tế đang là lực cản lớn nhất của ngành sự kiện Việt&nbsp;Nam. Trong khi đó, mô hình PPP đã chiếm tới <strong>17,8%</strong> tổng số sự kiện âm nhạc năm 2025 và bước đầu chứng minh hiệu quả trong việc huy động nguồn lực xã hội hóa cho các đại nhạc hội quy mô lớn, tiêu biểu như sự kiện concert chào mừng Ngày Văn hóa Việt&nbsp;Nam 24/11 tại SVĐ Mỹ&nbsp;Đình với quy mô dự kiến <strong>60.000 khán giả</strong>. Vận dụng chủ trương đẩy mạnh hợp tác công&nbsp;–&nbsp;tư trong lĩnh vực văn hóa, thể thao của Nghị quyết 80-NQ/TW, các đô thị trọng điểm như Hà&nbsp;Nội, TP.HCM và Đà&nbsp;Nẵng cần ưu tiên quỹ đất để quy hoạch các Tổ hợp biểu diễn trong nhà có mái che (Indoor Arena 15.000–20.000 chỗ) và nâng cấp sân vận động đạt chuẩn tải trọng âm thanh, ánh sáng quốc tế thay vì phụ thuộc vào các công trình thể thao cũ&nbsp;kỹ.
               </p>
             </div>
 
@@ -441,7 +441,7 @@ export default function Home() {
           </div>
           <div className="footer-col-meta">
             <div>
-              <strong>Dữ liệu &amp; Tài liệu tham chiếu:</strong> Báo cáo Tổng quan ngành công nghiệp âm nhạc Việt Nam 2025–2026 (ĐH RMIT Việt Nam), Nghị quyết 80-NQ/TW, Sở VH&amp;TT TP.HCM, Bộ VHTTDL, Statista, Báo Nhân Dân, Tuổi Trẻ, Đại biểu Nhân dân, VietnamPlus, Znews.
+              <strong>Dữ liệu &amp; Tài liệu tham chiếu:</strong> Báo cáo Tổng quan ngành công nghiệp âm nhạc Việt Nam 2025–2026 (Trường Đại học RMIT Việt Nam), Nghị quyết 80-NQ/TW, Sở VH&amp;TT TP.HCM, Bộ VHTTDL, Statista, Báo Nhân Dân, Tuổi Trẻ, Đại biểu Nhân dân, VietnamPlus, Znews.
             </div>
           </div>
         </div>

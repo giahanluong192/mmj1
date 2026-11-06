@@ -3,7 +3,7 @@
  * ĐỀ TÀI: BẢN ĐỒ CONCERT VIỆT NAM: SỨC BẬT NỘI SINH
  * -----------------------------------------------------------------------------------------
  * Nguồn dữ liệu đối chiếu:
- * 1. Báo cáo Tổng quan ngành công nghiệp âm nhạc Việt Nam 2025–2026 (Đại học RMIT Việt Nam)
+ * 1. Báo cáo Tổng quan ngành công nghiệp âm nhạc Việt Nam 2025–2026 (Trường Đại học RMIT Việt Nam)
  * 2. Nghị quyết số 80-NQ/TW của Bộ Chính trị (07/01/2026) & Nghị quyết Quốc hội về Ngày Văn hóa Việt Nam 24/11
  * 3. Sở Văn hóa và Thể thao TP.HCM, Bộ VHTTDL, Statista Market Insights
  * 4. Báo Nhân Dân, Tuổi Trẻ, Đại biểu Nhân dân, VietnamPlus, Thanh Niên, VnExpress, Dân Trí, Znews
@@ -1140,7 +1140,7 @@ export const EXPERT_QUOTES: ExpertQuoteCard[] = [
   {
     id: "q-nguyen-van-thang-long",
     speaker: "PGS.TS Nguyễn Văn Thăng Long",
-    title: "Đại học RMIT Việt\u00A0Nam",
+    title: "Trường Đại học RMIT Việt\u00A0Nam",
     quote:
       "Đã đến lúc chúng ta không chỉ tổ chức những sự kiện lớn, mà còn phải xây dựng một nền công nghiệp văn hóa có chiều sâu và\u00A0bản\u00A0sắc.",
     source: "Báo cáo Tổng quan ngành công nghiệp âm nhạc Việt Nam 2025–2026 (RMIT)",
