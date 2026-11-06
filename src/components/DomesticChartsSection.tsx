@@ -289,6 +289,12 @@ export function SpendingWillingnessChart() {
         ))}
       </div>
 
+      {/* Interactive Insight Box */}
+      <div className="stacked-insight-panel">
+        <div className="insight-tag">🔍 PHÂN TÍCH HẠNG MỤC ĐANG CHỌN: {activeRow.product.toUpperCase()}</div>
+        <p>{activeRow.insight}</p>
+      </div>
+
       {/* 100% Stacked Horizontal Bars */}
       <div className="stacked-rows-wrap">
         {SPENDING_WILLINGNESS_DATA.map((row) => {
@@ -333,12 +339,6 @@ export function SpendingWillingnessChart() {
             </div>
           );
         })}
-      </div>
-
-      {/* Interactive Insight Box */}
-      <div className="stacked-insight-panel">
-        <div className="insight-tag">🔍 PHÂN TÍCH HẠNG MỤC ĐANG CHỌN: {activeRow.product.toUpperCase()}</div>
-        <p>{activeRow.insight}</p>
       </div>
 
       <figcaption className="viz-caption-footer">

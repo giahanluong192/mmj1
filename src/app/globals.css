@@ -1140,7 +1140,7 @@ textarea {
 }
 
 .stacked-insight-panel {
-  margin-top: 1.2rem;
+  margin: 1.15rem 0 1.25rem;
   background: var(--tint-blue-bg);
   border: 1px solid var(--tint-blue-border);
   border-radius: 12px;
