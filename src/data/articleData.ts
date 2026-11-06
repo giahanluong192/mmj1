@@ -558,10 +558,10 @@ export const VOXPOP_STORIES: VoxpopItem[] = [
     durationSec: 33,
     totalCost: "4.650.000 VNĐ",
     costBreakdown: [
-      { item: "Vé khu vực Fanzone đứng gần sân khấu", amount: "2.200.000 đ" },
-      { item: "Xe khách giường nằm khứ hồi + Grab nội đô", amount: "650.000 đ" },
-      { item: "Khách sạn 2 đêm (ở ghép nhóm 3 bạn)", amount: "700.000 đ" },
-      { item: "Outfit, makeup, lightstick & ăn uống", amount: "1.100.000 đ" },
+      { item: "Vé khu vực Fanzone đứng gần sân khấu", amount: "2.200.000\u00A0đ" },
+      { item: "Xe khách giường nằm khứ hồi + Grab nội đô", amount: "650.000\u00A0đ" },
+      { item: "Khách sạn 2 đêm (ở ghép nhóm 3 bạn)", amount: "700.000\u00A0đ" },
+      { item: "Outfit, makeup, lightstick & ăn uống", amount: "1.100.000\u00A0đ" },
     ],
     quote:
       "Tổng chuyến đi từ Cần Thơ lên TP.HCM vừa rồi của mình hết khoảng 4,65 triệu đồng — bằng gần hai tháng tiền làm thêm gia sư. Nhưng khoảnh khắc 30.000 người cùng hòa giọng hát tiếng Việt dưới biển lightstick đổi màu tự động khiến mình nổi da gà. Trước đây tụi mình cứ nghĩ phải bay sang Bangkok mới có cảm giác concert đẳng cấp như vậy, giờ ngay ở Việt Nam đã làm được nên mình thấy hoàn toàn xứng đáng!",
@@ -582,10 +582,10 @@ export const VOXPOP_STORIES: VoxpopItem[] = [
     durationSec: 46,
     totalCost: "9.800.000 VNĐ",
     costBreakdown: [
-      { item: "Vé hạng ghế ngồi tầm nhìn trực diện", amount: "3.500.000 đ" },
-      { item: "Vé máy bay khứ hồi TP.HCM – Hà Nội", amount: "3.400.000 đ" },
-      { item: "Lưu trú homestay 2 đêm & di chuyển liên tỉnh", amount: "1.600.000 đ" },
-      { item: "Áo merch chính hãng, cổ phục cách tân & ẩm thực", amount: "1.300.000 đ" },
+      { item: "Vé hạng ghế ngồi tầm nhìn trực diện", amount: "3.500.000\u00A0đ" },
+      { item: "Vé máy bay khứ hồi TP.HCM – Hà Nội", amount: "3.400.000\u00A0đ" },
+      { item: "Lưu trú homestay 2 đêm & di chuyển liên tỉnh", amount: "1.600.000\u00A0đ" },
+      { item: "Áo merch chính hãng, cổ phục cách tân & ẩm thực", amount: "1.300.000\u00A0đ" },
     ],
     quote:
       "Mình tốn gần 10 triệu đồng cho cả vé concert, vé máy bay khứ hồi từ Sài Gòn ra Bắc, khách sạn và bộ cổ phục cách tân mặc đi xem đêm nhạc. Điều làm mình xúc động nhất không chỉ là âm nhạc mà là cảnh hàng chục nghìn bạn trẻ mặc áo dài, Việt phục hát vang các làn điệu dân gian được phối mới hiện đại. Mình sẵn sàng kết hợp nghỉ phép để biến chuyến đi xem concert thành kỳ du lịch khám phá ẩm thực mùa thu Hà Nội luôn.",
