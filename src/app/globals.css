@@ -1520,7 +1520,10 @@ textarea {
   margin-right: 0.35rem;
 }
 
-.dot-high { background: var(--accent-rose); }
+.dot-high {
+  background: #FFDE00;
+  border: 1px solid #D97706;
+}
 .dot-tourism { background: var(--accent-blue); }
 
 .heatmap-detail-card {

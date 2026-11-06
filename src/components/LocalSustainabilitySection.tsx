@@ -16,6 +16,18 @@ const VIETNAM_MAP_PATH_D = "M 127 32 L 130 32 L 130 33 L 136 38 L 138 43 L 142 4
 const HOANG_SA_PATH_D = "M 313 264 L 315 264 L 316 265 L 316 267 L 314 269 L 313 269 L 311 267 L 311 266 L 313 264 Z M 389 292 L 392 292 L 392 295 L 391 296 L 390 295 L 388 295 L 388 293 L 389 292 Z M 330 301 L 332 301 L 333 303 L 332 304 L 329 304 L 328 302 L 330 301 Z M 378 253 L 379 253 L 380 255 L 379 256 L 376 256 L 375 254 L 377 254 L 378 253 Z M 340 281 L 342 281 L 343 283 L 342 284 L 339 284 L 338 283 L 340 281 Z M 343 275 L 346 275 L 348 277 L 345 278 L 343 276 L 343 275 Z M 375 247 L 378 247 L 378 249 L 377 250 L 375 249 L 375 247 Z M 381 248 L 383 249 L 382 251 L 380 250 L 381 248 Z M 347 283 L 349 283 L 350 285 L 347 285 L 347 283 Z M 384 294 L 386 294 L 386 297 L 384 295 L 384 294 Z M 342 271 L 343 271 L 343 273 L 341 273 L 342 271 Z";
 const TRUONG_SA_PATH_D = "M 386 512 L 389 512 L 392 515 L 392 516 L 390 517 L 387 517 L 386 512 Z M 425 472 L 430 472 L 430 473 L 427 475 L 423 475 L 423 473 L 425 472 Z M 429 465 L 431 465 L 432 466 L 437 466 L 437 467 L 433 469 L 429 465 Z M 408 517 L 410 517 L 412 519 L 412 521 L 413 522 L 412 523 L 409 521 L 408 517 Z M 369 531 L 371 531 L 372 533 L 372 536 L 370 536 L 368 534 L 368 532 L 369 531 Z M 397 507 L 399 508 L 399 510 L 398 510 L 395 513 L 394 513 L 397 507 Z M 424 514 L 428 514 L 430 516 L 430 517 L 429 518 L 427 516 L 425 516 L 424 514 Z M 317 519 L 320 520 L 320 523 L 317 523 L 316 522 L 317 519 Z M 350 533 L 355 533 L 355 535 L 354 536 L 353 535 L 351 535 L 350 533 Z M 320 555 L 323 555 L 324 556 L 323 558 L 320 558 L 320 555 Z M 325 518 L 327 518 L 328 519 L 327 521 L 324 521 L 324 519 L 325 518 Z M 378 514 L 379 514 L 381 516 L 380 518 L 378 517 L 378 514 Z M 416 540 L 418 540 L 419 543 L 416 543 L 416 540 Z M 455 552 L 456 552 L 458 554 L 458 555 L 455 555 L 455 552 Z M 306 517 L 307 517 L 308 521 L 306 521 L 306 517 Z M 421 517 L 422 517 L 424 519 L 423 520 L 421 520 L 421 517 Z M 424 548 L 425 549 L 425 551 L 423 551 L 422 550 L 422 549 L 424 548 Z M 319 567 L 320 567 L 320 568 L 317 568 L 319 567 Z M 324 567 L 325 567 L 325 569 L 324 569 L 324 567 Z M 329 552 L 330 552 L 330 553 L 329 553 L 329 552 Z";
 
+function getStarPoints(cx: number, cy: number, outerR: number, innerR: number): string {
+  const pts: string[] = [];
+  for (let i = 0; i < 10; i++) {
+    const angle = -Math.PI / 2 + (i * Math.PI) / 5;
+    const r = i % 2 === 0 ? outerR : innerR;
+    const x = cx + r * Math.cos(angle);
+    const y = cy + r * Math.sin(angle);
+    pts.push(`${x.toFixed(2)},${y.toFixed(2)}`);
+  }
+  return pts.join(" ");
+}
+
 export function VietnamEventHeatmap() {
   const [selectedHubId, setSelectedHubId] = useState<string>("tphcm");
   const [clusterFilter, setClusterFilter] = useState<"all" | "high-density" | "music-tourism">("all");
@@ -83,8 +95,8 @@ export function VietnamEventHeatmap() {
           >
             <defs>
               <radialGradient id="heatHigh" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#E11D48" stopOpacity="0.65" />
-                <stop offset="50%" stopColor="#DA251D" stopOpacity="0.24" />
+                <stop offset="0%" stopColor="#FFDE00" stopOpacity="0.8" />
+                <stop offset="45%" stopColor="#F59E0B" stopOpacity="0.35" />
                 <stop offset="100%" stopColor="#DA251D" stopOpacity="0" />
               </radialGradient>
               <radialGradient id="heatTourism" cx="50%" cy="50%" r="50%">
@@ -106,8 +118,8 @@ export function VietnamEventHeatmap() {
             {/* Shape bản đồ Việt Nam chi tiết (Đất liền + Phú Quốc + các đảo ven bờ) */}
             <path
               d={VIETNAM_MAP_PATH_D}
-              fill="var(--map-land)"
-              stroke="var(--map-stroke)"
+              fill="var(--vn-red)"
+              stroke="var(--vn-red)"
               strokeWidth="1.2"
               strokeLinejoin="round"
             />
@@ -149,9 +161,9 @@ export function VietnamEventHeatmap() {
             {visibleHubs.map((hub) => {
               const isSelected = hub.id === activeHub.id;
               const isHigh = hub.clusterType === "high-density";
-              const coreColor = isHigh ? "var(--accent-rose)" : "var(--accent-blue)";
+              const isHanoi = hub.id === "hanoi-hungyen";
 
-              const isLeft = hub.id === "hanoi-hungyen";
+              const isLeft = isHanoi;
               const labelX = isLeft ? hub.x - 13 : hub.x + 13;
               const textAnchor = isLeft ? "end" : "start";
 
@@ -169,14 +181,24 @@ export function VietnamEventHeatmap() {
                     r={isSelected ? hub.heatRadius * 1.18 : hub.heatRadius}
                     fill={isHigh ? "url(#heatHigh)" : "url(#heatTourism)"}
                   />
-                  <circle
-                    cx={hub.x}
-                    cy={hub.y}
-                    r={isSelected ? 8.5 : 6}
-                    fill={coreColor}
-                    stroke="var(--bg-card)"
-                    strokeWidth={isSelected ? 2.5 : 1.5}
-                  />
+                  {isHanoi ? (
+                    <polygon
+                      points={getStarPoints(hub.x, hub.y, isSelected ? 11 : 8.5, isSelected ? 4.8 : 3.7)}
+                      fill="#FFDE00"
+                      stroke="var(--bg-card)"
+                      strokeWidth={isSelected ? 2.5 : 1.5}
+                      strokeLinejoin="round"
+                    />
+                  ) : (
+                    <circle
+                      cx={hub.x}
+                      cy={hub.y}
+                      r={isSelected ? 8.5 : 6}
+                      fill={isHigh ? "#FFDE00" : "var(--accent-blue)"}
+                      stroke="var(--bg-card)"
+                      strokeWidth={isSelected ? 2.5 : 1.5}
+                    />
+                  )}
                   <text
                     x={labelX}
                     y={hub.y + 4}
@@ -184,6 +206,10 @@ export function VietnamEventHeatmap() {
                     fill={isSelected ? "var(--text-primary)" : "var(--text-secondary)"}
                     fontSize={isSelected ? "11.5" : "10.2"}
                     fontWeight={isSelected ? "800" : "600"}
+                    paintOrder="stroke fill"
+                    stroke="var(--bg-card)"
+                    strokeWidth="3.5"
+                    strokeLinejoin="round"
                   >
                     {hub.city}
                   </text>
@@ -194,7 +220,7 @@ export function VietnamEventHeatmap() {
 
           <div className="heatmap-legend-strip">
             <span>
-              <i className="dot-high" /> Cực tăng trưởng mật độ cao (Hà Nội, TP.HCM)
+              <i className="dot-high" /> Cực tăng trưởng mật độ cao (Hà Nội, TP. Hồ Chí Minh)
             </span>
             <span>
               <i className="dot-tourism" /> Cực du lịch âm nhạc (Quảng Ninh, Huế, Đà Nẵng, Quảng Bình, Đà Lạt)

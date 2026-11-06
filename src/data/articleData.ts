@@ -756,7 +756,7 @@ export const VIETNAM_HEATMAP_HUBS: HeatmapHub[] = [
   },
   {
     id: "tphcm",
-    city: "TP.HCM",
+    city: "TP. Hồ Chí Minh",
     clusterType: "high-density",
     clusterLabel: "Cực tăng trưởng mật độ cao",
     x: 186,
