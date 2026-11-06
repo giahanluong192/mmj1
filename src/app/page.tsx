@@ -23,6 +23,7 @@ import {
   DataSourcesProvenance,
 } from "@/components/PolicySolutionsSection";
 import { ARTICLE_META, FIVE_SYSTEMIC_BOTTLENECKS } from "@/data/articleData";
+import FloatingFontResizer from "@/components/FloatingFontResizer";
 
 export default function Home() {
   const [readingProgress, setReadingProgress] = useState(0);
@@ -445,6 +446,9 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Floating Font Resizer Widget */}
+      <FloatingFontResizer />
 
       {/* Floating Back to Top Button */}
       <button

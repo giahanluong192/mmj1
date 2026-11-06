@@ -165,7 +165,7 @@ html {
   font-size: 16px;
   background-color: var(--bg-page);
   color: var(--text-body);
-  transition: background-color 0.25s ease, color 0.25s ease;
+  transition: font-size 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, color 0.25s ease;
 }
 
 body {
@@ -3100,6 +3100,102 @@ textarea {
 }
 
 /* ============================================================================
+   FLOATING FONT RESIZER TOOL
+   ============================================================================ */
+.floating-font-resizer {
+  position: fixed;
+  bottom: 6.2rem;
+  right: 1.7rem;
+  z-index: 998;
+  width: 46px;
+  height: 126px;
+  border-radius: 999px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-medium);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  user-select: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.floating-font-resizer:hover {
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.16);
+  border-color: var(--border-strong);
+}
+
+.font-resizer-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-medium);
+  background: transparent;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.18s ease;
+}
+
+.font-resizer-btn:hover:not(:disabled) {
+  background: var(--accent-blue);
+  color: #FFFFFF;
+  border-color: var(--accent-blue);
+  transform: scale(1.06);
+}
+
+.font-resizer-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.font-resizer-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  border-color: var(--border-subtle);
+}
+
+.font-resizer-label {
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 6px;
+  transition: color 0.18s ease, transform 0.18s ease;
+  user-select: none;
+}
+
+.font-resizer-label:hover {
+  color: var(--accent-blue);
+  transform: scale(1.08);
+}
+
+.font-resizer-label .small-a {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+.font-resizer-label .big-a {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  margin-left: -0.5px;
+}
+
+/* ============================================================================
    FLOATING BACK TO TOP TOOL
    ============================================================================ */
 .back-to-top-btn {
@@ -3187,6 +3283,27 @@ textarea {
 
   .juxtapose-stage {
     height: 280px;
+  }
+
+  .floating-font-resizer {
+    bottom: 4.8rem;
+    right: 1.15rem;
+    width: 40px;
+    height: 114px;
+    padding: 5px 0;
+  }
+
+  .font-resizer-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  .font-resizer-label .small-a {
+    font-size: 11.5px;
+  }
+
+  .font-resizer-label .big-a {
+    font-size: 15px;
   }
 
   .back-to-top-btn {
