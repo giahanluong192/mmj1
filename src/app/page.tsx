@@ -172,7 +172,7 @@ export default function Home() {
           </p>
 
           <p className="body-p">
-            Nhìn nhận sâu hơn về hiện tượng này, chuyên gia truyền thông xã hội Nguyễn Ngọc Long cho rằng đây chính là sức mạnh của “nền kinh tế trải nghiệm”. Tác động lớn nhất của nó không chỉ nằm ở những con số lợi nhuận cục bộ, mà nằm ở việc giữ chân dòng tiền: Dòng tiền thay vì chảy ra nước ngoài để khán giả đi xem show quốc tế, nay được giữ lại, luân chuyển mạnh mẽ trong thị trường nội&nbsp;địa.
+            Nhìn nhận sâu hơn về hiện tượng này, chuyên gia truyền thông xã hội Nguyễn Ngọc Long cho rằng đây chính là sức mạnh của “nền kinh tế trải nghiệm”. Tác động lớn nhất của nó không chỉ nằm ở những con số lợi nhuận cục bộ, mà nằm ở việc giữ chân dòng&nbsp;tiền: Dòng tiền thay vì chảy ra nước ngoài để khán giả đi xem show quốc tế, nay được giữ lại, luân chuyển mạnh mẽ trong thị trường nội&nbsp;địa.
           </p>
         </div>
 
