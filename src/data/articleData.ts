@@ -71,6 +71,7 @@ export interface SpendingWillingnessRow {
 export interface VoxpopItem {
   id: string;
   speakerName: string;
+  tabLabel?: string;
   ageAndRole: string;
   route: string;
   concertAttended: string;
@@ -550,6 +551,7 @@ export const VOXPOP_STORIES: VoxpopItem[] = [
   {
     id: "vox-1",
     speakerName: "Hoàng Yến",
+    tabLabel: "Chị Hoàng Yến (TP. Cần Thơ)",
     ageAndRole: "21 tuổi • Sinh viên năm 4 tại TP. Cần Thơ",
     route: "Cần Thơ → TP.HCM (Xe giường nằm khứ hồi + Lưu trú 2N1Đ)",
     concertAttended: "Anh Trai \"Say Hi\" Concert",
@@ -573,6 +575,7 @@ export const VOXPOP_STORIES: VoxpopItem[] = [
   {
     id: "vox-2",
     speakerName: "Ngọc Thuấn",
+    tabLabel: "Anh Ngọc Thuấn (TP. Hồ Chí Minh)",
     ageAndRole: "24 tuổi • Nhân viên thiết kế truyền thông tại TP.HCM",
     route: "TP.HCM → Hà Nội / Hưng Yên (Vé máy bay khứ hồi + 3N2Đ)",
     concertAttended: "Anh Trai Vượt Ngàn Chông Gai",
