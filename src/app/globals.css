@@ -479,22 +479,20 @@ textarea {
   align-items: center;
   flex-wrap: wrap;
   gap: 0.85rem 1.15rem;
-  font-size: clamp(1.05rem, 1.25vw, 1.18rem);
-  font-weight: 500;
+  font-size: clamp(1.04rem, 1.35vw, 1.16rem);
+  line-height: 1.6;
   color: var(--text-secondary);
-  padding-top: 1.2rem;
+  padding-top: 1.15rem;
   border-top: 1px solid var(--border-subtle);
 }
 
 .hero-meta-strip strong {
   color: var(--text-primary);
-  font-weight: 800;
+  font-weight: 750;
 }
 
 .meta-pipe {
   color: var(--text-muted);
-  font-weight: 300;
-  opacity: 0.7;
 }
 
 /* --- 4 KEY METRICS STRIP --- */
