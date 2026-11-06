@@ -134,10 +134,10 @@ export function VietnamEventHeatmap() {
                 strokeWidth="0.8"
                 strokeLinejoin="round"
               />
-              <text x="325" y="238" textAnchor="middle" fill="var(--text-secondary)" fontSize="10" fontWeight="700">
+              <text x="325" y="236" textAnchor="middle" fill="var(--text-secondary)" fontSize="10.8" fontWeight="700">
                 Quần Đảo
               </text>
-              <text x="325" y="252" textAnchor="middle" fill="var(--vn-red)" fontSize="10.5" fontWeight="800">
+              <text x="325" y="251" textAnchor="middle" fill="var(--vn-red)" fontSize="11.8" fontWeight="800">
                 Hoàng Sa (Việt Nam)
               </text>
 
@@ -149,10 +149,10 @@ export function VietnamEventHeatmap() {
                 strokeWidth="0.8"
                 strokeLinejoin="round"
               />
-              <text x="372" y="476" textAnchor="middle" fill="var(--text-secondary)" fontSize="10" fontWeight="700">
+              <text x="372" y="474" textAnchor="middle" fill="var(--text-secondary)" fontSize="10.8" fontWeight="700">
                 Quần Đảo
               </text>
-              <text x="372" y="490" textAnchor="middle" fill="var(--vn-red)" fontSize="10.5" fontWeight="800">
+              <text x="372" y="489" textAnchor="middle" fill="var(--vn-red)" fontSize="11.8" fontWeight="800">
                 Trường Sa (Việt Nam)
               </text>
             </g>
@@ -164,7 +164,7 @@ export function VietnamEventHeatmap() {
               const isHanoi = hub.id === "hanoi-hungyen";
 
               const isLeft = isHanoi;
-              const labelX = isLeft ? hub.x - 13 : hub.x + 13;
+              const labelX = isLeft ? hub.x - 14 : hub.x + 14;
               const textAnchor = isLeft ? "end" : "start";
 
               return (
@@ -201,14 +201,14 @@ export function VietnamEventHeatmap() {
                   )}
                   <text
                     x={labelX}
-                    y={hub.y + 4}
+                    y={hub.y + 4.5}
                     textAnchor={textAnchor}
-                    fill={isSelected ? "var(--text-primary)" : "var(--text-secondary)"}
-                    fontSize={isSelected ? "11.5" : "10.2"}
-                    fontWeight={isSelected ? "800" : "600"}
+                    fill="var(--text-primary)"
+                    fontSize={isSelected ? "13.5" : "12"}
+                    fontWeight={isSelected ? "850" : "700"}
                     paintOrder="stroke fill"
                     stroke="var(--bg-card)"
-                    strokeWidth="3.5"
+                    strokeWidth="4"
                     strokeLinejoin="round"
                   >
                     {hub.city}
