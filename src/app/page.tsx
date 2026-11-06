@@ -152,7 +152,7 @@ export default function Home() {
           </p>
 
           <p className="body-p">
-            Sự bùng nổ này bắt nguồn bởi sự thay đổi rõ nét trong tâm lý sẵn sàng chi trả của công chúng. Khảo sát của Trường Đại học RMIT chỉ ra rằng sự kiện trực tiếp (concert, liveshow, fan meeting) đứng thứ hai trong nhóm các sản phẩm âm nhạc được khán giả sẵn sàng chi tiền nhiều nhất (chiếm <strong>60,9%</strong>), chỉ xếp sau gói đăng ký nghe nhạc trực tuyến (<strong>71,7%</strong>). Đặc biệt, văn hóa fandom chuyên nghiệp (<em>Prosumer Fandom</em>) đã thúc đẩy chi tiêu cho các vật phẩm đi kèm (<em>merchandise</em>): có tới <strong>33,2%</strong> người hâm mộ sẵn sàng chi từ 500.000 đến 1.000.000 đồng/tháng và <strong>22,9%</strong> chi trên 1.000.000 đồng/tháng cho nhóm sản phẩm&nbsp;này.
+            Sự bùng nổ này bắt nguồn bởi sự thay đổi rõ nét trong tâm lý sẵn sàng chi trả của công chúng. Khảo sát của Trường Đại học RMIT Việt&nbsp;Nam chỉ ra rằng sự kiện trực tiếp (concert, liveshow, fan meeting) đứng thứ hai trong nhóm các sản phẩm âm nhạc được khán giả sẵn sàng chi tiền nhiều nhất (chiếm <strong>60,9%</strong>), chỉ xếp sau gói đăng ký nghe nhạc trực tuyến (<strong>71,7%</strong>). Đặc biệt, văn hóa fandom chuyên nghiệp (<em>Prosumer Fandom</em>) đã thúc đẩy chi tiêu cho các vật phẩm đi kèm (<em>merchandise</em>): có tới <strong>33,2%</strong> người hâm mộ sẵn sàng chi từ 500.000 đến 1.000.000 đồng/tháng và <strong>22,9%</strong> chi trên 1.000.000 đồng/tháng cho nhóm sản phẩm&nbsp;này.
           </p>
         </div>
 
@@ -232,7 +232,7 @@ export default function Home() {
 
         <div className="prose-column">
           <p className="body-p">
-            Phân tích dữ liệu từ hơn 810 sự kiện âm nhạc năm 2025 của Trường Đại học RMIT cho thấy sự áp đảo của các chương trình thuần&nbsp;nội&nbsp;địa:
+            Phân tích dữ liệu từ hơn 810 sự kiện âm nhạc năm 2025 của Trường Đại học RMIT Việt&nbsp;Nam cho thấy sự áp đảo của các chương trình thuần&nbsp;nội&nbsp;địa:
           </p>
 
           <ul className="editorial-bullet-list">
@@ -284,7 +284,7 @@ export default function Home() {
         {/* 5 Systemic Bottlenecks Cards */}
         <div className="prose-column">
           <p className="body-p" style={{ marginBottom: "1.75rem" }}>
-            Tuy nhiên, khi nhìn sâu vào cấu trúc thị trường, giới chuyên môn nhận định rằng những cú hích như BIGBANG hay G-Dragon dù rất rực rỡ nhưng vẫn mang tính chất “điểm sáng đơn lẻ” và phụ thuộc lớn vào tiềm lực tài trợ của một số ít tập đoàn, ngân hàng lớn (như Vingroup hay VPBank). Như thống kê của Trường Đại học RMIT đã chỉ ra, ở phân khúc đại nhạc hội 10.000–40.000 khán giả, số sự kiện độc lập của nghệ sĩ quốc tế vẫn chiếm tỷ trọng rất nhỏ so với các đêm nhạc nội địa (4 sự kiện quốc tế so với 101 sự kiện nội&nbsp;địa). Tổng Giám đốc SCBC Vietnam &amp; Novel Production Loki Vũ từng chia sẻ trong báo cáo của RMIT rằng việc làm một concert lớn ở Việt&nbsp;Nam nhiều khi giống như “khai phá vùng đất mới”: thiếu mức giá sàn, thiếu quy trình chuẩn và chi phí phát sinh liên tục do hạ tầng địa điểm phức tạp, dẫn đến nghịch lý có những sự kiện bán “cháy vé” nhưng nhà tổ chức vẫn đối mặt với nguy cơ thua&nbsp;lỗ. Khi đặt TP.&nbsp;Hồ&nbsp;Chí&nbsp;Minh và Hà&nbsp;Nội lên bàn cân so sánh với Bangkok, Singapore và Jakarta, có thể nhận diện <strong>5 điểm nghẽn mang tính hệ&nbsp;thống</strong> khiến các nhà tổ chức quốc tế còn e dè với thị trường Việt&nbsp;Nam:
+            Tuy nhiên, khi nhìn sâu vào cấu trúc thị trường, giới chuyên môn nhận định rằng những cú hích như BIGBANG hay G-Dragon dù rất rực rỡ nhưng vẫn mang tính chất “điểm sáng đơn lẻ” và phụ thuộc lớn vào tiềm lực tài trợ của một số ít tập đoàn, ngân hàng lớn (như Vingroup hay VPBank). Như thống kê của Trường Đại học RMIT Việt&nbsp;Nam đã chỉ ra, ở phân khúc đại nhạc hội 10.000–40.000 khán giả, số sự kiện độc lập của nghệ sĩ quốc tế vẫn chiếm tỷ trọng rất nhỏ so với các đêm nhạc nội địa (4 sự kiện quốc tế so với 101 sự kiện nội&nbsp;địa). Tổng Giám đốc SCBC Vietnam &amp; Novel Production Loki Vũ từng chia sẻ trong báo cáo của RMIT rằng việc làm một concert lớn ở Việt&nbsp;Nam nhiều khi giống như “khai phá vùng đất mới”: thiếu mức giá sàn, thiếu quy trình chuẩn và chi phí phát sinh liên tục do hạ tầng địa điểm phức tạp, dẫn đến nghịch lý có những sự kiện bán “cháy vé” nhưng nhà tổ chức vẫn đối mặt với nguy cơ thua&nbsp;lỗ. Khi đặt TP.&nbsp;Hồ&nbsp;Chí&nbsp;Minh và Hà&nbsp;Nội lên bàn cân so sánh với Bangkok, Singapore và Jakarta, có thể nhận diện <strong>5 điểm nghẽn mang tính hệ&nbsp;thống</strong> khiến các nhà tổ chức quốc tế còn e dè với thị trường Việt&nbsp;Nam:
           </p>
 
           <div className="bottlenecks-stack">
@@ -360,7 +360,7 @@ export default function Home() {
                 1. Giải bài toán hạ tầng sân bãi bằng quy hoạch Tổ hợp biểu diễn đa năng qua mô hình Hợp tác Công&nbsp;–&nbsp;Tư&nbsp;(PPP)
               </h4>
               <p>
-                Báo cáo của Trường Đại học RMIT chỉ ra rằng sự thiếu hụt các sân khấu và nhà hát đa năng đạt chuẩn quốc tế đang là lực cản lớn nhất của ngành sự kiện Việt&nbsp;Nam. Trong khi đó, mô hình PPP đã chiếm tới <strong>17,8%</strong> tổng số sự kiện âm nhạc năm 2025 và bước đầu chứng minh hiệu quả trong việc huy động nguồn lực xã hội hóa cho các đại nhạc hội quy mô lớn, tiêu biểu như sự kiện concert chào mừng Ngày Văn hóa Việt&nbsp;Nam 24/11 tại SVĐ Mỹ&nbsp;Đình với quy mô dự kiến <strong>60.000 khán giả</strong>. Vận dụng chủ trương đẩy mạnh hợp tác công&nbsp;–&nbsp;tư trong lĩnh vực văn hóa, thể thao của Nghị quyết 80-NQ/TW, các đô thị trọng điểm như Hà&nbsp;Nội, TP.HCM và Đà&nbsp;Nẵng cần ưu tiên quỹ đất để quy hoạch các Tổ hợp biểu diễn trong nhà có mái che (Indoor Arena 15.000–20.000 chỗ) và nâng cấp sân vận động đạt chuẩn tải trọng âm thanh, ánh sáng quốc tế thay vì phụ thuộc vào các công trình thể thao cũ&nbsp;kỹ.
+                Báo cáo của Trường Đại học RMIT Việt&nbsp;Nam chỉ ra rằng sự thiếu hụt các sân khấu và nhà hát đa năng đạt chuẩn quốc tế đang là lực cản lớn nhất của ngành sự kiện Việt&nbsp;Nam. Trong khi đó, mô hình PPP đã chiếm tới <strong>17,8%</strong> tổng số sự kiện âm nhạc năm 2025 và bước đầu chứng minh hiệu quả trong việc huy động nguồn lực xã hội hóa cho các đại nhạc hội quy mô lớn, tiêu biểu như sự kiện concert chào mừng Ngày Văn hóa Việt&nbsp;Nam 24/11 tại SVĐ Mỹ&nbsp;Đình với quy mô dự kiến <strong>60.000 khán giả</strong>. Vận dụng chủ trương đẩy mạnh hợp tác công&nbsp;–&nbsp;tư trong lĩnh vực văn hóa, thể thao của Nghị quyết 80-NQ/TW, các đô thị trọng điểm như Hà&nbsp;Nội, TP.HCM và Đà&nbsp;Nẵng cần ưu tiên quỹ đất để quy hoạch các Tổ hợp biểu diễn trong nhà có mái che (Indoor Arena 15.000–20.000 chỗ) và nâng cấp sân vận động đạt chuẩn tải trọng âm thanh, ánh sáng quốc tế thay vì phụ thuộc vào các công trình thể thao cũ&nbsp;kỹ.
               </p>
             </div>
 
