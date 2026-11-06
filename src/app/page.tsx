@@ -430,7 +430,7 @@ export default function Home() {
           <div className="footer-col-main">
             <h3>BẢN ĐỒ CONCERT VIỆT NAM: SỨC BẬT NỘI SINH</h3>
             <p>
-              Tác phẩm Báo chí Dữ liệu Đa phương tiện (Interactive Data Journalism &amp; Scrollytelling) • Phân tích toàn cảnh thị trường biểu diễn Việt Nam giai đoạn 2024–2026 và tầm nhìn chiến lược công nghiệp văn hóa 2030.
+              Tác phẩm Báo chí Dữ liệu Đa phương tiện (Multimedia Data Journalism) • Phân tích toàn cảnh thị trường biểu diễn Việt Nam giai đoạn 2024–2026 và tầm nhìn chiến lược công nghiệp văn hóa 2030.
             </p>
             <p className="footer-footage-credit">{ARTICLE_META.footageCredits}</p>
           </div>
