@@ -1236,7 +1236,7 @@ export const RMIT_PDF_SOURCES: RmitSourceRow[] = [
   {
     id: "rmit-7",
     factUsed:
-      "Mức sẵn sàng chi trung bình/tháng:\n• Cho sự kiện trực tiếp: 50k–200k (31,9%), 200k–500k (42,0%), 500k–1 triệu (15,3%).\n• Cho Merchandise: 500k–1 triệu (33,2%), trên 1 triệu đồng (22,9%).",
+      "Mức sẵn sàng chi trung bình/tháng:\n• Cho sự kiện trực tiếp: 50.000–200.000 VNĐ (31,9%), 200.000–500.000 VNĐ (42,0%), 500.000–1.000.000 VNĐ (15,3%).\n• Cho Merchandise: 500.000–1.000.000 VNĐ (33,2%), trên 1.000.000 VNĐ (22,9%).",
     pdfLocation:
       "Trang 28 (Mức sẵn sàng chi trung bình mỗi tháng cho các sản phẩm âm nhạc).",
     originalSourceNote: "Khảo sát sơ cấp định lượng của RMIT (N=471).",

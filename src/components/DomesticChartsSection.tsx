@@ -249,11 +249,11 @@ export function EventScaleAndConcertsWidget() {
    [VỊ TRÍ 3] BIỂU ĐỒ 2: CƠ CẤU GIÁ VÉ & MỨC SẴN SÀNG CHI TRẢ (100% STACKED BAR)
    ============================================================================ */
 const TIER_META = [
-  { key: "under50k" as const, label: "0 – 50k VNĐ", color: "#334155" },
-  { key: "from50kTo200k" as const, label: "50k – 200k VNĐ", color: "#38BDF8" },
-  { key: "from200kTo500k" as const, label: "200k – 500k VNĐ", color: "#818CF8" },
-  { key: "from500kTo1M" as const, label: "500k – 1 triệu VNĐ", color: "#F59E0B" },
-  { key: "over1M" as const, label: "> 1 triệu VNĐ", color: "#EC4899" },
+  { key: "under50k" as const, label: "0 - 50.000 VNĐ", color: "#334155" },
+  { key: "from50kTo200k" as const, label: "50.000 - 200.000 VNĐ", color: "#38BDF8" },
+  { key: "from200kTo500k" as const, label: "200.000 - 500.000 VNĐ", color: "#818CF8" },
+  { key: "from500kTo1M" as const, label: "500.000 - 1.000.000 VNĐ", color: "#F59E0B" },
+  { key: "over1M" as const, label: "> 1.000.000 VNĐ", color: "#EC4899" },
 ];
 
 export function SpendingWillingnessChart() {
