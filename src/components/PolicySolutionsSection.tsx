@@ -445,8 +445,8 @@ export function DataSourcesProvenance() {
             <thead>
               <tr>
                 <th style={{ width: "42%" }}>Số liệu / Thông tin đã dùng trong bài</th>
-                <th style={{ width: "26%" }}>Vị trí chính xác trong file PDF của RMIT</th>
-                <th style={{ width: "32%" }}>Nguồn gốc dữ liệu sơ cấp / thứ cấp được RMIT ghi nhận</th>
+                <th style={{ width: "26%" }}>Vị trí chính xác trong file PDF của Trường Đại học RMIT Việt&nbsp;Nam</th>
+                <th style={{ width: "32%" }}>Nguồn gốc dữ liệu sơ cấp / thứ cấp được Trường Đại học RMIT Việt&nbsp;Nam ghi nhận</th>
               </tr>
             </thead>
             <tbody>

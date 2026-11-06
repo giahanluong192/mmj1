@@ -1143,7 +1143,7 @@ export const EXPERT_QUOTES: ExpertQuoteCard[] = [
     title: "Trường Đại học RMIT Việt\u00A0Nam",
     quote:
       "Đã đến lúc chúng ta không chỉ tổ chức những sự kiện lớn, mà còn phải xây dựng một nền công nghiệp văn hóa có chiều sâu và\u00A0bản\u00A0sắc.",
-    source: "Báo cáo Tổng quan ngành công nghiệp âm nhạc Việt Nam 2025–2026 (RMIT)",
+    source: "Báo cáo Tổng quan ngành công nghiệp âm nhạc Việt Nam 2025–2026 (Trường Đại học RMIT Việt Nam)",
     accentColor: "#0284C7",
   },
   {
@@ -1152,7 +1152,7 @@ export const EXPERT_QUOTES: ExpertQuoteCard[] = [
     title: "Tổng Giám đốc SCBC Vietnam & Novel\u00A0Production",
     quote:
       "Ở Việt\u00A0Nam, làm được một concert lớn giống như 'đi khai phá vùng đất mới': không có mức giá sàn, quy trình chuẩn, chi phí phát sinh liên tục và rủi ro tài chính\u00A0rất\u00A0cao.",
-    source: "Báo cáo Tổng quan ngành công nghiệp âm nhạc Việt Nam 2025–2026 (RMIT)",
+    source: "Báo cáo Tổng quan ngành công nghiệp âm nhạc Việt Nam 2025–2026 (Trường Đại học RMIT Việt Nam)",
     accentColor: "#D97706",
   },
 ];
@@ -1237,7 +1237,7 @@ export const RMIT_PDF_SOURCES: RmitSourceRow[] = [
     pdfLocation:
       "Trang 27 (Các sản phẩm âm nhạc phổ biến được khán thính giả sẵn sàng chi trả).",
     originalSourceNote:
-      "Khảo sát sơ cấp định lượng của RMIT với N=471 người dùng trẻ (Xem phương pháp nghiên cứu ở Trang 112).",
+      "Khảo sát sơ cấp định lượng của Trường Đại học RMIT Việt Nam với N=471 người dùng trẻ (Xem phương pháp nghiên cứu ở Trang 112).",
   },
   {
     id: "rmit-7",
@@ -1245,7 +1245,7 @@ export const RMIT_PDF_SOURCES: RmitSourceRow[] = [
       "Mức sẵn sàng chi trung bình/tháng:\n• Cho sự kiện trực tiếp: 50.000–200.000 VNĐ (31,9%), 200.000–500.000 VNĐ (42,0%), 500.000–1.000.000 VNĐ (15,3%).\n• Cho Merchandise: 500.000–1.000.000 VNĐ (33,2%), trên 1.000.000 VNĐ (22,9%).",
     pdfLocation:
       "Trang 28 (Mức sẵn sàng chi trung bình mỗi tháng cho các sản phẩm âm nhạc).",
-    originalSourceNote: "Khảo sát sơ cấp định lượng của RMIT (N=471).",
+    originalSourceNote: "Khảo sát sơ cấp định lượng của Trường Đại học RMIT Việt Nam (N=471).",
   },
   {
     id: "rmit-8",
