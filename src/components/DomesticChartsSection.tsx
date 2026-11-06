@@ -609,10 +609,10 @@ export function ConcertEconomicInfographic() {
             TÁC ĐỘNG KINH TẾ LAN TỎA TỪ 1 ĐÊM CONCERT
           </span>
           <h3 className="viz-title">
-            Hệ sinh thái 5 nhánh dịch vụ hưởng lợi quanh một đêm đại nhạc hội 30.000&nbsp;khán&nbsp;giả
+            Hệ sinh thái dịch vụ sau đêm nhạc hội
           </h3>
           <p className="viz-subtitle">
-            Nhấp hoặc di chuột vào từng nhánh dịch vụ để xem cơ chế kích hoạt tiêu dùng liên ngành tại địa phương đăng&nbsp;cai
+            Nhấp hoặc di chuột vào từng phân nhánh dịch vụ để xem cơ chế thương mại liên ngành
           </p>
         </div>
       </div>
