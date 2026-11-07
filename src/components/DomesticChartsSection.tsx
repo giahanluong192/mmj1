@@ -822,17 +822,17 @@ export function ConcertEconomicInfographic() {
           </h4>
 
           <div className="eco-info-block">
-            <span className="eco-info-label">Chủ thể hưởng lợi trực tiếp</span>
+            <span className="eco-info-label">Chủ thể cung cấp dịch vụ</span>
             <p>{activeSpoke.beneficiaries}</p>
           </div>
 
           <div className="eco-info-block">
-            <span className="eco-info-label">Hành vi chi tiêu thực tế</span>
+            <span className="eco-info-label">Hành vi tiêu dùng thực tế</span>
             <p>{activeSpoke.spendingExamples}</p>
           </div>
 
           <div className="eco-spillover-highlight" style={{ borderColor: `${activeSpoke.color}66` }}>
-            <strong>Giá trị lan tỏa địa phương:</strong> {activeSpoke.spilloverNote}
+            <strong>Giá trị:</strong> {activeSpoke.spilloverNote}
           </div>
 
           <div className="eco-quick-buttons">
