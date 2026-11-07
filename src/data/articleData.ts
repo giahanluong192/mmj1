@@ -741,7 +741,7 @@ export const VIETNAM_HEATMAP_HUBS: HeatmapHub[] = [
   },
   {
     id: "dalat-lamdong",
-    city: "Lâm Đồng – Đà Lạt",
+    city: "Lâm Đồng",
     clusterType: "music-tourism",
     clusterLabel: "Cực du lịch âm nhạc (Music Tourism)",
     x: 224,

@@ -223,7 +223,7 @@ export function VietnamEventHeatmap() {
               <i className="dot-high" /> Cực tăng trưởng mật độ cao (Hà Nội, TP. Hồ Chí Minh)
             </span>
             <span>
-              <i className="dot-tourism" /> Cực du lịch âm nhạc (Quảng Ninh, Huế, Đà Nẵng, Quảng Bình, Đà Lạt)
+              <i className="dot-tourism" /> Cực du lịch âm nhạc (Quảng Ninh, Huế, Đà Nẵng, Quảng Bình, Lâm Đồng)
             </span>
           </div>
         </div>
