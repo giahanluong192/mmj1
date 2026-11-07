@@ -160,7 +160,7 @@ export function ExpertQuotesCarousel() {
    [VỊ TRÍ 13] BOX TƯƠNG TÁC ĐỘC GIẢ (INTERACTIVE POLL)
    ============================================================================ */
 export function InteractiveReaderPoll() {
-  const [selectedOptionId, setSelectedOptionId] = useState<string | null>(null);
+  const [selectedOptionIds, setSelectedOptionIds] = useState<string[]>([]);
   const [hasSubmitted, setHasSubmitted] = useState<boolean>(false);
   const [voteCounts, setVoteCounts] = useState<Record<string, number>>(() => {
     const map: Record<string, number> = {};
@@ -170,24 +170,37 @@ export function InteractiveReaderPoll() {
     return map;
   });
 
+  const handleToggleOption = (id: string) => {
+    if (hasSubmitted) return;
+    setSelectedOptionIds((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+    );
+  };
+
   const handleVoteSubmit = () => {
-    if (!selectedOptionId || hasSubmitted) return;
-    setVoteCounts((prev) => ({
-      ...prev,
-      [selectedOptionId]: (prev[selectedOptionId] || 0) + 1,
-    }));
+    if (selectedOptionIds.length === 0 || hasSubmitted) return;
+    setVoteCounts((prev) => {
+      const next = { ...prev };
+      selectedOptionIds.forEach((id) => {
+        next[id] = (next[id] || 0) + 1;
+      });
+      return next;
+    });
     setHasSubmitted(true);
   };
 
   const handleResetVote = () => {
-    if (selectedOptionId && hasSubmitted) {
-      setVoteCounts((prev) => ({
-        ...prev,
-        [selectedOptionId]: Math.max(0, (prev[selectedOptionId] || 1) - 1),
-      }));
+    if (selectedOptionIds.length > 0 && hasSubmitted) {
+      setVoteCounts((prev) => {
+        const next = { ...prev };
+        selectedOptionIds.forEach((id) => {
+          next[id] = Math.max(0, (next[id] || 1) - 1);
+        });
+        return next;
+      });
     }
     setHasSubmitted(false);
-    setSelectedOptionId(null);
+    setSelectedOptionIds([]);
   };
 
   const totalVotes = Object.values(voteCounts).reduce((sum, n) => sum + n, 0);
@@ -199,31 +212,29 @@ export function InteractiveReaderPoll() {
       </span>
       <h3 className="poll-question-heading">{READER_POLL_CONFIG.question}</h3>
       <p className="viz-subtitle">
-        Hãy chọn ưu tiên số 1 theo góc nhìn của bạn để xem tương quan bình chọn từ cộng đồng độc giả yêu nhạc&nbsp;sống
+        Hãy chọn một hoặc nhiều phương án theo góc nhìn của bạn để xem tương quan bình chọn từ cộng đồng độc giả yêu nhạc&nbsp;sống
       </p>
 
-      <div className="poll-options-list" role="radiogroup" aria-label={READER_POLL_CONFIG.question}>
+      <div className="poll-options-list" role="group" aria-label={READER_POLL_CONFIG.question}>
         {READER_POLL_CONFIG.options.map((opt) => {
           const count = voteCounts[opt.id] || 0;
           const pct = totalVotes > 0 ? (count / totalVotes) * 100 : 0;
-          const isChosen = selectedOptionId === opt.id;
+          const isChosen = selectedOptionIds.includes(opt.id);
 
           return (
             <div
               key={opt.id}
-              role="radio"
+              role="checkbox"
               aria-checked={isChosen}
               tabIndex={0}
               className={`poll-option-item ${isChosen ? "chosen" : ""} ${
                 hasSubmitted ? "submitted" : ""
               }`}
-              onClick={() => {
-                if (!hasSubmitted) setSelectedOptionId(opt.id);
-              }}
+              onClick={() => handleToggleOption(opt.id)}
               onKeyDown={(e) => {
-                if (!hasSubmitted && (e.key === "Enter" || e.key === " ")) {
+                if (e.key === "Enter" || e.key === " ") {
                   e.preventDefault();
-                  setSelectedOptionId(opt.id);
+                  handleToggleOption(opt.id);
                 }
               }}
             >
@@ -258,7 +269,7 @@ export function InteractiveReaderPoll() {
           <button
             type="button"
             className="poll-submit-btn"
-            disabled={!selectedOptionId}
+            disabled={selectedOptionIds.length === 0}
             onClick={handleVoteSubmit}
           >
             Gửi bình chọn & Xem kết quả ({totalVotes.toLocaleString("vi-VN")} lượt tham gia)
