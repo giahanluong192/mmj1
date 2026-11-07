@@ -1253,12 +1253,18 @@ textarea {
   height: 46px;
   border-radius: 50%;
   border: none;
-  background: linear-gradient(135deg, var(--accent-blue), var(--accent-rose));
+  background: #64748B;
   color: #FFFFFF;
   font-size: 1.1rem;
   font-weight: 900;
   cursor: pointer;
   flex-shrink: 0;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.waveform-play-btn:hover {
+  background: #475569;
+  transform: scale(1.04);
 }
 
 .waveform-bars-wrap {
