@@ -29,10 +29,10 @@ export function ArtistOriginGroupedChart() {
       <div className="viz-header">
         <div>
           <h3 className="viz-title">
-            Khoảng cách lộ diện: 101 đại nhạc hội thuần nội địa nhưng chỉ có 4 đêm diễn độc lập của sao quốc tế ở quy mô 10.000–40.000&nbsp;người
+            Sự chênh lệch giữa concert nội địa và quốc tế
           </h3>
           <p className="viz-subtitle">
-            Đối chiếu số lượng sự kiện âm nhạc năm 2025 theo nguồn gốc nghệ sĩ biểu diễn trên 6 phân khúc quy mô khán&nbsp;giả
+            Đối chiếu số lượng sự kiện âm nhạc năm 2025 trên 6 phân khúc quy mô khán giả
           </p>
         </div>
       </div>
