@@ -480,6 +480,22 @@ export default function Home() {
             <li>
               <strong>Những bước đệm quy mô lớn cuối năm 2025:</strong> Mở đầu bằng đại nhạc hội <em>8Wonder: Moments of Wonder</em> (tháng 8/2025 tại Hà&nbsp;Nội) thu hút <strong>50.000 khán giả</strong> với dàn nghệ sĩ quốc tế gồm DJ Snake, J Balvin, The Kid LAROI, DPR IAN, tiếp nối bởi 2 đêm diễn <em>Übermensch World Tour</em> của G-Dragon tại Hà&nbsp;Nội vào tháng 11/2025 thu hút gần <strong>100.000 khán giả</strong>.
             </li>
+          </ul>
+
+          {/* Ảnh: Đại nhạc hội 8Wonder Moments of Wonder 2025 */}
+          <figure className="article-photo-figure">
+            <img
+              src="/concert-8wonder-moments-of-wonder.jpg"
+              alt="Đại nhạc hội 8Wonder: Moments of Wonder 2025 tại Trung tâm Hội chợ Triển lãm Quốc gia Hà Nội"
+              className="article-photo-img"
+              loading="lazy"
+            />
+            <figcaption className="article-photo-caption">
+              Tối 23/8, tại Trung tâm Hội chợ Triển lãm Quốc gia (Hà Nội), hơn 50.000 khán giả tham gia nhạc hội 8Wonder: Moments of Wonder 2025, sự kiện nghệ thuật do Tập đoàn Vingroup tổ chức, nằm trong chuỗi hoạt động chào mừng 80 năm Quốc khánh. (Ảnh: Ban Tổ chức Chương trình)
+            </figcaption>
+          </figure>
+
+          <ul className="editorial-bullet-list">
             <li>
               <strong>Đà tăng tốc và &ldquo;cơn địa chấn&rdquo; phòng vé năm 2026:</strong> Bước sang tháng 4/2026, nhóm nhạc đình đám K-Pop EXO mang tour diễn <em>EXO PLANET #6 – EXhOrizon</em> đến không gian ngoài trời Trung tâm Hội chợ và Triển lãm Sài Gòn (SECC, TP.HCM) và nhanh chóng bán hết các hạng vé Standing giá cao. Đặc biệt, vào hai ngày 24 và 25/10/2026, SVĐ Quốc gia Mỹ&nbsp;Đình (Hà&nbsp;Nội) đã trở thành tâm điểm châu Á khi đón chuyến lưu diễn kỷ niệm 20 năm <em>BIGBANG 2026–2027 WORLD TOUR</em> (do AEG Presents Asia, Carpa và VPBank đồng tổ chức cùng YG Entertainment). Với 10 hạng vé từ 1 triệu đến 10,5 triệu đồng được bán sạch cùng chuỗi Pop-up Store phân phối gần 70 dòng merchandise chính hãng (có cả phiên bản Hanoi Edition), hai đêm nhạc của BIGBANG đã thu hút khoảng <strong>90.000 lượt khán giả</strong>.
             </li>
