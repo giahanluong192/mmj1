@@ -59,7 +59,7 @@ const SPEED_OPTIONS = [
 export default function ArticleAudioPlayer() {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [selectedVoiceId, setSelectedVoiceId] = useState<VoiceOption>("nu-bac");
-  const [playbackSpeed, setPlaybackSpeed] = useState<number>(1.0);
+  const [playbackSpeed, setPlaybackSpeed] = useState<number>(1.25);
   const [progressPct, setProgressPct] = useState<number>(0);
   const [elapsedSec, setElapsedSec] = useState<number>(0);
   const [totalSec, setTotalSec] = useState<number>(285); // 4:45 reference
@@ -69,7 +69,7 @@ export default function ArticleAudioPlayer() {
   const sentencesRef = useRef<string[]>([]);
   const currentSentenceIdxRef = useRef<number>(0);
   const isPlayingRef = useRef<boolean>(false);
-  const speedRef = useRef<number>(1.0);
+  const speedRef = useRef<number>(1.25);
   const voiceIdRef = useRef<VoiceOption>("nu-bac");
   const progressTimerRef = useRef<NodeJS.Timeout | null>(null);
 
