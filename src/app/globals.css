@@ -1485,11 +1485,12 @@ textarea {
 
 .eco-info-label {
   display: block;
-  font-size: 0.76rem;
-  font-weight: 700;
+  font-size: 0.78rem;
+  font-weight: 800;
   text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 0.2rem;
+  color: var(--vn-red);
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.02em;
 }
 
 .eco-spillover-highlight {
