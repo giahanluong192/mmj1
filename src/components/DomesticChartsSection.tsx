@@ -595,7 +595,9 @@ const SPOKE_LABEL_LINES: Record<string, string[]> = {
   hotel: ["Lưu trú & Khách sạn"],
   transport: ["Hàng không", "& Vận tải"],
   fnb: ["Ẩm thực (F&B)"],
+  "fashion-merch": ["Merch/Goods"],
   merch: ["Merch/Goods"],
+  "ooh-media": ["Fan Project"],
   ooh: ["Fan Project"],
 };
 
@@ -725,18 +727,18 @@ export function ConcertEconomicInfographic() {
 
               if (spoke.id === "hotel") {
                 lx = nx;
-                ly = ny - 50;
+                ly = ny - 52;
               } else if (spoke.id === "transport") {
-                lx = nx + 44;
+                lx = nx + 56;
                 ly = ny - 6;
-              } else if (spoke.id === "ooh") {
-                lx = nx - 44;
+              } else if (spoke.id === "ooh-media" || spoke.id === "ooh") {
+                lx = nx - 58;
                 ly = ny + 6;
               } else if (spoke.id === "fnb") {
-                lx = nx + 44;
+                lx = nx + 50;
                 ly = ny + 56;
-              } else if (spoke.id === "merch") {
-                lx = nx - 44;
+              } else if (spoke.id === "fashion-merch" || spoke.id === "merch") {
+                lx = nx - 50;
                 ly = ny + 56;
               }
 
