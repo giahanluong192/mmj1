@@ -66,7 +66,6 @@ export default function Home() {
       <header className="top-editorial-nav">
         <div className="nav-left-group">
           <a href="#vi-tri-1" className="nav-brand" aria-label="Tiếng Nói Trẻ - Tiếng nói của thế hệ mới">
-            <span className="nav-live-pulse" />
             <img
               src="/logo-tieng-noi-tre.png"
               alt="Tiếng Nói Trẻ - Tiếng nói của thế hệ mới"
