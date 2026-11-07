@@ -73,6 +73,33 @@ export default function Home() {
             />
             <span className="nav-brand-category">| CHUYÊN MỤC VĂN HÓA</span>
           </a>
+        </div>
+
+        <div className="nav-right-group">
+          <nav aria-label="Điều hướng các phần bài báo">
+            <ul className="nav-chapter-links">
+              <li>
+                <a href="#chuong-1" className="nav-pill nav-pill-gray">
+                  1. Concert nội sinh
+                </a>
+              </li>
+              <li>
+                <a href="#chuong-2" className="nav-pill nav-pill-blue">
+                  2. Hiệu ứng pháo hoa
+                </a>
+              </li>
+              <li>
+                <a href="#chuong-3" className="nav-pill nav-pill-amber">
+                  3. Khoảng cách đến World Tour
+                </a>
+              </li>
+              <li>
+                <a href="#chuong-4" className="nav-pill nav-pill-red">
+                  4. Phát triển văn hóa Việt
+                </a>
+              </li>
+            </ul>
+          </nav>
 
           <button
             type="button"
@@ -90,31 +117,6 @@ export default function Home() {
             <span>{theme === "light" ? "Giao diện tối" : "Giao diện sáng"}</span>
           </button>
         </div>
-
-        <nav aria-label="Điều hướng các phần bài báo">
-          <ul className="nav-chapter-links">
-            <li>
-              <a href="#chuong-1" className="nav-pill nav-pill-gray">
-                1. Concert nội sinh
-              </a>
-            </li>
-            <li>
-              <a href="#chuong-2" className="nav-pill nav-pill-blue">
-                2. Hiệu ứng pháo hoa
-              </a>
-            </li>
-            <li>
-              <a href="#chuong-3" className="nav-pill nav-pill-amber">
-                3. Khoảng cách đến World Tour
-              </a>
-            </li>
-            <li>
-              <a href="#chuong-4" className="nav-pill nav-pill-red">
-                4. Phát triển văn hóa Việt
-              </a>
-            </li>
-          </ul>
-        </nav>
       </header>
 
       {/* [VỊ TRÍ 1] HEADER VIDEO LOOP + TIÊU ĐỀ + SAPO NGẮN GỌN + 4 CHỈ SỐ ĐỊNH LƯỢNG */}

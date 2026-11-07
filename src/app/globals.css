@@ -251,6 +251,13 @@ textarea {
   flex-shrink: 0;
 }
 
+.nav-right-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: nowrap;
+}
+
 .nav-brand {
   display: inline-flex;
   align-items: center;
