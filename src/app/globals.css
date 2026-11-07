@@ -2516,6 +2516,23 @@ textarea {
 }
 
 /* Quote Cards Carousel */
+#vi-tri-12 .viz-header > div:first-child {
+  flex: 1 1 auto;
+}
+
+#vi-tri-12 .viz-title {
+  max-width: none;
+  text-wrap: unset;
+}
+
+@media (min-width: 768px) {
+  #vi-tri-12 .viz-title {
+    white-space: nowrap;
+    text-wrap: nowrap;
+    font-size: clamp(1.05rem, 1.48vw, 1.28rem);
+  }
+}
+
 .carousel-nav-controls {
   display: flex;
   align-items: center;
