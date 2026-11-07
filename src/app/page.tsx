@@ -369,6 +369,45 @@ export default function Home() {
             </figcaption>
           </figure>
 
+          {/* Ảnh 6: Quảng Ninh - Đất mỏ anh hùng */}
+          <figure className="article-photo-figure">
+            <img
+              src="/concert-quang-ninh-dat-mo-anh-hung.jpg"
+              alt="Chương trình nghệ thuật chính luận Quảng Ninh - Đất mỏ anh hùng"
+              className="article-photo-img"
+              loading="lazy"
+            />
+            <figcaption className="article-photo-caption">
+              Chào mừng 89 năm Ngày Truyền thống công nhân vùng Mỏ - Truyền thống ngành Than, tối 12/11, tại Quảng trường 30/10, UBND tỉnh Quảng Ninh tổ chức chương trình nghệ thuật chính luận đặc sắc “Quảng Ninh - Đất mỏ anh hùng”.Chương trình là sự hòa quyện giữa âm nhạc - xiếc - phóng sự và trình diễn hiện đại, quy tụ dàn nghệ sĩ hàng đầu với quy mô 30.000 khán giả. (Ảnh: Bùi My/ Báo Dân Việt)
+            </figcaption>
+          </figure>
+
+          {/* Ảnh 7: Mạch nguồn Kinh Bắc - Bắc Ninh */}
+          <figure className="article-photo-figure">
+            <img
+              src="/concert-mach-nguon-kinh-bac.jpg"
+              alt="Chương trình nghệ thuật Mạch nguồn Kinh Bắc - Vươn cao thời đại tại Bắc Ninh"
+              className="article-photo-img"
+              loading="lazy"
+            />
+            <figcaption className="article-photo-caption">
+              Chương trình nghệ thuật “Mạch nguồn Kinh Bắc - Vươn cao thời đại” diễn ra vào tối 19/9, tại Quảng trường 3/2 (phường Bắc Giang) nhằm chào mừng thành lập thành phố Bắc Ninh và đón nhận Huân chương Lao động hạng Nhất. (Ảnh: Đồng Thúy/ Thông tấn xã Việt Nam)
+            </figcaption>
+          </figure>
+
+          {/* Ảnh 8: Huế Wonderverse Music Fest 2026 */}
+          <figure className="article-photo-figure">
+            <img
+              src="/concert-hue-wonderverse-music-fest.jpg"
+              alt="Huế Wonderverse Music Fest 2026 tại Quảng trường Hà Huy Tập"
+              className="article-photo-img"
+              loading="lazy"
+            />
+            <figcaption className="article-photo-caption">
+              Với chủ đề “City Awakening - Đánh thức Di sản,” Huế Wonderverse Music Fest 2026 lần đầu được tổ chức tại Huế, mở cửa miễn phí phục vụ người dân và du khách. Từ ngày 30-8 đến 1-9, Quảng trường Hà Huy Tập trở thành điểm hội tụ của âm nhạc, nghệ thuật và công nghệ thu hút hàng ngàn khán giả tham gia. (Ảnh: Ủy ban Nhân dân Thành phố Huế)
+            </figcaption>
+          </figure>
+
           <p className="body-p">
             Tuy nhiên, khi làn sóng này lan rộng mang tính phong trào, các chuyên gia văn hóa bắt đầu đặt ra những góc nhìn phản biện gay gắt. Như PGS.TS Bùi Hoài Sơn đã nhận định trên báo <em>Tuổi Trẻ</em>, phát triển công nghiệp văn hóa không phải là một cuộc đua xem địa phương nào tổ chức được concert lớn hơn, mời nhiều ngôi sao hơn hay dựng sân khấu hoành tráng hơn. Một đêm nhạc bùng nổ đôi khi rất giống một trận pháo hoa: rực rỡ trên bầu trời trong vài tiếng đồng hồ, tạo ra &ldquo;nền kinh tế chú ý&rdquo; sôi động trên mạng xã hội, nhưng nếu thiếu một hệ sinh thái dịch vụ và bản sắc văn hóa bản địa để neo giữ cảm xúc, hiệu ứng kinh tế sẽ nhanh chóng tan biến khi khán giả rời sân vận động ngay trong&nbsp;đêm.
           </p>
