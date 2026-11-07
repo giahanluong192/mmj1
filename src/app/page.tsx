@@ -317,6 +317,58 @@ export default function Home() {
             Trước sức hút truyền thông và khả năng kích cầu du lịch tức thời, chưa bao giờ bản đồ biểu diễn âm nhạc nội địa lại sôi động và dày đặc đến thế. Tại các đô thị lớn, những “siêu concert” giải trí liên tục xác lập kỷ lục về quy mô: “Anh trai vượt ngàn chông gai” 2026 và Tinh hà “Say hi” càn quét TP.HCM với hàng chục nghìn đến hàng trăm nghìn khán giả chỉ trong hai ngày 17-18/10; sức nóng sau đó tiếp tục lan ra Trung tâm Triển lãm Việt&nbsp;Nam (Hà&nbsp;Nội) vào ngày 19/11. Đặc biệt, sự kiện đánh dấu 20 năm của nhóm BigBang tại Mỹ&nbsp;Đình (24-25/10) cũng đón gần 100.000 lượt khách. Không đứng ngoài cuộc chơi, hàng loạt địa phương cũng xem đại nhạc hội như một chiến lược quảng bá điểm đến du lịch. Từ chuỗi sự kiện 30.000 khán giả như “Tự hào là người Việt&nbsp;Nam” tại Thái&nbsp;Nguyên, Quảng&nbsp;Ninh với “Đất mỏ anh hùng”, cho đến “Mạch nguồn Kinh Bắc” của Bắc&nbsp;Ninh, hay các lễ hội kết hợp công nghệ và di sản như Huế Wonderverse Music Fest và Festival Âm nhạc quốc tế Lang Biang (Đà&nbsp;Lạt) đều đồng loạt “nhập&nbsp;cuộc”.
           </p>
 
+          {/* Ảnh 2: Concert Anh Trai Vượt Ngàn Chông Gai 2026 tối 18/10 */}
+          <figure className="article-photo-figure">
+            <img
+              src="/concert-atvngc-dem-2-tphcm.jpg"
+              alt="Concert Anh Trai Vượt Ngàn Chông Gai 2026 tối 18/10 tại TP.HCM"
+              className="article-photo-img"
+              loading="lazy"
+            />
+            <figcaption className="article-photo-caption">
+              Concert Anh Trai Vượt Ngàn Chông Gai 2026 diễn ra vào tối 18/10 tại TP.HCM đã thu hút gần 100.000 khán giả. Concert thắng lớn về doanh thu lẫn hiệu ứng khán giả, cho thấy khâu tổ chức show ca nhạc quy mô lớn tại Việt Nam đã có bước tiến rõ rệt. (Ảnh: Ban Tổ chức Chương trình)
+            </figcaption>
+          </figure>
+
+          {/* Ảnh 3: Đêm thứ hai của concert Tinh Hà Say Hi */}
+          <figure className="article-photo-figure">
+            <img
+              src="/concert-tinh-ha-say-hi-dem-2.jpg"
+              alt="Đêm thứ hai của concert Tinh Hà Say Hi tối 18/10 ở TP.HCM"
+              className="article-photo-img"
+              loading="lazy"
+            />
+            <figcaption className="article-photo-caption">
+              Đêm thứ hai của concert Tinh Hà “Say Hi” diễn ra vào tối 18/10 ở TP HCM. Concert mang chủ đề “Hẹn giữa tinh hà”, quy tụ đầy đủ 24 ca sĩ của mùa giải đầu tiên. Theo ban tổ chức, ước tính chương trình thu hút gần 40.000 khán giả đến xem. (Ảnh: Ban Tổ chức Chương trình)
+            </figcaption>
+          </figure>
+
+          {/* Ảnh 4: Toàn cảnh concert BIGBANG 2026-2027 World Tour in Hanoi */}
+          <figure className="article-photo-figure">
+            <img
+              src="/concert-bigbang-world-tour-hanoi.jpg"
+              alt="Toàn cảnh concert BIGBANG 2026-2027 World Tour in Hanoi tại Mỹ Đình"
+              className="article-photo-img"
+              loading="lazy"
+            />
+            <figcaption className="article-photo-caption">
+              Toàn cảnh concert BIGBANG 2026-2027 World Tour in Hanoi diễn ra vào tối 25/10 tại Sân vận động quốc gia Mỹ Đình (Hà Nội). Sự kiện nhằm kỷ niệm 20 năm ra mắt nhóm nhạc huyền thoại Hàn Quốc BIGBANG. (Ảnh: Xuân Mai/ Báo VnExpress)
+            </figcaption>
+          </figure>
+
+          {/* Ảnh 5: Concert Tự hào là người Việt Nam 2026 tại Thái Nguyên */}
+          <figure className="article-photo-figure">
+            <img
+              src="/concert-tu-hao-la-nguoi-viet-nam-thai-nguyen.jpg"
+              alt="Concert Tự hào là người Việt Nam 2026 tại Sân vận động Thái Nguyên"
+              className="article-photo-img"
+              loading="lazy"
+            />
+            <figcaption className="article-photo-caption">
+              Concert “Tự hào là người Việt Nam 2026” với chủ đề “Nối vòng tay lớn”diễn ra vào tối 1/11 tại Sân vận động Thái Nguyên (xã Đại Phúc, tỉnh Thái Nguyên). Đây là lần đầu có một concert quy mô quốc gia tổ chức tại Thái Nguyên, quy tụ tới 30.000 khán giả. (Ảnh: Vũ Hoàng Giang/ Thông tấn xã Việt Nam)
+            </figcaption>
+          </figure>
+
           <p className="body-p">
             Tuy nhiên, khi làn sóng này lan rộng mang tính phong trào, các chuyên gia văn hóa bắt đầu đặt ra những góc nhìn phản biện gay gắt. Như PGS.TS Bùi Hoài Sơn đã nhận định trên báo <em>Tuổi Trẻ</em>, phát triển công nghiệp văn hóa không phải là một cuộc đua xem địa phương nào tổ chức được concert lớn hơn, mời nhiều ngôi sao hơn hay dựng sân khấu hoành tráng hơn. Một đêm nhạc bùng nổ đôi khi rất giống một trận pháo hoa: rực rỡ trên bầu trời trong vài tiếng đồng hồ, tạo ra &ldquo;nền kinh tế chú ý&rdquo; sôi động trên mạng xã hội, nhưng nếu thiếu một hệ sinh thái dịch vụ và bản sắc văn hóa bản địa để neo giữ cảm xúc, hiệu ứng kinh tế sẽ nhanh chóng tan biến khi khán giả rời sân vận động ngay trong&nbsp;đêm.
           </p>
