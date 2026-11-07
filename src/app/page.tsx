@@ -309,7 +309,7 @@ export default function Home() {
         </div>
 
         {/* [VỊ TRÍ 11] VIDEO ĐỒ HỌA GIẢI THÍCH (MOTION GRAPHIC 90 GIÂY) */}
-        <div className="wide-viz-column">
+        <div className="full-bleed-video-wrap">
           <MotionGraphic90sPlayer />
         </div>
       </section>
