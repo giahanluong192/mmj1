@@ -195,6 +195,58 @@ export default function Home() {
             Đáng chú ý, phân khúc các sự kiện quy mô lớn (trên 5.000 khán giả) đã chiếm khoảng <strong>23,8%</strong> tổng số sự kiện được khảo sát trong báo cáo của Trường Đại học RMIT Việt&nbsp;Nam, trong đó nhóm đại nhạc hội từ 10.000 đến 40.000 người chiếm <strong>14,6%</strong> và trên 40.000 người chiếm <strong>2,5%</strong>. Sự trỗi dậy của các “concert phái sinh” bước ra từ truyền hình thực tế như <em>Anh Trai Vượt Ngàn Chông Gai</em>, <em>Anh Trai &ldquo;Say&nbsp;Hi&rdquo;</em>, <em>Em Xinh &ldquo;Say&nbsp;Hi&rdquo;</em>, cùng chuỗi liveshow cá nhân của Mỹ Tâm (<em>See The Light</em> – khoảng 40.000 khán giả), Hà Anh Tuấn (<em>Sketch A Rose</em> – khoảng 30.000 khán giả), Soobin (<em>All-Rounder</em> – khoảng 26.000 khán giả) đã thiết lập những cột mốc mới. Ngay trong tháng 10 và đầu tháng 11/2026, hai đêm diễn của <em>Anh Trai Vượt Ngàn Chông Gai 2026</em> thu hút khoảng <strong>100.000 khán giả</strong> và tiếp tục ghi nhận tình trạng hết vé chỉ sau vài giờ mở&nbsp;bán. Song song đó, xu hướng “concert quốc gia” gắn với niềm tự hào dân tộc (như <em>Tổ Quốc Trong Tim</em>, <em>V Concert – Rạng Rỡ Việt&nbsp;Nam</em>) cũng thu hút từ <strong>25.000 đến hơn 50.000 người mỗi&nbsp;đêm</strong>. Nối tiếp đà thành công từ các mùa nhạc hội trước, xu hướng này tiếp tục ghi nhận một dấu mốc ấn tượng trong năm nay khi Hà&nbsp;Nội tổ chức đại nhạc hội quy mô lên tới <strong>60.000 khán giả</strong> nhằm chào mừng Ngày Văn hóa Việt&nbsp;Nam 24/11.
           </p>
 
+          {/* Ảnh 2: 33 Anh Tài mở màn Concert Anh Trai Vượt Ngàn Chông Gai 2026 */}
+          <figure className="article-photo-figure">
+            <img
+              src="/concert-atvngc-hoa-tam.jpg"
+              alt="33 Anh Tài với ca khúc chủ đề Hoả Tâm mở màn Concert Anh Trai Vượt Ngàn Chông Gai 2026"
+              className="article-photo-img"
+              loading="lazy"
+            />
+            <figcaption className="article-photo-caption">
+              33 Anh Tài đốt cháy sân khấu với ca khúc chủ đề Hoả Tâm mở màn Concert Anh Trai Vượt Ngàn Chông Gai 2026 diễn ra tại TP. Hồ Chí Minh vào tối 17 /10. (Ảnh: Fanpage Anh Trai Vượt Ngàn Chông Gai)
+            </figcaption>
+          </figure>
+
+          {/* Ảnh 3: Concert Tinh Hà Say Hi tại Vạn Phúc City */}
+          <figure className="article-photo-figure">
+            <img
+              src="/concert-tinh-ha-say-hi-van-phuc.jpg"
+              alt="Concert Tinh Hà Say Hi tại Vạn Phúc City, TP. Hồ Chí Minh"
+              className="article-photo-img"
+              loading="lazy"
+            />
+            <figcaption className="article-photo-caption">
+              Concert Tinh Hà “Say Hi” thu hút hàng chục nghìn khán giả tại Vạn Phúc City, TP. Hồ Chí Minh thành điểm hẹn âm nhạc với 24 nghệ sĩ cùng nhiều màn trình diễn bùng nổ. (Ảnh: DatVietVAC)
+            </figcaption>
+          </figure>
+
+          {/* Ảnh 4: Concert See The Light Mỹ Tâm tại Mỹ Đình */}
+          <figure className="article-photo-figure">
+            <img
+              src="/concert-my-tam-see-the-light.jpg"
+              alt="Concert See The Light của Mỹ Tâm tại sân vận động Mỹ Đình"
+              className="article-photo-img"
+              loading="lazy"
+            />
+            <figcaption className="article-photo-caption">
+              Concert See The Light của Mỹ Tâm diễn ra vào tối ngày 13/12 tại sân vận động Mỹ Đình (Hà Nội) với 40.000 khán giả, kéo dài gần 4 tiếng với hơn 30 bài hát. Đây là concert cá nhân lớn nhất Việt Nam hiện nay. (Ảnh: Ban Tổ chức Chương trình See The Light)
+            </figcaption>
+          </figure>
+
+          {/* Ảnh 5: V Concert Rạng rỡ Việt Nam */}
+          <figure className="article-photo-figure">
+            <img
+              src="/concert-v-concert-rang-ro-viet-nam.jpg"
+              alt="V Concert với chủ đề Rạng rỡ Việt Nam tại Trung tâm Triển lãm Việt Nam"
+              className="article-photo-img"
+              loading="lazy"
+            />
+            <figcaption className="article-photo-caption">
+              V Concert với chủ đề Rạng rỡ Việt Nam diễn ra tại Trung tâm Triển lãm Việt Nam (Đông Anh, Hà Nội). Concert bắt đầu từ 19h tối 9-8, concert kéo dài gần 7 tiếng. Đây được xem là “bước chuyển” của VTV với vị thế đài truyền hình quốc gia khi tổ chức concert hướng tới Ngày Quốc khánh 2-9 một cách trẻ trung, gần gũi với quy mô gần 20.000 khán giả. (Ảnh: Nam Trần/ Báo Tuổi trẻ)
+            </figcaption>
+          </figure>
+
           <p className="body-p">
             Sự bùng nổ này bắt nguồn bởi sự thay đổi rõ nét trong tâm lý sẵn sàng chi trả của công chúng. Khảo sát của Trường Đại học RMIT Việt&nbsp;Nam chỉ ra rằng sự kiện trực tiếp (concert, liveshow, fan meeting) đứng thứ hai trong nhóm các sản phẩm âm nhạc được khán giả sẵn sàng chi tiền nhiều nhất (chiếm <strong>60,9%</strong>), chỉ xếp sau gói đăng ký nghe nhạc trực tuyến (<strong>71,7%</strong>). Đặc biệt, văn hóa fandom chuyên nghiệp (<em>Prosumer Fandom</em>) đã thúc đẩy chi tiêu cho các vật phẩm đi kèm (<em>merchandise</em>): có tới <strong>33,2%</strong> người hâm mộ sẵn sàng chi từ 500.000 đến 1.000.000 đồng/tháng và <strong>22,9%</strong> chi trên 1.000.000 đồng/tháng cho nhóm sản phẩm&nbsp;này.
           </p>
