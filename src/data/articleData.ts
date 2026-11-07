@@ -250,7 +250,7 @@ export const ARTICLE_META = {
   publishDate: "Tháng 11/2026",
   author: "Nhóm 01",
   advisor: "ThS. Nguyễn Thanh Liêm",
-  readTime: "10 phút",
+  readTime: "17 phút",
   footageCredits:
     "Nguồn tư liệu hình ảnh & đối chiếu footage: Ban tổ chức Anh Trai Vượt Ngàn Chông Gai (YeaH1), Anh Trai \"Say Hi\" (Vie Channel / DatVietVAC), Concert Quốc gia Tổ Quốc Trong Tim & V-Concert (Báo Nhân Dân, VTV).",
 };
