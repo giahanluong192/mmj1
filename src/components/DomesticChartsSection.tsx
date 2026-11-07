@@ -591,6 +591,14 @@ export function VoxpopWaveformBox() {
 /* ============================================================================
    [VỊ TRÍ 5] INFOGRAPHIC: HỆ SINH THÁI KINH TẾ QUANH 1 ĐÊM CONCERT (30.000 KHÁCH)
    ============================================================================ */
+const SPOKE_LABEL_LINES: Record<string, string[]> = {
+  hotel: ["Lưu trú & Khách sạn"],
+  transport: ["Hàng không", "& Vận tải"],
+  fnb: ["Ẩm thực (F&B)"],
+  merch: ["Thời trang & Merch"],
+  ooh: ["OOH & LED", "Fan Project"],
+};
+
 export function ConcertEconomicInfographic() {
   const [activeSpokeId, setActiveSpokeId] = useState<string>("hotel");
 
@@ -703,16 +711,34 @@ export function ConcertEconomicInfographic() {
               const nx = centerX + Math.cos(rad) * orbitRadius;
               const ny = centerY + Math.sin(rad) * orbitRadius;
               const isSelected = spoke.id === activeSpoke.id;
+              const lines = SPOKE_LABEL_LINES[spoke.id] || [spoke.shortTitle];
 
-              const labelYOffset = ny < centerY - 70 ? -54 : ny > centerY + 70 ? 56 : 6;
-              const labelXOffset =
-                Math.abs(nx - centerX) < 35 ? 0 : nx < centerX ? -48 : 48;
               const anchor =
                 Math.abs(nx - centerX) < 35
                   ? "middle"
                   : nx < centerX
                   ? "end"
                   : "start";
+
+              let lx = nx;
+              let ly = ny;
+
+              if (spoke.id === "hotel") {
+                lx = nx;
+                ly = ny - 50;
+              } else if (spoke.id === "transport") {
+                lx = nx + 44;
+                ly = ny - 6;
+              } else if (spoke.id === "ooh") {
+                lx = nx - 44;
+                ly = ny - 6;
+              } else if (spoke.id === "fnb") {
+                lx = nx + 36;
+                ly = ny + 56;
+              } else if (spoke.id === "merch") {
+                lx = nx - 36;
+                ly = ny + 56;
+              }
 
               return (
                 <g
@@ -742,14 +768,22 @@ export function ConcertEconomicInfographic() {
                     {spoke.icon}
                   </text>
                   <text
-                    x={nx + labelXOffset}
-                    y={ny + labelYOffset}
+                    x={lx}
+                    y={ly}
                     textAnchor={anchor}
                     fill={isSelected ? "var(--text-primary)" : "var(--text-secondary)"}
-                    fontSize="17"
+                    fontSize="20"
                     fontWeight={isSelected ? "800" : "700"}
                   >
-                    {spoke.shortTitle}
+                    {lines.map((line, lIdx) => (
+                      <tspan
+                        key={lIdx}
+                        x={lx}
+                        dy={lIdx === 0 ? 0 : "1.2em"}
+                      >
+                        {line}
+                      </tspan>
+                    ))}
                   </text>
                 </g>
               );
