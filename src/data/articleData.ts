@@ -954,7 +954,7 @@ export const SEA_RADAR_COUNTRIES: SeaRadarCountry[] = [
   {
     id: "vietnam",
     country: "Việt Nam",
-    cities: "TP.HCM & Hà Nội",
+    cities: "Hà Nội & TP. Hồ Chí Minh",
     color: "#DA251D",
     arpu2030: 5.44,
     scores: {
