@@ -597,9 +597,9 @@ export function ConcertEconomicInfographic() {
   const activeSpoke =
     ECOSYSTEM_SPOKES.find((s) => s.id === activeSpokeId) || ECOSYSTEM_SPOKES[0];
 
-  const centerX = 430;
-  const centerY = 285;
-  const orbitRadius = 195;
+  const centerX = 440;
+  const centerY = 290;
+  const orbitRadius = 208;
 
   return (
     <figure className="viz-card" id="vi-tri-5">
@@ -620,7 +620,7 @@ export function ConcertEconomicInfographic() {
       <div className="ecosystem-infographic-grid">
         <div className="ecosystem-svg-container">
           <svg
-            viewBox="0 0 860 580"
+            viewBox="0 0 880 590"
             className="ecosystem-svg"
             role="img"
             aria-label="Infographic tâm điểm sân vận động 30.000 khán giả tỏa ra 5 nhánh kinh tế"
@@ -643,7 +643,7 @@ export function ConcertEconomicInfographic() {
               strokeWidth="1.5"
               strokeDasharray="5 5"
             />
-            <circle cx={centerX} cy={centerY} r="140" fill="url(#stadiumCoreGlow)" />
+            <circle cx={centerX} cy={centerY} r="155" fill="url(#stadiumCoreGlow)" />
 
             {/* Connecting spokes */}
             {ECOSYSTEM_SPOKES.map((spoke) => {
@@ -660,7 +660,7 @@ export function ConcertEconomicInfographic() {
                     x2={nx}
                     y2={ny}
                     stroke={spoke.color}
-                    strokeWidth={isSelected ? 4.2 : 2.4}
+                    strokeWidth={isSelected ? 4.8 : 2.6}
                     strokeOpacity={isSelected ? 0.95 : 0.5}
                   />
                 </g>
@@ -672,7 +672,7 @@ export function ConcertEconomicInfographic() {
               <circle
                 cx={centerX}
                 cy={centerY}
-                r="92"
+                r="104"
                 fill="var(--bg-card)"
                 stroke="var(--accent-blue)"
                 strokeWidth="2.5"
@@ -680,19 +680,19 @@ export function ConcertEconomicInfographic() {
               <circle
                 cx={centerX}
                 cy={centerY}
-                r="82"
+                r="92"
                 fill="none"
                 stroke="var(--accent-purple)"
                 strokeWidth="1.2"
                 strokeDasharray="3 3"
               />
-              <text x={centerX} y={centerY - 20} textAnchor="middle" fill="var(--accent-blue)" fontSize="12.5" fontWeight="800" letterSpacing="0.04em">
+              <text x={centerX} y={centerY - 22} textAnchor="middle" fill="var(--accent-blue)" fontSize="14" fontWeight="800" letterSpacing="0.05em">
                 TÂM ĐIỂM CONCERT
               </text>
-              <text x={centerX} y={centerY + 9} textAnchor="middle" fill="var(--text-primary)" fontSize="26" fontWeight="900">
+              <text x={centerX} y={centerY + 10} textAnchor="middle" fill="var(--text-primary)" fontSize="32" fontWeight="900">
                 30.000
               </text>
-              <text x={centerX} y={centerY + 30} textAnchor="middle" fill="var(--text-secondary)" fontSize="11.5" fontWeight="700">
+              <text x={centerX} y={centerY + 34} textAnchor="middle" fill="var(--text-secondary)" fontSize="13" fontWeight="700">
                 KHÁN GIẢ / ĐÊM
               </text>
             </g>
@@ -704,9 +704,9 @@ export function ConcertEconomicInfographic() {
               const ny = centerY + Math.sin(rad) * orbitRadius;
               const isSelected = spoke.id === activeSpoke.id;
 
-              const labelYOffset = ny < centerY - 70 ? -48 : ny > centerY + 70 ? 52 : 6;
+              const labelYOffset = ny < centerY - 70 ? -54 : ny > centerY + 70 ? 56 : 6;
               const labelXOffset =
-                Math.abs(nx - centerX) < 35 ? 0 : nx < centerX ? -42 : 42;
+                Math.abs(nx - centerX) < 35 ? 0 : nx < centerX ? -48 : 48;
               const anchor =
                 Math.abs(nx - centerX) < 35
                   ? "middle"
@@ -725,7 +725,7 @@ export function ConcertEconomicInfographic() {
                     <circle
                       cx={nx}
                       cy={ny}
-                      r="48"
+                      r="54"
                       fill={spoke.color}
                       fillOpacity="0.2"
                     />
@@ -733,12 +733,12 @@ export function ConcertEconomicInfographic() {
                   <circle
                     cx={nx}
                     cy={ny}
-                    r={isSelected ? 38 : 33}
+                    r={isSelected ? 42 : 37}
                     fill="var(--bg-card)"
                     stroke={spoke.color}
                     strokeWidth={isSelected ? 3.5 : 2.2}
                   />
-                  <text x={nx} y={ny + 9} textAnchor="middle" fontSize="26">
+                  <text x={nx} y={ny + 10} textAnchor="middle" fontSize="29">
                     {spoke.icon}
                   </text>
                   <text
@@ -746,7 +746,7 @@ export function ConcertEconomicInfographic() {
                     y={ny + labelYOffset}
                     textAnchor={anchor}
                     fill={isSelected ? "var(--text-primary)" : "var(--text-secondary)"}
-                    fontSize="15"
+                    fontSize="17"
                     fontWeight={isSelected ? "800" : "700"}
                   >
                     {spoke.shortTitle}
