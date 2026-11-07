@@ -1,14 +1,26 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { ARTICLE_META, KEY_METRICS } from "@/data/articleData";
 
 export default function HeroConcertLoop() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {});
+    }
+  }, []);
+
   return (
     <>
       <section className="hero-concert-section" id="vi-tri-1">
         {/* Background Video Intro Loop */}
         <div className="hero-video-stage">
           <video
+            ref={videoRef}
             className="hero-background-video"
             autoPlay
             loop
