@@ -603,7 +603,7 @@ export const ECOSYSTEM_SPOKES: EcosystemSpoke[] = [
   {
     id: "hotel",
     code: "01",
-    title: "Lưu trú & Khách sạn",
+    title: "Lưu trú",
     shortTitle: "Lưu trú",
     icon: "🏨",
     color: "#38BDF8",
@@ -615,7 +615,7 @@ export const ECOSYSTEM_SPOKES: EcosystemSpoke[] = [
   {
     id: "transport",
     code: "02",
-    title: "Hàng không & Vận tải nội đô",
+    title: "Di chuyển",
     shortTitle: "Di chuyển",
     icon: "✈️",
     color: "#818CF8",
@@ -627,7 +627,7 @@ export const ECOSYSTEM_SPOKES: EcosystemSpoke[] = [
   {
     id: "fnb",
     code: "03",
-    title: "Ẩm thực (F&B quanh điểm diễn)",
+    title: "Ẩm thực (F&B)",
     shortTitle: "Ẩm thực (F&B)",
     icon: "🍜",
     color: "#F59E0B",
@@ -639,7 +639,7 @@ export const ECOSYSTEM_SPOKES: EcosystemSpoke[] = [
   {
     id: "fashion-merch",
     code: "04",
-    title: "Thời trang, Makeup & Merchandise",
+    title: "Merch/Goods",
     shortTitle: "Merch/Goods",
     icon: "👕",
     color: "#EC4899",
@@ -651,7 +651,7 @@ export const ECOSYSTEM_SPOKES: EcosystemSpoke[] = [
   {
     id: "ooh-media",
     code: "05",
-    title: "Quảng cáo ngoài trời (LED / Roadshow FC)",
+    title: "Fan Project",
     shortTitle: "Fan Project",
     icon: "🏙️",
     color: "#10B981",

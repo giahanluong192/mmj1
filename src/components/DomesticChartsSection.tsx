@@ -795,7 +795,7 @@ export function ConcertEconomicInfographic() {
 
         <div className="ecosystem-detail-panel" style={{ borderTopColor: activeSpoke.color }}>
           <div className="eco-branch-badge" style={{ color: activeSpoke.color }}>
-            NHÁNH DỊCH VỤ {activeSpoke.code}/05
+            NHÁNH DỊCH VỤ {activeSpoke.code}
           </div>
           <h4 className="eco-branch-title">
             {activeSpoke.icon} {activeSpoke.title}
