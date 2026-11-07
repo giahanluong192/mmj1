@@ -616,7 +616,7 @@ export const ECOSYSTEM_SPOKES: EcosystemSpoke[] = [
     id: "transport",
     code: "02",
     title: "Hàng không & Vận tải nội đô",
-    shortTitle: "Hàng không & Vận tải",
+    shortTitle: "Di chuyển",
     icon: "✈️",
     color: "#818CF8",
     angleDeg: -18,

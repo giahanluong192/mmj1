@@ -593,7 +593,7 @@ export function VoxpopWaveformBox() {
    ============================================================================ */
 const SPOKE_LABEL_LINES: Record<string, string[]> = {
   hotel: ["Lưu trú"],
-  transport: ["Hàng không", "& Vận tải"],
+  transport: ["Di chuyển"],
   fnb: ["Ẩm thực (F&B)"],
   "fashion-merch": ["Merch/Goods"],
   merch: ["Merch/Goods"],
@@ -730,7 +730,7 @@ export function ConcertEconomicInfographic() {
                 ly = ny - 52;
               } else if (spoke.id === "transport") {
                 lx = nx + 56;
-                ly = ny - 6;
+                ly = ny + 6;
               } else if (spoke.id === "ooh-media" || spoke.id === "ooh") {
                 lx = nx - 58;
                 ly = ny + 6;
