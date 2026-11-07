@@ -904,6 +904,42 @@ textarea {
   font-weight: 700;
 }
 
+/* --- EDITORIAL PHOTO FIGURES --- */
+.article-photo-figure {
+  margin: 2.25rem auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.article-photo-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border-subtle);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+[data-theme="dark"] .article-photo-img,
+.dark .article-photo-img {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.article-photo-caption {
+  margin-top: 0.75rem;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  font-style: italic;
+  text-align: center;
+  padding: 0 0.85rem;
+  max-width: 900px;
+}
+
 .national-concert-callout {
   background: var(--callout-national-bg);
   border: 1px solid var(--tint-red-border);

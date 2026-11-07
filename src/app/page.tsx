@@ -141,6 +141,45 @@ export default function Home() {
             Về mặt tổ chức, thị trường không còn bó hẹp trong các đêm nhạc quảng cáo miễn phí hay nỗ lực đơn lẻ của từng cá nhân, mà chuyển sang mô hình kinh tế giải trí tích hợp do các công ty sản xuất chuyên nghiệp dẫn dắt (chiếm <strong>49,6%</strong> tổng số sự kiện). Các chương trình truyền hình thực tế không chỉ dừng lại ở việc phát sóng mà trở thành bệ phóng cho những chuỗi concert thương mại quy mô hàng chục nghìn khán giả. Song song đó là sự xuất hiện của mô hình hợp tác công – tư (PPP, chiếm <strong>17,8%</strong>) tạo nên các &ldquo;concert quốc gia&rdquo;, cùng xu hướng các thương hiệu tham gia đồng sở hữu sự kiện để kiến tạo trải nghiệm thay vì chỉ đặt logo tài trợ đơn thuần. Về phía khán giả, tư duy &ldquo;xem nhạc miễn phí&rdquo; dần nhường chỗ cho sự hình thành của văn hóa thần tượng nội địa và các cộng đồng người hâm mộ có tổ chức bài bản. Từ vị thế người nghe thụ động, khán giả trẻ chủ động chi tiền triệu mua vé, sưu tầm vật phẩm và thực hiện các dự án tiếp sức quy mô lớn cho nghệ sĩ&nbsp;Việt.
           </p>
 
+          {/* Ảnh 2: Concert Quốc gia Tổ quốc trong tim 2026 */}
+          <figure className="article-photo-figure">
+            <img
+              src="/concert-to-quoc-trong-tim.jpg"
+              alt="“Concert Quốc gia” Tổ quốc trong tim 2026 tổ chức tại Khu đô thị Vạn Phúc City"
+              className="article-photo-img"
+              loading="lazy"
+            />
+            <figcaption className="article-photo-caption">
+              “Concert Quốc gia” Tổ quốc trong tim 2026 tổ chức tại Khu đô thị Vạn Phúc City vào tối ngày 23/8. Hơn 40.000 khán giả tại Vạn Phúc, gần 30.000 người tại phố đi bộ Nguyễn Huệ và hàng triệu lượt khán giả trên mạng xã hội cùng hòa vào không gian nghệ thuật đặc biệt. (Ảnh: Báo Nhân Dân)
+            </figcaption>
+          </figure>
+
+          {/* Ảnh 3: Concert Anh Trai Vượt Ngàn Chông Gai 2026 */}
+          <figure className="article-photo-figure">
+            <img
+              src="/concert-anh-trai-vuot-ngan-chong-gai.jpg"
+              alt="Concert Anh Trai Vượt Ngàn Chông Gai 2026 tại TP. Hồ Chí Minh"
+              className="article-photo-img"
+              loading="lazy"
+            />
+            <figcaption className="article-photo-caption">
+              Concert Anh Trai Vượt Ngàn Chông Gai 2026 diễn ra tại TP. Hồ Chí Minh vào ngày 17 /10, quy mô gần 50.000 khán giả. (Ảnh: Fanpage Anh Trai Vượt Ngàn Chông Gai)
+            </figcaption>
+          </figure>
+
+          {/* Ảnh 4: Concert Tinh Hà Say Hi */}
+          <figure className="article-photo-figure">
+            <img
+              src="/concert-tinh-ha-say-hi.jpg"
+              alt="Concert Tinh Hà “Say Hi” mang chủ đề Hẹn giữa tinh hà tại TP. Hồ Chí Minh"
+              className="article-photo-img"
+              loading="lazy"
+            />
+            <figcaption className="article-photo-caption">
+              Concert Tinh Hà “Say Hi” mang chủ đề &ldquo;Hẹn giữa tinh hà&rdquo; diễn ra tối 17/10, tại TP. Hồ Chí Minh thu hút chục ngàn khán giả hào hứng tham gia. (Ảnh: Ban Tổ chức Chương trình Tinh Hà &ldquo;Say Hi&rdquo;)
+            </figcaption>
+          </figure>
+
           <p className="body-p">
             Theo <em>Báo cáo Tổng quan ngành công nghiệp âm nhạc Việt&nbsp;Nam 2025-2026</em> của Trường Đại học RMIT Việt&nbsp;Nam, năm 2025 ghi nhận hơn <strong>810 sự kiện âm nhạc</strong> đã diễn ra hoặc được công bố trên cả nước. Riêng tại đầu tàu kinh tế TP.HCM, số liệu thống kê trong 9 tháng đầu năm 2026 cho thấy thành phố đã tiếp nhận, thẩm định và chấp thuận <strong>1.064 hồ sơ</strong> hoạt động nghệ thuật biểu diễn, trong đó có tới <strong>944 chương trình nghệ thuật, sân khấu</strong>. Tần suất sự kiện tăng cao vào mùa hè và nửa cuối năm phản ánh nhu cầu thưởng thức âm nhạc trực tiếp (<em>live music</em>) đang dần trở thành một phần trong lối sống của người trẻ đô&nbsp;thị.
           </p>
