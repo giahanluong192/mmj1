@@ -592,7 +592,7 @@ export function VoxpopWaveformBox() {
    [VỊ TRÍ 5] INFOGRAPHIC: HỆ SINH THÁI KINH TẾ QUANH 1 ĐÊM CONCERT (30.000 KHÁCH)
    ============================================================================ */
 const SPOKE_LABEL_LINES: Record<string, string[]> = {
-  hotel: ["Lưu trú & Khách sạn"],
+  hotel: ["Lưu trú"],
   transport: ["Hàng không", "& Vận tải"],
   fnb: ["Ẩm thực (F&B)"],
   "fashion-merch": ["Merch/Goods"],

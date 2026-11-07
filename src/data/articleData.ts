@@ -604,7 +604,7 @@ export const ECOSYSTEM_SPOKES: EcosystemSpoke[] = [
     id: "hotel",
     code: "01",
     title: "Lưu trú & Khách sạn",
-    shortTitle: "Lưu trú & Khách sạn",
+    shortTitle: "Lưu trú",
     icon: "🏨",
     color: "#38BDF8",
     angleDeg: -90,
