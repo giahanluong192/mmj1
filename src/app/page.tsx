@@ -250,6 +250,32 @@ export default function Home() {
           <p className="body-p">
             Sự bùng nổ này bắt nguồn bởi sự thay đổi rõ nét trong tâm lý sẵn sàng chi trả của công chúng. Khảo sát của Trường Đại học RMIT Việt&nbsp;Nam chỉ ra rằng sự kiện trực tiếp (concert, liveshow, fan meeting) đứng thứ hai trong nhóm các sản phẩm âm nhạc được khán giả sẵn sàng chi tiền nhiều nhất (chiếm <strong>60,9%</strong>), chỉ xếp sau gói đăng ký nghe nhạc trực tuyến (<strong>71,7%</strong>). Đặc biệt, văn hóa fandom chuyên nghiệp (<em>Prosumer Fandom</em>) đã thúc đẩy chi tiêu cho các vật phẩm đi kèm (<em>merchandise</em>): có tới <strong>33,2%</strong> người hâm mộ sẵn sàng chi từ 500.000 đến 1.000.000 đồng/tháng và <strong>22,9%</strong> chi trên 1.000.000 đồng/tháng cho nhóm sản phẩm&nbsp;này.
           </p>
+
+          {/* Ảnh 2: Tinh Hà Say Hi Collection VieShop */}
+          <figure className="article-photo-figure">
+            <img
+              src="/merch-tinh-ha-say-hi-collection.jpg"
+              alt="Các sản phẩm thuộc Tinh Hà “Say Hi” Collection với quyền lợi Random Photocard đi kèm sản phẩm"
+              className="article-photo-img"
+              loading="lazy"
+            />
+            <figcaption className="article-photo-caption">
+              Các sản phẩm thuộc Tinh Hà &ldquo;Say Hi&rdquo; Collection với quyền lợi Random Photocard đi kèm sản phẩm. (Ảnh: Fanpage VieShop)
+            </figcaption>
+          </figure>
+
+          {/* Ảnh 3: Bộ sưu tập TOGETHER WE SHINE trên nền tảng VieSHOP */}
+          <figure className="article-photo-figure">
+            <img
+              src="/merch-together-we-shine-vieshop.jpg"
+              alt="Bộ sưu tập TOGETHER WE SHINE trên nền tảng VieSHOP"
+              className="article-photo-img"
+              loading="lazy"
+            />
+            <figcaption className="article-photo-caption">
+              Bộ sưu tập TOGETHER WE SHINE trên nền tảng VieSHOP. Cơ chế quy đổi đơn hàng hợp lệ thành lượt bình chọn trực tiếp đã thúc đẩy người hâm mộ mạnh tay chi tiền để ủng hộ các &lsquo;Anh Trai&rsquo;. (Ảnh: Fanpage VieShop)
+            </figcaption>
+          </figure>
         </div>
 
         {/* [VỊ TRÍ 3] BIỂU ĐỒ 2: CƠ CẤU GIÁ VÉ & MỨC SẴN SÀNG CHI TRẢ CỦA KHÁN GIẢ VIỆT */}
