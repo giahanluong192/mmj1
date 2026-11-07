@@ -338,7 +338,7 @@ export const EVENT_SCALE_DISTRIBUTION: EventScaleSlice[] = [
     scaleLabel: "1.000 – 5.000 người",
     percentage: 31.5,
     isLargeScale: false,
-    color: "#FF8A0A",
+    color: "#C40D0C",
     note: "Phân khúc xương sống tại các nhà thi đấu, trung tâm hội nghị và không gian ngoài trời tầm trung.",
   },
   {
@@ -346,7 +346,7 @@ export const EVENT_SCALE_DISTRIBUTION: EventScaleSlice[] = [
     scaleLabel: "200 – 500 người",
     percentage: 27.7,
     isLargeScale: false,
-    color: "#FFC002",
+    color: "#E23A00",
     note: "Mini-show, livehouse, phòng trà và đêm nhạc indie định kỳ tại các đô thị lớn.",
   },
   {
@@ -354,7 +354,7 @@ export const EVENT_SCALE_DISTRIBUTION: EventScaleSlice[] = [
     scaleLabel: "500 – 1.000 người",
     percentage: 17.0,
     isLargeScale: false,
-    color: "#FFA700",
+    color: "#FF6500",
     note: "Fan meeting, showcase ra mắt album và không gian âm nhạc du lịch như Đà Lạt, Huế.",
   },
   {
@@ -362,7 +362,7 @@ export const EVENT_SCALE_DISTRIBUTION: EventScaleSlice[] = [
     scaleLabel: "10.000 – 40.000 người",
     percentage: 14.6,
     isLargeScale: true,
-    color: "#E63E00",
+    color: "#FF8A0A",
     note: "Đại nhạc hội sân vận động & khu đô thị mở — động lực tăng trưởng đột phá nhất giai đoạn 2024–2026.",
   },
   {
@@ -370,7 +370,7 @@ export const EVENT_SCALE_DISTRIBUTION: EventScaleSlice[] = [
     scaleLabel: "5.000 – 10.000 người",
     percentage: 6.7,
     isLargeScale: true,
-    color: "#FF6500",
+    color: "#FFAE00",
     note: "Liveshow cá nhân quy mô nhà thi đấu lớn và lễ hội âm nhạc kết hợp thương hiệu.",
   },
   {
@@ -378,7 +378,7 @@ export const EVENT_SCALE_DISTRIBUTION: EventScaleSlice[] = [
     scaleLabel: "Trên 40.000 người",
     percentage: 2.5,
     isLargeScale: true,
-    color: "#C40D0C",
+    color: "#FFC002",
     note: "Siêu sự kiện (Mega-concert): Concert phái sinh truyền hình thực tế, Concert Quốc gia & G-Dragon World Tour.",
   },
 ];
