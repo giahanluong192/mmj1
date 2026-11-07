@@ -2129,10 +2129,10 @@ textarea {
 }
 
 /* ============================================================================
-   MOTION GRAPHIC 90S EXPLAINER
+   MOTION GRAPHIC VIDEO EXPLAINER
    ============================================================================ */
 .motion-play-cta {
-  background: var(--accent-blue);
+  background: var(--vn-red);
   color: #FFFFFF;
   border: none;
   padding: 0.58rem 1.15rem;
@@ -2140,15 +2140,44 @@ textarea {
   font-weight: 800;
   font-size: 0.86rem;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 [data-theme="dark"] .motion-play-cta {
-  color: #0B0C10;
+  color: #FFFFFF;
+}
+
+.motion-play-cta:hover {
+  filter: brightness(0.92);
+  transform: translateY(-1px);
 }
 
 .motion-play-cta.playing {
   background: var(--vn-red);
   color: #FFFFFF;
+  opacity: 0.9;
+}
+
+.motion-video-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000000;
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.motion-video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: #000000;
 }
 
 .motion-stage-screen {

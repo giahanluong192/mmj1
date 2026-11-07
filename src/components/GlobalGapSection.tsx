@@ -1,11 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useRef } from "react";
 import {
   ARTIST_ORIGIN_CORRELATION,
   SEA_RADAR_COUNTRIES,
   SEA_ARPU_2030,
-  MOTION_GRAPHIC_90S_SCENES,
 } from "@/data/articleData";
 
 /* ============================================================================
@@ -390,28 +389,26 @@ export function SeaInfrastructureRadarAndTable() {
    [VỊ TRÍ 11] VIDEO MOTION GRAPHIC GIẢI THÍCH (90 GIÂY) – ĐƯA SAO QUỐC TẾ VỀ VN
    ============================================================================ */
 export function MotionGraphic90sPlayer() {
-  const [sceneIdx, setSceneIdx] = useState<number>(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(false);
-  const [ticketPriceScenario, setTicketPriceScenario] = useState<"high-ticket" | "low-no-sponsor" | "sponsor-balanced">("sponsor-balanced");
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
 
-  useEffect(() => {
-    if (!isAutoPlaying) return;
-    const timer = setInterval(() => {
-      setSceneIdx((prev) => {
-        if (prev < MOTION_GRAPHIC_90S_SCENES.length - 1) {
-          return prev + 1;
-        }
-        setIsAutoPlaying(false);
-        return 0;
-      });
-    }, 5500);
-    return () => clearInterval(timer);
-  }, [isAutoPlaying]);
-
-  const activeScene = MOTION_GRAPHIC_90S_SCENES[sceneIdx];
+  const handleTogglePlay = () => {
+    if (!videoRef.current) return;
+    if (videoRef.current.paused) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    } else {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
 
   return (
-    <section className="viz-card motion-explainer-card" id="vi-tri-11" aria-label="Motion Graphic 90 giây giải thích hành trình đưa sao quốc tế về Việt Nam">
+    <section
+      className="viz-card motion-explainer-card"
+      id="vi-tri-11"
+      aria-label="Video Motion Graphic giải thích hành trình đưa sao quốc tế về Việt Nam"
+    >
       <div className="viz-header">
         <div>
           <span className="pos-badge">
@@ -421,128 +418,39 @@ export function MotionGraphic90sPlayer() {
             Từ khoản cọc 2 triệu USD đến bài toán cân não giá vé của Promoter&nbsp;nội&nbsp;địa
           </h3>
           <p className="viz-subtitle">
-            Bấm phát tự động hoặc chọn từng phân cảnh trên thanh thời gian 90 giây để theo dõi đường đi của chi&nbsp;phí
+            Video Motion Graphic phân tích đường đi của dòng tiền, áp lực bảo lãnh tối thiểu (Minimum Guarantee) và bài toán doanh thu khi đưa concert quốc tế về Việt Nam
           </p>
         </div>
 
         <button
           type="button"
-          className={`motion-play-cta ${isAutoPlaying ? "playing" : ""}`}
-          onClick={() => setIsAutoPlaying((prev) => !prev)}
+          className={`motion-play-cta ${isPlaying ? "playing" : ""}`}
+          onClick={handleTogglePlay}
         >
-          {isAutoPlaying ? "⏸ Tạm dừng Motion Graphic" : "▶ Phát kịch bản 90s"}
+          {isPlaying ? "⏸ Tạm dừng video" : "▶ Phát video"}
         </button>
       </div>
 
-      {/* Motion Graphic Viewport */}
-      <div className="motion-stage-screen">
-        <div className="motion-stage-topbar">
-          <span className="motion-phase-pill">{activeScene.stageTitle}</span>
-          <span className="motion-timecode">⏱ TIMECODE: {activeScene.timecode}</span>
-        </div>
-
-        <h4 className="motion-headline">{activeScene.headline}</h4>
-        <p className="motion-narrative">{activeScene.narrative}</p>
-
-        {/* Scene 1 Visual: Minimum Guarantee */}
-        {sceneIdx === 0 && (
-          <div className="mg-scene1-visual">
-            <div className="mg-contract-box">
-              <span className="mg-small-label">GLOBAL TOUR AGENCY</span>
-              <div className="mg-big-usd">$2,000,000</div>
-              <span className="mg-sub-note">Minimum Guarantee (Chưa tính chi phí sản xuất tại chỗ)</span>
-            </div>
-            <div className="mg-arrow-flow">➔</div>
-            <div className="mg-promoter-meter">
-              <span className="mg-small-label">ÁP LỰC PROMOTER NỘI ĐỊA</span>
-              <p>Phải thanh toán bảo lãnh cứng dù chưa mở cổng bán vé và chưa có sân vận động mái che chuẩn sẵn sàng.</p>
-            </div>
-          </div>
-        )}
-
-        {/* Scene 2 Visual: 3 Cost Tollbooths */}
-        {sceneIdx === 1 && activeScene.costCheckpoints && (
-          <div className="mg-tollbooths-grid">
-            {activeScene.costCheckpoints.map((cp) => (
-              <div key={cp.station} className="mg-toll-card">
-                <div className="mg-toll-header">
-                  <span className="mg-station-badge">{cp.station}</span>
-                  <span className="mg-cost-jump">{cp.costImpact}</span>
-                </div>
-                <h5>{cp.title}</h5>
-                <p>{cp.detail}</p>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {/* Scene 3 Visual: Interactive Ticket vs. Sponsor Balance Simulator */}
-        {sceneIdx === 2 && (
-          <div className="mg-balance-simulator">
-            <div className="mg-sim-buttons">
-              <button
-                type="button"
-                className={ticketPriceScenario === "high-ticket" ? "active" : ""}
-                onClick={() => setTicketPriceScenario("high-ticket")}
-              >
-                Phương án A: Đẩy giá vé thật cao bù chi phí
-              </button>
-              <button
-                type="button"
-                className={ticketPriceScenario === "low-no-sponsor" ? "active" : ""}
-                onClick={() => setTicketPriceScenario("low-no-sponsor")}
-              >
-                Phương án B: Giữ giá vé mềm (Không nhà tài trợ)
-              </button>
-              <button
-                type="button"
-                className={ticketPriceScenario === "sponsor-balanced" ? "active" : ""}
-                onClick={() => setTicketPriceScenario("sponsor-balanced")}
-              >
-                Phương án C: Đồng hành Tập đoàn / Ngân hàng lớn
-              </button>
-            </div>
-
-            <div className="mg-sim-outcome">
-              {ticketPriceScenario === "high-ticket" && (
-                <p>
-                  ❌ <strong>Kết cục rủi ro trống khán đài:</strong> Giá vé trung bình bị đẩy lên mức 5–12 triệu đồng vượt quá sức mua số đông khán giả đại chúng (ARPU 5,44 USD), chỉ bán hết hạng VIP nhưng ế các khu vé tầm trung.
-                </p>
-              )}
-              {ticketPriceScenario === "low-no-sponsor" && (
-                <p>
-                  ❌ <strong>Kết cục Promoter cầm chắc phần lỗ:</strong> Khán đài lấp đầy 35.000–40.000 khán giả nhưng tổng tiền vé không đủ bù khoản cọc 2 triệu USD cộng 3 trạm đội chi phí sân bãi – nhập khẩu thiết bị.
-                </p>
-              )}
-              {ticketPriceScenario === "sponsor-balanced" && (
-                <p>
-                  ✅ <strong>Lời giải khả thi hiện tại:</strong> Ngân hàng / Tập đoàn lớn gánh 30–40% chi phí qua gói Title Sponsor, kết hợp cơ chế ưu đãi thuế & hạ tầng PPP để giữ giá vé vừa túi tiền khán giả Việt mà NSX vẫn bảo toàn dòng vốn.
-                </p>
-              )}
-            </div>
-          </div>
-        )}
-
-        <div className="motion-cue-footer">🎬 Chỉ dẫn đồ họa: {activeScene.visualCue}</div>
+      <div className="motion-video-wrapper">
+        <video
+          ref={videoRef}
+          controls
+          playsInline
+          preload="metadata"
+          poster="/motion-graphic-poster.jpg"
+          className="motion-video-player"
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
+          onEnded={() => setIsPlaying(false)}
+        >
+          <source src="/motion-graphic-promoter.mp4" type="video/mp4" />
+          Trình duyệt của bạn không hỗ trợ thẻ video HTML5.
+        </video>
       </div>
 
-      {/* 3-Segment Timeline Scrubber */}
-      <div className="motion-scrubber-bar">
-        {MOTION_GRAPHIC_90S_SCENES.map((s, idx) => (
-          <button
-            key={s.id}
-            type="button"
-            className={`motion-scrub-seg ${idx === sceneIdx ? "active" : ""}`}
-            onClick={() => {
-              setSceneIdx(idx);
-              setIsAutoPlaying(false);
-            }}
-          >
-            <span className="scrub-time">{s.timecode}</span>
-            <span className="scrub-name">{s.stageTitle.split("•")[1]?.trim()}</span>
-          </button>
-        ))}
-      </div>
+      <figcaption className="viz-caption-footer">
+        Video đồ họa chuyển động mô phỏng quy trình đàm phán bảo lãnh quốc tế (Minimum Guarantee) và các trạm chi phí trung gian theo thực tế ngành biểu diễn Việt Nam giai đoạn 2024–2026.
+      </figcaption>
     </section>
   );
 }
