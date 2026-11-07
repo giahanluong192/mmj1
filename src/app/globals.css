@@ -525,30 +525,21 @@ textarea {
 }
 
 /* --- AI VOICE ARTICLE AUDIO PLAYER BAR --- */
-.article-audio-player-container {
-  width: 100%;
-  max-width: 580px;
-  margin: 1.25rem auto 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.45rem;
-  position: relative;
-  z-index: 10;
-}
-
 .article-audio-player-bar {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: 0.65rem;
   width: 100%;
+  max-width: 540px;
+  margin: 1.25rem auto 0;
   padding: 0.38rem 0.85rem;
   background: #f1f3f5;
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
   position: relative;
+  z-index: 10;
   box-sizing: border-box;
 }
 
@@ -728,59 +719,7 @@ textarea {
 }
 
 .audio-voice-dropdown {
-  max-width: 195px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-/* Sample Reference Hint under the Audio Bar */
-.audio-bar-sample-hint {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.35rem 0.45rem;
-  font-size: 0.77rem;
-  line-height: 1.4;
-  color: var(--text-muted);
-  text-align: center;
-  padding: 0 0.5rem;
-}
-
-.sample-hint-dot {
-  color: #ef4444;
-  font-weight: bold;
-}
-
-.sample-hint-label {
-  color: var(--text-secondary);
-  font-weight: 550;
-}
-
-.sample-hint-anchor-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 3px;
-  color: #dc2626;
-  font-weight: 650;
-  text-decoration: none;
-  transition: opacity 0.15s ease, text-decoration 0.15s ease;
-}
-
-.sample-hint-anchor-link:hover {
-  text-decoration: underline;
-  opacity: 0.85;
-}
-
-.sample-hint-ext-icon {
-  flex-shrink: 0;
-  opacity: 0.85;
-}
-
-.sample-hint-desc {
-  color: var(--text-muted);
-  font-style: italic;
-  font-size: 0.75rem;
+  max-width: 140px;
 }
 
 @media (max-width: 520px) {
@@ -793,14 +732,11 @@ textarea {
     padding-right: 0.75rem;
   }
   .audio-voice-dropdown {
-    max-width: 140px;
+    max-width: 115px;
   }
   .audio-bar-time {
     font-size: 0.75rem;
     min-width: 30px;
-  }
-  .audio-bar-sample-hint {
-    font-size: 0.73rem;
   }
 }
 

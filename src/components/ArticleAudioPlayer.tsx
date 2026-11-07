@@ -7,64 +7,44 @@ type VoiceOption = "nu-bac" | "nu-nam" | "nam-bac" | "nam-nam";
 interface VoiceMeta {
   id: VoiceOption;
   label: string;
-  shortLabel: string;
-  anchor: string;
-  sampleUrl: string;
   gender: "female" | "male";
   region: "bac" | "nam";
   pitch: number;
   rateMultiplier: number;
-  description: string;
 }
 
 const VOICE_OPTIONS: VoiceMeta[] = [
   {
     id: "nu-bac",
-    label: "Nữ miền Bắc (BTV Diệp Anh)",
-    shortLabel: "Nữ (Diệp Anh)",
-    anchor: "BTV Diệp Anh (VTV)",
-    sampleUrl: "https://youtu.be/uBdyMx9lzPo?si=WqBiXZ8QGUllkSJk",
+    label: "Nữ miền Bắc",
     gender: "female",
     region: "bac",
     pitch: 1.06,
     rateMultiplier: 0.96,
-    description: "Chuẩn Thời sự Hà Nội, điềm đạm, trầm ấm",
   },
   {
     id: "nu-nam",
-    label: "Nữ miền Nam (BTV Hoài Anh)",
-    shortLabel: "Nữ (Hoài Anh)",
-    anchor: "BTV Hoài Anh (VTV)",
-    sampleUrl: "https://youtu.be/9PZnWJsvNzg?si=7dZlqlk-_iIuoFna",
+    label: "Nữ miền Nam",
     gender: "female",
     region: "nam",
     pitch: 1.18,
     rateMultiplier: 1.02,
-    description: "Giọng Nam Bộ ngọt ngào, truyền cảm Thời sự 19h",
   },
   {
     id: "nam-bac",
-    label: "Nam miền Bắc (BTV Tuấn Dương)",
-    shortLabel: "Nam (Tuấn Dương)",
-    anchor: "BTV Tuấn Dương (VTV)",
-    sampleUrl: "https://youtu.be/3XLrmmWUypk?si=5UUGzOP-tYwZeliv",
+    label: "Nam miền Bắc",
     gender: "male",
     region: "bac",
     pitch: 0.82,
     rateMultiplier: 0.97,
-    description: "Trầm dày, nam tính, đĩnh đạc và cảm xúc",
   },
   {
     id: "nam-nam",
-    label: "Nam miền Nam (BTV Việt Phong)",
-    shortLabel: "Nam (Việt Phong)",
-    anchor: "BTV Việt Phong (VTV)",
-    sampleUrl: "https://youtu.be/H0MPvyiHG1w?si=qPV0-GL9F94iw276",
+    label: "Nam miền Nam",
     gender: "male",
     region: "nam",
     pitch: 0.88,
     rateMultiplier: 1.0,
-    description: "Hào sảng, đôn hậu, tròn vành rõ chữ chuẩn Nam Bộ",
   },
 ];
 
@@ -281,134 +261,97 @@ export default function ArticleAudioPlayer() {
     return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
   };
 
-  const currentVoiceMeta =
-    VOICE_OPTIONS.find((v) => v.id === selectedVoiceId) || VOICE_OPTIONS[0];
-
   return (
-    <div className="article-audio-player-container">
-      <div
-        className="article-audio-player-bar"
-        role="region"
-        aria-label="Thanh phát giọng đọc AI toàn bộ bài báo"
+    <div
+      className="article-audio-player-bar"
+      role="region"
+      aria-label="Thanh phát giọng đọc AI toàn bộ bài báo"
+    >
+      {/* Play / Pause Button */}
+      <button
+        type="button"
+        className="audio-bar-play-btn"
+        onClick={handleTogglePlay}
+        aria-label={isPlaying ? "Tạm dừng đọc bài báo" : "Phát giọng đọc AI bài báo"}
       >
-        {/* Play / Pause Button */}
-        <button
-          type="button"
-          className="audio-bar-play-btn"
-          onClick={handleTogglePlay}
-          aria-label={isPlaying ? "Tạm dừng đọc bài báo" : "Phát giọng đọc AI bài báo"}
-        >
-          {isPlaying ? (
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-              <rect x="6" y="4" width="4" height="16" rx="1" />
-              <rect x="14" y="4" width="4" height="16" rx="1" />
-            </svg>
-          ) : (
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M7 4.5v15l12-7.5-12-7.5z" />
-            </svg>
-          )}
-        </button>
-
-        {/* Progress Track */}
-        <div className="audio-bar-track-wrap">
-          <input
-            type="range"
-            min="0"
-            max="100"
-            step="0.5"
-            value={progressPct}
-            onChange={handleSeek}
-            className="audio-bar-slider"
-            aria-label="Tiến trình đọc bài báo"
-          />
-          <div
-            className="audio-bar-fill"
-            style={{ width: `${progressPct}%` }}
-          />
-        </div>
-
-        {/* Duration Countdown / Elapsed */}
-        <div className="audio-bar-time" aria-live="off">
-          {formatTime(totalSec - elapsedSec > 0 ? totalSec - elapsedSec : totalSec)}
-        </div>
-
-        {/* Speed Dropdown */}
-        <div className="audio-bar-select-wrap">
-          <select
-            value={playbackSpeed}
-            onChange={handleChangeSpeed}
-            className="audio-bar-dropdown"
-            aria-label="Chọn tốc độ đọc"
-          >
-            {SPEED_OPTIONS.map((opt) => (
-              <option key={opt.value} value={opt.value}>
-                {opt.label}
-              </option>
-            ))}
-          </select>
-          <span className="audio-bar-caret">⌄</span>
-        </div>
-
-        {/* Vertical Pipe Divider */}
-        <span className="audio-bar-divider" aria-hidden="true">|</span>
-
-        {/* Microphone Icon */}
-        <div className="audio-bar-mic-icon" aria-hidden="true">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z" />
-            <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z" />
+        {isPlaying ? (
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+            <rect x="6" y="4" width="4" height="16" rx="1" />
+            <rect x="14" y="4" width="4" height="16" rx="1" />
           </svg>
-        </div>
+        ) : (
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M7 4.5v15l12-7.5-12-7.5z" />
+          </svg>
+        )}
+      </button>
 
-        {/* Voice Selection Dropdown */}
-        <div className="audio-bar-select-wrap audio-voice-select-wrap">
-          <select
-            value={selectedVoiceId}
-            onChange={handleChangeVoice}
-            className="audio-bar-dropdown audio-voice-dropdown"
-            aria-label="Chọn giọng đọc AI theo mẫu BTV"
-          >
-            {VOICE_OPTIONS.map((v) => (
-              <option key={v.id} value={v.id}>
-                {v.label}
-              </option>
-            ))}
-          </select>
-          <span className="audio-bar-caret">⌄</span>
-        </div>
+      {/* Progress Track */}
+      <div className="audio-bar-track-wrap">
+        <input
+          type="range"
+          min="0"
+          max="100"
+          step="0.5"
+          value={progressPct}
+          onChange={handleSeek}
+          className="audio-bar-slider"
+          aria-label="Tiến trình đọc bài báo"
+        />
+        <div
+          className="audio-bar-fill"
+          style={{ width: `${progressPct}%` }}
+        />
       </div>
 
-      {/* Anchor Sample Reference Tag */}
-      <div className="audio-bar-sample-hint">
-        <span className="sample-hint-dot" aria-hidden="true">•</span>
-        <span className="sample-hint-label">Mẫu giọng tham chiếu:</span>
-        <a
-          href={currentVoiceMeta.sampleUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="sample-hint-anchor-link"
-          title={`Xem video mẫu giọng ${currentVoiceMeta.anchor} trên YouTube`}
+      {/* Duration Countdown / Elapsed */}
+      <div className="audio-bar-time" aria-live="off">
+        {formatTime(totalSec - elapsedSec > 0 ? totalSec - elapsedSec : totalSec)}
+      </div>
+
+      {/* Speed Dropdown */}
+      <div className="audio-bar-select-wrap">
+        <select
+          value={playbackSpeed}
+          onChange={handleChangeSpeed}
+          className="audio-bar-dropdown"
+          aria-label="Chọn tốc độ đọc"
         >
-          {currentVoiceMeta.anchor}
-          <svg
-            className="sample-hint-ext-icon"
-            width="10"
-            height="10"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.4"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-            <polyline points="15 3 21 3 21 9" />
-            <line x1="10" y1="14" x2="21" y2="3" />
-          </svg>
-        </a>
-        <span className="sample-hint-desc">— {currentVoiceMeta.description}</span>
+          {SPEED_OPTIONS.map((opt) => (
+            <option key={opt.value} value={opt.value}>
+              {opt.label}
+            </option>
+          ))}
+        </select>
+        <span className="audio-bar-caret">⌄</span>
+      </div>
+
+      {/* Vertical Pipe Divider */}
+      <span className="audio-bar-divider" aria-hidden="true">|</span>
+
+      {/* Microphone Icon */}
+      <div className="audio-bar-mic-icon" aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z" />
+          <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z" />
+        </svg>
+      </div>
+
+      {/* Voice Selection Dropdown */}
+      <div className="audio-bar-select-wrap audio-voice-select-wrap">
+        <select
+          value={selectedVoiceId}
+          onChange={handleChangeVoice}
+          className="audio-bar-dropdown audio-voice-dropdown"
+          aria-label="Chọn giọng đọc AI"
+        >
+          {VOICE_OPTIONS.map((v) => (
+            <option key={v.id} value={v.id}>
+              {v.label}
+            </option>
+          ))}
+        </select>
+        <span className="audio-bar-caret">⌄</span>
       </div>
     </div>
   );
