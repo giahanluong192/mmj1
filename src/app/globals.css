@@ -2626,6 +2626,8 @@ textarea {
   grid-template-columns: repeat(3, minmax(260px, 1fr));
   gap: 1.15rem;
   overflow-x: auto;
+  padding: 10px 4px;
+  margin: -10px -4px;
 }
 
 .expert-quote-card {
@@ -2639,14 +2641,22 @@ textarea {
   justify-content: space-between;
   cursor: pointer;
   opacity: 0.85;
-  transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.expert-quote-card:hover {
+  opacity: 1;
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
 }
 
 .expert-quote-card.focused {
   opacity: 1;
   background: var(--bg-card);
   transform: translateY(-4px);
-  border-color: var(--border-strong);
+  border-left-color: var(--border-strong);
+  border-right-color: var(--border-strong);
+  border-bottom-color: var(--border-strong);
   box-shadow: var(--shadow-card);
 }
 
