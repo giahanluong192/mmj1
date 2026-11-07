@@ -99,7 +99,7 @@ export function ExpertQuotesCarousel() {
             GÓC NHÌN CHUYÊN GIA
           </span>
           <h3 className="viz-title">
-            Từ “cơn sốt” ngắn hạn đến nền công nghiệp biểu diễn có chiều&nbsp;sâu&nbsp;và&nbsp;bản&nbsp;sắc
+            Từ “cơn sốt” ngắn hạn đến nền công nghiệp văn hóa giàu bản sắc
           </h3>
         </div>
 
