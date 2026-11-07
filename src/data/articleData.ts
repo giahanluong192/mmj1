@@ -967,7 +967,7 @@ export const SEA_RADAR_COUNTRIES: SeaRadarCountry[] = [
     venues: "SVĐ Quốc gia Mỹ Đình & các khu đô thị mở (Vinhomes Ocean Park, The Global City)",
     capacityAndRoof: "40.000 chỗ (Mỹ Đình – không có mái che toàn phần khu vực mặt cỏ) hoặc mặt bằng ngoài trời phải dựng mới toàn bộ khán đài tạm; thiếu Indoor Arena 15.000–20.000 chỗ.",
     transitConnection: "Chưa kết nối trực tiếp ga Metro vào cổng các sân vận động lớn; phụ thuộc chủ yếu xe cá nhân và taxi công nghệ.",
-    policyHighlight: "ARPU nhạc số dự báo đạt 5,44 USD; Nghị quyết 80-NQ/TW (1/2026) & gói 122.000 tỷ đồng đang mở ra hành lang pháp lý đột phá mới.",
+    policyHighlight: "Nghị quyết 80-NQ/TW (1/2026) & gói 122.000 tỷ đồng đang mở ra hành lang pháp lý đột phá mới.",
   },
 ];
 
