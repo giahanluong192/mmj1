@@ -160,8 +160,8 @@ export function SeaInfrastructureRadarAndTable() {
     });
   };
 
-  const cx = 250;
-  const cy = 188;
+  const cx = 275;
+  const cy = 195;
   const maxR = 114;
 
   const getPoint = (axisIdx: number, scoreOutOf10: number) => {
@@ -211,7 +211,7 @@ export function SeaInfrastructureRadarAndTable() {
         {/* 5-Axis Radar SVG */}
         <div className="radar-svg-panel">
           <svg
-            viewBox="0 0 500 375"
+            viewBox="0 0 550 390"
             className="radar-svg"
             role="img"
             aria-label="Đối chiếu 5 chỉ số hạ tầng biểu diễn Đông Nam Á"
@@ -234,7 +234,8 @@ export function SeaInfrastructureRadarAndTable() {
                     x={cx + 4}
                     y={cy - (level / 10) * maxR + 10}
                     fill="var(--text-muted)"
-                    fontSize="9"
+                    fontSize="10"
+                    fontWeight="600"
                   >
                     {level}
                   </text>
@@ -245,13 +246,15 @@ export function SeaInfrastructureRadarAndTable() {
             {/* Axis lines & labels */}
             {RADAR_AXES.map((axis, idx) => {
               const outer = getPoint(idx, 10);
-              const labelPos = getPoint(idx, 12.1);
+              const labelPos = getPoint(idx, 12.2);
               const anchor =
                 Math.abs(labelPos.x - cx) < 18
                   ? "middle"
                   : labelPos.x < cx
                   ? "end"
                   : "start";
+              const isTop = Math.abs(labelPos.x - cx) < 18;
+              const isBottom = labelPos.y > cy + 40;
               return (
                 <g key={axis.key}>
                   <line
@@ -266,9 +269,10 @@ export function SeaInfrastructureRadarAndTable() {
                     x={labelPos.x}
                     y={labelPos.y}
                     textAnchor={anchor}
-                    fill="var(--text-body)"
-                    fontSize="10.5"
-                    fontWeight="700"
+                    fill="var(--text-primary)"
+                    fontSize="14"
+                    fontWeight="800"
+                    dy={isTop ? "-4" : isBottom ? "12" : "4"}
                   >
                     {axis.label}
                   </text>
