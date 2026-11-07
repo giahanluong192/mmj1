@@ -545,19 +545,28 @@ export function VoxpopWaveformBox() {
           {isPlaying ? "⏸" : "▶"}
         </button>
 
-        <div className="waveform-bars-wrap" role="progressbar" aria-valuenow={Math.round(progressPct)} aria-valuemin={0} aria-valuemax={100}>
-          {activeVox.waveformHeights.map((h, idx) => {
-            const barPct = ((idx + 1) / activeVox.waveformHeights.length) * 100;
-            const isPassed = barPct <= progressPct;
-            return (
-              <div
-                key={idx}
-                className={`waveform-bar ${isPassed ? "passed" : ""} ${isPlaying ? "animating" : ""}`}
-                style={{ height: `${h}%` }}
-                onClick={() => handleSeek(barPct)}
-              />
-            );
-          })}
+        {/* Progress Track Bar */}
+        <div
+          className="waveform-track-wrap"
+          role="progressbar"
+          aria-valuenow={Math.round(progressPct)}
+          aria-valuemin={0}
+          aria-valuemax={100}
+        >
+          <input
+            type="range"
+            min="0"
+            max="100"
+            step="0.5"
+            value={progressPct}
+            onChange={(e) => handleSeek(parseFloat(e.target.value))}
+            className="waveform-slider"
+            aria-label="Tiến trình phát âm thanh Voxpop"
+          />
+          <div
+            className="waveform-track-fill"
+            style={{ width: `${progressPct}%` }}
+          />
         </div>
 
         <div className="waveform-timecode">
