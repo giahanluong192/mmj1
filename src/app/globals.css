@@ -858,7 +858,7 @@ textarea {
 .donut-center-sub {
   font-size: 9.5px;
   font-weight: 700;
-  fill: var(--accent-blue);
+  fill: #FF6500;
 }
 
 .donut-center-muted {
@@ -870,7 +870,7 @@ textarea {
   width: 100%;
   background: var(--bg-card-subtle);
   border: 1px solid var(--border-subtle);
-  border-left: 4px solid var(--accent-blue);
+  border-left-width: 4px;
   border-radius: 10px;
   padding: 0.9rem 1rem;
 }

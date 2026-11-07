@@ -124,7 +124,13 @@ export function EventScaleAndConcertsWidget() {
               </text>
             </svg>
 
-            <div className="donut-spotlight-box" style={{ borderColor: activeSlice.color }}>
+            <div
+              className="donut-spotlight-box"
+              style={{
+                borderColor: activeSlice.color,
+                borderLeftColor: activeSlice.color,
+              }}
+            >
               <div className="spotlight-top">
                 <span className="spotlight-scale">{activeSlice.scaleLabel}</span>
                 <span className="spotlight-pct" style={{ color: activeSlice.color }}>
@@ -143,6 +149,14 @@ export function EventScaleAndConcertsWidget() {
                   key={item.id}
                   type="button"
                   className={`donut-legend-row ${isSelected ? "selected" : ""}`}
+                  style={
+                    isSelected
+                      ? {
+                          borderColor: item.color,
+                          backgroundColor: `${item.color}14`,
+                        }
+                      : undefined
+                  }
                   onClick={() => setSelectedSliceId(item.id)}
                   onMouseEnter={() => setSelectedSliceId(item.id)}
                 >
@@ -166,7 +180,10 @@ export function EventScaleAndConcertsWidget() {
                       </div>
                     </div>
                   </div>
-                  <span className="legend-pct-val">
+                  <span
+                    className="legend-pct-val"
+                    style={isSelected ? { color: item.color, fontWeight: "800" } : undefined}
+                  >
                     {item.percentage.toFixed(1).replace(".", ",")}%
                   </span>
                 </button>
