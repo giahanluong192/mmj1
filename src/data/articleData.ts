@@ -652,7 +652,7 @@ export const ECOSYSTEM_SPOKES: EcosystemSpoke[] = [
     id: "ooh-media",
     code: "05",
     title: "Quảng cáo ngoài trời (LED / Roadshow FC)",
-    shortTitle: "OOH & LED Fan Project",
+    shortTitle: "Fan Project",
     icon: "🏙️",
     color: "#10B981",
     angleDeg: 198,

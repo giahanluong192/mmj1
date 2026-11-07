@@ -596,7 +596,7 @@ const SPOKE_LABEL_LINES: Record<string, string[]> = {
   transport: ["Hàng không", "& Vận tải"],
   fnb: ["Ẩm thực (F&B)"],
   merch: ["Thời trang & Merch"],
-  ooh: ["OOH & LED", "Fan Project"],
+  ooh: ["Fan Project"],
 };
 
 export function ConcertEconomicInfographic() {
@@ -731,7 +731,7 @@ export function ConcertEconomicInfographic() {
                 ly = ny - 6;
               } else if (spoke.id === "ooh") {
                 lx = nx - 44;
-                ly = ny - 6;
+                ly = ny + 6;
               } else if (spoke.id === "fnb") {
                 lx = nx + 36;
                 ly = ny + 56;
