@@ -502,7 +502,7 @@ export function VoxpopWaveformBox() {
               className={`viz-tab-btn ${v.id === activeVox.id ? "active" : ""}`}
               onClick={() => handleSelectSpeaker(v.id)}
             >
-              🎙 {v.tabLabel || `${v.speakerName} (${v.totalCost})`}
+              {v.tabLabel || `${v.speakerName} (${v.totalCost})`}
             </button>
           ))}
         </div>
