@@ -640,7 +640,7 @@ export const ECOSYSTEM_SPOKES: EcosystemSpoke[] = [
     id: "fashion-merch",
     code: "04",
     title: "Thời trang, Makeup & Merchandise",
-    shortTitle: "Thời trang & Merch",
+    shortTitle: "Merch/Goods",
     icon: "👕",
     color: "#EC4899",
     angleDeg: 126,
