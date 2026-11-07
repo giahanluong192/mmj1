@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { ARTICLE_META, KEY_METRICS } from "@/data/articleData";
+import ArticleAudioPlayer from "@/components/ArticleAudioPlayer";
 
 export default function HeroConcertLoop() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -58,6 +59,9 @@ export default function HeroConcertLoop() {
               <strong>Thời gian đọc:</strong> {ARTICLE_META.readTime}
             </span>
           </div>
+
+          {/* AI Voice Article Audio Player Bar */}
+          <ArticleAudioPlayer />
         </div>
       </section>
 
