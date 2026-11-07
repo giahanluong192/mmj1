@@ -65,9 +65,13 @@ export default function Home() {
       {/* Sticky Editorial Navigation */}
       <header className="top-editorial-nav">
         <div className="nav-left-group">
-          <a href="#vi-tri-1" className="nav-brand">
+          <a href="#vi-tri-1" className="nav-brand" aria-label="Tiếng Nói Trẻ - Tiếng nói của thế hệ mới">
             <span className="nav-live-pulse" />
-            <span>TIẾNG NÓI TRẺ</span>
+            <img
+              src="/logo-tieng-noi-tre.png"
+              alt="Tiếng Nói Trẻ - Tiếng nói của thế hệ mới"
+              className="nav-brand-logo"
+            />
             <span className="nav-brand-category">| CHUYÊN MỤC VĂN HÓA</span>
           </a>
 
@@ -429,6 +433,13 @@ export default function Home() {
       <footer className="concert-footer">
         <div className="footer-inner-wrap">
           <div className="footer-col-main">
+            <div style={{ marginBottom: "1.1rem" }}>
+              <img
+                src="/logo-tieng-noi-tre.png"
+                alt="Tiếng Nói Trẻ - Tiếng nói của thế hệ mới"
+                style={{ height: "42px", width: "auto", objectFit: "contain" }}
+              />
+            </div>
             <h3>BẢN ĐỒ CONCERT VIỆT NAM: SỨC BẬT NỘI SINH</h3>
             <p>
               Tác phẩm Báo chí Dữ liệu Đa phương tiện (Multimedia Data Journalism)
