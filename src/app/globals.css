@@ -548,10 +548,10 @@ textarea {
   box-shadow: var(--shadow-card);
 }
 
-.kpi-neon-card.accent-cyan { border-top-color: var(--accent-blue); }
-.kpi-neon-card.accent-magenta { border-top-color: var(--accent-rose); }
-.kpi-neon-card.accent-gold { border-top-color: var(--accent-amber); }
-.kpi-neon-card.accent-redstar { border-top-color: var(--vn-red); }
+.kpi-neon-card.accent-cyan { border-top-color: #FFC002; }
+.kpi-neon-card.accent-magenta { border-top-color: #FF8A0A; }
+.kpi-neon-card.accent-gold { border-top-color: #FF6500; }
+.kpi-neon-card.accent-redstar { border-top-color: #C40D0C; }
 
 .kpi-value-row {
   display: flex;
