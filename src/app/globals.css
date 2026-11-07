@@ -800,17 +800,17 @@ textarea {
 
 .viz-tab-btn:hover {
   color: var(--text-primary);
-  border-color: var(--accent-blue);
+  border-color: var(--accent-rose);
 }
 
 .viz-tab-btn.active {
-  background: var(--accent-blue);
-  border-color: var(--accent-blue);
+  background: var(--accent-rose);
+  border-color: var(--accent-rose);
   color: #FFFFFF;
 }
 
 [data-theme="dark"] .viz-tab-btn.active {
-  color: #0B0C10;
+  color: #FFFFFF;
 }
 
 .viz-caption-footer {
