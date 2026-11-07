@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import {
   ARTIST_ORIGIN_CORRELATION,
   SEA_RADAR_COUNTRIES,
@@ -386,71 +386,25 @@ export function SeaInfrastructureRadarAndTable() {
 }
 
 /* ============================================================================
-   [VỊ TRÍ 11] VIDEO MOTION GRAPHIC GIẢI THÍCH (90 GIÂY) – ĐƯA SAO QUỐC TẾ VỀ VN
+   [VỊ TRÍ 11] VIDEO MOTION GRAPHIC GIẢI THÍCH – ĐƯA SAO QUỐC TẾ VỀ VN
    ============================================================================ */
 export function MotionGraphic90sPlayer() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState<boolean>(false);
-
-  const handleTogglePlay = () => {
-    if (!videoRef.current) return;
-    if (videoRef.current.paused) {
-      videoRef.current.play();
-      setIsPlaying(true);
-    } else {
-      videoRef.current.pause();
-      setIsPlaying(false);
-    }
-  };
-
   return (
-    <section
-      className="viz-card motion-explainer-card"
+    <div
+      className="motion-explainer-card"
       id="vi-tri-11"
       aria-label="Video Motion Graphic giải thích hành trình đưa sao quốc tế về Việt Nam"
     >
-      <div className="viz-header">
-        <div>
-          <span className="pos-badge">
-            HÀNH TRÌNH ĐƯA SAO QUỐC TẾ VỀ VIỆT NAM
-          </span>
-          <h3 className="viz-title">
-            Từ khoản cọc 2 triệu USD đến bài toán cân não giá vé của Promoter&nbsp;nội&nbsp;địa
-          </h3>
-          <p className="viz-subtitle">
-            Video Motion Graphic phân tích đường đi của dòng tiền, áp lực bảo lãnh tối thiểu (Minimum Guarantee) và bài toán doanh thu khi đưa concert quốc tế về Việt Nam
-          </p>
-        </div>
-
-        <button
-          type="button"
-          className={`motion-play-cta ${isPlaying ? "playing" : ""}`}
-          onClick={handleTogglePlay}
-        >
-          {isPlaying ? "⏸ Tạm dừng video" : "▶ Phát video"}
-        </button>
-      </div>
-
-      <div className="motion-video-wrapper">
-        <video
-          ref={videoRef}
-          controls
-          playsInline
-          preload="metadata"
-          poster="/motion-graphic-poster.jpg"
-          className="motion-video-player"
-          onPlay={() => setIsPlaying(true)}
-          onPause={() => setIsPlaying(false)}
-          onEnded={() => setIsPlaying(false)}
-        >
-          <source src="/motion-graphic-promoter.mp4" type="video/mp4" />
-          Trình duyệt của bạn không hỗ trợ thẻ video HTML5.
-        </video>
-      </div>
-
-      <figcaption className="viz-caption-footer">
-        Video đồ họa chuyển động mô phỏng quy trình đàm phán bảo lãnh quốc tế (Minimum Guarantee) và các trạm chi phí trung gian theo thực tế ngành biểu diễn Việt Nam giai đoạn 2024–2026.
-      </figcaption>
-    </section>
+      <video
+        controls
+        playsInline
+        preload="metadata"
+        poster="/motion-graphic-poster.jpg"
+        className="motion-video-player"
+      >
+        <source src="/motion-graphic-promoter.mp4" type="video/mp4" />
+        Trình duyệt của bạn không hỗ trợ thẻ video HTML5.
+      </video>
+    </div>
   );
 }
