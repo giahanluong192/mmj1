@@ -403,9 +403,9 @@ textarea {
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent-blue);
-  background: var(--badge-blue-bg);
-  border: 1px solid var(--badge-blue-border);
+  color: var(--vn-red);
+  background: var(--badge-red-bg);
+  border: 1px solid var(--badge-red-border);
   padding: 0.28rem 0.75rem;
   border-radius: 999px;
   margin-bottom: 0.65rem;
