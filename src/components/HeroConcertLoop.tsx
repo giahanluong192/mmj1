@@ -43,7 +43,7 @@ export default function HeroConcertLoop() {
           </h1>
 
           <p className="hero-sapo">
-            <strong>{ARTICLE_META.sapo}</strong>
+            <em>{ARTICLE_META.sapo}</em>
           </p>
 
           <div className="hero-meta-strip">
