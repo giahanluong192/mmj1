@@ -24,10 +24,16 @@ import {
 } from "@/components/PolicySolutionsSection";
 import { ARTICLE_META, FIVE_SYSTEMIC_BOTTLENECKS } from "@/data/articleData";
 import FloatingFontResizer from "@/components/FloatingFontResizer";
+import {
+  InteractiveArticlePhoto,
+  ImageLightboxModal,
+  ARTICLE_PHOTOS,
+} from "@/components/InteractivePhoto";
 
 export default function Home() {
   const [readingProgress, setReadingProgress] = useState(0);
   const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [activePhotoIndex, setActivePhotoIndex] = useState<number | null>(null);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
@@ -142,43 +148,25 @@ export default function Home() {
           </p>
 
           {/* Ảnh 2: Concert Quốc gia Tổ quốc trong tim 2026 */}
-          <figure className="article-photo-figure">
-            <img
-              src="/concert-to-quoc-trong-tim.jpg"
-              alt="“Concert Quốc gia” Tổ quốc trong tim 2026 tổ chức tại Khu đô thị Vạn Phúc City"
-              className="article-photo-img"
-              loading="lazy"
-            />
-            <figcaption className="article-photo-caption">
-              “Concert Quốc gia” Tổ quốc trong tim 2026 tổ chức tại Khu đô thị Vạn Phúc City vào tối ngày 23/8. Hơn 40.000 khán giả tại Vạn Phúc, gần 30.000 người tại phố đi bộ Nguyễn Huệ và hàng triệu lượt khán giả trên mạng xã hội cùng hòa vào không gian nghệ thuật đặc biệt. (Ảnh: Báo Nhân Dân)
-            </figcaption>
-          </figure>
+          <InteractiveArticlePhoto
+            {...ARTICLE_PHOTOS[0]}
+            photoIndex={0}
+            onOpenModal={setActivePhotoIndex}
+          />
 
           {/* Ảnh 3: Concert Anh Trai Vượt Ngàn Chông Gai 2026 */}
-          <figure className="article-photo-figure">
-            <img
-              src="/concert-anh-trai-vuot-ngan-chong-gai.jpg"
-              alt="Concert Anh Trai Vượt Ngàn Chông Gai 2026 tại TP. Hồ Chí Minh"
-              className="article-photo-img"
-              loading="lazy"
-            />
-            <figcaption className="article-photo-caption">
-              Concert Anh Trai Vượt Ngàn Chông Gai 2026 diễn ra tại TP. Hồ Chí Minh vào ngày 17 /10, quy mô gần 50.000 khán giả. (Ảnh: Fanpage Anh Trai Vượt Ngàn Chông Gai)
-            </figcaption>
-          </figure>
+          <InteractiveArticlePhoto
+            {...ARTICLE_PHOTOS[1]}
+            photoIndex={1}
+            onOpenModal={setActivePhotoIndex}
+          />
 
           {/* Ảnh 4: Concert Tinh Hà Say Hi */}
-          <figure className="article-photo-figure">
-            <img
-              src="/concert-tinh-ha-say-hi.jpg"
-              alt="Concert Tinh Hà “Say Hi” mang chủ đề Hẹn giữa tinh hà tại TP. Hồ Chí Minh"
-              className="article-photo-img"
-              loading="lazy"
-            />
-            <figcaption className="article-photo-caption">
-              Concert Tinh Hà “Say Hi” mang chủ đề &ldquo;Hẹn giữa tinh hà&rdquo; diễn ra tối 17/10, tại TP. Hồ Chí Minh thu hút chục ngàn khán giả hào hứng tham gia. (Ảnh: BTC)
-            </figcaption>
-          </figure>
+          <InteractiveArticlePhoto
+            {...ARTICLE_PHOTOS[2]}
+            photoIndex={2}
+            onOpenModal={setActivePhotoIndex}
+          />
 
           <p className="body-p">
             Theo Báo cáo <em>Tổng quan ngành công nghiệp âm nhạc Việt&nbsp;Nam 2025-2026</em> của Đại học RMIT Việt&nbsp;Nam, năm 2025 ghi nhận hơn 810 sự kiện âm nhạc đã diễn ra hoặc được công bố trên cả nước. Riêng tại đầu tàu kinh tế TP.HCM, số liệu thống kê trong 9 tháng đầu năm 2026 cho thấy thành phố đã tiếp nhận, thẩm định và chấp thuận 1.064 hồ sơ hoạt động nghệ thuật biểu diễn, trong đó có tới 944 chương trình nghệ thuật, sân khấu. Tần suất sự kiện tăng cao vào mùa hè và nửa cuối năm phản ánh nhu cầu thưởng thức âm nhạc trực tiếp (live music) đang dần trở thành một phần trong lối sống của người trẻ đô&nbsp;thị.
@@ -196,86 +184,50 @@ export default function Home() {
           </p>
 
           {/* Ảnh 2: 33 Anh Tài mở màn Concert Anh Trai Vượt Ngàn Chông Gai 2026 */}
-          <figure className="article-photo-figure">
-            <img
-              src="/concert-atvngc-hoa-tam.jpg"
-              alt="33 Anh Tài với ca khúc chủ đề Hoả Tâm mở màn Concert Anh Trai Vượt Ngàn Chông Gai 2026"
-              className="article-photo-img"
-              loading="lazy"
-            />
-            <figcaption className="article-photo-caption">
-              33 Anh Tài đốt cháy sân khấu với ca khúc chủ đề Hoả Tâm mở màn Concert Anh Trai Vượt Ngàn Chông Gai 2026 diễn ra tại TP. Hồ Chí Minh vào tối 17 /10. (Ảnh: Fanpage Anh Trai Vượt Ngàn Chông Gai)
-            </figcaption>
-          </figure>
+          <InteractiveArticlePhoto
+            {...ARTICLE_PHOTOS[3]}
+            photoIndex={3}
+            onOpenModal={setActivePhotoIndex}
+          />
 
           {/* Ảnh 3: Concert Tinh Hà Say Hi tại Vạn Phúc City */}
-          <figure className="article-photo-figure">
-            <img
-              src="/concert-tinh-ha-say-hi-van-phuc.jpg"
-              alt="Concert Tinh Hà Say Hi tại Vạn Phúc City, TP. Hồ Chí Minh"
-              className="article-photo-img"
-              loading="lazy"
-            />
-            <figcaption className="article-photo-caption">
-              Concert Tinh Hà “Say Hi” thu hút hàng chục nghìn khán giả tại Vạn Phúc City, TP. Hồ Chí Minh thành điểm hẹn âm nhạc với 24 nghệ sĩ cùng nhiều màn trình diễn bùng nổ. (Ảnh: DatVietVAC)
-            </figcaption>
-          </figure>
+          <InteractiveArticlePhoto
+            {...ARTICLE_PHOTOS[4]}
+            photoIndex={4}
+            onOpenModal={setActivePhotoIndex}
+          />
 
           {/* Ảnh 4: Concert See The Light Mỹ Tâm tại Mỹ Đình */}
-          <figure className="article-photo-figure">
-            <img
-              src="/concert-my-tam-see-the-light.jpg"
-              alt="Concert See The Light của Mỹ Tâm tại sân vận động Mỹ Đình"
-              className="article-photo-img"
-              loading="lazy"
-            />
-            <figcaption className="article-photo-caption">
-              Concert See The Light của Mỹ Tâm diễn ra vào tối ngày 13/12 tại sân vận động Mỹ Đình (Hà Nội) với 40.000 khán giả, kéo dài gần 4 tiếng với hơn 30 bài hát. Đây là concert cá nhân lớn nhất Việt Nam hiện nay. (Ảnh: Ban Tổ chức Chương trình See The Light)
-            </figcaption>
-          </figure>
+          <InteractiveArticlePhoto
+            {...ARTICLE_PHOTOS[5]}
+            photoIndex={5}
+            onOpenModal={setActivePhotoIndex}
+          />
 
           {/* Ảnh 5: V Concert Rạng rỡ Việt Nam */}
-          <figure className="article-photo-figure">
-            <img
-              src="/concert-v-concert-rang-ro-viet-nam.jpg"
-              alt="V Concert với chủ đề Rạng rỡ Việt Nam tại Trung tâm Triển lãm Việt Nam"
-              className="article-photo-img"
-              loading="lazy"
-            />
-            <figcaption className="article-photo-caption">
-              V Concert với chủ đề Rạng rỡ Việt Nam diễn ra tại Trung tâm Triển lãm Việt Nam (Đông Anh, Hà Nội). Concert bắt đầu từ 19h tối 9-8, concert kéo dài gần 7 tiếng. Đây được xem là “bước chuyển” của VTV với vị thế đài truyền hình quốc gia khi tổ chức concert hướng tới Ngày Quốc khánh 2-9 một cách trẻ trung, gần gũi với quy mô gần 20.000 khán giả. (Ảnh: Nam Trần/ Báo Tuổi trẻ)
-            </figcaption>
-          </figure>
+          <InteractiveArticlePhoto
+            {...ARTICLE_PHOTOS[6]}
+            photoIndex={6}
+            onOpenModal={setActivePhotoIndex}
+          />
 
           <p className="body-p">
             Sự bùng nổ này bắt nguồn bởi sự thay đổi rõ nét trong tâm lý sẵn sàng chi trả của công chúng. Khảo sát của Trường Đại học RMIT chỉ ra rằng sự kiện trực tiếp (concert, liveshow, fan meeting) đứng thứ hai trong nhóm các sản phẩm âm nhạc được khán giả sẵn sàng chi tiền nhiều nhất (chiếm 60,9%), chỉ xếp sau gói đăng ký nghe nhạc trực tuyến (71,7%). Đặc biệt, văn hóa fandom chuyên nghiệp (Prosumer Fandom) đã thúc đẩy chi tiêu cho các vật phẩm đi kèm (merchandise): có tới 33,2% người hâm mộ sẵn sàng chi từ 500.000 đến 1.000.000 đồng/tháng và 22,9% chi trên 1.000.000 đồng/tháng cho nhóm sản phẩm&nbsp;này.
           </p>
 
           {/* Ảnh 2: Tinh Hà Say Hi Collection VieShop */}
-          <figure className="article-photo-figure">
-            <img
-              src="/merch-tinh-ha-say-hi-collection.jpg"
-              alt="Các sản phẩm thuộc Tinh Hà “Say Hi” Collection với quyền lợi Random Photocard đi kèm sản phẩm"
-              className="article-photo-img"
-              loading="lazy"
-            />
-            <figcaption className="article-photo-caption">
-              Các sản phẩm thuộc Tinh Hà &ldquo;Say Hi&rdquo; Collection với quyền lợi Random Photocard đi kèm sản phẩm. (Ảnh: Fanpage VieShop)
-            </figcaption>
-          </figure>
+          <InteractiveArticlePhoto
+            {...ARTICLE_PHOTOS[7]}
+            photoIndex={7}
+            onOpenModal={setActivePhotoIndex}
+          />
 
           {/* Ảnh 3: Bộ sưu tập TOGETHER WE SHINE trên nền tảng VieSHOP */}
-          <figure className="article-photo-figure">
-            <img
-              src="/merch-together-we-shine-vieshop.jpg"
-              alt="Bộ sưu tập TOGETHER WE SHINE trên nền tảng VieSHOP"
-              className="article-photo-img"
-              loading="lazy"
-            />
-            <figcaption className="article-photo-caption">
-              Bộ sưu tập TOGETHER WE SHINE trên nền tảng VieSHOP. Cơ chế quy đổi đơn hàng hợp lệ thành lượt bình chọn trực tiếp đã thúc đẩy người hâm mộ mạnh tay chi tiền để ủng hộ các &lsquo;Anh Trai&rsquo;. (Ảnh: Fanpage VieShop)
-            </figcaption>
-          </figure>
+          <InteractiveArticlePhoto
+            {...ARTICLE_PHOTOS[8]}
+            photoIndex={8}
+            onOpenModal={setActivePhotoIndex}
+          />
         </div>
 
         {/* [VỊ TRÍ 3] BIỂU ĐỒ 2: CƠ CẤU GIÁ VÉ & MỨC SẴN SÀNG CHI TRẢ CỦA KHÁN GIẢ VIỆT */}
@@ -318,95 +270,53 @@ export default function Home() {
           </p>
 
           {/* Ảnh 2: Concert Anh Trai Vượt Ngàn Chông Gai 2026 tối 18/10 */}
-          <figure className="article-photo-figure">
-            <img
-              src="/concert-atvngc-dem-2-tphcm.jpg"
-              alt="Concert Anh Trai Vượt Ngàn Chông Gai 2026 tối 18/10 tại TP.HCM"
-              className="article-photo-img"
-              loading="lazy"
-            />
-            <figcaption className="article-photo-caption">
-              Concert Anh Trai Vượt Ngàn Chông Gai 2026 diễn ra vào tối 18/10 tại TP.HCM đã thu hút gần 100.000 khán giả. Concert thắng lớn về doanh thu lẫn hiệu ứng khán giả, cho thấy khâu tổ chức show ca nhạc quy mô lớn tại Việt Nam đã có bước tiến rõ rệt. (Ảnh: Ban Tổ chức Chương trình)
-            </figcaption>
-          </figure>
+          <InteractiveArticlePhoto
+            {...ARTICLE_PHOTOS[9]}
+            photoIndex={9}
+            onOpenModal={setActivePhotoIndex}
+          />
 
           {/* Ảnh 3: Đêm thứ hai của concert Tinh Hà Say Hi */}
-          <figure className="article-photo-figure">
-            <img
-              src="/concert-tinh-ha-say-hi-dem-2.jpg"
-              alt="Đêm thứ hai của concert Tinh Hà Say Hi tối 18/10 ở TP.HCM"
-              className="article-photo-img"
-              loading="lazy"
-            />
-            <figcaption className="article-photo-caption">
-              Đêm thứ hai của concert Tinh Hà “Say Hi” diễn ra vào tối 18/10 ở TP HCM. Concert mang chủ đề “Hẹn giữa tinh hà”, quy tụ đầy đủ 24 ca sĩ của mùa giải đầu tiên. Theo ban tổ chức, ước tính chương trình thu hút gần 40.000 khán giả đến xem. (Ảnh: Ban Tổ chức Chương trình)
-            </figcaption>
-          </figure>
+          <InteractiveArticlePhoto
+            {...ARTICLE_PHOTOS[10]}
+            photoIndex={10}
+            onOpenModal={setActivePhotoIndex}
+          />
 
           {/* Ảnh 4: Toàn cảnh concert BIGBANG 2026-2027 World Tour in Hanoi */}
-          <figure className="article-photo-figure">
-            <img
-              src="/concert-bigbang-world-tour-hanoi.jpg"
-              alt="Toàn cảnh concert BIGBANG 2026-2027 World Tour in Hanoi tại Mỹ Đình"
-              className="article-photo-img"
-              loading="lazy"
-            />
-            <figcaption className="article-photo-caption">
-              Toàn cảnh concert BIGBANG 2026-2027 World Tour in Hanoi diễn ra vào tối 25/10 tại Sân vận động quốc gia Mỹ Đình (Hà Nội). Sự kiện nhằm kỷ niệm 20 năm ra mắt nhóm nhạc huyền thoại Hàn Quốc BIGBANG. (Ảnh: Xuân Mai/ Báo VnExpress)
-            </figcaption>
-          </figure>
+          <InteractiveArticlePhoto
+            {...ARTICLE_PHOTOS[11]}
+            photoIndex={11}
+            onOpenModal={setActivePhotoIndex}
+          />
 
           {/* Ảnh 5: Concert Tự hào là người Việt Nam 2026 tại Thái Nguyên */}
-          <figure className="article-photo-figure">
-            <img
-              src="/concert-tu-hao-la-nguoi-viet-nam-thai-nguyen.jpg"
-              alt="Concert Tự hào là người Việt Nam 2026 tại Sân vận động Thái Nguyên"
-              className="article-photo-img"
-              loading="lazy"
-            />
-            <figcaption className="article-photo-caption">
-              Concert “Tự hào là người Việt Nam 2026” với chủ đề “Nối vòng tay lớn”diễn ra vào tối 1/11 tại Sân vận động Thái Nguyên (xã Đại Phúc, tỉnh Thái Nguyên). Đây là lần đầu có một concert quy mô quốc gia tổ chức tại Thái Nguyên, quy tụ tới 30.000 khán giả. (Ảnh: Vũ Hoàng Giang/ Thông tấn xã Việt Nam)
-            </figcaption>
-          </figure>
+          <InteractiveArticlePhoto
+            {...ARTICLE_PHOTOS[12]}
+            photoIndex={12}
+            onOpenModal={setActivePhotoIndex}
+          />
 
           {/* Ảnh 6: Quảng Ninh - Đất mỏ anh hùng */}
-          <figure className="article-photo-figure">
-            <img
-              src="/concert-quang-ninh-dat-mo-anh-hung.jpg"
-              alt="Chương trình nghệ thuật chính luận Quảng Ninh - Đất mỏ anh hùng"
-              className="article-photo-img"
-              loading="lazy"
-            />
-            <figcaption className="article-photo-caption">
-              Chào mừng 89 năm Ngày Truyền thống công nhân vùng Mỏ - Truyền thống ngành Than, tối 12/11, tại Quảng trường 30/10, UBND tỉnh Quảng Ninh tổ chức chương trình nghệ thuật chính luận đặc sắc “Quảng Ninh - Đất mỏ anh hùng”.Chương trình là sự hòa quyện giữa âm nhạc - xiếc - phóng sự và trình diễn hiện đại, quy tụ dàn nghệ sĩ hàng đầu với quy mô 30.000 khán giả. (Ảnh: Bùi My/ Báo Dân Việt)
-            </figcaption>
-          </figure>
+          <InteractiveArticlePhoto
+            {...ARTICLE_PHOTOS[13]}
+            photoIndex={13}
+            onOpenModal={setActivePhotoIndex}
+          />
 
           {/* Ảnh 7: Mạch nguồn Kinh Bắc - Bắc Ninh */}
-          <figure className="article-photo-figure">
-            <img
-              src="/concert-mach-nguon-kinh-bac.jpg"
-              alt="Chương trình nghệ thuật Mạch nguồn Kinh Bắc - Vươn cao thời đại tại Bắc Ninh"
-              className="article-photo-img"
-              loading="lazy"
-            />
-            <figcaption className="article-photo-caption">
-              Chương trình nghệ thuật “Mạch nguồn Kinh Bắc - Vươn cao thời đại” diễn ra vào tối 19/9, tại Quảng trường 3/2 (phường Bắc Giang) nhằm chào mừng thành lập thành phố Bắc Ninh và đón nhận Huân chương Lao động hạng Nhất. (Ảnh: Đồng Thúy/ Thông tấn xã Việt Nam)
-            </figcaption>
-          </figure>
+          <InteractiveArticlePhoto
+            {...ARTICLE_PHOTOS[14]}
+            photoIndex={14}
+            onOpenModal={setActivePhotoIndex}
+          />
 
           {/* Ảnh 8: Huế Wonderverse Music Fest 2026 */}
-          <figure className="article-photo-figure">
-            <img
-              src="/concert-hue-wonderverse-music-fest.jpg"
-              alt="Huế Wonderverse Music Fest 2026 tại Quảng trường Hà Huy Tập"
-              className="article-photo-img"
-              loading="lazy"
-            />
-            <figcaption className="article-photo-caption">
-              Với chủ đề “City Awakening - Đánh thức Di sản,” Huế Wonderverse Music Fest 2026 lần đầu được tổ chức tại Huế, mở cửa miễn phí phục vụ người dân và du khách. Từ ngày 30-8 đến 1-9, Quảng trường Hà Huy Tập trở thành điểm hội tụ của âm nhạc, nghệ thuật và công nghệ thu hút hàng ngàn khán giả tham gia. (Ảnh: Ủy ban Nhân dân Thành phố Huế)
-            </figcaption>
-          </figure>
+          <InteractiveArticlePhoto
+            {...ARTICLE_PHOTOS[15]}
+            photoIndex={15}
+            onOpenModal={setActivePhotoIndex}
+          />
 
           <p className="body-p">
             Tuy nhiên, khi làn sóng này lan rộng mang tính phong trào, các chuyên gia văn hóa bắt đầu đặt ra những góc nhìn phản biện gay gắt. Như PGS.TS Bùi Hoài Sơn đã nhận định trên báo <em>Tuổi Trẻ</em>, phát triển công nghiệp văn hóa không phải là một cuộc đua xem địa phương nào tổ chức được concert lớn hơn, mời nhiều ngôi sao hơn hay dựng sân khấu hoành tráng hơn. Một đêm nhạc bùng nổ đôi khi rất giống một trận pháo hoa: rực rỡ trên bầu trời trong vài tiếng đồng hồ, tạo ra &ldquo;nền kinh tế chú ý&rdquo; sôi động trên mạng xã hội, nhưng nếu thiếu một hệ sinh thái dịch vụ và bản sắc văn hóa bản địa để neo giữ cảm xúc, hiệu ứng kinh tế sẽ nhanh chóng tan biến khi khán giả rời sân vận động ngay trong&nbsp;đêm.
@@ -483,17 +393,11 @@ export default function Home() {
           </ul>
 
           {/* Ảnh: Đại nhạc hội 8Wonder Moments of Wonder 2025 */}
-          <figure className="article-photo-figure">
-            <img
-              src="/concert-8wonder-moments-of-wonder.jpg"
-              alt="Đại nhạc hội 8Wonder: Moments of Wonder 2025 tại Trung tâm Hội chợ Triển lãm Quốc gia Hà Nội"
-              className="article-photo-img"
-              loading="lazy"
-            />
-            <figcaption className="article-photo-caption">
-              Tối 23/8, tại Trung tâm Hội chợ Triển lãm Quốc gia (Hà Nội), hơn 50.000 khán giả tham gia nhạc hội 8Wonder: Moments of Wonder 2025, sự kiện nghệ thuật do Tập đoàn Vingroup tổ chức, nằm trong chuỗi hoạt động chào mừng 80 năm Quốc khánh. (Ảnh: Ban Tổ chức Chương trình)
-            </figcaption>
-          </figure>
+          <InteractiveArticlePhoto
+            {...ARTICLE_PHOTOS[16]}
+            photoIndex={16}
+            onOpenModal={setActivePhotoIndex}
+          />
 
           <ul className="editorial-bullet-list">
             <li>
@@ -716,6 +620,14 @@ export default function Home() {
           <path d="M18 15l-6-6-6 6" />
         </svg>
       </button>
+
+      {/* Fullscreen / Full-bleed Image Lightbox Modal */}
+      <ImageLightboxModal
+        photos={ARTICLE_PHOTOS}
+        currentIndex={activePhotoIndex}
+        onClose={() => setActivePhotoIndex(null)}
+        onSelectIndex={setActivePhotoIndex}
+      />
     </div>
   );
 }
