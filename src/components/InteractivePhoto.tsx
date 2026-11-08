@@ -223,7 +223,7 @@ export function InteractiveArticlePhoto({
       <div
         className="article-photo-img-wrap"
         onClick={handleImageClick}
-        title={isFullBleed ? "Nhấp để thu nhỏ lại" : "Nhấp để xem tràn viền (Full-bleed giống video)"}
+        title={isFullBleed ? "Nhấp để thu nhỏ lại" : "Nhấp để xem tràn viền (Full-bleed)"}
       >
         <img
           src={src}
@@ -238,7 +238,7 @@ export function InteractiveArticlePhoto({
             type="button"
             className={`photo-action-btn ${isFullBleed ? "btn-primary" : ""}`}
             onClick={toggleFullBleed}
-            aria-label={isFullBleed ? "Thu nhỏ viền" : "Xem tràn viền giống video"}
+            aria-label={isFullBleed ? "Thu nhỏ viền" : "Xem tràn viền"}
           >
             {isFullBleed ? (
               <>
@@ -252,7 +252,7 @@ export function InteractiveArticlePhoto({
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
                 </svg>
-                <span>Tràn viền (giống video)</span>
+                <span>Tràn viền</span>
               </>
             )}
           </button>
