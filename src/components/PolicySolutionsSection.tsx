@@ -78,6 +78,34 @@ export function BottleneckSolutionMatrix() {
 }
 
 /* ============================================================================
+   [VỊ TRÍ 12 - SỬA GỌN] EDITORIAL PULL-QUOTE CHO CHUYÊN GIA & NGHỆ SĨ
+   (Ông Loki Vũ ở đầu Mục 2 & Ca sĩ Tùng Dương ở Điểm nghẽn 1)
+   ============================================================================ */
+export function EditorialPullQuote({ quoteId }: { quoteId: string }) {
+  const item = EXPERT_QUOTES.find((q) => q.id === quoteId) || EXPERT_QUOTES[0];
+  return (
+    <aside
+      className="editorial-pullquote-card"
+      style={{ borderLeftColor: item.accentColor }}
+      aria-label={`Trích dẫn ${item.speaker}`}
+    >
+      <div className="pullquote-mark" style={{ color: item.accentColor }} aria-hidden="true">
+        “
+      </div>
+      <blockquote className="pullquote-body">{item.quote}”</blockquote>
+      <footer className="pullquote-footer">
+        <strong className="pullquote-speaker">{item.speaker}</strong>
+        <span className="pullquote-sep">•</span>
+        <span className="pullquote-role">{item.title}</span>
+        <span className="pullquote-source" style={{ color: item.accentColor }}>
+          Nguồn: {item.source}
+        </span>
+      </footer>
+    </aside>
+  );
+}
+
+/* ============================================================================
    [VỊ TRÍ 12] QUOTE CARDS – GÓC NHÌN CHUYÊN GIA & NHÀ QUẢN LÝ (CAROUSEL)
    ============================================================================ */
 export function ExpertQuotesCarousel() {
@@ -207,7 +235,7 @@ export function InteractiveReaderPoll() {
 
   return (
     <section className="viz-card poll-box-card" id="vi-tri-13" aria-label="Thăm dò ý kiến độc giả">
-      <span className="pos-badge redstar-badge">
+      <span className="pos-badge">
         GÓC TƯƠNG TÁC ĐỘC GIẢ
       </span>
       <h3 className="poll-question-heading">{READER_POLL_CONFIG.question}</h3>
@@ -444,7 +472,7 @@ export function DataSourcesProvenance() {
               className={`source-sub-btn ${pressSubFilter === "policy" ? "active" : ""}`}
               onClick={() => setPressSubFilter("policy")}
             >
-              Nghị quyết 80 &amp; 5 Giải pháp ({countPolicy})
+              Nghị quyết 80 &amp; 3 Giải pháp ({countPolicy})
             </button>
           </div>
         </div>

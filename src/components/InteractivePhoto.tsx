@@ -12,171 +12,41 @@ export interface ArticlePhotoItem {
 export const ARTICLE_PHOTOS: ArticlePhotoItem[] = [
   {
     id: "photo-0",
-    src: "/concert-to-quoc-trong-tim.jpg",
-    alt: "“Concert Quốc gia” Tổ quốc trong tim 2026 tổ chức tại Khu đô thị Vạn Phúc City",
+    src: "/photo-v-concert-vtv.jpg",
+    alt: "Khán giả tại V Concert – Rạng rỡ Việt Nam đón khoảng 25.000 người ở Hà Nội",
     caption: (
       <>
-        “Concert Quốc gia” Tổ quốc trong tim 2026 tổ chức tại Khu đô thị Vạn Phúc City vào tối ngày 23/8. Hơn 40.000 khán giả tại Vạn Phúc, gần 30.000 người tại phố đi bộ Nguyễn Huệ và hàng triệu lượt khán giả trên mạng xã hội cùng hòa vào không gian nghệ thuật đặc biệt. (Ảnh: Báo Nhân Dân)
+        <em>V Concert – Rạng rỡ Việt&nbsp;Nam</em> đã đón khoảng 25.000 khán giả tại Hà&nbsp;Nội, sự trưởng thành về tâm lý sẵn sàng chi trả của công chúng nội địa là bệ phóng lớn nhất của thị trường biểu diễn Việt&nbsp;Nam giai đoạn 2024–2026. (Ảnh: VTV Online)
       </>
     ),
   },
   {
     id: "photo-1",
-    src: "/concert-anh-trai-vuot-ngan-chong-gai.jpg",
-    alt: "Concert Anh Trai Vượt Ngàn Chông Gai 2026 tại TP. Hồ Chí Minh",
+    src: "/photo-gdragon-ocean-park-3.jpg",
+    alt: "Hai đêm diễn G-DRAGON 2025 WORLD TOUR [Übermensch] in Hanoi tại Vinhomes Ocean Park 3",
     caption: (
       <>
-        Concert Anh Trai Vượt Ngàn Chông Gai 2026 diễn ra tại TP. Hồ Chí Minh vào ngày 17 /10, quy mô gần 50.000 khán giả. (Ảnh: Fanpage Anh Trai Vượt Ngàn Chông Gai)
+        Gần 100.000 khán giả đã đến xem hai đêm diễn <em>G-DRAGON 2025 WORLD TOUR [Übermensch] in Hanoi</em> tại Vinhomes Ocean Park 3 vào ngày 8 và 9/11/2025. Những siêu sự kiện chứng minh sức hút của thị trường Việt&nbsp;Nam, nhưng vẫn chỉ là những điểm sáng đơn lẻ giữa bức tranh tổng thể. (Ảnh: Tiếng nói Việt&nbsp;Nam)
       </>
     ),
   },
   {
     id: "photo-2",
-    src: "/concert-tinh-ha-say-hi.jpg",
-    alt: "Concert Tinh Hà “Say Hi” mang chủ đề Hẹn giữa tinh hà tại TP. Hồ Chí Minh",
+    src: "/photo-mydinh-traffic-bigbang.jpg",
+    alt: "Giao thông quanh sân vận động Quốc gia Mỹ Đình tắc nghẽn hơn một giờ đồng hồ sau đêm diễn BIGBANG",
     caption: (
       <>
-        Concert Tinh Hà “Say Hi” mang chủ đề &ldquo;Hẹn giữa tinh hà&rdquo; diễn ra tối 17/10, tại TP. Hồ Chí Minh thu hút chục ngàn khán giả hào hứng tham gia. (Ảnh: BTC)
+        Giao thông quanh sân vận động Quốc gia Mỹ&nbsp;Đình tắc nghẽn hơn một giờ đồng hồ sau đêm diễn thứ hai đón hơn 40.000 khán giả của BIGBANG (25/10/2026). Hạ tầng kết nối chưa theo kịp quy mô đại nhạc hội là một trong những điểm nghẽn lớn với các đơn vị tổ chức quốc tế. (Ảnh: Báo Tiền Phong)
       </>
     ),
   },
   {
     id: "photo-3",
-    src: "/concert-atvngc-hoa-tam.jpg",
-    alt: "33 Anh Tài với ca khúc chủ đề Hoả Tâm mở màn Concert Anh Trai Vượt Ngàn Chông Gai 2026",
+    src: "/photo-8wonder-jbalvin-tlinh.jpg",
+    alt: "Siêu sao J Balvin và rapper Tlinh biểu diễn chung tại đại nhạc hội 8Wonder: Moments of Wonder ở Hà Nội",
     caption: (
       <>
-        33 Anh Tài đốt cháy sân khấu với ca khúc chủ đề Hoả Tâm mở màn Concert Anh Trai Vượt Ngàn Chông Gai 2026 diễn ra tại TP. Hồ Chí Minh vào tối 17 /10. (Ảnh: Fanpage Anh Trai Vượt Ngàn Chông Gai)
-      </>
-    ),
-  },
-  {
-    id: "photo-4",
-    src: "/concert-tinh-ha-say-hi-van-phuc.jpg",
-    alt: "Concert Tinh Hà Say Hi tại Vạn Phúc City, TP. Hồ Chí Minh",
-    caption: (
-      <>
-        Concert Tinh Hà “Say Hi” thu hút hàng chục nghìn khán giả tại Vạn Phúc City, TP. Hồ Chí Minh thành điểm hẹn âm nhạc với 24 nghệ sĩ cùng nhiều màn trình diễn bùng nổ. (Ảnh: DatVietVAC)
-      </>
-    ),
-  },
-  {
-    id: "photo-5",
-    src: "/concert-my-tam-see-the-light.jpg",
-    alt: "Concert See The Light của Mỹ Tâm tại sân vận động Mỹ Đình",
-    caption: (
-      <>
-        Concert See The Light của Mỹ Tâm diễn ra vào tối ngày 13/12 tại sân vận động Mỹ Đình (Hà Nội) với 40.000 khán giả, kéo dài gần 4 tiếng với hơn 30 bài hát. Đây là concert cá nhân lớn nhất Việt Nam hiện nay. (Ảnh: Ban Tổ chức Chương trình See The Light)
-      </>
-    ),
-  },
-  {
-    id: "photo-6",
-    src: "/concert-v-concert-rang-ro-viet-nam.jpg",
-    alt: "V Concert với chủ đề Rạng rỡ Việt Nam tại Trung tâm Triển lãm Việt Nam",
-    caption: (
-      <>
-        V Concert với chủ đề Rạng rỡ Việt Nam diễn ra tại Trung tâm Triển lãm Việt Nam (Đông Anh, Hà Nội). Concert bắt đầu từ 19h tối 9-8, concert kéo dài gần 7 tiếng. Đây được xem là “bước chuyển” của VTV với vị thế đài truyền hình quốc gia khi tổ chức concert hướng tới Ngày Quốc khánh 2-9 một cách trẻ trung, gần gũi với quy mô gần 20.000 khán giả. (Ảnh: Nam Trần/ Báo Tuổi trẻ)
-      </>
-    ),
-  },
-  {
-    id: "photo-7",
-    src: "/merch-tinh-ha-say-hi-collection.jpg",
-    alt: "Các sản phẩm thuộc Tinh Hà “Say Hi” Collection với quyền lợi Random Photocard đi kèm sản phẩm",
-    caption: (
-      <>
-        Các sản phẩm thuộc Tinh Hà &ldquo;Say Hi&rdquo; Collection với quyền lợi Random Photocard đi kèm sản phẩm. (Ảnh: Fanpage VieShop)
-      </>
-    ),
-  },
-  {
-    id: "photo-8",
-    src: "/merch-together-we-shine-vieshop.jpg",
-    alt: "Bộ sưu tập TOGETHER WE SHINE trên nền tảng VieSHOP",
-    caption: (
-      <>
-        Bộ sưu tập TOGETHER WE SHINE trên nền tảng VieSHOP. Cơ chế quy đổi đơn hàng hợp lệ thành lượt bình chọn trực tiếp đã thúc đẩy người hâm mộ mạnh tay chi tiền để ủng hộ các &lsquo;Anh Trai&rsquo;. (Ảnh: Fanpage VieShop)
-      </>
-    ),
-  },
-  {
-    id: "photo-9",
-    src: "/concert-atvngc-dem-2-tphcm.jpg",
-    alt: "Concert Anh Trai Vượt Ngàn Chông Gai 2026 tối 18/10 tại TP.HCM",
-    caption: (
-      <>
-        Concert Anh Trai Vượt Ngàn Chông Gai 2026 diễn ra vào tối 18/10 tại TP.HCM đã thu hút gần 100.000 khán giả. Concert thắng lớn về doanh thu lẫn hiệu ứng khán giả, cho thấy khâu tổ chức show ca nhạc quy mô lớn tại Việt Nam đã có bước tiến rõ rệt. (Ảnh: Ban Tổ chức Chương trình)
-      </>
-    ),
-  },
-  {
-    id: "photo-10",
-    src: "/concert-tinh-ha-say-hi-dem-2.jpg",
-    alt: "Đêm thứ hai của concert Tinh Hà Say Hi tối 18/10 ở TP.HCM",
-    caption: (
-      <>
-        Đêm thứ hai của concert Tinh Hà “Say Hi” diễn ra vào tối 18/10 ở TP HCM. Concert mang chủ đề “Hẹn giữa tinh hà”, quy tụ đầy đủ 24 ca sĩ của mùa giải đầu tiên. Theo ban tổ chức, ước tính chương trình thu hút gần 40.000 khán giả đến xem. (Ảnh: Ban Tổ chức Chương trình)
-      </>
-    ),
-  },
-  {
-    id: "photo-11",
-    src: "/concert-bigbang-world-tour-hanoi.jpg",
-    alt: "Toàn cảnh concert BIGBANG 2026-2027 World Tour in Hanoi tại Mỹ Đình",
-    caption: (
-      <>
-        Toàn cảnh concert BIGBANG 2026-2027 World Tour in Hanoi diễn ra vào tối 25/10 tại Sân vận động quốc gia Mỹ Đình (Hà Nội). Sự kiện nhằm kỷ niệm 20 năm ra mắt nhóm nhạc huyền thoại Hàn Quốc BIGBANG. (Ảnh: Xuân Mai/ Báo VnExpress)
-      </>
-    ),
-  },
-  {
-    id: "photo-12",
-    src: "/concert-tu-hao-la-nguoi-viet-nam-thai-nguyen.jpg",
-    alt: "Concert Tự hào là người Việt Nam 2026 tại Sân vận động Thái Nguyên",
-    caption: (
-      <>
-        Concert “Tự hào là người Việt Nam 2026” với chủ đề “Nối vòng tay lớn”diễn ra vào tối 1/11 tại Sân vận động Thái Nguyên (xã Đại Phúc, tỉnh Thái Nguyên). Đây là lần đầu có một concert quy mô quốc gia tổ chức tại Thái Nguyên, quy tụ tới 30.000 khán giả. (Ảnh: Vũ Hoàng Giang/ Thông tấn xã Việt Nam)
-      </>
-    ),
-  },
-  {
-    id: "photo-13",
-    src: "/concert-quang-ninh-dat-mo-anh-hung.jpg",
-    alt: "Chương trình nghệ thuật chính luận Quảng Ninh - Đất mỏ anh hùng",
-    caption: (
-      <>
-        Chào mừng 89 năm Ngày Truyền thống công nhân vùng Mỏ - Truyền thống ngành Than, tối 12/11, tại Quảng trường 30/10, UBND tỉnh Quảng Ninh tổ chức chương trình nghệ thuật chính luận đặc sắc “Quảng Ninh - Đất mỏ anh hùng”.Chương trình là sự hòa quyện giữa âm nhạc - xiếc - phóng sự và trình diễn hiện đại, quy tụ dàn nghệ sĩ hàng đầu với quy mô 30.000 khán giả. (Ảnh: Bùi My/ Báo Dân Việt)
-      </>
-    ),
-  },
-  {
-    id: "photo-14",
-    src: "/concert-mach-nguon-kinh-bac.jpg",
-    alt: "Chương trình nghệ thuật Mạch nguồn Kinh Bắc - Vươn cao thời đại tại Bắc Ninh",
-    caption: (
-      <>
-        Chương trình nghệ thuật “Mạch nguồn Kinh Bắc - Vươn cao thời đại” diễn ra vào tối 19/9, tại Quảng trường 3/2 (phường Bắc Giang) nhằm chào mừng thành lập thành phố Bắc Ninh và đón nhận Huân chương Lao động hạng Nhất. (Ảnh: Đồng Thúy/ Thông tấn xã Việt Nam)
-      </>
-    ),
-  },
-  {
-    id: "photo-15",
-    src: "/concert-hue-wonderverse-music-fest.jpg",
-    alt: "Huế Wonderverse Music Fest 2026 tại Quảng trường Hà Huy Tập",
-    caption: (
-      <>
-        Với chủ đề “City Awakening - Đánh thức Di sản,” Huế Wonderverse Music Fest 2026 lần đầu được tổ chức tại Huế, mở cửa miễn phí phục vụ người dân và du khách. Từ ngày 30-8 đến 1-9, Quảng trường Hà Huy Tập trở thành điểm hội tụ của âm nhạc, nghệ thuật và công nghệ thu hút hàng ngàn khán giả tham gia. (Ảnh: Ủy ban Nhân dân Thành phố Huế)
-      </>
-    ),
-  },
-  {
-    id: "photo-16",
-    src: "/concert-8wonder-moments-of-wonder.jpg",
-    alt: "Đại nhạc hội 8Wonder: Moments of Wonder 2025 tại Trung tâm Hội chợ Triển lãm Quốc gia Hà Nội",
-    caption: (
-      <>
-        Tối 23/8, tại Trung tâm Hội chợ Triển lãm Quốc gia (Hà Nội), hơn 50.000 khán giả tham gia nhạc hội 8Wonder: Moments of Wonder 2025, sự kiện nghệ thuật do Tập đoàn Vingroup tổ chức, nằm trong chuỗi hoạt động chào mừng 80 năm Quốc khánh. (Ảnh: Ban Tổ chức Chương trình)
+        Tối 23/8/2025, siêu sao J Balvin (Colombia) và rapper Tlinh (Việt&nbsp;Nam) biểu diễn chung tại đại nhạc hội <em>8Wonder: Moments of Wonder</em> trước hơn 50.000 khán giả ở Hà&nbsp;Nội. Sự kết hợp giữa nội lực sản xuất trong nước và chính sách tiến bộ sẽ là chìa khóa đưa Việt&nbsp;Nam trở thành điểm hẹn mới của nền công nghiệp biểu diễn châu&nbsp;Á. (Ảnh: Báo Thanh niên)
       </>
     ),
   },

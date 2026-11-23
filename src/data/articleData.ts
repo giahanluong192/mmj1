@@ -241,18 +241,17 @@ export interface PressPolicySourceRow {
 
 export const ARTICLE_META = {
   category: "BÁO CHÍ DỮ LIỆU ĐA PHƯƠNG TIỆN • MULTIMEDIA DATA JOURNALISM",
-  specialIssue: "CHUYÊN ĐỀ CÔNG NGHIỆP VĂN HÓA VIỆT NAM 2025–2026",
-  titleMain: "BẢN ĐỒ CONCERT VIỆT\u00A0NAM:",
-  titleAccent: "SỨC BẬT NỘI\u00A0SINH",
-  // Sapo ngắn gọn, đi thẳng vào nội dung chính và tương quan dữ liệu theo chuẩn báo chí dữ liệu
+  specialIssue: "CHUYÊN ĐỀ CÔNG NGHIỆP BIỂU DIỄN VIỆT NAM 2025–2026",
+  titleMain: "VIỆT NAM THIẾU GÌ",
+  titleAccent: "ĐỂ GIỮ CHÂN SIÊU SAO QUỐC TẾ?",
   sapo:
-    "Những đại nhạc hội nội địa quy mô từ 20.000 đến 50.000 khán giả liên tục “cháy vé” chỉ sau chục phút mở bán đã minh chứng cho sự bùng nổ chưa từng có của thị trường biểu diễn Việt\u00A0Nam. Tuy nhiên, đằng sau những kỷ lục ấy là bài toán về tính bền vững của chuỗi giá trị kinh tế địa phương, cùng một thực tế đáng suy ngẫm: Vì sao Việt\u00A0Nam vẫn là một điểm dừng chân đầy thách thức trên bản đồ lưu diễn của các siêu sao quốc\u00A0tế?",
+    "Khi khán giả Việt đã sẵn sàng chi tiền triệu lấp đầy những sân vận động 50.000 chỗ trong vài giờ, bài toán sức mua không còn là lý do để giải thích cho sự vắng bóng của các siêu sao toàn cầu. Đằng sau những sự kiện quốc tế quy mô lớn mang tính đơn lẻ giai đoạn 2025–2026 là những nút thắt về hạ tầng, chuỗi cung ứng và cơ chế vận hành đang khiến Việt\u00A0Nam hụt hơi trên đường đua công nghiệp biểu diễn so với các nước Đông\u00A0Nam\u00A0Á.",
   publishDate: "Tháng 11/2026",
   author: "Nhóm 01",
   advisor: "ThS. Nguyễn Thanh Liêm",
-  readTime: "17 phút",
+  readTime: "8 phút",
   footageCredits:
-    "Nguồn tư liệu hình ảnh & đối chiếu footage: Ban tổ chức Anh Trai Vượt Ngàn Chông Gai (YeaH1), Anh Trai \"Say Hi\" (Vie Channel / DatVietVAC), Concert Quốc gia Tổ Quốc Trong Tim & V-Concert (Báo Nhân Dân, VTV).",
+    "Nguồn tư liệu hình ảnh & đối chiếu: VTV Online, Đài Tiếng nói Việt Nam (VOV), Báo Tiền Phong, Báo Thanh Niên.",
 };
 
 // [VỊ TRÍ 1] 3 CÚ MÁY FLYCAM TRONG HEADER VIDEO LOOP (6 GIÂY)
@@ -298,26 +297,26 @@ export const KEY_METRICS: KeyTakeawayMetric[] = [
     value: "810+",
     unit: "sự kiện / năm",
     label: "Sự kiện âm nhạc toàn\u00A0quốc\u00A0(2025)",
-    detail: "Đạt đỉnh vào tháng 8/2025 với 108 sự kiện; nhóm quy mô lớn (>5.000 khách) chiếm\u00A023,8%.",
-    source: "Báo cáo RMIT 2025–2026 (Tr. 30)",
+    detail: "60,9% khán giả được khảo sát sẵn sàng trả tiền mua vé xem biểu diễn trực\u00A0tiếp.",
+    source: "Báo cáo RMIT 2025–2026 (Tr. 27, 30)",
     accent: "cyan",
   },
   {
     id: "m2",
-    value: "944",
-    unit: "chương trình",
-    label: "Biểu diễn nghệ thuật tại\u00A0TP.HCM",
-    detail: "Thuộc 1.064 hồ sơ hoạt động nghệ thuật biểu diễn được thẩm định, chấp thuận trong 9 tháng\u00A0đầu\u00A02026.",
-    source: "Sở VH&TT TP.HCM (10/2026)",
+    value: "101 : 4",
+    unit: "nội địa vs. quốc tế",
+    label: "Phân khúc đại nhạc hội 10.000–40.000\u00A0khách",
+    detail: "Ở nhóm siêu sự kiện trên 40.000 người, nghệ sĩ quốc tế cũng chỉ có 3 sự kiện độc lập so với 16 sự kiện nội\u00A0địa.",
+    source: "Báo cáo RMIT 2025–2026 (Tr. 30)",
     accent: "magenta",
   },
   {
     id: "m3",
-    value: "101 : 4",
-    unit: "nội địa vs. quốc tế",
-    label: "Chênh lệch ở phân khúc 10.000–40.000\u00A0khách",
-    detail: "Nghệ sĩ nội địa làm chủ 101 đại nhạc hội, trong khi show độc lập của sao quốc tế chỉ\u00A0có\u00A04.",
-    source: "Báo cáo RMIT 2025–2026 (Tr. 30)",
+    value: "5,44 USD",
+    unit: "ARPU / người",
+    label: "Doanh thu nhạc số bình quân (dự báo\u00A02030)",
+    detail: "Đứng thứ 6 Đông Nam Á — cách rất xa Singapore (45,38 USD) và chưa bằng một nửa Thái\u00A0Lan\u00A0(12,06\u00A0USD).",
+    source: "Statista / Báo cáo RMIT (Tr. 11)",
     accent: "gold",
   },
   {
@@ -325,9 +324,9 @@ export const KEY_METRICS: KeyTakeawayMetric[] = [
     value: "122.000",
     unit: "tỷ đồng",
     label: "Nguồn lực phát triển văn\u00A0hóa\u00A02025–2030",
-    detail: "Cùng Nghị quyết 80-NQ/TW hướng tới mục tiêu công nghiệp văn hóa đóng góp 7% GDP vào\u00A0năm\u00A02030.",
-    source: "Quốc hội & Nghị quyết 80-NQ/TW",
-    accent: "redstar",
+    detail: "Cùng Nghị quyết 80-NQ/TW đặt mục tiêu đến 2030 công nghiệp văn hóa đóng góp 7% GDP và có 5 thương hiệu lễ hội quốc\u00A0tế.",
+    source: "Nghị quyết 80-NQ/TW & Quốc hội",
+    accent: "cyan",
   },
 ];
 
@@ -971,13 +970,76 @@ export const SEA_RADAR_COUNTRIES: SeaRadarCountry[] = [
   },
 ];
 
+export interface SeaRegionalCardItem {
+  id: string;
+  country: string;
+  flag: string;
+  headlineMetric: string;
+  metricUnit: string;
+  strategyLabel: string;
+  summary: string;
+  highlightFact: string;
+  accentColor: string;
+}
+
+export const SEA_REGIONAL_CARDS: SeaRegionalCardItem[] = [
+  {
+    id: "sg",
+    country: "Singapore",
+    flag: "🇸🇬",
+    headlineMetric: "193.000",
+    metricUnit: "vé • 4 đêm Lady Gaga",
+    strategyLabel: "Độc quyền châu Á & MRT Stadium",
+    summary:
+      "Củng cố vị thế trung tâm biểu diễn khu vực với 4 đêm diễn độc quyền châu Á của Lady Gaga, đóng góp ước tính 100–150 triệu USD cho ngành du lịch.",
+    highlightFact: "National Stadium nối thẳng tàu điện MRT chạy tăng cường xuyên đêm",
+    accentColor: "#0284C7",
+  },
+  {
+    id: "th",
+    country: "Thái Lan",
+    flag: "🇹🇭",
+    headlineMetric: "IGNITE",
+    metricUnit: "Thailand & Học viện Lễ hội",
+    strategyLabel: "Chiến lược quốc gia hút sao",
+    summary:
+      "Triển khai chiến lược IGNITE Thailand và thành lập Học viện Lễ hội chuyên biệt để chủ động thu hút hàng loạt tên tuổi quốc tế về Bangkok.",
+    highlightFact: "SVĐ Rajamangala kết nối mạng lưới BTS Skytrain & đường sắt đô thị",
+    accentColor: "#F59E0B",
+  },
+  {
+    id: "id",
+    country: "Indonesia",
+    flag: "🇮🇩",
+    headlineMetric: "86 triệu",
+    metricUnit: "USD Quỹ Du lịch",
+    strategyLabel: "Ngân sách hỗ trợ trực tiếp",
+    summary:
+      "Chủ động thiết lập Quỹ Du lịch trị giá 86 triệu USD nhằm hỗ trợ tài chính và cơ chế thu hút các nghệ sĩ, sự kiện âm nhạc nước ngoài quy mô lớn.",
+    highlightFact: "Đầu tư mạnh cả cơ chế lẫn ngân sách đấu thầu tour quốc tế",
+    accentColor: "#8B5CF6",
+  },
+  {
+    id: "my",
+    country: "Malaysia",
+    flag: "🇲🇾",
+    headlineMetric: "450",
+    metricUnit: "sự kiện âm nhạc mục tiêu",
+    strategyLabel: "Mở rộng quy mô công nghiệp",
+    summary:
+      "Đẩy mạnh đường đua sự kiện khu vực với mục tiêu tổ chức 450 sự kiện âm nhạc nhằm gia tăng sức hút du lịch và doanh thu công nghiệp giải trí.",
+    highlightFact: "ARPU nhạc số dự báo 2030 đạt 10,76 USD (gần gấp đôi Việt Nam)",
+    accentColor: "#10B981",
+  },
+];
+
 export const SEA_ARPU_2030: ArpuComparisonItem[] = [
   { rank: 1, country: "Singapore", arpuUsd: 45.38, note: "Dẫn đầu khu vực" },
   { rank: 2, country: "Philippines", arpuUsd: 14.52 },
   { rank: 3, country: "Thái Lan", arpuUsd: 12.06 },
-  { rank: 4, country: "Malaysia", arpuUsd: 10.76, note: "Hướng tới 450 sự kiện / 1,7 tỷ RM" },
+  { rank: 4, country: "Malaysia", arpuUsd: 10.76, note: "Mục tiêu 450 sự kiện âm nhạc" },
   { rank: 5, country: "Indonesia", arpuUsd: 5.48 },
-  { rank: 6, country: "Việt Nam", arpuUsd: 5.44, note: "Hạng 6 ARPU • Hạng 4 quy mô người dùng", isVietnam: true },
+  { rank: 6, country: "Việt Nam", arpuUsd: 5.44, note: "Đứng thứ 6 Đông Nam Á", isVietnam: true },
 ];
 
 export const FIVE_SYSTEMIC_BOTTLENECKS: BottleneckItem[] = [
@@ -1126,346 +1188,166 @@ export const BOTTLENECK_TO_SOLUTION_MATRIX: BottleneckSolutionPair[] = [
   },
 ];
 
-// [VỊ TRÍ 12] QUOTE CARDS – GÓC NHÌN CHUYÊN GIA & NHÀ QUẢN LÝ
+// [VỊ TRÍ 12] TRÍCH DẪN NỔI BẬT (LOKI VŨ & CA SĨ TÙNG DƯƠNG)
 export const EXPERT_QUOTES: ExpertQuoteCard[] = [
-  {
-    id: "q-bui-hoai-son",
-    speaker: "PGS.TS Bùi Hoài Sơn",
-    title: "Ủy viên Thường trực Ủy ban Văn hóa, Giáo dục của Quốc\u00A0hội",
-    quote:
-      "Công nghiệp văn hóa không phải là cuộc đua xem địa phương nào tổ chức concert lớn hơn, mời nhiều ngôi sao hơn hay đầu tư sân khấu hoành tráng hơn. Đó phải là quá trình tạo ra những sản phẩm mà khi nhắc đến, công chúng nhận ra ngay bản sắc và sức hấp dẫn riêng của địa\u00A0phương\u00A0ấy.",
-    source: "Báo Tuổi Trẻ (10/2026)",
-    accentColor: "#DA251D",
-  },
-  {
-    id: "q-nguyen-van-thang-long",
-    speaker: "PGS.TS Nguyễn Văn Thăng Long",
-    title: "Trường Đại học RMIT Việt\u00A0Nam",
-    quote:
-      "Đã đến lúc chúng ta không chỉ tổ chức những sự kiện lớn, mà còn phải xây dựng một nền công nghiệp văn hóa có chiều sâu và\u00A0bản\u00A0sắc.",
-    source: "Báo cáo Tổng quan ngành công nghiệp âm nhạc Việt Nam 2025–2026 (Trường Đại học RMIT Việt Nam)",
-    accentColor: "#0284C7",
-  },
   {
     id: "q-loki-vu",
     speaker: "Ông Loki Vũ",
     title: "Tổng Giám đốc SCBC Vietnam & Novel\u00A0Production",
     quote:
-      "Ở Việt\u00A0Nam, làm được một concert lớn giống như 'đi khai phá vùng đất mới': không có mức giá sàn, quy trình chuẩn, chi phí phát sinh liên tục và rủi ro tài chính\u00A0rất\u00A0cao.",
-    source: "Báo cáo Tổng quan ngành công nghiệp âm nhạc Việt Nam 2025–2026 (Trường Đại học RMIT Việt Nam)",
-    accentColor: "#D97706",
+      "Làm concert quy mô lớn tại Việt\u00A0Nam giống như “đi khai phá vùng đất mới”: thiếu mức giá sàn, thiếu quy trình chuẩn và liên tục phát sinh chi phí ngầm, dẫn đến nghịch lý có những đêm nhạc bán sạch vé nhưng nhà tổ chức vẫn đứng trước nguy cơ thua\u00A0lỗ.",
+    source: "Báo cáo Tổng quan ngành công nghiệp âm nhạc Việt Nam 2025–2026 (Đại học RMIT Việt Nam)",
+    accentColor: "#F59E0B",
+  },
+  {
+    id: "q-tung-duong",
+    speaker: "Ca sĩ Tùng Dương",
+    title: "Nghệ sĩ biểu diễn tại SVĐ Quốc gia Mỹ\u00A0Đình",
+    quote:
+      "Vì thiếu sân vận động có mái che phù hợp, chỉ cần một cơn mưa bất chợt cũng đủ khiến nhà sản xuất phải đập đi làm lại toàn bộ phương án sân\u00A0khấu.",
+    source: "Znews",
+    accentColor: "#0284C7",
   },
 ];
 
 // [VỊ TRÍ 13] BOX THĂM DÒ ĐỘC GIẢ (INTERACTIVE POLL)
 export const READER_POLL_CONFIG = {
   question:
-    "Theo bạn, yếu tố nào cần được ưu tiên tháo gỡ đầu tiên để Việt\u00A0Nam trở thành điểm đến thường xuyên của các World\u00A0Tour\u00A0quốc\u00A0tế?",
+    "Theo bạn, điểm nghẽn nào cần được ưu tiên tháo gỡ đầu tiên để Việt\u00A0Nam trở thành điểm dừng chân thường xuyên của các World\u00A0Tour\u00A0quốc\u00A0tế?",
   options: [
     {
       id: "poll-venue",
-      label: "Xây dựng các Tổ hợp biểu diễn / Sân vận động có mái che đạt chuẩn\u00A0quốc\u00A0tế.",
-      tag: "Hạ tầng sân bãi",
+      label: "Đầu tư nhà thi đấu đa năng có mái che (15.000–20.000 chỗ) và nâng cấp SVĐ gắn kết nối Metro/xe\u00A0buýt.",
+      tag: "Hạ tầng vật lý & Giao thông",
       initialVotes: 3960,
     },
     {
       id: "poll-policy",
-      label: "Rút gọn thủ tục cấp phép theo cơ chế \"Một cửa\" và ưu\u00A0đãi\u00A0thuế.",
-      tag: "Cơ chế & Chính sách",
+      label: "Thiết lập cơ chế “một cửa” liên thông cấp phép biểu diễn, thị thực nghệ sĩ và tạm nhập tái xuất thiết\u00A0bị.",
+      tag: "Thủ tục hành chính",
       initialVotes: 2580,
     },
     {
-      id: "poll-transit",
-      label: "Phát triển giao thông công cộng (Metro/Bus) kết nối trực tiếp đến\u00A0điểm\u00A0diễn.",
-      tag: "Giao thông đô thị",
+      id: "poll-supply",
+      label: "Ưu đãi thuế TNDN, lập quỹ đầu tư văn hóa và nội địa hóa chuỗi cung ứng âm thanh – ánh\u00A0sáng.",
+      tag: "Tài chính & Chuỗi cung ứng",
       initialVotes: 1875,
     },
     {
-      id: "poll-supply",
-      label: "Nâng cao năng lực chuỗi cung ứng thiết bị và nhân sự sản xuất\u00A0nội\u00A0địa.",
-      tag: "Chuỗi cung ứng & Nhân lực",
+      id: "poll-data",
+      label: "Xây dựng hệ thống dữ liệu thị trường minh bạch về doanh thu vé, tỷ lệ lấp đầy và bảng xếp\u00A0hạng.",
+      tag: "Dữ liệu thị trường",
       initialVotes: 1584,
     },
   ] as PollOption[],
 };
 
-// BẢNG NGUỒN 1: TỪ FILE PDF BÁO CÁO RMIT 2025–2026
+// BẢNG NGUỒN 1: TỪ BÁO CÁO RMIT 2025–2026 (CHỈ GIỮ CÁC DỮ LIỆU SỬ DỤNG TRONG BÀI MỚI)
 export const RMIT_PDF_SOURCES: RmitSourceRow[] = [
   {
     id: "rmit-1",
     factUsed:
-      "810+ sự kiện âm nhạc đã diễn ra hoặc được công bố trong năm 2025 (đạt đỉnh vào tháng 8 với 108 sự kiện).",
-    pdfLocation: "Trang 30 (Sự kiện âm nhạc Việt Nam 2025 qua những con số).",
+      "Cả nước ghi nhận hơn 810 sự kiện âm nhạc trong năm 2025; 60,9% khán giả được khảo sát sẵn sàng trả tiền mua vé xem biểu diễn trực tiếp.",
+    pdfLocation: "Trang 27 & Trang 30 (Báo cáo RMIT 2025–2026).",
     originalSourceNote:
-      "Tổng hợp từ dữ liệu bán vé và truy vấn tin tức đến ngày 08/12/2025 của nhóm nghiên cứu RMIT.",
+      "Bộ dữ liệu sự kiện âm nhạc 2025 và khảo sát sơ cấp định lượng (N=471) của Trường Đại học RMIT Việt Nam.",
   },
   {
     id: "rmit-2",
     factUsed:
-      "Cơ cấu quy mô sự kiện: 200–500 người (27,7%); 500–1.000 người (17%); 1.000–5.000 người (31,5%); 5.000–10.000 người (6,7%); 10.000–40.000 người (14,6%); Trên 40.000 người (2,5%).",
-    pdfLocation: "Trang 30 (Biểu đồ tròn Phân bố quy mô sự kiện).",
-    originalSourceNote: "Bộ dữ liệu sự kiện của nhóm nghiên cứu RMIT.",
+      "Tương quan nguồn gốc nghệ sĩ & quy mô khán giả năm 2025:\n• Phân khúc đại nhạc hội 10.000–40.000 khán giả: 101 sự kiện nội địa độc lập so với 4 sự kiện quốc tế độc lập (và 12 sự kiện kết hợp).\n• Phân khúc siêu sự kiện trên 40.000 khán giả: 16 sự kiện nội địa so với 3 sự kiện quốc tế độc lập (và 1 sự kiện kết hợp).",
+    pdfLocation:
+      "Trang 30 (Biểu đồ Tương quan giữa nguồn gốc nghệ sĩ biểu diễn và lượng khán giả tham dự).",
+    originalSourceNote: "Bộ dữ liệu sự kiện của nhóm nghiên cứu Trường Đại học RMIT Việt Nam.",
   },
   {
     id: "rmit-3",
     factUsed:
-      "Cơ cấu đơn vị tổ chức: Công ty/Ê-kíp giải trí (49,6%), Đối tác công - tư PPP (17,8%), Nghệ sĩ tự vận hành (16,3%), Doanh nghiệp/thương hiệu chủ trì (13,3%), Khác (3,0%).",
-    pdfLocation:
-      "Trang 30 (Biểu đồ tròn Phân bố loại hình sự kiện dựa trên đơn vị tổ chức).",
-    originalSourceNote: "Bộ dữ liệu sự kiện của nhóm nghiên cứu RMIT.",
+      "So sánh cuộc đua khu vực Đông Nam Á:\n• Singapore: 4 đêm diễn độc quyền châu Á của Lady Gaga bán ra 193.000 vé, đóng góp ước tính 100–150 triệu USD cho ngành du lịch.\n• Thái Lan: Chiến lược IGNITE Thailand và thành lập Học viện Lễ hội.\n• Indonesia: Quỹ Du lịch 86 triệu USD hỗ trợ thu hút nghệ sĩ nước ngoài.\n• Malaysia: Mục tiêu 450 sự kiện âm nhạc.",
+    pdfLocation: "Trang 14 & 15 (Các điểm nhấn thị trường âm nhạc Đông Nam Á).",
+    originalSourceNote:
+      "The Straits Times, ZULA, Travel and Tour World (dẫn lại trong Báo cáo RMIT 2025–2026).",
   },
   {
     id: "rmit-4",
     factUsed:
-      "Tương quan nguồn gốc nghệ sĩ & lượng khán giả:\n• Quy mô 1.000–5.000 khách: 200 nội địa / 29 quốc tế / 28 kết hợp.\n• Quy mô 10.000–40.000 khách: 101 nội địa / 4 quốc tế / 12 kết hợp.\n• Quy mô >40.000 khách: 16 nội địa / 3 quốc tế / 1 kết hợp.",
-    pdfLocation:
-      "Trang 30 (Biểu đồ cột ngang Tương quan giữa nguồn gốc nghệ sĩ biểu diễn trong sự kiện và lượng khán giả tham dự).",
-    originalSourceNote: "Bộ dữ liệu sự kiện của nhóm nghiên cứu RMIT.",
+      "Doanh thu nhạc số bình quân trên mỗi người dùng (ARPU) dự báo đến năm 2030: Việt Nam ước đạt 5,44 USD/người — đứng thứ 6 Đông Nam Á, cách rất xa Singapore (45,38 USD), Philippines (14,52 USD), Thái Lan (12,06 USD), Malaysia (10,76 USD) và Indonesia (5,48 USD).",
+    pdfLocation: "Trang 11 (So sánh dự báo thị trường nhạc số theo quốc gia 2030).",
+    originalSourceNote: "Statista Market Insights (trích dẫn trong Báo cáo RMIT 2025–2026).",
   },
   {
     id: "rmit-5",
     factUsed:
-      "Quy mô khán giả các Concert tiêu biểu:\n• G-Dragon Übermensch World Tour in Hanoi: ~100.000 khán giả (2 đêm).\n• Mỹ Tâm See The Light: ~40.000 khán giả.\n• Hà Anh Tuấn Sketch A Rose: ~30.000 khán giả (2 đêm ở TP.HCM).\n• Soobin All-Rounder Concert: ~26.000 khán giả (3 đêm).\n• Concert Quốc gia (V-Concert, Tổ Quốc Trong Tim): 25.000 – 50.000 khán giả/đêm (và 128 sự kiện âm nhạc chủ đề văn hóa, tự hào dân tộc dịp A50–A80).",
-    pdfLocation: "Trang 18, 29, 40, 82.",
-    originalSourceNote:
-      "Tổng hợp từ Báo Nhân Dân, Tuổi Trẻ, Thanh Niên, VnExpress, Dân Trí (Chú thích số 25, 28, 42–46 trong báo cáo).",
+      "Nhận định của ông Loki Vũ (Tổng Giám đốc SCBC Vietnam & Novel Production) về việc tổ chức concert quy mô lớn tại Việt Nam giống như “đi khai phá vùng đất mới”: thiếu giá sàn, thiếu quy trình chuẩn, phát sinh chi phí ngầm.",
+    pdfLocation: "Báo cáo Tổng quan ngành công nghiệp âm nhạc Việt Nam 2025–2026.",
+    originalSourceNote: "Phỏng vấn chuyên gia trong Báo cáo RMIT Việt Nam.",
   },
   {
     id: "rmit-6",
     factUsed:
-      "Tỷ lệ khán giả sẵn sàng chi trả: Gói nghe nhạc trả phí (71,7%), Sự kiện trực tiếp - concert/liveshow (60,9%), Sản phẩm thương hiệu kết hợp nghệ sĩ (42,0%), Merchandise (34,1%), Nhạc vật lý (27,8%).",
-    pdfLocation:
-      "Trang 27 (Các sản phẩm âm nhạc phổ biến được khán thính giả sẵn sàng chi trả).",
-    originalSourceNote:
-      "Khảo sát sơ cấp định lượng của Trường Đại học RMIT Việt Nam với N=471 người dùng trẻ (Xem phương pháp nghiên cứu ở Trang 112).",
-  },
-  {
-    id: "rmit-7",
-    factUsed:
-      "Mức sẵn sàng chi trung bình/tháng:\n• Cho sự kiện trực tiếp: 50.000–200.000 VNĐ (31,9%), 200.000–500.000 VNĐ (42,0%), 500.000–1.000.000 VNĐ (15,3%).\n• Cho Merchandise: 500.000–1.000.000 VNĐ (33,2%), trên 1.000.000 VNĐ (22,9%).",
-    pdfLocation:
-      "Trang 28 (Mức sẵn sàng chi trung bình mỗi tháng cho các sản phẩm âm nhạc).",
-    originalSourceNote: "Khảo sát sơ cấp định lượng của Trường Đại học RMIT Việt Nam (N=471).",
-  },
-  {
-    id: "rmit-8",
-    factUsed:
-      "So sánh thị trường Đông Nam Á (Singapore, Thái Lan, Indonesia, Malaysia):\n• Lady Gaga MAYHEM Ball Tour (Singapore, 5/2025): 4 đêm diễn độc quyền châu Á, bán 193.000 vé, thu 40,8 triệu USD, đóng góp 100–150 triệu USD cho du lịch Singapore.\n• Indonesia lập Quỹ Du lịch 86 triệu USD thu hút nghệ sĩ quốc tế.\n• Malaysia dự kiến có 450 sự kiện âm nhạc, mang lại 1,7 tỷ RM.",
-    pdfLocation: "Trang 14 & 15 (Các điểm nhấn thị trường âm nhạc Đông Nam Á).",
-    originalSourceNote:
-      "The Straits Times, ZULA, Travel and Tour World (Chú thích số 14, 15, 18, 21 trong báo cáo).",
-  },
-  {
-    id: "rmit-9",
-    factUsed:
-      "Doanh thu nhạc số bình quân trên mỗi người dùng (ARPU) dự báo năm 2030: Singapore dẫn đầu khu vực (45,38 USD/người), Philippines (14,52 USD), Thái Lan (12,06 USD), Malaysia (10,76 USD), Indonesia (5,48 USD), Việt Nam xếp thứ 6 (5,44 USD/người, đứng thứ 4 về quy mô người dùng).",
-    pdfLocation: "Trang 11 (So sánh dự đoán thị trường nhạc số theo quốc gia 2030).",
-    originalSourceNote: "Statista Market Insights (Cập nhật đến tháng 12/2025).",
-  },
-  {
-    id: "rmit-10",
-    factUsed:
-      "Ngân sách đầu tư văn hóa: Quốc hội phê duyệt 122.000 tỷ đồng trong 5 năm (2025–2030) cho Chương trình Mục tiêu Quốc gia Phát triển Văn hóa.",
-    pdfLocation: "Trang 17 & 56.",
-    originalSourceNote: "VnExpress, Báo Tuổi Trẻ (Chú thích số 23, 89).",
-  },
-  {
-    id: "rmit-11",
-    factUsed:
-      "Hệ thống nền tảng bán vé: Có 13 doanh nghiệp bán vé sự kiện trực tuyến tại Việt Nam (Ticketbox dẫn đầu; Eventista/1Zone hỗ trợ hơn 200 phương thức thanh toán tại 145 quốc gia).",
-    pdfLocation: "Trang 73 & 74 (Kênh quảng bá âm nhạc: Nền tảng bán vé).",
-    originalSourceNote:
-      "Tracxn, Báo Người Lao Động (Chú thích số 114, 118).",
+      "Nguồn lực 122.000 tỷ đồng cho Chương trình Mục tiêu Quốc gia về Phát triển Văn hóa giai đoạn 2025–2030; thương vụ hợp tác chiến lược giữa Sony Music và YeaH1; hệ thống bảng xếp hạng (IFPI Official Vietnam Chart, Billboard Vietnam) và nền tảng bán vé công nghệ (Ticketbox, Eventista/1Zone).",
+    pdfLocation: "Trang 13, 17, 56, 62, 73–74 (Báo cáo RMIT 2025–2026).",
+    originalSourceNote: "Tổng hợp từ Báo cáo RMIT 2025–2026.",
   },
 ];
 
-// BẢNG NGUỒN 2: NHÓM SỐ LIỆU & THÔNG TIN CHÍNH SÁCH TỪ BÁO CHÍNH THỐNG
+// BẢNG NGUỒN 2: BÁO CHÍ CHÍNH THỐNG, CHUYÊN GIA & CHÍNH SÁCH (ĐỐI KHỚP ĐÚNG BÀI MỚI)
 export const PRESS_POLICY_SOURCES: PressPolicySourceRow[] = [
-  // --- Phân nhóm 1: Báo chí chính thống & Chuyên gia ---
   {
     id: "press-1",
     category: "press",
-    categoryLabel: "Báo chí chính thống",
+    categoryLabel: "Thị trường nội địa 2026",
     factUsed:
-      "Số liệu biểu diễn tại TP.HCM (9 tháng đầu năm 2026): Tiếp nhận và chấp thuận 1.064 hồ sơ hoạt động nghệ thuật biểu diễn, trong đó có 944 chương trình biểu diễn nghệ thuật, sân khấu.",
+      "Trong 9 tháng đầu năm 2026, TP.HCM đã tiếp nhận, thẩm định và chấp thuận 1.064 hồ sơ hoạt động nghệ thuật biểu diễn, trong đó có 944 chương trình nghệ thuật, sân khấu.",
     articleSource:
-      "Bài: TP.HCM tổ chức 944 chương trình biểu diễn nghệ thuật, sân khấu trong 9 tháng qua (Tháng 10/2026).",
-    authorityOrExpert:
-      "Báo cáo của Sở Văn hóa và Thể thao TP.HCM tại Hội nghị tổng kết hoạt động văn nghệ TP.HCM.",
+      "Thống kê công bố tại Hội nghị tổng kết hoạt động văn nghệ TP.HCM (Tháng 10/2026).",
+    authorityOrExpert: "Sở Văn hóa và Thể thao TP.HCM.",
   },
   {
     id: "press-2",
     category: "press",
-    categoryLabel: "Văn kiện & Chính sách",
+    categoryLabel: "Thị trường nội địa 2026",
     factUsed:
-      "Quy mô Concert chào mừng Ngày Văn hóa Việt Nam 24/11: Giao UBND TP. Hà Nội chủ trì tổ chức concert quy mô khoảng 60.000 người vào tối 23/11/2026 tại SVĐ Quốc gia Mỹ Đình.",
-    articleSource:
-      "Bài: Giao Hà Nội tổ chức concert quy mô khoảng 60 nghìn người chào mừng Ngày Văn hóa Việt Nam 24/11 (Tháng 10–11/2026).",
-    authorityOrExpert:
-      "Kết luận của Ban Chỉ đạo Trung ương kỷ niệm các ngày lễ lớn và sự kiện lịch sử quan trọng của đất nước & Bộ VHTTDL.",
+      "Quy mô các chương trình nội địa nổi bật:\n• Anh Trai Vượt Ngàn Chông Gai 2026 (2 đêm tại TP.HCM): gần 100.000 khán giả.\n• Tổ Quốc Trong Tim 2026: hơn 40.000 khán giả tại sân khấu chính.\n• V Concert – Rạng Rỡ Việt Nam: khoảng 25.000 khán giả tại Hà Nội.\n• Đại nhạc hội chào mừng Ngày Văn hóa Việt Nam 24/11 tại Hà Nội: quy mô dự kiến 60.000 người.",
+    articleSource: "VTV Online, Báo Nhân Dân, VietnamPlus, Đại biểu Nhân dân (2025–2026).",
+    authorityOrExpert: "Ban tổ chức các chương trình & Bộ VHTTDL.",
   },
   {
     id: "press-3",
-    category: "press",
-    categoryLabel: "Văn kiện & Chính sách",
+    category: "international",
+    categoryLabel: "Sự kiện quốc tế 2025–2026",
     factUsed:
-      "Các chỉ tiêu của Nghị quyết số 80-NQ/TW (ban hành ngày 07/01/2026):\n• Chọn ngày 24/11 hằng năm là \"Ngày Văn hóa Việt Nam\" (nghỉ lễ hưởng nguyên lương).\n• Xây dựng 5 thương hiệu liên hoan nghệ thuật, lễ hội văn hóa quốc tế (điện ảnh, âm nhạc, mỹ thuật).\n• Phấn đấu thuộc Top 3 ASEAN và Top 30 thế giới về Chỉ số Sức mạnh mềm (Soft Power Index) và giá trị xuất khẩu công nghiệp văn hóa.",
+      "Các sự kiện âm nhạc quốc tế quy mô lớn tại Việt Nam:\n• 8Wonder: Moments of Wonder (23/8/2025, Hà Nội): hơn 50.000 khán giả (J Balvin, Tlinh...).\n• G-DRAGON 2025 WORLD TOUR [Übermensch] in Hanoi (8–9/11/2025, Vinhomes Ocean Park 3): gần 100.000 khán giả trong 2 đêm.\n• BIGBANG kỷ niệm 20 năm tại SVĐ Mỹ Đình (tháng 10/2026): khoảng 90.000 lượt khán giả.",
     articleSource:
-      "Nghị quyết số 80-NQ/TW của Bộ Chính trị về phát triển văn hóa Việt Nam & Chuỗi bài trên Báo Nhân Dân, Đại biểu Nhân dân, Tuổi Trẻ (Tháng 10/2026).",
-    authorityOrExpert:
-      "Bộ Chính trị (Nghị quyết 80-NQ/TW) & Quốc hội (Nghị quyết về Ngày Văn hóa Việt Nam).",
+      "Báo Thanh Niên, Đài Tiếng nói Việt Nam (VOV), Báo Tiền Phong (2025–2026).",
+    authorityOrExpert: "Đơn vị tổ chức (Vingroup, VPBank, AEG Presents Asia) & cơ quan báo chí.",
   },
   {
     id: "press-4",
-    category: "press",
-    categoryLabel: "Báo chí chính thống",
+    category: "international",
+    categoryLabel: "Sự kiện quốc tế 2025–2026",
     factUsed:
-      "Số liệu concert Anh Trai Vượt Ngàn Chông Gai 2026: Thu hút khoảng 100.000 khán giả trong 2 đêm diễn tại TP.HCM (tháng 10/2026), vé đêm 1 bán hết sau 5 giờ; vé đêm diễn Hưng Yên bán hết ngay trong buổi trưa mở bán (04/11/2026).",
-    articleSource:
-      "Chuỗi bài phân tích thị trường concert trên VietnamPlus, Đại biểu Nhân dân và Znews (Tháng 10–11/2026).",
-    authorityOrExpert:
-      "Thống kê từ Ban tổ chức (YeaH1) và nền tảng phân phối vé được báo chí dẫn lại.",
+      "Sức bật du lịch từ 2 đêm diễn BIGBANG tại Hà Nội (tháng 10/2026): du lịch Hà Nội đón khoảng 220.000 lượt khách (gồm gần 68.000 khách quốc tế), mang về tổng thu ước tính 750 tỷ đồng.",
+    articleSource: "VTV, VnExpress dẫn số liệu thống kê chính thức (Tháng 10/2026).",
+    authorityOrExpert: "Sở Du lịch Hà Nội.",
   },
   {
     id: "press-5",
     category: "press",
-    categoryLabel: "Báo chí & Chuyên gia",
+    categoryLabel: "Chuyên gia & Hạ tầng",
     factUsed:
-      "Nhận diện các điểm nghẽn (Hạ tầng không mái che, thiếu dữ liệu chuẩn, phụ thuộc thiết bị nhập khẩu, thiếu IP độc lập):\n• SVĐ Mỹ Đình không có mái che khu vực mặt sân, mưa là phải đổi toàn bộ phương án.\n• Thiếu hệ thống thống kê doanh thu vé, tỷ lệ lấp đầy minh bạch.",
-    articleSource:
-      "Bài: Nhận diện điểm nghẽn của cơn sốt concert ở Việt Nam trên Znews.vn & Bài Hướng tới tính bền vững trong công nghiệp concert và giải trí trên Báo Nhân Dân (18–19/10/2026).",
-    authorityOrExpert:
-      "• Ca sĩ Tùng Dương\n• Đạo diễn Việt Tú\n• Đạo diễn Phạm Hoàng Nam\n• Nhạc sĩ Quốc Trung (Phát biểu tại Hội thảo \"Công nghiệp concert và giải trí: Từ bùng nổ đến bền vững\").",
+      "Nhận diện điểm nghẽn hạ tầng và dữ liệu:\n• Ca sĩ Tùng Dương: thiếu sân vận động có mái che phù hợp, chỉ cần một cơn mưa bất chợt cũng đủ khiến nhà sản xuất phải đập đi làm lại toàn bộ phương án sân khấu.\n• Đạo diễn Việt Tú & đạo diễn Phạm Hoàng Nam: thiếu hệ thống thống kê chính thức, minh bạch về doanh thu vé, tỷ lệ lấp đầy và tác động kinh tế.\n• Thực trạng ùn tắc giao thông quanh SVĐ Mỹ Đình hơn 1 giờ sau đêm diễn BIGBANG (25/10/2026).",
+    articleSource: "Znews, Báo Nhân Dân, Báo Tiền Phong (Tháng 10/2026).",
+    authorityOrExpert: "Ca sĩ Tùng Dương, Đạo diễn Việt Tú, Đạo diễn Phạm Hoàng Nam.",
   },
   {
     id: "press-6",
-    category: "press",
-    categoryLabel: "Báo chí & Chuyên gia",
-    factUsed:
-      "Góc nhìn phản biện về cuộc đua concert địa phương và chuỗi giá trị sau đêm diễn:\n• \"Công nghiệp văn hóa không phải là cuộc đua xem địa phương nào tổ chức concert lớn hơn...\"\n• Bài toán \"nền kinh tế chú ý\" (attention economy) và hệ sinh thái dịch vụ giữ chân khách du lịch.",
-    articleSource:
-      "2 bài trên Báo Tuổi Trẻ (18–19/10/2026) và bài trên VietnamPlus:\n• Công nghiệp văn hóa không phải là cuộc đua xem địa phương nào tổ chức concert lớn hơn\n• Dư địa văn hóa Việt Nam rất rộng, nhưng một concert bùng nổ rồi sau đó còn lại gì?",
-    authorityOrExpert:
-      "• PGS.TS Bùi Hoài Sơn (Ủy viên Thường trực Ủy ban Văn hóa, Giáo dục của Quốc hội)\n• Các chuyên gia tại Hội thảo Công nghiệp văn hóa tháng 10/2026.",
-  },
-  {
-    id: "press-7",
-    category: "press",
-    categoryLabel: "Báo chí & Chuyên gia",
-    factUsed:
-      "Góc nhìn của chuyên gia về doanh thu sau đêm diễn:\n“Chuyên gia truyền thông xã hội Nguyễn Ngọc Long phân tích, về mặt kinh tế, tác động của các sự kiện này vượt xa doanh thu bán vé đơn thuần. Chúng kích hoạt chuỗi kinh tế “ăn theo” (nền kinh tế trải nghiệm), bao gồm dịch vụ lưu trú, vận tải, hàng không, ẩm thực và bán lẻ tại địa phương tổ chức….”",
-    articleSource:
-      "Bài viết trên báo Lao động: “Dòng vốn lớn đổ vào concert, công nghiệp văn hóa bứt phá”",
-    authorityOrExpert: "Chuyên gia truyền thông xã hội Nguyễn Ngọc Long",
-  },
-
-  // --- Phân nhóm 2: Số liệu / Sự kiện quốc tế năm 2026 tại Việt Nam ---
-  {
-    id: "press-8",
-    category: "international",
-    categoryLabel: "Sự kiện quốc tế 2026",
-    factUsed:
-      "Concert BIGBANG 2026–2027 WORLD TOUR tại Hà Nội (24–25/10/2026):\n• Quy mô: 90.000 khán giả trong 2 đêm tại SVĐ Quốc gia Mỹ Đình.\n• Giá vé: 10 hạng vé từ 1.000.000đ đến 10.500.000đ (cháy vé cả 2 đêm).\n• Đơn vị tổ chức: AEG Presents Asia, Carpa, VPBank phối hợp cùng YG Entertainment.\n• Merchandise: Mở 2 Official Pop-up Store tại Hà Nội với gần 70 dòng sản phẩm (có áo Hanoi Edition).",
-    articleSource:
-      "• Báo Điện tử VOV (Đài Tiếng nói Việt Nam): BIGBANG tới Hà Nội, 90.000 khán giả chờ hai đêm diễn tại Mỹ Đình & chùm tin Pop-up Store.\n• Báo Thanh Niên: BigBang tổ chức concert tại Hà Nội.\n• Báo Văn Nghệ: Nhóm nhạc K-pop BIGBANG sẽ có hai đêm diễn tại Sân vận động Mỹ Đình, Hà Nội.",
-    authorityOrExpert: "Tháng 6/2026 & Ngày 16–25/10/2026",
-  },
-  {
-    id: "press-9",
-    category: "international",
-    categoryLabel: "Sự kiện quốc tế 2026",
-    factUsed:
-      "Tác động kinh tế - du lịch từ 2 đêm concert BIGBANG tại Hà Nội:\n• Đón khoảng 220.000 lượt khách du lịch (tăng 15,6% so với tuần trước).\n• Khách quốc tế đạt khoảng 67.900 lượt.\n• Tổng thu từ khách du lịch ước tính đạt 750 tỷ đồng.",
-    articleSource:
-      "• VTV, VnExpress, Báo Gia Lai, Doanh nghiệp & Tiếp thị (Dẫn số liệu thống kê chính thức của Sở Du lịch Hà Nội): Concert BigBang thu hút khoảng 90.000 khán giả, du lịch Hà Nội thu 750 tỷ đồng.",
-    authorityOrExpert: "Ngày 27–28/10/2026",
-  },
-  {
-    id: "press-10",
-    category: "international",
-    categoryLabel: "Sự kiện quốc tế 2026",
-    factUsed:
-      "Concert EXO PLANET #6 – EXhOrizon in Ho Chi Minh City (25/04/2026):\n• Tổ chức tại khu vực ngoài trời Trung tâm Hội chợ và Triển lãm Sài Gòn (SECC), TP.HCM.\n• Giá vé từ 3.000.000đ đến 5.500.000đ (hạng vé đứng EXO-L1 hết vé nhanh chóng).",
-    articleSource:
-      "• Báo Lao Động: EXO tổ chức concert tại TPHCM.\n• Dữ liệu niêm yết trên nền tảng Ticketbox.vn & chuyên trang Vietcetera (6 Concert đáng mong chờ trong năm 2026 tại Việt Nam).",
-    authorityOrExpert: "Tháng 1/2026 & Tháng 4/2026",
-  },
-  {
-    id: "press-11",
-    category: "international",
-    categoryLabel: "Sự kiện quốc tế 2026",
-    factUsed:
-      "Các sự kiện giao lưu âm nhạc quốc tế khác năm 2025–2026:\n• 8Wonder: Moments of Wonder (8/2025): 50.000 khán giả, quy tụ DJ Snake, J Balvin, The Kid LAROI, DPR IAN (và ra mắt đơn vị 8Wonder World Tour tháng 9/2025).\n• Liên hoan nhạc Jazz quốc tế Hà Nội 2026: Thu hút hơn 12.000 khán giả.\n• Lễ hội nhạc Jazz Việt Nam 2026 tại Đà Lạt (6–8/11/2026): Quy tụ Lisa Ono (Nhật Bản), Nik West và Raul Midón (Hoa Kỳ).",
-    articleSource:
-      "• Báo VietNamNet & An Ninh Thủ Đô: Hơn 50.000 khán giả \"bùng nổ\" cùng Đại nhạc hội 8Wonder.\n• Báo Nhà báo & Công luận: Dàn sao quốc tế hội tụ tại Lễ hội nhạc Jazz Việt Nam 2026.",
-    authorityOrExpert: "Tháng 8/2025 & Ngày 30/10/2026",
-  },
-
-  // --- Phân nhóm 3: Nội dung / Giải pháp trong Chương 4 & Nghị quyết 80-NQ/TW ---
-  {
-    id: "press-12",
     category: "policy",
-    categoryLabel: "Nghị quyết 80 & Giải pháp",
+    categoryLabel: "Nghị quyết 80-NQ/TW & 3 Giải pháp",
     factUsed:
-      "Mở đầu Chương 4:\n• Ngày Văn hóa Việt Nam 24/11 (nghỉ lễ hưởng nguyên lương) và ý nghĩa.\n• Chỉ tiêu công nghiệp văn hóa đóng góp 7% GDP năm 2030.\n• Xây dựng 5 thương hiệu liên hoan nghệ thuật, lễ hội văn hóa quốc tế.\n• Top 3 ASEAN, Top 30 thế giới.",
+      "Nghị quyết số 80-NQ/TW của Bộ Chính trị về phát triển văn hóa Việt Nam (ban hành ngày 07/01/2026):\n• Mục tiêu đến năm 2030: công nghiệp văn hóa đóng góp 7% GDP và xây dựng 5 thương hiệu liên hoan nghệ thuật, lễ hội văn hóa quốc tế.\n• 3 nhóm giải pháp thực thi: (1) Đầu tư tổ hợp biểu diễn đạt chuẩn qua PPP gắn quy hoạch giao thông đô thị (Metro, xe buýt); (2) Ưu đãi đất đai, miễn giảm thuế TNDN, lập quỹ đầu tư văn hóa & nội địa hóa chuỗi cung ứng; (3) Chuyển mạnh từ “tiền kiểm sang hậu kiểm”, cơ chế “một cửa” liên thông và Nền tảng Bản đồ số Văn hóa Việt Nam (công bố tháng 11/2026).",
     articleSource:
-      "• Phần II (Mục tiêu đến năm 2030 và Tầm nhìn đến năm 2045): Quy định chỉ tiêu các ngành công nghiệp văn hóa đóng góp 7% GDP vào năm 2030 (và 9% GDP vào năm 2045); xây dựng 5 thương hiệu liên hoan nghệ thuật, lễ hội văn hóa quốc tế về điện ảnh, âm nhạc, mỹ thuật; thuộc Top 3 ASEAN và Top 30 thế giới về Chỉ số Sức mạnh mềm và giá trị xuất khẩu công nghiệp văn hóa.\n• Phần III (Nhiệm vụ và giải pháp), mục 3: Thống nhất chọn ngày 24/11 hằng năm với phương châm \"tạo điều kiện để Nhân dân nâng cao khả năng thụ hưởng văn hóa, đội ngũ văn nghệ sĩ được động viên sáng tạo, toàn xã hội đề cao, thực hành lối sống văn hóa, văn minh\".",
-    authorityOrExpert:
-      "• Số liệu 122.000 tỷ đồng đầu tư cho Chương trình Mục tiêu Quốc gia Phát triển Văn hóa (2025–2030): Trang 17 & Trang 56 Báo cáo RMIT.\n• Thông tin Hà Nội chủ trì tổ chức concert 60.000 người tối 23/11/2026 tại SVĐ Mỹ Đình chào mừng Ngày Văn hóa Việt Nam 24/11: Báo Tuổi Trẻ, Nhân Dân, VOV (Tháng 10–11/2026).",
-  },
-  {
-    id: "press-13",
-    category: "policy",
-    categoryLabel: "Nghị quyết 80 & Giải pháp",
-    factUsed:
-      "Giải pháp 1 (Giải điểm nghẽn Hạ tầng sân bãi):\nQuy hoạch Tổ hợp biểu diễn đa năng có mái che qua mô hình Hợp tác Công - Tư (PPP).",
-    articleSource:
-      "• Phần III (Nhiệm vụ và giải pháp), Mục 2 & Mục 5: Hoàn thiện cơ chế, chính sách thúc đẩy hợp tác công - tư (PPP) trong lĩnh vực văn hóa, thể thao; đầu tư xây dựng một số công trình, tổ hợp văn hóa, nghệ thuật, thể thao quy mô lớn, hiện đại, tiêu biểu, đạt tiêu chuẩn quốc tế tại các đô thị lớn.",
-    authorityOrExpert:
-      "• Tỷ lệ sự kiện theo mô hình PPP chiếm 17,8% tổng số sự kiện năm 2025: Trang 30 Báo cáo RMIT.\n• Hiệu quả mô hình PPP trong các \"Concert Quốc gia\" và thách thức thiếu hụt sân khấu/nhà hát đa năng chuẩn quốc tế: Trang 56, 57, 71, 72 Báo cáo RMIT.",
-  },
-  {
-    id: "press-14",
-    category: "policy",
-    categoryLabel: "Nghị quyết 80 & Giải pháp",
-    factUsed:
-      "Giải pháp 2 (Giải điểm nghẽn Chuỗi cung ứng kỹ thuật & Nhân lực):\nĐào tạo nhân lực kỹ thuật biểu diễn, đầu tư R&D, chuyển giao công nghệ và xây dựng IP lễ hội bản địa (Glocalization).",
-    articleSource:
-      "• Phần III, Mục 3 & Mục 6: Có cơ chế đặc thù đào tạo, bồi dưỡng nhân tài, đội ngũ chuyên gia kỹ thuật, quản trị văn hóa - nghệ thuật; thúc đẩy nghiên cứu, chuyển giao công nghệ sản xuất và xây dựng thương hiệu sản phẩm văn hóa quốc gia có sức cạnh tranh quốc tế.",
-    authorityOrExpert:
-      "• Kiến nghị đầu tư nhân lực chuyên ngành sản xuất sự kiện, âm thanh ánh sáng, quản lý sân khấu và R&D: Trang 63, 69, 72 Báo cáo RMIT.\n• Thương vụ Sony Music mua 49% mảng phát hành & quản lý nghệ sĩ của YeaH1; phòng thu Box Entertainment chuẩn quốc tế: Trang 62, 68 Báo cáo RMIT.\n• Chiến lược Glocalization: Trang 85, 86 Báo cáo RMIT.",
-  },
-  {
-    id: "press-15",
-    category: "policy",
-    categoryLabel: "Nghị quyết 80 & Giải pháp",
-    factUsed:
-      "Giải pháp 3 (Giải điểm nghẽn Tài chính, Phí bảo lãnh & ARPU thấp):\nƯu đãi thuế thu nhập doanh nghiệp cho công nghiệp giải trí và thúc đẩy mô hình đồng sở hữu với thương hiệu lớn.",
-    articleSource:
-      "• Phần III, Mục 2: Nêu rõ chủ trương \"Có chính sách ưu đãi vượt trội về đất đai, miễn, giảm thuế thu nhập doanh nghiệp cho các doanh nghiệp khởi nghiệp sáng tạo trong lĩnh vực văn hoá, ưu tiên công nghiệp văn hoá, công nghiệp giải trí\" và cơ chế khuyến khích tài trợ, quỹ phát triển văn hóa.",
-    authorityOrExpert:
-      "• Dự báo ARPU nhạc số Việt Nam đạt 5,44 USD năm 2030 (xếp thứ 6 ĐNÁ): Trang 11 Báo cáo RMIT.\n• Thống kê 107 sự kiện âm nhạc do thương hiệu chủ trì/đồng sở hữu năm 2025 (VPBank x G-Dragon, Techcombank, TPBank...): Trang 76, 77, 78 Báo cáo RMIT.",
-  },
-  {
-    id: "press-16",
-    category: "policy",
-    categoryLabel: "Nghị quyết 80 & Giải pháp",
-    factUsed:
-      "Giải pháp 4 (Giải điểm nghẽn Giao thông công cộng kết nối Venue):\nQuy hoạch điểm diễn đồng bộ với hạ tầng giao thông đô thị (Metro/Bus) và du lịch.",
-    articleSource:
-      "• Phần III, Mục 1: Chỉ rõ \"Coi trọng yếu tố văn hoá trong hoạch định chính sách phát triển... Văn hoá phải thấm sâu vào mọi quy hoạch, kế hoạch, đề án, dự án với tầm nhìn dài hạn và tiêu chuẩn cao, bảo đảm đồng bộ, tương hỗ với các chính sách, giải pháp đột phá về phát triển kinh tế...\" và gắn kết phát triển hạ tầng văn hóa với hạ tầng đô thị, du lịch.",
-    authorityOrExpert:
-      "• Bài toán kẹt xe, ô nhiễm tiếng ồn quanh điểm diễn tạm bợ và yêu cầu tối ưu hóa giao thông công cộng cho các sự kiện âm nhạc lớn: Trang 100, 101 Báo cáo RMIT.",
-  },
-  {
-    id: "press-17",
-    category: "policy",
-    categoryLabel: "Nghị quyết 80 & Giải pháp",
-    factUsed:
-      "Giải pháp 5 (Giải điểm nghẽn Thủ tục cấp phép & Thiếu dữ liệu minh bạch):\nChuyển từ \"tiền kiểm sang hậu kiểm\", cơ chế liên thông và xây dựng hệ thống dữ liệu thị trường chuẩn quốc tế.",
-    articleSource:
-      "• Phần III, Mục 2 & Mục 6: Chỉ rõ \"Đổi mới phương thức quản lý văn hoá theo hướng hiện đại, hiệu quả; đẩy mạnh cải cách thủ tục hành chính, phân cấp, phân quyền; chuyển từ tiền kiểm sang hậu kiểm gắn với xây dựng và minh bạch hóa các quy trình, tiêu chuẩn, quy chuẩn\" và nhiệm vụ xây dựng Cơ sở dữ liệu quốc gia về văn hóa, Bản đồ số văn hóa Việt Nam, bộ chỉ số thống kê công nghiệp văn hóa.",
-    authorityOrExpert:
-      "• Kiến nghị rút ngắn quy trình cấp phép biểu diễn: Trang 72 Báo cáo RMIT.\n• Sự ra mắt của IFPI Official Vietnam Chart (1/2025) và Billboard Vietnam (6/2025): Trang 13, 56 Báo cáo RMIT.\n• Minh bạch hóa dữ liệu từ 13 nền tảng bán vé (Ticketbox, Eventista/1Zone): Trang 73, 74, 75 Báo cáo RMIT.",
+      "Nghị quyết số 80-NQ/TW của Bộ Chính trị (07/01/2026) & Báo Nhân Dân, Đại biểu Nhân dân.",
+    authorityOrExpert: "Bộ Chính trị, Quốc hội & Bộ Văn hóa, Thể thao và Du lịch.",
   },
 ];

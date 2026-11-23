@@ -3996,3 +3996,270 @@ textarea {
     height: 46px;
   }
 }
+
+/* ============================================================================
+   NEW EDITORIAL COMPONENTS: 4 SEA CARDS, ARPU HORIZONTAL CHART, PULL-QUOTES
+   & REFINED DATA-ACCENT POLICY BAND
+   ============================================================================ */
+
+/* 4 Horizontal Comparison Cards (Singapore, Thái Lan, Indonesia, Malaysia) */
+.sea-regional-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.1rem;
+  margin-top: 1.25rem;
+}
+
+.sea-regional-card {
+  background: var(--surface-elevated, var(--bg-card));
+  border: 1px solid var(--border-subtle, rgba(148, 163, 184, 0.25));
+  border-top-width: 4px;
+  border-radius: 14px;
+  padding: 1.15rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sea-regional-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -10px rgba(15, 23, 42, 0.18);
+}
+
+.sea-card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.sea-card-flag {
+  font-size: 1.65rem;
+  line-height: 1;
+}
+
+.sea-card-country {
+  margin: 0;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.sea-card-strategy {
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.sea-card-metric-box {
+  background: rgba(15, 23, 42, 0.04);
+  border-radius: 10px;
+  padding: 0.7rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+[data-theme="dark"] .sea-card-metric-box {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.sea-card-big-num {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 1.55rem;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.sea-card-metric-unit {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.sea-card-summary {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--text-secondary, var(--text-primary));
+  flex: 1;
+}
+
+.sea-card-footnote {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  padding-top: 0.65rem;
+  border-top: 1px dashed var(--border-subtle, rgba(148, 163, 184, 0.3));
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+.sea-card-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  margin-top: 0.32rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1024px) {
+  .sea-regional-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .sea-regional-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Standalone ARPU Horizontal Bar Chart */
+.arpu-standalone-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-top: 1.15rem;
+}
+
+.arpu-bar-lg {
+  height: 14px !important;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.sea-arpu-chart-card .arpu-row.vietnam-row {
+  background: rgba(225, 29, 72, 0.08);
+  border: 1px solid rgba(225, 29, 72, 0.25);
+  border-radius: 10px;
+  padding: 0.65rem 0.85rem;
+}
+
+/* Editorial Pull-Quote Card (Loki Vũ & Ca sĩ Tùng Dương) */
+.editorial-pullquote-card {
+  position: relative;
+  margin: 1.75rem 0;
+  padding: 1.35rem 1.5rem 1.35rem 1.75rem;
+  border-left: 4px solid #0284C7;
+  border-radius: 0 14px 14px 0;
+  background: rgba(15, 23, 42, 0.035);
+}
+
+[data-theme="dark"] .editorial-pullquote-card {
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.pullquote-mark {
+  font-family: Georgia, serif;
+  font-size: 2.8rem;
+  line-height: 0.7;
+  font-weight: 900;
+  margin-bottom: 0.35rem;
+  opacity: 0.85;
+}
+
+.pullquote-body {
+  margin: 0 0 0.85rem 0;
+  font-size: 1.08rem;
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.65;
+  color: var(--text-primary);
+}
+
+.pullquote-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.84rem;
+  color: var(--text-muted);
+}
+
+.pullquote-speaker {
+  color: var(--text-primary);
+  font-weight: 800;
+}
+
+.pullquote-sep {
+  opacity: 0.5;
+}
+
+.pullquote-source {
+  margin-left: auto;
+  font-weight: 700;
+  font-size: 0.78rem;
+}
+
+/* Bottleneck Tier Sub-headings (Chapter 2) */
+.bottleneck-tier-heading {
+  margin: 2.25rem 0 0.9rem 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-subtle, rgba(148, 163, 184, 0.25));
+}
+
+.bottleneck-tier-heading .tier-badge {
+  display: inline-block;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #0284C7;
+  background: rgba(2, 132, 199, 0.12);
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  margin-bottom: 0.45rem;
+}
+
+.bottleneck-tier-heading h3 {
+  margin: 0;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 1.32rem;
+  font-weight: 800;
+  line-height: 1.35;
+  color: var(--text-primary);
+}
+
+/* Refined Chapter 3 Policy Band (Reduced Red-Star-Yellow, Data-Accent Palette) */
+.chapter3-policy-band {
+  background: linear-gradient(180deg, rgba(2, 132, 199, 0.04) 0%, transparent 100%);
+  border-top: 1px solid var(--border-subtle, rgba(148, 163, 184, 0.2));
+}
+
+[data-theme="dark"] .chapter3-policy-band {
+  background: linear-gradient(180deg, rgba(14, 165, 233, 0.06) 0%, transparent 100%);
+}
+
+.nq80-targets-grid.three-col {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 768px) {
+  .nq80-targets-grid.three-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+.policy-data-tile {
+  border-top: 3px solid #0284C7 !important;
+}
+
+.policy-data-tile .nq80-num {
+  color: #0284C7 !important;
+}
+
+[data-theme="dark"] .policy-data-tile .nq80-num {
+  color: #38BDF8 !important;
+}
+
+.pillar-item.policy-pillar {
+  border-left: 4px solid #0284C7 !important;
+}
+
+.pillar-item.policy-pillar h4 {
+  color: var(--text-primary) !important;
+}

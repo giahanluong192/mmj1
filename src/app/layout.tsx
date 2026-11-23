@@ -17,19 +17,16 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Bản đồ Concert Việt Nam: Sức bật nội sinh | Báo chí Dữ liệu Đa phương tiện",
+  title: "Việt Nam thiếu gì để giữ chân siêu sao quốc tế? | Báo chí Dữ liệu Đa phương tiện",
   description:
-    "Phóng sự dữ liệu đa phương tiện giải mã làn sóng concert nội sinh 2024–2026 (810+ sự kiện/năm), bài toán bền vững của kinh tế đêm địa phương, khoảng cách đón World Tour quốc tế và bệ phóng thể chế từ Nghị quyết 80-NQ/TW.",
+    "Khi khán giả Việt đã sẵn sàng chi tiền triệu lấp đầy những sân vận động 50.000 chỗ trong vài giờ, bài toán sức mua không còn là lý do giải thích cho sự vắng bóng của các siêu sao toàn cầu. Phân tích 3 tầng điểm nghẽn và lời giải từ Nghị quyết 80-NQ/TW.",
   keywords: [
-    "Bản đồ Concert Việt Nam",
-    "Sức bật nội sinh",
-    "Công nghiệp văn hóa",
-    "Anh Trai Vượt Ngàn Chông Gai",
-    "Anh Trai Say Hi",
-    "Tổ Quốc Trong Tim",
+    "Việt Nam thiếu gì để giữ chân siêu sao quốc tế",
+    "Công nghiệp biểu diễn Việt Nam",
+    "World Tour Đông Nam Á",
     "Nghị quyết 80-NQ/TW",
-    "Ngày Văn hóa Việt Nam 24/11",
     "Báo cáo âm nhạc RMIT 2025-2026",
+    "ARPU nhạc số Đông Nam Á",
     "Báo chí dữ liệu",
   ],
   authors: [{ name: "Nhóm Thực hiện Báo chí Dữ liệu Đa phương tiện" }],
@@ -38,7 +35,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#FAF9F6",
+  themeColor: "#0B1120",
 };
 
 export default function RootLayout({
