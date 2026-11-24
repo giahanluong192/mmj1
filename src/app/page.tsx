@@ -292,7 +292,7 @@ export default function Home() {
               </span>
             </div>
             <div className="nq80-metric-tile policy-data-tile">
-              <span className="nq80-num">122.000 tỷ đ</span>
+              <span className="nq80-num">122.000 tỷ đồng</span>
               <span className="nq80-desc">
                 Nguồn lực Quốc hội phê duyệt cho Chương trình Mục tiêu Quốc gia Phát triển Văn hóa 2025–2030
               </span>
